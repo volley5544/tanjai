@@ -17,40 +17,40 @@ class NonePackageBasicImage2PageModel
     extends FlutterFlowModel<NonePackageBasicImage2PageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_blueBookUploadedAction1 = false;
+  FFUploadedFile uploadedLocalFile_blueBookUploadedAction1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl1 = '';
+  String uploadedFileUrl_blueBookUploadedAction1 = '';
 
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_normalIdCardUploadedAction1 = false;
+  FFUploadedFile uploadedLocalFile_normalIdCardUploadedAction1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
+  String uploadedFileUrl_normalIdCardUploadedAction1 = '';
 
-  bool isDataUploading3 = false;
-  FFUploadedFile uploadedLocalFile3 =
+  bool isDataUploading_imageOther1UploadedAction1 = false;
+  FFUploadedFile uploadedLocalFile_imageOther1UploadedAction1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl3 = '';
+  String uploadedFileUrl_imageOther1UploadedAction1 = '';
 
-  bool isDataUploading4 = false;
-  FFUploadedFile uploadedLocalFile4 =
+  bool isDataUploading_imageOther2UploadedAction1 = false;
+  FFUploadedFile uploadedLocalFile_imageOther2UploadedAction1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl4 = '';
+  String uploadedFileUrl_imageOther2UploadedAction1 = '';
 
-  bool isDataUploading5 = false;
-  FFUploadedFile uploadedLocalFile5 =
+  bool isDataUploading_imageOther3UploadedAction1 = false;
+  FFUploadedFile uploadedLocalFile_imageOther3UploadedAction1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl5 = '';
+  String uploadedFileUrl_imageOther3UploadedAction1 = '';
 
-  bool isDataUploading6 = false;
-  FFUploadedFile uploadedLocalFile6 =
+  bool isDataUploading_imageOther4UploadedAction1 = false;
+  FFUploadedFile uploadedLocalFile_imageOther4UploadedAction1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl6 = '';
+  String uploadedFileUrl_imageOther4UploadedAction1 = '';
 
-  bool isDataUploading7 = false;
-  FFUploadedFile uploadedLocalFile7 =
+  bool isDataUploading_imageOther5UploadedAction1 = false;
+  FFUploadedFile uploadedLocalFile_imageOther5UploadedAction1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl7 = '';
+  String uploadedFileUrl_imageOther5UploadedAction1 = '';
 
   // State field(s) for privacy_consent_1 widget.
   bool? privacyConsent1Value;

@@ -150,8 +150,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -327,8 +327,9 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                       selectedMedia.every((m) =>
                                           validateFileFormat(
                                               m.storagePath, context))) {
-                                    safeSetState(
-                                        () => _model.isDataUploading = true);
+                                    safeSetState(() => _model
+                                            .isDataUploading_uploadedProfileImage =
+                                        true);
                                     var selectedUploadedFiles =
                                         <FFUploadedFile>[];
 
@@ -363,16 +364,17 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                     } finally {
                                       ScaffoldMessenger.of(context)
                                           .hideCurrentSnackBar();
-                                      _model.isDataUploading = false;
+                                      _model.isDataUploading_uploadedProfileImage =
+                                          false;
                                     }
                                     if (selectedUploadedFiles.length ==
                                             selectedMedia.length &&
                                         downloadUrls.length ==
                                             selectedMedia.length) {
                                       safeSetState(() {
-                                        _model.uploadedLocalFile =
+                                        _model.uploadedLocalFile_uploadedProfileImage =
                                             selectedUploadedFiles.first;
-                                        _model.uploadedFileUrl =
+                                        _model.uploadedFileUrl_uploadedProfileImage =
                                             downloadUrls.first;
                                       });
                                       showUploadMessage(context, 'Success!');
@@ -384,15 +386,18 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                     }
                                   }
 
-                                  if (!(_model.uploadedFileUrl != null &&
-                                      _model.uploadedFileUrl != '')) {
+                                  if (!(_model.uploadedFileUrl_uploadedProfileImage !=
+                                          null &&
+                                      _model.uploadedFileUrl_uploadedProfileImage !=
+                                          '')) {
                                     return;
                                   }
 
                                   await FFAppState()
                                       .userRef!
                                       .update(createUserCustomRecordData(
-                                        imgProfile: _model.uploadedFileUrl,
+                                        imgProfile: _model
+                                            .uploadedFileUrl_uploadedProfileImage,
                                       ));
                                 },
                                 child: Icon(

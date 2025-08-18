@@ -67,7 +67,11 @@ class _WebviewNewPageWidgetState extends State<WebviewNewPageWidget> {
         },
       );
 
-      await Future.delayed(const Duration(milliseconds: 4000));
+      await Future.delayed(
+        Duration(
+          milliseconds: 4000,
+        ),
+      );
       Navigator.pop(context);
     });
 

@@ -95,8 +95,8 @@ class _NonePackageBasicImage1PageWidgetState
             FocusScope.of(context).unfocus();
             FocusManager.instance.primaryFocus?.unfocus();
           },
-          child: WillPopScope(
-            onWillPop: () async => false,
+          child: PopScope(
+            canPop: false,
             child: Scaffold(
               key: scaffoldKey,
               backgroundColor: Colors.white,
@@ -366,7 +366,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading1 =
+                                                              .isDataUploading_uploadPhoto157 =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -410,7 +410,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .map((u) => u!)
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading1 =
+                                                        _model.isDataUploading_uploadPhoto157 =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -421,10 +421,10 @@ class _NonePackageBasicImage1PageWidgetState
                                                               selectedMedia
                                                                   .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile1 =
+                                                          _model.uploadedLocalFile_uploadPhoto157 =
                                                               selectedUploadedFiles
                                                                   .first;
-                                                          _model.uploadedFileUrl1 =
+                                                          _model.uploadedFileUrl_uploadPhoto157 =
                                                               downloadUrls
                                                                   .first;
                                                         });
@@ -434,14 +434,14 @@ class _NonePackageBasicImage1PageWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedFileUrl1 !=
+                                                    if (_model.uploadedFileUrl_uploadPhoto157 !=
                                                             null &&
-                                                        _model.uploadedFileUrl1 !=
+                                                        _model.uploadedFileUrl_uploadPhoto157 !=
                                                             '') {
                                                       FFAppState()
                                                               .nonePackageImageFrontUploaded =
                                                           _model
-                                                              .uploadedFileUrl1;
+                                                              .uploadedFileUrl_uploadPhoto157;
                                                       safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
@@ -554,7 +554,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading2 =
+                                                              .isDataUploading_uploadPhoto257 =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -598,7 +598,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .map((u) => u!)
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading2 =
+                                                        _model.isDataUploading_uploadPhoto257 =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -609,10 +609,10 @@ class _NonePackageBasicImage1PageWidgetState
                                                               selectedMedia
                                                                   .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile2 =
+                                                          _model.uploadedLocalFile_uploadPhoto257 =
                                                               selectedUploadedFiles
                                                                   .first;
-                                                          _model.uploadedFileUrl2 =
+                                                          _model.uploadedFileUrl_uploadPhoto257 =
                                                               downloadUrls
                                                                   .first;
                                                         });
@@ -622,14 +622,14 @@ class _NonePackageBasicImage1PageWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedFileUrl2 !=
+                                                    if (_model.uploadedFileUrl_uploadPhoto257 !=
                                                             null &&
-                                                        _model.uploadedFileUrl2 !=
+                                                        _model.uploadedFileUrl_uploadPhoto257 !=
                                                             '') {
                                                       FFAppState()
                                                               .nonePackageImageRightFrontUploaded =
                                                           _model
-                                                              .uploadedFileUrl2;
+                                                              .uploadedFileUrl_uploadPhoto257;
                                                       safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
@@ -742,7 +742,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading3 =
+                                                              .isDataUploading_uploadPhoto357 =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -786,7 +786,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .map((u) => u!)
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading3 =
+                                                        _model.isDataUploading_uploadPhoto357 =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -797,10 +797,10 @@ class _NonePackageBasicImage1PageWidgetState
                                                               selectedMedia
                                                                   .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile3 =
+                                                          _model.uploadedLocalFile_uploadPhoto357 =
                                                               selectedUploadedFiles
                                                                   .first;
-                                                          _model.uploadedFileUrl3 =
+                                                          _model.uploadedFileUrl_uploadPhoto357 =
                                                               downloadUrls
                                                                   .first;
                                                         });
@@ -810,14 +810,14 @@ class _NonePackageBasicImage1PageWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedFileUrl3 !=
+                                                    if (_model.uploadedFileUrl_uploadPhoto357 !=
                                                             null &&
-                                                        _model.uploadedFileUrl3 !=
+                                                        _model.uploadedFileUrl_uploadPhoto357 !=
                                                             '') {
                                                       FFAppState()
                                                               .nonePackageImageRightUploaded =
                                                           _model
-                                                              .uploadedFileUrl3;
+                                                              .uploadedFileUrl_uploadPhoto357;
                                                       safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
@@ -930,7 +930,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading4 =
+                                                              .isDataUploading_uploadPhoto457 =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -974,7 +974,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .map((u) => u!)
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading4 =
+                                                        _model.isDataUploading_uploadPhoto457 =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -985,10 +985,10 @@ class _NonePackageBasicImage1PageWidgetState
                                                               selectedMedia
                                                                   .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile4 =
+                                                          _model.uploadedLocalFile_uploadPhoto457 =
                                                               selectedUploadedFiles
                                                                   .first;
-                                                          _model.uploadedFileUrl4 =
+                                                          _model.uploadedFileUrl_uploadPhoto457 =
                                                               downloadUrls
                                                                   .first;
                                                         });
@@ -998,14 +998,14 @@ class _NonePackageBasicImage1PageWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedFileUrl4 !=
+                                                    if (_model.uploadedFileUrl_uploadPhoto457 !=
                                                             null &&
-                                                        _model.uploadedFileUrl4 !=
+                                                        _model.uploadedFileUrl_uploadPhoto457 !=
                                                             '') {
                                                       FFAppState()
                                                               .nonePackageImageRightRearUploaded =
                                                           _model
-                                                              .uploadedFileUrl4;
+                                                              .uploadedFileUrl_uploadPhoto457;
                                                       safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
@@ -1118,7 +1118,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading5 =
+                                                              .isDataUploading_uploadPhoto557 =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -1162,7 +1162,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .map((u) => u!)
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading5 =
+                                                        _model.isDataUploading_uploadPhoto557 =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -1173,10 +1173,10 @@ class _NonePackageBasicImage1PageWidgetState
                                                               selectedMedia
                                                                   .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile5 =
+                                                          _model.uploadedLocalFile_uploadPhoto557 =
                                                               selectedUploadedFiles
                                                                   .first;
-                                                          _model.uploadedFileUrl5 =
+                                                          _model.uploadedFileUrl_uploadPhoto557 =
                                                               downloadUrls
                                                                   .first;
                                                         });
@@ -1186,14 +1186,14 @@ class _NonePackageBasicImage1PageWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedFileUrl5 !=
+                                                    if (_model.uploadedFileUrl_uploadPhoto557 !=
                                                             null &&
-                                                        _model.uploadedFileUrl5 !=
+                                                        _model.uploadedFileUrl_uploadPhoto557 !=
                                                             '') {
                                                       FFAppState()
                                                               .nonePackageImageRearUploaded =
                                                           _model
-                                                              .uploadedFileUrl5;
+                                                              .uploadedFileUrl_uploadPhoto557;
                                                       safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
@@ -1306,7 +1306,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading6 =
+                                                              .isDataUploading_uploadPhoto657 =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -1350,7 +1350,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .map((u) => u!)
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading6 =
+                                                        _model.isDataUploading_uploadPhoto657 =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -1361,10 +1361,10 @@ class _NonePackageBasicImage1PageWidgetState
                                                               selectedMedia
                                                                   .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile6 =
+                                                          _model.uploadedLocalFile_uploadPhoto657 =
                                                               selectedUploadedFiles
                                                                   .first;
-                                                          _model.uploadedFileUrl6 =
+                                                          _model.uploadedFileUrl_uploadPhoto657 =
                                                               downloadUrls
                                                                   .first;
                                                         });
@@ -1374,14 +1374,14 @@ class _NonePackageBasicImage1PageWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedFileUrl6 !=
+                                                    if (_model.uploadedFileUrl_uploadPhoto657 !=
                                                             null &&
-                                                        _model.uploadedFileUrl6 !=
+                                                        _model.uploadedFileUrl_uploadPhoto657 !=
                                                             '') {
                                                       FFAppState()
                                                               .nonePackageImageLeftRearUploaded =
                                                           _model
-                                                              .uploadedFileUrl6;
+                                                              .uploadedFileUrl_uploadPhoto657;
                                                       safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
@@ -1494,7 +1494,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading7 =
+                                                              .isDataUploading_uploadPhotoShow57 =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -1538,7 +1538,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .map((u) => u!)
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading7 =
+                                                        _model.isDataUploading_uploadPhotoShow57 =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -1549,10 +1549,10 @@ class _NonePackageBasicImage1PageWidgetState
                                                               selectedMedia
                                                                   .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile7 =
+                                                          _model.uploadedLocalFile_uploadPhotoShow57 =
                                                               selectedUploadedFiles
                                                                   .first;
-                                                          _model.uploadedFileUrl7 =
+                                                          _model.uploadedFileUrl_uploadPhotoShow57 =
                                                               downloadUrls
                                                                   .first;
                                                         });
@@ -1562,14 +1562,14 @@ class _NonePackageBasicImage1PageWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedFileUrl7 !=
+                                                    if (_model.uploadedFileUrl_uploadPhotoShow57 !=
                                                             null &&
-                                                        _model.uploadedFileUrl7 !=
+                                                        _model.uploadedFileUrl_uploadPhotoShow57 !=
                                                             '') {
                                                       FFAppState()
                                                               .nonePackageImageLeftUploaded =
                                                           _model
-                                                              .uploadedFileUrl7;
+                                                              .uploadedFileUrl_uploadPhotoShow57;
                                                       safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
@@ -1682,7 +1682,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading8 =
+                                                              .isDataUploading_uploadPhoto857 =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -1726,7 +1726,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .map((u) => u!)
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading8 =
+                                                        _model.isDataUploading_uploadPhoto857 =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -1737,10 +1737,10 @@ class _NonePackageBasicImage1PageWidgetState
                                                               selectedMedia
                                                                   .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile8 =
+                                                          _model.uploadedLocalFile_uploadPhoto857 =
                                                               selectedUploadedFiles
                                                                   .first;
-                                                          _model.uploadedFileUrl8 =
+                                                          _model.uploadedFileUrl_uploadPhoto857 =
                                                               downloadUrls
                                                                   .first;
                                                         });
@@ -1750,14 +1750,14 @@ class _NonePackageBasicImage1PageWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedFileUrl8 !=
+                                                    if (_model.uploadedFileUrl_uploadPhoto857 !=
                                                             null &&
-                                                        _model.uploadedFileUrl8 !=
+                                                        _model.uploadedFileUrl_uploadPhoto857 !=
                                                             '') {
                                                       FFAppState()
                                                               .nonePackageImageLeftFrontUploaded =
                                                           _model
-                                                              .uploadedFileUrl8;
+                                                              .uploadedFileUrl_uploadPhoto857;
                                                       safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
@@ -1877,7 +1877,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                   m.storagePath,
                                                                   context))) {
                                                         safeSetState(() => _model
-                                                                .isDataUploading9 =
+                                                                .isDataUploading_uploadPhoto957 =
                                                             true);
                                                         var selectedUploadedFiles =
                                                             <FFUploadedFile>[];
@@ -1922,7 +1922,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                       (u) => u!)
                                                                   .toList();
                                                         } finally {
-                                                          _model.isDataUploading9 =
+                                                          _model.isDataUploading_uploadPhoto957 =
                                                               false;
                                                         }
                                                         if (selectedUploadedFiles
@@ -1934,10 +1934,10 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 selectedMedia
                                                                     .length) {
                                                           safeSetState(() {
-                                                            _model.uploadedLocalFile9 =
+                                                            _model.uploadedLocalFile_uploadPhoto957 =
                                                                 selectedUploadedFiles
                                                                     .first;
-                                                            _model.uploadedFileUrl9 =
+                                                            _model.uploadedFileUrl_uploadPhoto957 =
                                                                 downloadUrls
                                                                     .first;
                                                           });
@@ -1947,14 +1947,14 @@ class _NonePackageBasicImage1PageWidgetState
                                                         }
                                                       }
 
-                                                      if (_model.uploadedFileUrl9 !=
+                                                      if (_model.uploadedFileUrl_uploadPhoto957 !=
                                                               null &&
-                                                          _model.uploadedFileUrl9 !=
+                                                          _model.uploadedFileUrl_uploadPhoto957 !=
                                                               '') {
                                                         FFAppState()
                                                                 .nonePackageImageRoofUploaded =
                                                             _model
-                                                                .uploadedFileUrl9;
+                                                                .uploadedFileUrl_uploadPhoto957;
                                                         safeSetState(() {});
                                                         ScaffoldMessenger.of(
                                                                 context)
@@ -3276,7 +3276,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                           m.storagePath,
                                                           context))) {
                                                 safeSetState(() => _model
-                                                    .isDataUploading10 = true);
+                                                        .isDataUploading_uploadPhoto1517 =
+                                                    true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
 
@@ -3316,7 +3317,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                           .map((u) => u!)
                                                           .toList();
                                                 } finally {
-                                                  _model.isDataUploading10 =
+                                                  _model.isDataUploading_uploadPhoto1517 =
                                                       false;
                                                 }
                                                 if (selectedUploadedFiles
@@ -3325,10 +3326,10 @@ class _NonePackageBasicImage1PageWidgetState
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
                                                   safeSetState(() {
-                                                    _model.uploadedLocalFile10 =
+                                                    _model.uploadedLocalFile_uploadPhoto1517 =
                                                         selectedUploadedFiles
                                                             .first;
-                                                    _model.uploadedFileUrl10 =
+                                                    _model.uploadedFileUrl_uploadPhoto1517 =
                                                         downloadUrls.first;
                                                   });
                                                 } else {
@@ -3337,13 +3338,14 @@ class _NonePackageBasicImage1PageWidgetState
                                                 }
                                               }
 
-                                              if (_model.uploadedFileUrl10 !=
+                                              if (_model.uploadedFileUrl_uploadPhoto1517 !=
                                                       null &&
-                                                  _model.uploadedFileUrl10 !=
+                                                  _model.uploadedFileUrl_uploadPhoto1517 !=
                                                       '') {
                                                 FFAppState()
                                                         .nonePackageTrailerImageFrontUploaded =
-                                                    _model.uploadedFileUrl10;
+                                                    _model
+                                                        .uploadedFileUrl_uploadPhoto1517;
                                                 safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
@@ -3446,7 +3448,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                           m.storagePath,
                                                           context))) {
                                                 safeSetState(() => _model
-                                                    .isDataUploading11 = true);
+                                                        .isDataUploading_uploadPhoto2517 =
+                                                    true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
 
@@ -3486,7 +3489,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                           .map((u) => u!)
                                                           .toList();
                                                 } finally {
-                                                  _model.isDataUploading11 =
+                                                  _model.isDataUploading_uploadPhoto2517 =
                                                       false;
                                                 }
                                                 if (selectedUploadedFiles
@@ -3495,10 +3498,10 @@ class _NonePackageBasicImage1PageWidgetState
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
                                                   safeSetState(() {
-                                                    _model.uploadedLocalFile11 =
+                                                    _model.uploadedLocalFile_uploadPhoto2517 =
                                                         selectedUploadedFiles
                                                             .first;
-                                                    _model.uploadedFileUrl11 =
+                                                    _model.uploadedFileUrl_uploadPhoto2517 =
                                                         downloadUrls.first;
                                                   });
                                                 } else {
@@ -3507,13 +3510,14 @@ class _NonePackageBasicImage1PageWidgetState
                                                 }
                                               }
 
-                                              if (_model.uploadedFileUrl11 !=
+                                              if (_model.uploadedFileUrl_uploadPhoto2517 !=
                                                       null &&
-                                                  _model.uploadedFileUrl11 !=
+                                                  _model.uploadedFileUrl_uploadPhoto2517 !=
                                                       '') {
                                                 FFAppState()
                                                         .nonePackageTrailerImageRightFrontUploaded =
-                                                    _model.uploadedFileUrl11;
+                                                    _model
+                                                        .uploadedFileUrl_uploadPhoto2517;
                                                 safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
@@ -3616,7 +3620,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                           m.storagePath,
                                                           context))) {
                                                 safeSetState(() => _model
-                                                    .isDataUploading12 = true);
+                                                        .isDataUploading_uploadPhoto3517 =
+                                                    true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
 
@@ -3656,7 +3661,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                           .map((u) => u!)
                                                           .toList();
                                                 } finally {
-                                                  _model.isDataUploading12 =
+                                                  _model.isDataUploading_uploadPhoto3517 =
                                                       false;
                                                 }
                                                 if (selectedUploadedFiles
@@ -3665,10 +3670,10 @@ class _NonePackageBasicImage1PageWidgetState
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
                                                   safeSetState(() {
-                                                    _model.uploadedLocalFile12 =
+                                                    _model.uploadedLocalFile_uploadPhoto3517 =
                                                         selectedUploadedFiles
                                                             .first;
-                                                    _model.uploadedFileUrl12 =
+                                                    _model.uploadedFileUrl_uploadPhoto3517 =
                                                         downloadUrls.first;
                                                   });
                                                 } else {
@@ -3677,13 +3682,14 @@ class _NonePackageBasicImage1PageWidgetState
                                                 }
                                               }
 
-                                              if (_model.uploadedFileUrl12 !=
+                                              if (_model.uploadedFileUrl_uploadPhoto3517 !=
                                                       null &&
-                                                  _model.uploadedFileUrl12 !=
+                                                  _model.uploadedFileUrl_uploadPhoto3517 !=
                                                       '') {
                                                 FFAppState()
                                                         .nonePackageTrailerImageRightUploaded =
-                                                    _model.uploadedFileUrl12;
+                                                    _model
+                                                        .uploadedFileUrl_uploadPhoto3517;
                                                 safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
@@ -3786,7 +3792,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                           m.storagePath,
                                                           context))) {
                                                 safeSetState(() => _model
-                                                    .isDataUploading13 = true);
+                                                        .isDataUploading_uploadPhoto4517 =
+                                                    true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
 
@@ -3826,7 +3833,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                           .map((u) => u!)
                                                           .toList();
                                                 } finally {
-                                                  _model.isDataUploading13 =
+                                                  _model.isDataUploading_uploadPhoto4517 =
                                                       false;
                                                 }
                                                 if (selectedUploadedFiles
@@ -3835,10 +3842,10 @@ class _NonePackageBasicImage1PageWidgetState
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
                                                   safeSetState(() {
-                                                    _model.uploadedLocalFile13 =
+                                                    _model.uploadedLocalFile_uploadPhoto4517 =
                                                         selectedUploadedFiles
                                                             .first;
-                                                    _model.uploadedFileUrl13 =
+                                                    _model.uploadedFileUrl_uploadPhoto4517 =
                                                         downloadUrls.first;
                                                   });
                                                 } else {
@@ -3847,13 +3854,14 @@ class _NonePackageBasicImage1PageWidgetState
                                                 }
                                               }
 
-                                              if (_model.uploadedFileUrl13 !=
+                                              if (_model.uploadedFileUrl_uploadPhoto4517 !=
                                                       null &&
-                                                  _model.uploadedFileUrl13 !=
+                                                  _model.uploadedFileUrl_uploadPhoto4517 !=
                                                       '') {
                                                 FFAppState()
                                                         .nonePackageTrailerImageRightRearUploaded =
-                                                    _model.uploadedFileUrl13;
+                                                    _model
+                                                        .uploadedFileUrl_uploadPhoto4517;
                                                 safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
@@ -3956,7 +3964,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                           m.storagePath,
                                                           context))) {
                                                 safeSetState(() => _model
-                                                    .isDataUploading14 = true);
+                                                        .isDataUploading_uploadPhoto5517 =
+                                                    true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
 
@@ -3996,7 +4005,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                           .map((u) => u!)
                                                           .toList();
                                                 } finally {
-                                                  _model.isDataUploading14 =
+                                                  _model.isDataUploading_uploadPhoto5517 =
                                                       false;
                                                 }
                                                 if (selectedUploadedFiles
@@ -4005,10 +4014,10 @@ class _NonePackageBasicImage1PageWidgetState
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
                                                   safeSetState(() {
-                                                    _model.uploadedLocalFile14 =
+                                                    _model.uploadedLocalFile_uploadPhoto5517 =
                                                         selectedUploadedFiles
                                                             .first;
-                                                    _model.uploadedFileUrl14 =
+                                                    _model.uploadedFileUrl_uploadPhoto5517 =
                                                         downloadUrls.first;
                                                   });
                                                 } else {
@@ -4017,13 +4026,14 @@ class _NonePackageBasicImage1PageWidgetState
                                                 }
                                               }
 
-                                              if (_model.uploadedFileUrl14 !=
+                                              if (_model.uploadedFileUrl_uploadPhoto5517 !=
                                                       null &&
-                                                  _model.uploadedFileUrl14 !=
+                                                  _model.uploadedFileUrl_uploadPhoto5517 !=
                                                       '') {
                                                 FFAppState()
                                                         .nonePackageTrailerImageRearUploaded =
-                                                    _model.uploadedFileUrl14;
+                                                    _model
+                                                        .uploadedFileUrl_uploadPhoto5517;
                                                 safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
@@ -4126,7 +4136,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                           m.storagePath,
                                                           context))) {
                                                 safeSetState(() => _model
-                                                    .isDataUploading15 = true);
+                                                        .isDataUploading_uploadPhoto6517 =
+                                                    true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
 
@@ -4166,7 +4177,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                           .map((u) => u!)
                                                           .toList();
                                                 } finally {
-                                                  _model.isDataUploading15 =
+                                                  _model.isDataUploading_uploadPhoto6517 =
                                                       false;
                                                 }
                                                 if (selectedUploadedFiles
@@ -4175,10 +4186,10 @@ class _NonePackageBasicImage1PageWidgetState
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
                                                   safeSetState(() {
-                                                    _model.uploadedLocalFile15 =
+                                                    _model.uploadedLocalFile_uploadPhoto6517 =
                                                         selectedUploadedFiles
                                                             .first;
-                                                    _model.uploadedFileUrl15 =
+                                                    _model.uploadedFileUrl_uploadPhoto6517 =
                                                         downloadUrls.first;
                                                   });
                                                 } else {
@@ -4187,13 +4198,14 @@ class _NonePackageBasicImage1PageWidgetState
                                                 }
                                               }
 
-                                              if (_model.uploadedFileUrl15 !=
+                                              if (_model.uploadedFileUrl_uploadPhoto6517 !=
                                                       null &&
-                                                  _model.uploadedFileUrl15 !=
+                                                  _model.uploadedFileUrl_uploadPhoto6517 !=
                                                       '') {
                                                 FFAppState()
                                                         .nonePackageTrailerImageLeftRearUploaded =
-                                                    _model.uploadedFileUrl15;
+                                                    _model
+                                                        .uploadedFileUrl_uploadPhoto6517;
                                                 safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
@@ -4296,7 +4308,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                           m.storagePath,
                                                           context))) {
                                                 safeSetState(() => _model
-                                                    .isDataUploading16 = true);
+                                                        .isDataUploading_uploadPhotoShow517 =
+                                                    true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
 
@@ -4336,7 +4349,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                           .map((u) => u!)
                                                           .toList();
                                                 } finally {
-                                                  _model.isDataUploading16 =
+                                                  _model.isDataUploading_uploadPhotoShow517 =
                                                       false;
                                                 }
                                                 if (selectedUploadedFiles
@@ -4345,10 +4358,10 @@ class _NonePackageBasicImage1PageWidgetState
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
                                                   safeSetState(() {
-                                                    _model.uploadedLocalFile16 =
+                                                    _model.uploadedLocalFile_uploadPhotoShow517 =
                                                         selectedUploadedFiles
                                                             .first;
-                                                    _model.uploadedFileUrl16 =
+                                                    _model.uploadedFileUrl_uploadPhotoShow517 =
                                                         downloadUrls.first;
                                                   });
                                                 } else {
@@ -4357,13 +4370,14 @@ class _NonePackageBasicImage1PageWidgetState
                                                 }
                                               }
 
-                                              if (_model.uploadedFileUrl16 !=
+                                              if (_model.uploadedFileUrl_uploadPhotoShow517 !=
                                                       null &&
-                                                  _model.uploadedFileUrl16 !=
+                                                  _model.uploadedFileUrl_uploadPhotoShow517 !=
                                                       '') {
                                                 FFAppState()
                                                         .nonePackageTrailerImageLeftUploaded =
-                                                    _model.uploadedFileUrl16;
+                                                    _model
+                                                        .uploadedFileUrl_uploadPhotoShow517;
                                                 safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
@@ -4466,7 +4480,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                           m.storagePath,
                                                           context))) {
                                                 safeSetState(() => _model
-                                                    .isDataUploading17 = true);
+                                                        .isDataUploading_uploadPhoto8517 =
+                                                    true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
 
@@ -4506,7 +4521,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                           .map((u) => u!)
                                                           .toList();
                                                 } finally {
-                                                  _model.isDataUploading17 =
+                                                  _model.isDataUploading_uploadPhoto8517 =
                                                       false;
                                                 }
                                                 if (selectedUploadedFiles
@@ -4515,10 +4530,10 @@ class _NonePackageBasicImage1PageWidgetState
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
                                                   safeSetState(() {
-                                                    _model.uploadedLocalFile17 =
+                                                    _model.uploadedLocalFile_uploadPhoto8517 =
                                                         selectedUploadedFiles
                                                             .first;
-                                                    _model.uploadedFileUrl17 =
+                                                    _model.uploadedFileUrl_uploadPhoto8517 =
                                                         downloadUrls.first;
                                                   });
                                                 } else {
@@ -4527,13 +4542,14 @@ class _NonePackageBasicImage1PageWidgetState
                                                 }
                                               }
 
-                                              if (_model.uploadedFileUrl17 !=
+                                              if (_model.uploadedFileUrl_uploadPhoto8517 !=
                                                       null &&
-                                                  _model.uploadedFileUrl17 !=
+                                                  _model.uploadedFileUrl_uploadPhoto8517 !=
                                                       '') {
                                                 FFAppState()
                                                         .nonePackageTrailerImageLeftFrontUploaded =
-                                                    _model.uploadedFileUrl17;
+                                                    _model
+                                                        .uploadedFileUrl_uploadPhoto8517;
                                                 safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();

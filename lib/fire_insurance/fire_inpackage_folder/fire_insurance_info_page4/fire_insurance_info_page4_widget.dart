@@ -98,8 +98,8 @@ class _FireInsuranceInfoPage4WidgetState
             FocusScope.of(context).unfocus();
             FocusManager.instance.primaryFocus?.unfocus();
           },
-          child: WillPopScope(
-            onWillPop: () async => false,
+          child: PopScope(
+            canPop: false,
             child: Scaffold(
               key: scaffoldKey,
               backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -1137,7 +1137,7 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                     allowPhoto: true,
                                                                                   );
                                                                                   if (selectedMedia != null && selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
-                                                                                    safeSetState(() => _model.isDataUploading1 = true);
+                                                                                    safeSetState(() => _model.isDataUploading_uploaded41Fire1 = true);
                                                                                     var selectedUploadedFiles = <FFUploadedFile>[];
 
                                                                                     var downloadUrls = <String>[];
@@ -1161,12 +1161,12 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                           .map((u) => u!)
                                                                                           .toList();
                                                                                     } finally {
-                                                                                      _model.isDataUploading1 = false;
+                                                                                      _model.isDataUploading_uploaded41Fire1 = false;
                                                                                     }
                                                                                     if (selectedUploadedFiles.length == selectedMedia.length && downloadUrls.length == selectedMedia.length) {
                                                                                       safeSetState(() {
-                                                                                        _model.uploadedLocalFile1 = selectedUploadedFiles.first;
-                                                                                        _model.uploadedFileUrl1 = downloadUrls.first;
+                                                                                        _model.uploadedLocalFile_uploaded41Fire1 = selectedUploadedFiles.first;
+                                                                                        _model.uploadedFileUrl_uploaded41Fire1 = downloadUrls.first;
                                                                                       });
                                                                                     } else {
                                                                                       safeSetState(() {});
@@ -1174,10 +1174,10 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                     }
                                                                                   }
 
-                                                                                  FFAppState().insuranceInfoImageApplication = _model.uploadedFileUrl1;
-                                                                                  FFAppState().insuranceInfoPage4ImageApplication = _model.uploadedFileUrl1;
+                                                                                  FFAppState().insuranceInfoImageApplication = _model.uploadedFileUrl_uploaded41Fire1;
+                                                                                  FFAppState().insuranceInfoPage4ImageApplication = _model.uploadedFileUrl_uploaded41Fire1;
                                                                                   safeSetState(() {});
-                                                                                  if (_model.uploadedFileUrl1 != null && _model.uploadedFileUrl1 != '') {
+                                                                                  if (_model.uploadedFileUrl_uploaded41Fire1 != null && _model.uploadedFileUrl_uploaded41Fire1 != '') {
                                                                                     ScaffoldMessenger.of(context).showSnackBar(
                                                                                       SnackBar(
                                                                                         content: Text(
@@ -1265,8 +1265,8 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                     ),
                                                                               ),
                                                                             ),
-                                                                            if (_model.uploadedFileUrl1 == null ||
-                                                                                _model.uploadedFileUrl1 == '')
+                                                                            if (_model.uploadedFileUrl_uploaded41Fire1 == null ||
+                                                                                _model.uploadedFileUrl_uploaded41Fire1 == '')
                                                                               Text(
                                                                                 'ยังไม่อัพโหลด',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1280,8 +1280,8 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                       fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                     ),
                                                                               ),
-                                                                            if (_model.uploadedFileUrl1 != null &&
-                                                                                _model.uploadedFileUrl1 != '')
+                                                                            if (_model.uploadedFileUrl_uploaded41Fire1 != null &&
+                                                                                _model.uploadedFileUrl_uploaded41Fire1 != '')
                                                                               Text(
                                                                                 'อัพโหลดสำเร็จ',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1414,9 +1414,9 @@ class _FireInsuranceInfoPage4WidgetState
                                                                 ),
                                                               ),
                                                             ),
-                                                            if (_model.uploadedFileUrl1 !=
+                                                            if (_model.uploadedFileUrl_uploaded41Fire1 !=
                                                                     null &&
-                                                                _model.uploadedFileUrl1 !=
+                                                                _model.uploadedFileUrl_uploaded41Fire1 !=
                                                                     '')
                                                               Padding(
                                                                 padding:
@@ -1481,7 +1481,7 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                       allowPhoto: true,
                                                                                     );
                                                                                     if (selectedMedia != null && selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
-                                                                                      safeSetState(() => _model.isDataUploading2 = true);
+                                                                                      safeSetState(() => _model.isDataUploading_uploaded41Fire = true);
                                                                                       var selectedUploadedFiles = <FFUploadedFile>[];
 
                                                                                       var downloadUrls = <String>[];
@@ -1505,12 +1505,12 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                             .map((u) => u!)
                                                                                             .toList();
                                                                                       } finally {
-                                                                                        _model.isDataUploading2 = false;
+                                                                                        _model.isDataUploading_uploaded41Fire = false;
                                                                                       }
                                                                                       if (selectedUploadedFiles.length == selectedMedia.length && downloadUrls.length == selectedMedia.length) {
                                                                                         safeSetState(() {
-                                                                                          _model.uploadedLocalFile2 = selectedUploadedFiles.first;
-                                                                                          _model.uploadedFileUrl2 = downloadUrls.first;
+                                                                                          _model.uploadedLocalFile_uploaded41Fire = selectedUploadedFiles.first;
+                                                                                          _model.uploadedFileUrl_uploaded41Fire = downloadUrls.first;
                                                                                         });
                                                                                       } else {
                                                                                         safeSetState(() {});
@@ -1518,9 +1518,9 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                       }
                                                                                     }
 
-                                                                                    FFAppState().insuranceInfoPage4ImageApp2 = _model.uploadedFileUrl2;
+                                                                                    FFAppState().insuranceInfoPage4ImageApp2 = _model.uploadedFileUrl_uploaded41Fire;
                                                                                     safeSetState(() {});
-                                                                                    if (_model.uploadedFileUrl2 != null && _model.uploadedFileUrl2 != '') {
+                                                                                    if (_model.uploadedFileUrl_uploaded41Fire != null && _model.uploadedFileUrl_uploaded41Fire != '') {
                                                                                       ScaffoldMessenger.of(context).showSnackBar(
                                                                                         SnackBar(
                                                                                           content: Text(
@@ -1608,7 +1608,7 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                       ),
                                                                                 ),
                                                                               ),
-                                                                              if (_model.uploadedFileUrl2 == null || _model.uploadedFileUrl2 == '')
+                                                                              if (_model.uploadedFileUrl_uploaded41Fire == null || _model.uploadedFileUrl_uploaded41Fire == '')
                                                                                 Text(
                                                                                   'ยังไม่อัพโหลด',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1622,7 +1622,7 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                         fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                       ),
                                                                                 ),
-                                                                              if (_model.uploadedFileUrl2 != null && _model.uploadedFileUrl2 != '')
+                                                                              if (_model.uploadedFileUrl_uploaded41Fire != null && _model.uploadedFileUrl_uploaded41Fire != '')
                                                                                 Text(
                                                                                   'อัพโหลดสำเร็จ',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1897,7 +1897,7 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                     allowPhoto: true,
                                                                                   );
                                                                                   if (selectedMedia != null && selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
-                                                                                    safeSetState(() => _model.isDataUploading3 = true);
+                                                                                    safeSetState(() => _model.isDataUploading_uploaded08Fire = true);
                                                                                     var selectedUploadedFiles = <FFUploadedFile>[];
 
                                                                                     var downloadUrls = <String>[];
@@ -1921,12 +1921,12 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                           .map((u) => u!)
                                                                                           .toList();
                                                                                     } finally {
-                                                                                      _model.isDataUploading3 = false;
+                                                                                      _model.isDataUploading_uploaded08Fire = false;
                                                                                     }
                                                                                     if (selectedUploadedFiles.length == selectedMedia.length && downloadUrls.length == selectedMedia.length) {
                                                                                       safeSetState(() {
-                                                                                        _model.uploadedLocalFile3 = selectedUploadedFiles.first;
-                                                                                        _model.uploadedFileUrl3 = downloadUrls.first;
+                                                                                        _model.uploadedLocalFile_uploaded08Fire = selectedUploadedFiles.first;
+                                                                                        _model.uploadedFileUrl_uploaded08Fire = downloadUrls.first;
                                                                                       });
                                                                                     } else {
                                                                                       safeSetState(() {});
@@ -1934,10 +1934,10 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                     }
                                                                                   }
 
-                                                                                  FFAppState().insuranceInfoImageFileloanApplicationRegister = _model.uploadedFileUrl3;
-                                                                                  FFAppState().insuranceInfoPage4FileLoanApplicationRegister = _model.uploadedFileUrl3;
+                                                                                  FFAppState().insuranceInfoImageFileloanApplicationRegister = _model.uploadedFileUrl_uploaded08Fire;
+                                                                                  FFAppState().insuranceInfoPage4FileLoanApplicationRegister = _model.uploadedFileUrl_uploaded08Fire;
                                                                                   safeSetState(() {});
-                                                                                  if (_model.uploadedFileUrl3 != null && _model.uploadedFileUrl3 != '') {
+                                                                                  if (_model.uploadedFileUrl_uploaded08Fire != null && _model.uploadedFileUrl_uploaded08Fire != '') {
                                                                                     ScaffoldMessenger.of(context).showSnackBar(
                                                                                       SnackBar(
                                                                                         content: Text(
@@ -2025,8 +2025,8 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                     ),
                                                                               ),
                                                                             ),
-                                                                            if (_model.uploadedFileUrl3 == null ||
-                                                                                _model.uploadedFileUrl3 == '')
+                                                                            if (_model.uploadedFileUrl_uploaded08Fire == null ||
+                                                                                _model.uploadedFileUrl_uploaded08Fire == '')
                                                                               Text(
                                                                                 'ยังไม่อัพโหลด',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -2040,8 +2040,8 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                       fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                     ),
                                                                               ),
-                                                                            if (_model.uploadedFileUrl3 != null &&
-                                                                                _model.uploadedFileUrl3 != '')
+                                                                            if (_model.uploadedFileUrl_uploaded08Fire != null &&
+                                                                                _model.uploadedFileUrl_uploaded08Fire != '')
                                                                               Text(
                                                                                 'อัพโหลดสำเร็จ',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(

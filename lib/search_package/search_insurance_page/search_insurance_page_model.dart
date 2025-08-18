@@ -68,6 +68,8 @@ class SearchInsurancePageModel
   // Stores action output result for [Backend Call - API (teleGetProvinceAPI)] action in SearchInsurancePage widget.
   ApiCallResponse? getProvince2;
   DateTime? datePicked;
+  // State field(s) for Slider widget.
+  double? sliderValue;
 
   @override
   void initState(BuildContext context) {}

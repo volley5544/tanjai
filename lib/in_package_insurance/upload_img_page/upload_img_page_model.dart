@@ -15,33 +15,33 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class UploadImgPageModel extends FlutterFlowModel<UploadImgPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_uploaded04 = false;
+  FFUploadedFile uploadedLocalFile_uploaded04 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_uploaded041 = false;
+  FFUploadedFile uploadedLocalFile_uploaded041 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading3 = false;
-  FFUploadedFile uploadedLocalFile3 =
+  bool isDataUploading_uploaded042 = false;
+  FFUploadedFile uploadedLocalFile_uploaded042 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading4 = false;
-  FFUploadedFile uploadedLocalFile4 =
+  bool isDataUploading_uploaded043 = false;
+  FFUploadedFile uploadedLocalFile_uploaded043 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading5 = false;
-  FFUploadedFile uploadedLocalFile5 =
+  bool isDataUploading_uploaded044 = false;
+  FFUploadedFile uploadedLocalFile_uploaded044 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading6 = false;
-  FFUploadedFile uploadedLocalFile6 =
+  bool isDataUploading_uploaded045 = false;
+  FFUploadedFile uploadedLocalFile_uploaded045 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading7 = false;
-  List<FFUploadedFile> uploadedLocalFiles7 = [];
-  List<String> uploadedFileUrls7 = [];
+  bool isDataUploading_firebaseUploadedUrlList2 = false;
+  List<FFUploadedFile> uploadedLocalFiles_firebaseUploadedUrlList2 = [];
+  List<String> uploadedFileUrls_firebaseUploadedUrlList2 = [];
 
   @override
   void initState(BuildContext context) {}

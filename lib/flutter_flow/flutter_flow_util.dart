@@ -585,10 +585,6 @@ String getCORSProxyUrl(String path) {
   if (!kIsWeb) {
     return path;
   }
-  // No need to use proxy for images that come from Firebase Storage.
-  if (path.contains('sawad-new-ibs.appspot.com')) {
-    return path;
-  }
   const proxyUrl =
       'https://us-central1-sawad-new-ibs.cloudfunctions.net/corsProxy?url=';
   return '$proxyUrl$path';

@@ -86,8 +86,8 @@ class _NonePackageEditPage2CopyWidgetState
             FocusScope.of(context).unfocus();
             FocusManager.instance.primaryFocus?.unfocus();
           },
-          child: WillPopScope(
-            onWillPop: () async => false,
+          child: PopScope(
+            canPop: false,
             child: Scaffold(
               key: scaffoldKey,
               backgroundColor: Colors.white,
@@ -438,7 +438,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading1 =
+                                                              .isDataUploading_uploadPhoto13 =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -466,7 +466,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                                     ))
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading1 =
+                                                        _model.isDataUploading_uploadPhoto13 =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -474,7 +474,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                           selectedMedia
                                                               .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile1 =
+                                                          _model.uploadedLocalFile_uploadPhoto13 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
@@ -484,10 +484,10 @@ class _NonePackageEditPage2CopyWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedLocalFile1 !=
+                                                    if (_model.uploadedLocalFile_uploadPhoto13 !=
                                                             null &&
                                                         (_model
-                                                                .uploadedLocalFile1
+                                                                .uploadedLocalFile_uploadPhoto13
                                                                 .bytes
                                                                 ?.isNotEmpty ??
                                                             false)) {
@@ -602,7 +602,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading2 =
+                                                              .isDataUploading_uploadPhoto235 =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -630,7 +630,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                                     ))
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading2 =
+                                                        _model.isDataUploading_uploadPhoto235 =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -638,7 +638,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                           selectedMedia
                                                               .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile2 =
+                                                          _model.uploadedLocalFile_uploadPhoto235 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
@@ -648,10 +648,10 @@ class _NonePackageEditPage2CopyWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedLocalFile2 !=
+                                                    if (_model.uploadedLocalFile_uploadPhoto235 !=
                                                             null &&
                                                         (_model
-                                                                .uploadedLocalFile2
+                                                                .uploadedLocalFile_uploadPhoto235
                                                                 .bytes
                                                                 ?.isNotEmpty ??
                                                             false)) {
@@ -766,7 +766,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading3 =
+                                                              .isDataUploading_uploadPhoto335 =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -794,7 +794,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                                     ))
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading3 =
+                                                        _model.isDataUploading_uploadPhoto335 =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -802,7 +802,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                           selectedMedia
                                                               .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile3 =
+                                                          _model.uploadedLocalFile_uploadPhoto335 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
@@ -812,10 +812,10 @@ class _NonePackageEditPage2CopyWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedLocalFile3 !=
+                                                    if (_model.uploadedLocalFile_uploadPhoto335 !=
                                                             null &&
                                                         (_model
-                                                                .uploadedLocalFile3
+                                                                .uploadedLocalFile_uploadPhoto335
                                                                 .bytes
                                                                 ?.isNotEmpty ??
                                                             false)) {
@@ -930,7 +930,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading4 =
+                                                              .isDataUploading_uploadPhoto435 =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -958,7 +958,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                                     ))
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading4 =
+                                                        _model.isDataUploading_uploadPhoto435 =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -966,7 +966,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                           selectedMedia
                                                               .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile4 =
+                                                          _model.uploadedLocalFile_uploadPhoto435 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
@@ -976,10 +976,10 @@ class _NonePackageEditPage2CopyWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedLocalFile4 !=
+                                                    if (_model.uploadedLocalFile_uploadPhoto435 !=
                                                             null &&
                                                         (_model
-                                                                .uploadedLocalFile4
+                                                                .uploadedLocalFile_uploadPhoto435
                                                                 .bytes
                                                                 ?.isNotEmpty ??
                                                             false)) {
@@ -1094,7 +1094,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading5 =
+                                                              .isDataUploading_uploadPhoto535 =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -1122,7 +1122,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                                     ))
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading5 =
+                                                        _model.isDataUploading_uploadPhoto535 =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -1130,7 +1130,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                           selectedMedia
                                                               .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile5 =
+                                                          _model.uploadedLocalFile_uploadPhoto535 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
@@ -1140,10 +1140,10 @@ class _NonePackageEditPage2CopyWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedLocalFile5 !=
+                                                    if (_model.uploadedLocalFile_uploadPhoto535 !=
                                                             null &&
                                                         (_model
-                                                                .uploadedLocalFile5
+                                                                .uploadedLocalFile_uploadPhoto535
                                                                 .bytes
                                                                 ?.isNotEmpty ??
                                                             false)) {
@@ -1258,7 +1258,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading6 =
+                                                              .isDataUploading_uploadPhoto6355 =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -1286,7 +1286,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                                     ))
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading6 =
+                                                        _model.isDataUploading_uploadPhoto6355 =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -1294,7 +1294,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                           selectedMedia
                                                               .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile6 =
+                                                          _model.uploadedLocalFile_uploadPhoto6355 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
@@ -1304,10 +1304,10 @@ class _NonePackageEditPage2CopyWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedLocalFile6 !=
+                                                    if (_model.uploadedLocalFile_uploadPhoto6355 !=
                                                             null &&
                                                         (_model
-                                                                .uploadedLocalFile6
+                                                                .uploadedLocalFile_uploadPhoto6355
                                                                 .bytes
                                                                 ?.isNotEmpty ??
                                                             false)) {
@@ -1422,7 +1422,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading7 =
+                                                              .isDataUploading_uploadPhotoShow35 =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -1450,7 +1450,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                                     ))
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading7 =
+                                                        _model.isDataUploading_uploadPhotoShow35 =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -1458,7 +1458,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                           selectedMedia
                                                               .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile7 =
+                                                          _model.uploadedLocalFile_uploadPhotoShow35 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
@@ -1468,10 +1468,10 @@ class _NonePackageEditPage2CopyWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedLocalFile7 !=
+                                                    if (_model.uploadedLocalFile_uploadPhotoShow35 !=
                                                             null &&
                                                         (_model
-                                                                .uploadedLocalFile7
+                                                                .uploadedLocalFile_uploadPhotoShow35
                                                                 .bytes
                                                                 ?.isNotEmpty ??
                                                             false)) {
@@ -1586,7 +1586,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading8 =
+                                                              .isDataUploading_uploadPhoto835 =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -1614,7 +1614,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                                     ))
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading8 =
+                                                        _model.isDataUploading_uploadPhoto835 =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -1622,7 +1622,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                           selectedMedia
                                                               .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile8 =
+                                                          _model.uploadedLocalFile_uploadPhoto835 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
@@ -1632,10 +1632,10 @@ class _NonePackageEditPage2CopyWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedLocalFile8 !=
+                                                    if (_model.uploadedLocalFile_uploadPhoto835 !=
                                                             null &&
                                                         (_model
-                                                                .uploadedLocalFile8
+                                                                .uploadedLocalFile_uploadPhoto835
                                                                 .bytes
                                                                 ?.isNotEmpty ??
                                                             false)) {
@@ -1750,7 +1750,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading9 =
+                                                              .isDataUploading_uploadPhoto935 =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -1778,7 +1778,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                                     ))
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading9 =
+                                                        _model.isDataUploading_uploadPhoto935 =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -1786,7 +1786,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                           selectedMedia
                                                               .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile9 =
+                                                          _model.uploadedLocalFile_uploadPhoto935 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
@@ -1796,10 +1796,10 @@ class _NonePackageEditPage2CopyWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedLocalFile9 !=
+                                                    if (_model.uploadedLocalFile_uploadPhoto935 !=
                                                             null &&
                                                         (_model
-                                                                .uploadedLocalFile9
+                                                                .uploadedLocalFile_uploadPhoto935
                                                                 .bytes
                                                                 ?.isNotEmpty ??
                                                             false)) {

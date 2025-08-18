@@ -483,6 +483,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
     _model.phonenumberTextController ??= TextEditingController();
     _model.phonenumberFocusNode ??= FocusNode();
 
+    _model.phonenumberMask = MaskTextInputFormatter(mask: '###-###-####');
     _model.textFieldTextController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
@@ -527,8 +528,8 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,

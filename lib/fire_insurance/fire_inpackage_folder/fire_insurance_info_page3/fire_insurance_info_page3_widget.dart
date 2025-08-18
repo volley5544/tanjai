@@ -65,8 +65,8 @@ class _FireInsuranceInfoPage3WidgetState
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -84,7 +84,11 @@ class _FireInsuranceInfoPage3WidgetState
                 size: 30.0,
               ),
               onPressed: () async {
-                await Future.delayed(const Duration(milliseconds: 500));
+                await Future.delayed(
+                  Duration(
+                    milliseconds: 500,
+                  ),
+                );
                 context.pop();
               },
             ),
@@ -845,7 +849,7 @@ class _FireInsuranceInfoPage3WidgetState
                                                                             m.storagePath,
                                                                             context))) {
                                                                   safeSetState(() =>
-                                                                      _model.isDataUploading1 =
+                                                                      _model.isDataUploading_uploaded012Fire =
                                                                           true);
                                                                   var selectedUploadedFiles =
                                                                       <FFUploadedFile>[];
@@ -879,7 +883,7 @@ class _FireInsuranceInfoPage3WidgetState
                                                                             u!)
                                                                         .toList();
                                                                   } finally {
-                                                                    _model.isDataUploading1 =
+                                                                    _model.isDataUploading_uploaded012Fire =
                                                                         false;
                                                                   }
                                                                   if (selectedUploadedFiles
@@ -892,10 +896,10 @@ class _FireInsuranceInfoPage3WidgetState
                                                                               .length) {
                                                                     safeSetState(
                                                                         () {
-                                                                      _model.uploadedLocalFile1 =
+                                                                      _model.uploadedLocalFile_uploaded012Fire =
                                                                           selectedUploadedFiles
                                                                               .first;
-                                                                      _model.uploadedFileUrl1 =
+                                                                      _model.uploadedFileUrl_uploaded012Fire =
                                                                           downloadUrls
                                                                               .first;
                                                                     });
@@ -909,12 +913,12 @@ class _FireInsuranceInfoPage3WidgetState
                                                                 FFAppState()
                                                                         .insuranceInfoPage4FileCancelLoan =
                                                                     _model
-                                                                        .uploadedFileUrl1;
+                                                                        .uploadedFileUrl_uploaded012Fire;
                                                                 safeSetState(
                                                                     () {});
-                                                                if (_model.uploadedFileUrl1 !=
+                                                                if (_model.uploadedFileUrl_uploaded012Fire !=
                                                                         null &&
-                                                                    _model.uploadedFileUrl1 !=
+                                                                    _model.uploadedFileUrl_uploaded012Fire !=
                                                                         '') {
                                                                   ScaffoldMessenger.of(
                                                                           context)
@@ -1445,7 +1449,7 @@ class _FireInsuranceInfoPage3WidgetState
                                                                           m.storagePath,
                                                                           context))) {
                                                                 safeSetState(() =>
-                                                                    _model.isDataUploading2 =
+                                                                    _model.isDataUploading_uploaded022Fire =
                                                                         true);
                                                                 var selectedUploadedFiles =
                                                                     <FFUploadedFile>[];
@@ -1481,7 +1485,7 @@ class _FireInsuranceInfoPage3WidgetState
                                                                           u!)
                                                                       .toList();
                                                                 } finally {
-                                                                  _model.isDataUploading2 =
+                                                                  _model.isDataUploading_uploaded022Fire =
                                                                       false;
                                                                 }
                                                                 if (selectedUploadedFiles
@@ -1494,10 +1498,10 @@ class _FireInsuranceInfoPage3WidgetState
                                                                             .length) {
                                                                   safeSetState(
                                                                       () {
-                                                                    _model.uploadedLocalFile2 =
+                                                                    _model.uploadedLocalFile_uploaded022Fire =
                                                                         selectedUploadedFiles
                                                                             .first;
-                                                                    _model.uploadedFileUrl2 =
+                                                                    _model.uploadedFileUrl_uploaded022Fire =
                                                                         downloadUrls
                                                                             .first;
                                                                   });
@@ -1511,12 +1515,12 @@ class _FireInsuranceInfoPage3WidgetState
                                                               FFAppState()
                                                                       .InsuranceInfoPage4PowerOfAttoney =
                                                                   _model
-                                                                      .uploadedFileUrl2;
+                                                                      .uploadedFileUrl_uploaded022Fire;
                                                               safeSetState(
                                                                   () {});
-                                                              if (_model.uploadedFileUrl2 !=
+                                                              if (_model.uploadedFileUrl_uploaded022Fire !=
                                                                       null &&
-                                                                  _model.uploadedFileUrl2 !=
+                                                                  _model.uploadedFileUrl_uploaded022Fire !=
                                                                       '') {
                                                                 ScaffoldMessenger.of(
                                                                         context)
@@ -2034,7 +2038,7 @@ class _FireInsuranceInfoPage3WidgetState
                                                                         m.storagePath,
                                                                         context))) {
                                                               safeSetState(() =>
-                                                                  _model.isDataUploading3 =
+                                                                  _model.isDataUploading_uploaded0322 =
                                                                       true);
                                                               var selectedUploadedFiles =
                                                                   <FFUploadedFile>[];
@@ -2071,7 +2075,7 @@ class _FireInsuranceInfoPage3WidgetState
                                                                         u!)
                                                                     .toList();
                                                               } finally {
-                                                                _model.isDataUploading3 =
+                                                                _model.isDataUploading_uploaded0322 =
                                                                     false;
                                                               }
                                                               if (selectedUploadedFiles
@@ -2084,10 +2088,10 @@ class _FireInsuranceInfoPage3WidgetState
                                                                           .length) {
                                                                 safeSetState(
                                                                     () {
-                                                                  _model.uploadedLocalFile3 =
+                                                                  _model.uploadedLocalFile_uploaded0322 =
                                                                       selectedUploadedFiles
                                                                           .first;
-                                                                  _model.uploadedFileUrl3 =
+                                                                  _model.uploadedFileUrl_uploaded0322 =
                                                                       downloadUrls
                                                                           .first;
                                                                 });
@@ -2101,11 +2105,11 @@ class _FireInsuranceInfoPage3WidgetState
                                                             FFAppState()
                                                                     .insuranceInfoPage3ImageIdCard =
                                                                 _model
-                                                                    .uploadedFileUrl3;
+                                                                    .uploadedFileUrl_uploaded0322;
                                                             safeSetState(() {});
-                                                            if (_model.uploadedFileUrl3 !=
+                                                            if (_model.uploadedFileUrl_uploaded0322 !=
                                                                     null &&
-                                                                _model.uploadedFileUrl3 !=
+                                                                _model.uploadedFileUrl_uploaded0322 !=
                                                                     '') {
                                                               ScaffoldMessenger
                                                                       .of(context)
@@ -2716,7 +2720,7 @@ class _FireInsuranceInfoPage3WidgetState
                                                                           m.storagePath,
                                                                           context))) {
                                                                 safeSetState(() =>
-                                                                    _model.isDataUploading4 =
+                                                                    _model.isDataUploading_uploadedAttoneyIDcardhouse =
                                                                         true);
                                                                 var selectedUploadedFiles =
                                                                     <FFUploadedFile>[];
@@ -2752,7 +2756,7 @@ class _FireInsuranceInfoPage3WidgetState
                                                                           u!)
                                                                       .toList();
                                                                 } finally {
-                                                                  _model.isDataUploading4 =
+                                                                  _model.isDataUploading_uploadedAttoneyIDcardhouse =
                                                                       false;
                                                                 }
                                                                 if (selectedUploadedFiles
@@ -2765,10 +2769,10 @@ class _FireInsuranceInfoPage3WidgetState
                                                                             .length) {
                                                                   safeSetState(
                                                                       () {
-                                                                    _model.uploadedLocalFile4 =
+                                                                    _model.uploadedLocalFile_uploadedAttoneyIDcardhouse =
                                                                         selectedUploadedFiles
                                                                             .first;
-                                                                    _model.uploadedFileUrl4 =
+                                                                    _model.uploadedFileUrl_uploadedAttoneyIDcardhouse =
                                                                         downloadUrls
                                                                             .first;
                                                                   });
@@ -2782,12 +2786,12 @@ class _FireInsuranceInfoPage3WidgetState
                                                               FFAppState()
                                                                       .insuranceInfoPage4IdCardPowerattorney =
                                                                   _model
-                                                                      .uploadedFileUrl4;
+                                                                      .uploadedFileUrl_uploadedAttoneyIDcardhouse;
                                                               safeSetState(
                                                                   () {});
-                                                              if (_model.uploadedFileUrl4 !=
+                                                              if (_model.uploadedFileUrl_uploadedAttoneyIDcardhouse !=
                                                                       null &&
-                                                                  _model.uploadedFileUrl4 !=
+                                                                  _model.uploadedFileUrl_uploadedAttoneyIDcardhouse !=
                                                                       '') {
                                                                 ScaffoldMessenger.of(
                                                                         context)
@@ -2948,9 +2952,9 @@ class _FireInsuranceInfoPage3WidgetState
                                                                 ),
                                                           ),
                                                         ),
-                                                        if (_model.uploadedFileUrl4 ==
+                                                        if (_model.uploadedFileUrl_uploadedAttoneyIDcardhouse ==
                                                                 null ||
-                                                            _model.uploadedFileUrl4 ==
+                                                            _model.uploadedFileUrl_uploadedAttoneyIDcardhouse ==
                                                                 '')
                                                           Text(
                                                             'ยังไม่อัพโหลด',
@@ -2983,9 +2987,9 @@ class _FireInsuranceInfoPage3WidgetState
                                                                       .fontStyle,
                                                                 ),
                                                           ),
-                                                        if (_model.uploadedFileUrl4 !=
+                                                        if (_model.uploadedFileUrl_uploadedAttoneyIDcardhouse !=
                                                                 null &&
-                                                            _model.uploadedFileUrl4 !=
+                                                            _model.uploadedFileUrl_uploadedAttoneyIDcardhouse !=
                                                                 '')
                                                           Text(
                                                             'อัพโหลดสำเร็จ',
@@ -3332,12 +3336,17 @@ class _FireInsuranceInfoPage3WidgetState
                                                               _model.sensitiveConsentValue =
                                                                   newValue!);
                                                         },
-                                                        side: BorderSide(
-                                                          width: 2,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                        ),
+                                                        side: (FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText !=
+                                                                null)
+                                                            ? BorderSide(
+                                                                width: 2,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText!,
+                                                              )
+                                                            : null,
                                                         activeColor:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -3451,12 +3460,17 @@ class _FireInsuranceInfoPage3WidgetState
                                                               _model.sanctionConsentValue =
                                                                   newValue!);
                                                         },
-                                                        side: BorderSide(
-                                                          width: 2,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                        ),
+                                                        side: (FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText !=
+                                                                null)
+                                                            ? BorderSide(
+                                                                width: 2,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText!,
+                                                              )
+                                                            : null,
                                                         activeColor:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -3576,12 +3590,17 @@ class _FireInsuranceInfoPage3WidgetState
                                                             });
                                                           }
                                                         },
-                                                        side: BorderSide(
-                                                          width: 2,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                        ),
+                                                        side: (FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText !=
+                                                                null)
+                                                            ? BorderSide(
+                                                                width: 2,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText!,
+                                                              )
+                                                            : null,
                                                         activeColor:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -3669,12 +3688,17 @@ class _FireInsuranceInfoPage3WidgetState
                                                                 });
                                                               }
                                                             },
-                                                            side: BorderSide(
-                                                              width: 2,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryText,
-                                                            ),
+                                                            side: (FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText !=
+                                                                    null)
+                                                                ? BorderSide(
+                                                                    width: 2,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText!,
+                                                                  )
+                                                                : null,
                                                             activeColor:
                                                                 FlutterFlowTheme.of(
                                                                         context)
@@ -3789,12 +3813,17 @@ class _FireInsuranceInfoPage3WidgetState
                                                   });
                                                 }
                                               },
-                                              side: BorderSide(
-                                                width: 2,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                              ),
+                                              side:
+                                                  (FlutterFlowTheme.of(context)
+                                                              .secondaryText !=
+                                                          null)
+                                                      ? BorderSide(
+                                                          width: 2,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText!,
+                                                        )
+                                                      : null,
                                               activeColor:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBtnText,

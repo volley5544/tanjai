@@ -3,6 +3,7 @@ import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/components/infomation_customer_act_widget.dart';
 import '/components/infomation_customer_widget.dart';
+import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -32,10 +33,27 @@ class InsuranceInfoPage2Model
   ApiCallResponse? getProvince;
   // Stores action output result for [Backend Call - API (insuranceRequestGetVehicleAPI)] action in insuranceInfoPage2 widget.
   ApiCallResponse? getVehicleUsedTypeAPI;
+  // Stores action output result for [Backend Call - API (teleGetBrandAPI)] action in insuranceInfoPage2 widget.
+  ApiCallResponse? getBrandAPI;
+  // Stores action output result for [Backend Call - API (teleGetModelAPI )] action in insuranceInfoPage2 widget.
+  ApiCallResponse? getModelAPI;
   // Model for infomationCustomer component.
   late InfomationCustomerModel infomationCustomerModel;
   // Model for infomationCustomerAct component.
   late InfomationCustomerActModel infomationCustomerActModel;
+  // State field(s) for BrandNameTextField widget.
+  final brandNameTextFieldKey = GlobalKey();
+  FocusNode? brandNameTextFieldFocusNode;
+  TextEditingController? brandNameTextFieldTextController;
+  String? brandNameTextFieldSelectedOption;
+  String? Function(BuildContext, String?)?
+      brandNameTextFieldTextControllerValidator;
+  // State field(s) for modelName widget.
+  final modelNameKey = GlobalKey();
+  FocusNode? modelNameFocusNode;
+  TextEditingController? modelNameTextController;
+  String? modelNameSelectedOption;
+  String? Function(BuildContext, String?)? modelNameTextControllerValidator;
   // State field(s) for OldVmiTextField widget.
   FocusNode? oldVmiTextFieldFocusNode;
   TextEditingController? oldVmiTextFieldTextController;
@@ -67,7 +85,7 @@ class InsuranceInfoPage2Model
   // State field(s) for SeatAmountTextField widget.
   FocusNode? seatAmountTextFieldFocusNode;
   TextEditingController? seatAmountTextFieldTextController;
-  final seatAmountTextFieldMask = MaskTextInputFormatter(mask: '##');
+  late MaskTextInputFormatter seatAmountTextFieldMask;
   String? Function(BuildContext, String?)?
       seatAmountTextFieldTextControllerValidator;
   // State field(s) for SizeTextField widget.
@@ -77,7 +95,7 @@ class InsuranceInfoPage2Model
   // State field(s) for WeightTextField widget.
   FocusNode? weightTextFieldFocusNode;
   TextEditingController? weightTextFieldTextController;
-  final weightTextFieldMask = MaskTextInputFormatter(mask: '#####');
+  late MaskTextInputFormatter weightTextFieldMask;
   String? Function(BuildContext, String?)?
       weightTextFieldTextControllerValidator;
   // State field(s) for BatteryNumberTextField widget.
@@ -112,6 +130,10 @@ class InsuranceInfoPage2Model
   void dispose() {
     infomationCustomerModel.dispose();
     infomationCustomerActModel.dispose();
+    brandNameTextFieldFocusNode?.dispose();
+
+    modelNameFocusNode?.dispose();
+
     oldVmiTextFieldFocusNode?.dispose();
     oldVmiTextFieldTextController?.dispose();
 

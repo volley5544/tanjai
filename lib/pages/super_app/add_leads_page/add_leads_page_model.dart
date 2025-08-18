@@ -32,7 +32,7 @@ class AddLeadsPageModel extends FlutterFlowModel<AddLeadsPageWidget> {
   // State field(s) for phoneNumber widget.
   FocusNode? phoneNumberFocusNode;
   TextEditingController? phoneNumberTextController;
-  final phoneNumberMask = MaskTextInputFormatter(mask: '###-###-####');
+  late MaskTextInputFormatter phoneNumberMask;
   String? Function(BuildContext, String?)? phoneNumberTextControllerValidator;
   // State field(s) for remark widget.
   FocusNode? remarkFocusNode;

@@ -19,90 +19,90 @@ class NonePackageEditPage2Model
     extends FlutterFlowModel<NonePackageEditPage2Widget> {
   ///  State fields for stateful widgets in this page.
 
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_uploadPhoto15 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto15 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl1 = '';
+  String uploadedFileUrl_uploadPhoto15 = '';
 
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_uploadPhoto25 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto25 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
+  String uploadedFileUrl_uploadPhoto25 = '';
 
-  bool isDataUploading3 = false;
-  FFUploadedFile uploadedLocalFile3 =
+  bool isDataUploading_uploadPhoto35 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto35 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl3 = '';
+  String uploadedFileUrl_uploadPhoto35 = '';
 
-  bool isDataUploading4 = false;
-  FFUploadedFile uploadedLocalFile4 =
+  bool isDataUploading_uploadPhoto45 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto45 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl4 = '';
+  String uploadedFileUrl_uploadPhoto45 = '';
 
-  bool isDataUploading5 = false;
-  FFUploadedFile uploadedLocalFile5 =
+  bool isDataUploading_uploadPhoto55 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto55 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl5 = '';
+  String uploadedFileUrl_uploadPhoto55 = '';
 
-  bool isDataUploading6 = false;
-  FFUploadedFile uploadedLocalFile6 =
+  bool isDataUploading_uploadPhoto65 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto65 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl6 = '';
+  String uploadedFileUrl_uploadPhoto65 = '';
 
-  bool isDataUploading7 = false;
-  FFUploadedFile uploadedLocalFile7 =
+  bool isDataUploading_uploadPhotoShow5 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhotoShow5 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl7 = '';
+  String uploadedFileUrl_uploadPhotoShow5 = '';
 
-  bool isDataUploading8 = false;
-  FFUploadedFile uploadedLocalFile8 =
+  bool isDataUploading_uploadPhoto85 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto85 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl8 = '';
+  String uploadedFileUrl_uploadPhoto85 = '';
 
-  bool isDataUploading9 = false;
-  FFUploadedFile uploadedLocalFile9 =
+  bool isDataUploading_uploadPhoto95 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto95 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl9 = '';
+  String uploadedFileUrl_uploadPhoto95 = '';
 
-  bool isDataUploading10 = false;
-  FFUploadedFile uploadedLocalFile10 =
+  bool isDataUploading_uploadPhoto151 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto151 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl10 = '';
+  String uploadedFileUrl_uploadPhoto151 = '';
 
-  bool isDataUploading11 = false;
-  FFUploadedFile uploadedLocalFile11 =
+  bool isDataUploading_uploadPhoto251 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto251 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl11 = '';
+  String uploadedFileUrl_uploadPhoto251 = '';
 
-  bool isDataUploading12 = false;
-  FFUploadedFile uploadedLocalFile12 =
+  bool isDataUploading_uploadPhoto351 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto351 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl12 = '';
+  String uploadedFileUrl_uploadPhoto351 = '';
 
-  bool isDataUploading13 = false;
-  FFUploadedFile uploadedLocalFile13 =
+  bool isDataUploading_uploadPhoto451 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto451 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl13 = '';
+  String uploadedFileUrl_uploadPhoto451 = '';
 
-  bool isDataUploading14 = false;
-  FFUploadedFile uploadedLocalFile14 =
+  bool isDataUploading_uploadPhoto551 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto551 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl14 = '';
+  String uploadedFileUrl_uploadPhoto551 = '';
 
-  bool isDataUploading15 = false;
-  FFUploadedFile uploadedLocalFile15 =
+  bool isDataUploading_uploadPhoto651 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto651 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl15 = '';
+  String uploadedFileUrl_uploadPhoto651 = '';
 
-  bool isDataUploading16 = false;
-  FFUploadedFile uploadedLocalFile16 =
+  bool isDataUploading_uploadPhotoShow51 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhotoShow51 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl16 = '';
+  String uploadedFileUrl_uploadPhotoShow51 = '';
 
-  bool isDataUploading17 = false;
-  FFUploadedFile uploadedLocalFile17 =
+  bool isDataUploading_uploadPhoto851 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto851 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl17 = '';
+  String uploadedFileUrl_uploadPhoto851 = '';
 
   @override
   void initState(BuildContext context) {}

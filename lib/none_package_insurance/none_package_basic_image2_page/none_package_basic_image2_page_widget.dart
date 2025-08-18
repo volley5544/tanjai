@@ -61,8 +61,8 @@ class _NonePackageBasicImage2PageWidgetState
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           appBar: AppBar(
@@ -277,7 +277,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                           m.storagePath,
                                                           context))) {
                                                 safeSetState(() => _model
-                                                    .isDataUploading1 = true);
+                                                        .isDataUploading_blueBookUploadedAction1 =
+                                                    true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
 
@@ -317,7 +318,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                           .map((u) => u!)
                                                           .toList();
                                                 } finally {
-                                                  _model.isDataUploading1 =
+                                                  _model.isDataUploading_blueBookUploadedAction1 =
                                                       false;
                                                 }
                                                 if (selectedUploadedFiles
@@ -326,10 +327,10 @@ class _NonePackageBasicImage2PageWidgetState
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
                                                   safeSetState(() {
-                                                    _model.uploadedLocalFile1 =
+                                                    _model.uploadedLocalFile_blueBookUploadedAction1 =
                                                         selectedUploadedFiles
                                                             .first;
-                                                    _model.uploadedFileUrl1 =
+                                                    _model.uploadedFileUrl_blueBookUploadedAction1 =
                                                         downloadUrls.first;
                                                   });
                                                 } else {
@@ -338,9 +339,9 @@ class _NonePackageBasicImage2PageWidgetState
                                                 }
                                               }
 
-                                              if (!(_model.uploadedFileUrl1 !=
+                                              if (!(_model.uploadedFileUrl_blueBookUploadedAction1 !=
                                                       null &&
-                                                  _model.uploadedFileUrl1 !=
+                                                  _model.uploadedFileUrl_blueBookUploadedAction1 !=
                                                       '')) {
                                                 ScaffoldMessenger.of(context)
                                                     .showSnackBar(
@@ -361,7 +362,8 @@ class _NonePackageBasicImage2PageWidgetState
                                               }
                                               FFAppState()
                                                       .nonePackageImageBlueBookUploaded =
-                                                  _model.uploadedFileUrl1;
+                                                  _model
+                                                      .uploadedFileUrl_blueBookUploadedAction1;
                                               safeSetState(() {});
                                               ScaffoldMessenger.of(context)
                                                   .clearSnackBars();
@@ -438,8 +440,9 @@ class _NonePackageBasicImage2PageWidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 0.0, 0.0),
                                             child: Text(
-                                              _model.uploadedFileUrl1 != null &&
-                                                      _model.uploadedFileUrl1 !=
+                                              _model.uploadedFileUrl_blueBookUploadedAction1 !=
+                                                          null &&
+                                                      _model.uploadedFileUrl_blueBookUploadedAction1 !=
                                                           ''
                                                   ? 'สถานะ : อัพโหลดแล้ว'
                                                   : 'สถานะ : ยังไม่อัพโหลด',
@@ -474,15 +477,19 @@ class _NonePackageBasicImage2PageWidgetState
                                                       ),
                                             ),
                                           ),
-                                          if (_model.uploadedFileUrl1 != null &&
-                                              _model.uploadedFileUrl1 != '')
+                                          if (_model.uploadedFileUrl_blueBookUploadedAction1 !=
+                                                  null &&
+                                              _model.uploadedFileUrl_blueBookUploadedAction1 !=
+                                                  '')
                                             Icon(
                                               Icons.check,
                                               color: Color(0xFF2EDD78),
                                               size: 24.0,
                                             ),
-                                          if (_model.uploadedFileUrl1 == null ||
-                                              _model.uploadedFileUrl1 == '')
+                                          if (_model.uploadedFileUrl_blueBookUploadedAction1 ==
+                                                  null ||
+                                              _model.uploadedFileUrl_blueBookUploadedAction1 ==
+                                                  '')
                                             Icon(
                                               Icons.close,
                                               color: Color(0xFFFC0A0A),
@@ -607,7 +614,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                   m.storagePath,
                                                                   context))) {
                                                         safeSetState(() => _model
-                                                                .isDataUploading2 =
+                                                                .isDataUploading_normalIdCardUploadedAction1 =
                                                             true);
                                                         var selectedUploadedFiles =
                                                             <FFUploadedFile>[];
@@ -652,7 +659,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                       (u) => u!)
                                                                   .toList();
                                                         } finally {
-                                                          _model.isDataUploading2 =
+                                                          _model.isDataUploading_normalIdCardUploadedAction1 =
                                                               false;
                                                         }
                                                         if (selectedUploadedFiles
@@ -664,10 +671,10 @@ class _NonePackageBasicImage2PageWidgetState
                                                                 selectedMedia
                                                                     .length) {
                                                           safeSetState(() {
-                                                            _model.uploadedLocalFile2 =
+                                                            _model.uploadedLocalFile_normalIdCardUploadedAction1 =
                                                                 selectedUploadedFiles
                                                                     .first;
-                                                            _model.uploadedFileUrl2 =
+                                                            _model.uploadedFileUrl_normalIdCardUploadedAction1 =
                                                                 downloadUrls
                                                                     .first;
                                                           });
@@ -677,9 +684,9 @@ class _NonePackageBasicImage2PageWidgetState
                                                         }
                                                       }
 
-                                                      if (!(_model.uploadedFileUrl2 !=
+                                                      if (!(_model.uploadedFileUrl_normalIdCardUploadedAction1 !=
                                                               null &&
-                                                          _model.uploadedFileUrl2 !=
+                                                          _model.uploadedFileUrl_normalIdCardUploadedAction1 !=
                                                               '')) {
                                                         ScaffoldMessenger.of(
                                                                 context)
@@ -705,7 +712,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                       FFAppState()
                                                               .nonePackageIdCardImageUrl =
                                                           _model
-                                                              .uploadedFileUrl2;
+                                                              .uploadedFileUrl_normalIdCardUploadedAction1;
                                                       safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
@@ -789,9 +796,9 @@ class _NonePackageBasicImage2PageWidgetState
                                                             .fromSTEB(12.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      _model.uploadedFileUrl2 !=
+                                                      _model.uploadedFileUrl_normalIdCardUploadedAction1 !=
                                                                   null &&
-                                                              _model.uploadedFileUrl2 !=
+                                                              _model.uploadedFileUrl_normalIdCardUploadedAction1 !=
                                                                   ''
                                                           ? 'สถานะ : อัพโหลดแล้ว'
                                                           : 'สถานะ : ยังไม่อัพโหลด',
@@ -824,18 +831,18 @@ class _NonePackageBasicImage2PageWidgetState
                                                               ),
                                                     ),
                                                   ),
-                                                  if (_model.uploadedFileUrl2 !=
+                                                  if (_model.uploadedFileUrl_normalIdCardUploadedAction1 !=
                                                           null &&
-                                                      _model.uploadedFileUrl2 !=
+                                                      _model.uploadedFileUrl_normalIdCardUploadedAction1 !=
                                                           '')
                                                     Icon(
                                                       Icons.check,
                                                       color: Color(0xFF2EDD78),
                                                       size: 24.0,
                                                     ),
-                                                  if (_model.uploadedFileUrl2 ==
+                                                  if (_model.uploadedFileUrl_normalIdCardUploadedAction1 ==
                                                           null ||
-                                                      _model.uploadedFileUrl2 ==
+                                                      _model.uploadedFileUrl_normalIdCardUploadedAction1 ==
                                                           '')
                                                     Icon(
                                                       Icons.close,
@@ -958,7 +965,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                           m.storagePath,
                                                           context))) {
                                                 safeSetState(() => _model
-                                                    .isDataUploading3 = true);
+                                                        .isDataUploading_imageOther1UploadedAction1 =
+                                                    true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
 
@@ -998,7 +1006,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                           .map((u) => u!)
                                                           .toList();
                                                 } finally {
-                                                  _model.isDataUploading3 =
+                                                  _model.isDataUploading_imageOther1UploadedAction1 =
                                                       false;
                                                 }
                                                 if (selectedUploadedFiles
@@ -1007,10 +1015,10 @@ class _NonePackageBasicImage2PageWidgetState
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
                                                   safeSetState(() {
-                                                    _model.uploadedLocalFile3 =
+                                                    _model.uploadedLocalFile_imageOther1UploadedAction1 =
                                                         selectedUploadedFiles
                                                             .first;
-                                                    _model.uploadedFileUrl3 =
+                                                    _model.uploadedFileUrl_imageOther1UploadedAction1 =
                                                         downloadUrls.first;
                                                   });
                                                 } else {
@@ -1019,9 +1027,9 @@ class _NonePackageBasicImage2PageWidgetState
                                                 }
                                               }
 
-                                              if (!(_model.uploadedFileUrl3 !=
+                                              if (!(_model.uploadedFileUrl_imageOther1UploadedAction1 !=
                                                       null &&
-                                                  _model.uploadedFileUrl3 !=
+                                                  _model.uploadedFileUrl_imageOther1UploadedAction1 !=
                                                       '')) {
                                                 ScaffoldMessenger.of(context)
                                                     .showSnackBar(
@@ -1042,7 +1050,8 @@ class _NonePackageBasicImage2PageWidgetState
                                               }
                                               FFAppState()
                                                       .nonePackageImageOther1 =
-                                                  _model.uploadedFileUrl3;
+                                                  _model
+                                                      .uploadedFileUrl_imageOther1UploadedAction1;
                                               safeSetState(() {});
                                               ScaffoldMessenger.of(context)
                                                   .clearSnackBars();
@@ -1119,8 +1128,9 @@ class _NonePackageBasicImage2PageWidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 0.0, 0.0),
                                             child: Text(
-                                              _model.uploadedFileUrl3 != null &&
-                                                      _model.uploadedFileUrl3 !=
+                                              _model.uploadedFileUrl_imageOther1UploadedAction1 !=
+                                                          null &&
+                                                      _model.uploadedFileUrl_imageOther1UploadedAction1 !=
                                                           ''
                                                   ? 'สถานะ : อัพโหลดแล้ว'
                                                   : 'สถานะ : ยังไม่อัพโหลด',
@@ -1155,15 +1165,19 @@ class _NonePackageBasicImage2PageWidgetState
                                                       ),
                                             ),
                                           ),
-                                          if (_model.uploadedFileUrl3 != null &&
-                                              _model.uploadedFileUrl3 != '')
+                                          if (_model.uploadedFileUrl_imageOther1UploadedAction1 !=
+                                                  null &&
+                                              _model.uploadedFileUrl_imageOther1UploadedAction1 !=
+                                                  '')
                                             Icon(
                                               Icons.check,
                                               color: Color(0xFF2EDD78),
                                               size: 24.0,
                                             ),
-                                          if (_model.uploadedFileUrl3 == null ||
-                                              _model.uploadedFileUrl3 == '')
+                                          if (_model.uploadedFileUrl_imageOther1UploadedAction1 ==
+                                                  null ||
+                                              _model.uploadedFileUrl_imageOther1UploadedAction1 ==
+                                                  '')
                                             Icon(
                                               Icons.close,
                                               color: Color(0xFFFC0A0A),
@@ -1172,8 +1186,10 @@ class _NonePackageBasicImage2PageWidgetState
                                         ],
                                       ),
                                     ),
-                                    if (_model.uploadedFileUrl3 != null &&
-                                        _model.uploadedFileUrl3 != '')
+                                    if (_model.uploadedFileUrl_imageOther1UploadedAction1 !=
+                                            null &&
+                                        _model.uploadedFileUrl_imageOther1UploadedAction1 !=
+                                            '')
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 12.0, 12.0, 0.0),
@@ -1201,7 +1217,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                             m.storagePath,
                                                             context))) {
                                                   safeSetState(() => _model
-                                                      .isDataUploading4 = true);
+                                                          .isDataUploading_imageOther2UploadedAction1 =
+                                                      true);
                                                   var selectedUploadedFiles =
                                                       <FFUploadedFile>[];
 
@@ -1242,7 +1259,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                         .map((u) => u!)
                                                         .toList();
                                                   } finally {
-                                                    _model.isDataUploading4 =
+                                                    _model.isDataUploading_imageOther2UploadedAction1 =
                                                         false;
                                                   }
                                                   if (selectedUploadedFiles
@@ -1253,10 +1270,10 @@ class _NonePackageBasicImage2PageWidgetState
                                                           selectedMedia
                                                               .length) {
                                                     safeSetState(() {
-                                                      _model.uploadedLocalFile4 =
+                                                      _model.uploadedLocalFile_imageOther2UploadedAction1 =
                                                           selectedUploadedFiles
                                                               .first;
-                                                      _model.uploadedFileUrl4 =
+                                                      _model.uploadedFileUrl_imageOther2UploadedAction1 =
                                                           downloadUrls.first;
                                                     });
                                                   } else {
@@ -1265,9 +1282,9 @@ class _NonePackageBasicImage2PageWidgetState
                                                   }
                                                 }
 
-                                                if (!(_model.uploadedFileUrl4 !=
+                                                if (!(_model.uploadedFileUrl_imageOther2UploadedAction1 !=
                                                         null &&
-                                                    _model.uploadedFileUrl4 !=
+                                                    _model.uploadedFileUrl_imageOther2UploadedAction1 !=
                                                         '')) {
                                                   ScaffoldMessenger.of(context)
                                                       .showSnackBar(
@@ -1288,7 +1305,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                 }
                                                 FFAppState()
                                                         .nonePackageImageOther2 =
-                                                    _model.uploadedFileUrl4;
+                                                    _model
+                                                        .uploadedFileUrl_imageOther2UploadedAction1;
                                                 safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
@@ -1365,9 +1383,9 @@ class _NonePackageBasicImage2PageWidgetState
                                                   .fromSTEB(
                                                       12.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                _model.uploadedFileUrl4 !=
+                                                _model.uploadedFileUrl_imageOther2UploadedAction1 !=
                                                             null &&
-                                                        _model.uploadedFileUrl4 !=
+                                                        _model.uploadedFileUrl_imageOther2UploadedAction1 !=
                                                             ''
                                                     ? 'สถานะ : อัพโหลดแล้ว'
                                                     : 'สถานะ : ยังไม่อัพโหลด',
@@ -1402,17 +1420,19 @@ class _NonePackageBasicImage2PageWidgetState
                                                         ),
                                               ),
                                             ),
-                                            if (_model.uploadedFileUrl4 !=
+                                            if (_model.uploadedFileUrl_imageOther2UploadedAction1 !=
                                                     null &&
-                                                _model.uploadedFileUrl4 != '')
+                                                _model.uploadedFileUrl_imageOther2UploadedAction1 !=
+                                                    '')
                                               Icon(
                                                 Icons.check,
                                                 color: Color(0xFF2EDD78),
                                                 size: 24.0,
                                               ),
-                                            if (_model.uploadedFileUrl4 ==
+                                            if (_model.uploadedFileUrl_imageOther2UploadedAction1 ==
                                                     null ||
-                                                _model.uploadedFileUrl4 == '')
+                                                _model.uploadedFileUrl_imageOther2UploadedAction1 ==
+                                                    '')
                                               Icon(
                                                 Icons.close,
                                                 color: Color(0xFFFC0A0A),
@@ -1421,8 +1441,10 @@ class _NonePackageBasicImage2PageWidgetState
                                           ],
                                         ),
                                       ),
-                                    if (_model.uploadedFileUrl4 != null &&
-                                        _model.uploadedFileUrl4 != '')
+                                    if (_model.uploadedFileUrl_imageOther2UploadedAction1 !=
+                                            null &&
+                                        _model.uploadedFileUrl_imageOther2UploadedAction1 !=
+                                            '')
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 12.0, 12.0, 0.0),
@@ -1450,7 +1472,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                             m.storagePath,
                                                             context))) {
                                                   safeSetState(() => _model
-                                                      .isDataUploading5 = true);
+                                                          .isDataUploading_imageOther3UploadedAction1 =
+                                                      true);
                                                   var selectedUploadedFiles =
                                                       <FFUploadedFile>[];
 
@@ -1491,7 +1514,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                         .map((u) => u!)
                                                         .toList();
                                                   } finally {
-                                                    _model.isDataUploading5 =
+                                                    _model.isDataUploading_imageOther3UploadedAction1 =
                                                         false;
                                                   }
                                                   if (selectedUploadedFiles
@@ -1502,10 +1525,10 @@ class _NonePackageBasicImage2PageWidgetState
                                                           selectedMedia
                                                               .length) {
                                                     safeSetState(() {
-                                                      _model.uploadedLocalFile5 =
+                                                      _model.uploadedLocalFile_imageOther3UploadedAction1 =
                                                           selectedUploadedFiles
                                                               .first;
-                                                      _model.uploadedFileUrl5 =
+                                                      _model.uploadedFileUrl_imageOther3UploadedAction1 =
                                                           downloadUrls.first;
                                                     });
                                                   } else {
@@ -1514,9 +1537,9 @@ class _NonePackageBasicImage2PageWidgetState
                                                   }
                                                 }
 
-                                                if (!(_model.uploadedFileUrl5 !=
+                                                if (!(_model.uploadedFileUrl_imageOther3UploadedAction1 !=
                                                         null &&
-                                                    _model.uploadedFileUrl5 !=
+                                                    _model.uploadedFileUrl_imageOther3UploadedAction1 !=
                                                         '')) {
                                                   ScaffoldMessenger.of(context)
                                                       .showSnackBar(
@@ -1537,7 +1560,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                 }
                                                 FFAppState()
                                                         .nonePackageImageOther3 =
-                                                    _model.uploadedFileUrl5;
+                                                    _model
+                                                        .uploadedFileUrl_imageOther3UploadedAction1;
                                                 safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
@@ -1614,9 +1638,9 @@ class _NonePackageBasicImage2PageWidgetState
                                                   .fromSTEB(
                                                       12.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                _model.uploadedFileUrl5 !=
+                                                _model.uploadedFileUrl_imageOther3UploadedAction1 !=
                                                             null &&
-                                                        _model.uploadedFileUrl5 !=
+                                                        _model.uploadedFileUrl_imageOther3UploadedAction1 !=
                                                             ''
                                                     ? 'สถานะ : อัพโหลดแล้ว'
                                                     : 'สถานะ : ยังไม่อัพโหลด',
@@ -1651,17 +1675,19 @@ class _NonePackageBasicImage2PageWidgetState
                                                         ),
                                               ),
                                             ),
-                                            if (_model.uploadedFileUrl5 !=
+                                            if (_model.uploadedFileUrl_imageOther3UploadedAction1 !=
                                                     null &&
-                                                _model.uploadedFileUrl5 != '')
+                                                _model.uploadedFileUrl_imageOther3UploadedAction1 !=
+                                                    '')
                                               Icon(
                                                 Icons.check,
                                                 color: Color(0xFF2EDD78),
                                                 size: 24.0,
                                               ),
-                                            if (_model.uploadedFileUrl5 ==
+                                            if (_model.uploadedFileUrl_imageOther3UploadedAction1 ==
                                                     null ||
-                                                _model.uploadedFileUrl5 == '')
+                                                _model.uploadedFileUrl_imageOther3UploadedAction1 ==
+                                                    '')
                                               Icon(
                                                 Icons.close,
                                                 color: Color(0xFFFC0A0A),
@@ -1670,8 +1696,10 @@ class _NonePackageBasicImage2PageWidgetState
                                           ],
                                         ),
                                       ),
-                                    if (_model.uploadedFileUrl5 != null &&
-                                        _model.uploadedFileUrl5 != '')
+                                    if (_model.uploadedFileUrl_imageOther3UploadedAction1 !=
+                                            null &&
+                                        _model.uploadedFileUrl_imageOther3UploadedAction1 !=
+                                            '')
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 12.0, 12.0, 0.0),
@@ -1699,7 +1727,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                             m.storagePath,
                                                             context))) {
                                                   safeSetState(() => _model
-                                                      .isDataUploading6 = true);
+                                                          .isDataUploading_imageOther4UploadedAction1 =
+                                                      true);
                                                   var selectedUploadedFiles =
                                                       <FFUploadedFile>[];
 
@@ -1740,7 +1769,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                         .map((u) => u!)
                                                         .toList();
                                                   } finally {
-                                                    _model.isDataUploading6 =
+                                                    _model.isDataUploading_imageOther4UploadedAction1 =
                                                         false;
                                                   }
                                                   if (selectedUploadedFiles
@@ -1751,10 +1780,10 @@ class _NonePackageBasicImage2PageWidgetState
                                                           selectedMedia
                                                               .length) {
                                                     safeSetState(() {
-                                                      _model.uploadedLocalFile6 =
+                                                      _model.uploadedLocalFile_imageOther4UploadedAction1 =
                                                           selectedUploadedFiles
                                                               .first;
-                                                      _model.uploadedFileUrl6 =
+                                                      _model.uploadedFileUrl_imageOther4UploadedAction1 =
                                                           downloadUrls.first;
                                                     });
                                                   } else {
@@ -1763,9 +1792,9 @@ class _NonePackageBasicImage2PageWidgetState
                                                   }
                                                 }
 
-                                                if (!(_model.uploadedFileUrl6 !=
+                                                if (!(_model.uploadedFileUrl_imageOther4UploadedAction1 !=
                                                         null &&
-                                                    _model.uploadedFileUrl6 !=
+                                                    _model.uploadedFileUrl_imageOther4UploadedAction1 !=
                                                         '')) {
                                                   ScaffoldMessenger.of(context)
                                                       .showSnackBar(
@@ -1786,7 +1815,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                 }
                                                 FFAppState()
                                                         .nonePackageImageOther4 =
-                                                    _model.uploadedFileUrl6;
+                                                    _model
+                                                        .uploadedFileUrl_imageOther4UploadedAction1;
                                                 safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
@@ -1863,9 +1893,9 @@ class _NonePackageBasicImage2PageWidgetState
                                                   .fromSTEB(
                                                       12.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                _model.uploadedFileUrl6 !=
+                                                _model.uploadedFileUrl_imageOther4UploadedAction1 !=
                                                             null &&
-                                                        _model.uploadedFileUrl6 !=
+                                                        _model.uploadedFileUrl_imageOther4UploadedAction1 !=
                                                             ''
                                                     ? 'สถานะ : อัพโหลดแล้ว'
                                                     : 'สถานะ : ยังไม่อัพโหลด',
@@ -1900,17 +1930,19 @@ class _NonePackageBasicImage2PageWidgetState
                                                         ),
                                               ),
                                             ),
-                                            if (_model.uploadedFileUrl6 !=
+                                            if (_model.uploadedFileUrl_imageOther4UploadedAction1 !=
                                                     null &&
-                                                _model.uploadedFileUrl6 != '')
+                                                _model.uploadedFileUrl_imageOther4UploadedAction1 !=
+                                                    '')
                                               Icon(
                                                 Icons.check,
                                                 color: Color(0xFF2EDD78),
                                                 size: 24.0,
                                               ),
-                                            if (_model.uploadedFileUrl6 ==
+                                            if (_model.uploadedFileUrl_imageOther4UploadedAction1 ==
                                                     null ||
-                                                _model.uploadedFileUrl6 == '')
+                                                _model.uploadedFileUrl_imageOther4UploadedAction1 ==
+                                                    '')
                                               Icon(
                                                 Icons.close,
                                                 color: Color(0xFFFC0A0A),
@@ -1919,8 +1951,10 @@ class _NonePackageBasicImage2PageWidgetState
                                           ],
                                         ),
                                       ),
-                                    if (_model.uploadedFileUrl6 != null &&
-                                        _model.uploadedFileUrl6 != '')
+                                    if (_model.uploadedFileUrl_imageOther4UploadedAction1 !=
+                                            null &&
+                                        _model.uploadedFileUrl_imageOther4UploadedAction1 !=
+                                            '')
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 12.0, 12.0, 0.0),
@@ -1948,7 +1982,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                             m.storagePath,
                                                             context))) {
                                                   safeSetState(() => _model
-                                                      .isDataUploading7 = true);
+                                                          .isDataUploading_imageOther5UploadedAction1 =
+                                                      true);
                                                   var selectedUploadedFiles =
                                                       <FFUploadedFile>[];
 
@@ -1989,7 +2024,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                         .map((u) => u!)
                                                         .toList();
                                                   } finally {
-                                                    _model.isDataUploading7 =
+                                                    _model.isDataUploading_imageOther5UploadedAction1 =
                                                         false;
                                                   }
                                                   if (selectedUploadedFiles
@@ -2000,10 +2035,10 @@ class _NonePackageBasicImage2PageWidgetState
                                                           selectedMedia
                                                               .length) {
                                                     safeSetState(() {
-                                                      _model.uploadedLocalFile7 =
+                                                      _model.uploadedLocalFile_imageOther5UploadedAction1 =
                                                           selectedUploadedFiles
                                                               .first;
-                                                      _model.uploadedFileUrl7 =
+                                                      _model.uploadedFileUrl_imageOther5UploadedAction1 =
                                                           downloadUrls.first;
                                                     });
                                                   } else {
@@ -2012,9 +2047,9 @@ class _NonePackageBasicImage2PageWidgetState
                                                   }
                                                 }
 
-                                                if (!(_model.uploadedFileUrl7 !=
+                                                if (!(_model.uploadedFileUrl_imageOther5UploadedAction1 !=
                                                         null &&
-                                                    _model.uploadedFileUrl7 !=
+                                                    _model.uploadedFileUrl_imageOther5UploadedAction1 !=
                                                         '')) {
                                                   ScaffoldMessenger.of(context)
                                                       .showSnackBar(
@@ -2035,7 +2070,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                 }
                                                 FFAppState()
                                                         .nonePackageImageOther5 =
-                                                    _model.uploadedFileUrl7;
+                                                    _model
+                                                        .uploadedFileUrl_imageOther5UploadedAction1;
                                                 safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
@@ -2112,9 +2148,9 @@ class _NonePackageBasicImage2PageWidgetState
                                                   .fromSTEB(
                                                       12.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                _model.uploadedFileUrl7 !=
+                                                _model.uploadedFileUrl_imageOther5UploadedAction1 !=
                                                             null &&
-                                                        _model.uploadedFileUrl7 !=
+                                                        _model.uploadedFileUrl_imageOther5UploadedAction1 !=
                                                             ''
                                                     ? 'สถานะ : อัพโหลดแล้ว'
                                                     : 'สถานะ : ยังไม่อัพโหลด',
@@ -2149,17 +2185,19 @@ class _NonePackageBasicImage2PageWidgetState
                                                         ),
                                               ),
                                             ),
-                                            if (_model.uploadedFileUrl7 !=
+                                            if (_model.uploadedFileUrl_imageOther5UploadedAction1 !=
                                                     null &&
-                                                _model.uploadedFileUrl7 != '')
+                                                _model.uploadedFileUrl_imageOther5UploadedAction1 !=
+                                                    '')
                                               Icon(
                                                 Icons.check,
                                                 color: Color(0xFF2EDD78),
                                                 size: 24.0,
                                               ),
-                                            if (_model.uploadedFileUrl7 ==
+                                            if (_model.uploadedFileUrl_imageOther5UploadedAction1 ==
                                                     null ||
-                                                _model.uploadedFileUrl7 == '')
+                                                _model.uploadedFileUrl_imageOther5UploadedAction1 ==
+                                                    '')
                                               Icon(
                                                 Icons.close,
                                                 color: Color(0xFFFC0A0A),
@@ -2328,12 +2366,17 @@ class _NonePackageBasicImage2PageWidgetState
                                                                   _model.privacyConsent1Value =
                                                                       newValue!);
                                                             },
-                                                            side: BorderSide(
-                                                              width: 2,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryText,
-                                                            ),
+                                                            side: (FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText !=
+                                                                    null)
+                                                                ? BorderSide(
+                                                                    width: 2,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText!,
+                                                                  )
+                                                                : null,
                                                             activeColor:
                                                                 FlutterFlowTheme.of(
                                                                         context)
@@ -2383,12 +2426,17 @@ class _NonePackageBasicImage2PageWidgetState
                                                                     _model.privacyConsent2Value =
                                                                         newValue!);
                                                               },
-                                                              side: BorderSide(
-                                                                width: 2,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                              ),
+                                                              side: (FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText !=
+                                                                      null)
+                                                                  ? BorderSide(
+                                                                      width: 2,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText!,
+                                                                    )
+                                                                  : null,
                                                               activeColor:
                                                                   FlutterFlowTheme.of(
                                                                           context)
@@ -2439,12 +2487,17 @@ class _NonePackageBasicImage2PageWidgetState
                                                                     _model.privacyConsent3Value =
                                                                         newValue!);
                                                               },
-                                                              side: BorderSide(
-                                                                width: 2,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                              ),
+                                                              side: (FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText !=
+                                                                      null)
+                                                                  ? BorderSide(
+                                                                      width: 2,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText!,
+                                                                    )
+                                                                  : null,
                                                               activeColor:
                                                                   FlutterFlowTheme.of(
                                                                           context)
@@ -2570,12 +2623,17 @@ class _NonePackageBasicImage2PageWidgetState
                                                       });
                                                     }
                                                   },
-                                                  side: BorderSide(
-                                                    width: 2,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                  ),
+                                                  side: (FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText !=
+                                                          null)
+                                                      ? BorderSide(
+                                                          width: 2,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText!,
+                                                        )
+                                                      : null,
                                                   activeColor:
                                                       FlutterFlowTheme.of(
                                                               context)

@@ -408,7 +408,7 @@ class _FireInsuranceInfoPage42WidgetState
       FFAppState().insuranceInfoPage4NetPremiumTotal = '${getJsonField(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
         r'''$.results.data.app_detail[:].net_premium_total''',
-      ).toString().toString()}';
+      ).toString()}';
       FFAppState().insuranceinfoActType =
           '${IbsApplicationsDetailCall.subProduct(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -608,8 +608,8 @@ class _FireInsuranceInfoPage42WidgetState
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -4408,10 +4408,13 @@ class _FireInsuranceInfoPage42WidgetState
                                                             );
                                                             Navigator.pop(
                                                                 context);
-                                                            await Future.delayed(
-                                                                const Duration(
-                                                                    milliseconds:
-                                                                        10000));
+                                                            await Future
+                                                                .delayed(
+                                                              Duration(
+                                                                milliseconds:
+                                                                    10000,
+                                                              ),
+                                                            );
                                                             FFAppState()
                                                                     .isProcessing =
                                                                 false;
@@ -5049,10 +5052,13 @@ class _FireInsuranceInfoPage42WidgetState
 
                                                             Navigator.pop(
                                                                 context);
-                                                            await Future.delayed(
-                                                                const Duration(
-                                                                    milliseconds:
-                                                                        10000));
+                                                            await Future
+                                                                .delayed(
+                                                              Duration(
+                                                                milliseconds:
+                                                                    10000,
+                                                              ),
+                                                            );
                                                             FFAppState()
                                                                     .isProcessing =
                                                                 false;

@@ -14313,6 +14313,13 @@ class FFAppState extends ChangeNotifier {
   set webViewUrlAppState(String value) {
     _webViewUrlAppState = value;
   }
+
+  DocumentReference? _profileImagesUrlDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/SHMpkLIsHEHrCQC183m9');
+  DocumentReference? get profileImagesUrlDocRef => _profileImagesUrlDocRef;
+  set profileImagesUrlDocRef(DocumentReference? value) {
+    _profileImagesUrlDocRef = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

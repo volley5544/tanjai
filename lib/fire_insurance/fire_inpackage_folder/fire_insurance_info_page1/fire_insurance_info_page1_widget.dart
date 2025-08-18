@@ -1572,10 +1572,14 @@ class _FireInsuranceInfoPage1WidgetState
     _model.idCardTextFieldTextController1 ??= TextEditingController();
     _model.idCardTextFieldFocusNode1 ??= FocusNode();
 
+    _model.idCardTextFieldMask1 =
+        MaskTextInputFormatter(mask: '#-####-#####-##-#');
     _model.taxIDCardTextFieldTextController ??=
         TextEditingController(text: FFAppState().insuranceInfoIdCard);
     _model.taxIDCardTextFieldFocusNode ??= FocusNode();
 
+    _model.taxIDCardTextFieldMask =
+        MaskTextInputFormatter(mask: '#-####-#####-##-#');
     _model.idCardTextFieldTextController2 ??= TextEditingController();
     _model.idCardTextFieldFocusNode2 ??= FocusNode();
 
@@ -1602,10 +1606,13 @@ class _FireInsuranceInfoPage1WidgetState
         TextEditingController(text: FFAppState().insuranceInfoPhonenumber);
     _model.cusPhoneTextFieldFocusNode ??= FocusNode();
 
+    _model.cusPhoneTextFieldMask = MaskTextInputFormatter(mask: '###-###-####');
     _model.cusPhoneOtherTextFieldTextController ??=
         TextEditingController(text: FFAppState().insuranceInfoOtherPhone);
     _model.cusPhoneOtherTextFieldFocusNode ??= FocusNode();
 
+    _model.cusPhoneOtherTextFieldMask =
+        MaskTextInputFormatter(mask: '###-###-####');
     _model.emailTextFieldTextController ??=
         TextEditingController(text: FFAppState().insuranceInfoEmail);
     _model.emailTextFieldFocusNode ??= FocusNode();
@@ -1637,8 +1644,8 @@ class _FireInsuranceInfoPage1WidgetState
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -1656,7 +1663,11 @@ class _FireInsuranceInfoPage1WidgetState
                 size: 30.0,
               ),
               onPressed: () async {
-                await Future.delayed(const Duration(milliseconds: 500));
+                await Future.delayed(
+                  Duration(
+                    milliseconds: 500,
+                  ),
+                );
 
                 context.goNamed(LeadFollowUpPageWidget.routeName);
               },

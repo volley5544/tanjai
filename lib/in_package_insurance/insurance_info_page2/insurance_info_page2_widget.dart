@@ -3,6 +3,7 @@ import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/components/infomation_customer_act_widget.dart';
 import '/components/infomation_customer_widget.dart';
+import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -45,6 +46,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
   late InsuranceInfoPage2Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  bool brandNameTextFieldFocusListenerRegistered = false;
 
   @override
   void initState() {
@@ -218,9 +220,143 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
           );
           return;
         }
+
+        _model.getBrandAPI = await TeleGetBrandAPICall.call(
+          apiUrl: FFAppState().apiUrlInsuranceAppState,
+        );
+
+        if ((_model.getBrandAPI?.statusCode ?? 200) == 200) {
+          FFAppState().insuranceBasicBrandNameList =
+              TeleGetBrandAPICall.brandName(
+            (_model.getBrandAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicBrandIdList = TeleGetBrandAPICall.brandID(
+            (_model.getBrandAPI?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().insuranceBasicBrandNameListOriginal =
+              TeleGetBrandAPICall.brandName(
+            (_model.getBrandAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicBrandIdListOriginal =
+              TeleGetBrandAPICall.brandID(
+            (_model.getBrandAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicVehicleGroupBrandList =
+              TeleGetBrandAPICall.carGroup(
+            (_model.getBrandAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          safeSetState(() {});
+        } else {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(
+                      'พบข้อผิดพลาดConnection (${(_model.getBrandAPI?.statusCode ?? 200).toString()})'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          return;
+        }
+
+        _model.getModelAPI = await TeleGetModelAPICall.call(
+          apiUrl: FFAppState().apiUrlInsuranceAppState,
+        );
+
+        if ((_model.getModelAPI?.statusCode ?? 200) == 200) {
+          FFAppState().insuranceBasicModelIdListOriginal =
+              TeleGetModelAPICall.modelCode(
+            (_model.getModelAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicModelNameListOriginal =
+              TeleGetModelAPICall.modelName(
+            (_model.getModelAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicModelBrandIdListOriginal =
+              TeleGetModelAPICall.brandID(
+            (_model.getModelAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicVehicleGroupList =
+              TeleGetModelAPICall.modelVehicleGroup(
+            (_model.getModelAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicCarGroupDetail =
+              TeleGetModelAPICall.carGroupDetail(
+            (_model.getModelAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicCarDoorList = TeleGetModelAPICall.carDoors(
+            (_model.getModelAPI?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().update(() {});
+        } else {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(
+                      'พบข้อผิดพลาดConnection (${(_model.getModelAPI?.statusCode ?? 200).toString()})'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          return;
+        }
       }
       Navigator.pop(context);
     });
+
+    _model.brandNameTextFieldTextController ??= TextEditingController(
+        text: functions.containWordinStringUrl(
+                    'กรุณา', FFAppState().insuranceInfoBrandName)! ||
+                functions.containWordinStringUrl(
+                    'เลือก', FFAppState().insuranceInfoBrandName)!
+            ? ''
+            : FFAppState().insuranceInfoBrandName);
+
+    _model.modelNameTextController ??= TextEditingController(
+        text: functions.containWordinStringUrl(
+                    'กรุณา', FFAppState().insuranceInfoModelName)! ||
+                functions.containWordinStringUrl(
+                    'เลือก', FFAppState().insuranceInfoModelName)!
+            ? ''
+            : FFAppState().insuranceInfoModelName);
 
     _model.oldVmiTextFieldTextController ??=
         TextEditingController(text: FFAppState().nonePackageOldVmi);
@@ -246,6 +382,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
         TextEditingController(text: FFAppState().insuranceInfoCarSeat);
     _model.seatAmountTextFieldFocusNode ??= FocusNode();
 
+    _model.seatAmountTextFieldMask = MaskTextInputFormatter(mask: '##');
     _model.sizeTextFieldTextController ??= TextEditingController(
         text: FFAppState().insuranceInfoEvFlag == 'Y'
             ? ((FFAppState().insuranceInfoHorsePower != null &&
@@ -272,6 +409,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
             : FFAppState().insuranceInfoWeightCar);
     _model.weightTextFieldFocusNode ??= FocusNode();
 
+    _model.weightTextFieldMask = MaskTextInputFormatter(mask: '#####');
     _model.batteryNumberTextFieldTextController ??= TextEditingController(
         text: (FFAppState().insuranceInfoBatteryNumber1 != null &&
                     FFAppState().insuranceInfoBatteryNumber1 != '') &&
@@ -318,8 +456,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -337,7 +475,11 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                 size: 30.0,
               ),
               onPressed: () async {
-                await Future.delayed(const Duration(milliseconds: 500));
+                await Future.delayed(
+                  Duration(
+                    milliseconds: 500,
+                  ),
+                );
                 context.safePop();
               },
             ),
@@ -2468,6 +2610,178 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                         ),
                                       ),
                                     ),
+                                  if (false)
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 5.0, 0.0, 0.0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        decoration: BoxDecoration(),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    'ยี่ห้อรถ ',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .notoSansThai(
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      '(บังคับเลือก)',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .notoSansThai(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: Color(
+                                                                    0xFFFB0606),
+                                                                fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {},
+                                                child: Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          1.0,
+                                                  height: 60.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFFB3B3B3),
+                                                    ),
+                                                  ),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          FFAppState()
+                                                              .insuranceInfoBrandName,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .notoSansThai(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .black600,
+                                                                fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 5.0, 0.0, 0.0),
@@ -2481,12 +2795,12 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 12.0, 0.0),
+                                                    12.0, 0.0, 0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Text(
-                                                  'ยี่ห้อรถ ',
+                                                  'ยี่ห้อรถ',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -2559,13 +2873,490 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 5.0, 0.0, 0.0),
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {},
+                                            child: Container(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  1.0,
+                                              height: 60.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                border: Border.all(
+                                                  color: Color(0xFFB3B3B3),
+                                                ),
+                                              ),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Expanded(
+                                                    child: Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    0.0,
+                                                                    10.0,
+                                                                    0.0),
+                                                        child: Autocomplete<
+                                                            String>(
+                                                          initialValue: TextEditingValue(
+                                                              text: functions.containWordinStringUrl(
+                                                                          'กรุณา',
+                                                                          FFAppState()
+                                                                              .insuranceInfoBrandName)! ||
+                                                                      functions.containWordinStringUrl(
+                                                                          'เลือก',
+                                                                          FFAppState()
+                                                                              .insuranceInfoBrandName)!
+                                                                  ? ''
+                                                                  : FFAppState()
+                                                                      .insuranceInfoBrandName),
+                                                          optionsBuilder:
+                                                              (textEditingValue) {
+                                                            if (textEditingValue
+                                                                    .text ==
+                                                                '') {
+                                                              return const Iterable<
+                                                                  String>.empty();
+                                                            }
+                                                            return FFAppState()
+                                                                .insuranceBasicBrandNameList
+                                                                .where(
+                                                                    (option) {
+                                                              final lowercaseOption =
+                                                                  option
+                                                                      .toLowerCase();
+                                                              return lowercaseOption
+                                                                  .contains(
+                                                                      textEditingValue
+                                                                          .text
+                                                                          .toLowerCase());
+                                                            });
+                                                          },
+                                                          optionsViewBuilder:
+                                                              (context,
+                                                                  onSelected,
+                                                                  options) {
+                                                            return AutocompleteOptionsList(
+                                                              textFieldKey: _model
+                                                                  .brandNameTextFieldKey,
+                                                              textController: _model
+                                                                  .brandNameTextFieldTextController!,
+                                                              options: options
+                                                                  .toList(),
+                                                              onSelected:
+                                                                  onSelected,
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .notoSansThai(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                              textHighlightStyle:
+                                                                  TextStyle(),
+                                                              elevation: 4.0,
+                                                              optionBackgroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
+                                                              optionHighlightColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                              maxHeight: 200.0,
+                                                            );
+                                                          },
+                                                          onSelected: (String
+                                                              selection) {
+                                                            safeSetState(() =>
+                                                                _model.brandNameTextFieldSelectedOption =
+                                                                    selection);
+                                                            FocusScope.of(
+                                                                    context)
+                                                                .unfocus();
+                                                          },
+                                                          fieldViewBuilder: (
+                                                            context,
+                                                            textEditingController,
+                                                            focusNode,
+                                                            onEditingComplete,
+                                                          ) {
+                                                            _model.brandNameTextFieldFocusNode =
+                                                                focusNode;
+                                                            if (!brandNameTextFieldFocusListenerRegistered) {
+                                                              brandNameTextFieldFocusListenerRegistered =
+                                                                  true;
+                                                              _model
+                                                                  .brandNameTextFieldFocusNode!
+                                                                  .addListener(
+                                                                () async {
+                                                                  if (FFAppState()
+                                                                          .insuranceInfoVehicleType ==
+                                                                      'รถกระบะ') {
+                                                                    FFAppState().nonePackageSearchModelList = functions
+                                                                        .returnMappedListFrom3List(
+                                                                            FFAppState()
+                                                                                .insuranceBasicModelNameListOriginal
+                                                                                .toList(),
+                                                                            FFAppState()
+                                                                                .insuranceBasicModelBrandIdListOriginal
+                                                                                .toList(),
+                                                                            functions.getValueWithMappedList(
+                                                                                FFAppState().insuranceBasicBrandIdList.toList(),
+                                                                                FFAppState().insuranceBasicBrandNameList.toList(),
+                                                                                functions.toUpperCase(_model.brandNameTextFieldTextController.text)),
+                                                                            FFAppState().insuranceBasicVehicleGroupList.toList(),
+                                                                            FFAppState().insuranceBasicVehicleGroup,
+                                                                            FFAppState().insuranceBasicCarGroupDetail.toList(),
+                                                                            FFAppState().insuranceBasicCarTypeContain,
+                                                                            FFAppState().insuranceBasicCarDoorList.toList(),
+                                                                            FFAppState().insuranceBasicCarTypeDoors)
+                                                                        .toList()
+                                                                        .cast<String>();
+                                                                    FFAppState().nonePackageSearchModelIdList = functions
+                                                                        .returnMappedListFrom3List(
+                                                                            FFAppState()
+                                                                                .insuranceBasicModelIdListOriginal
+                                                                                .toList(),
+                                                                            FFAppState()
+                                                                                .insuranceBasicModelBrandIdListOriginal
+                                                                                .toList(),
+                                                                            functions.getValueWithMappedList(
+                                                                                FFAppState().insuranceBasicBrandIdList.toList(),
+                                                                                FFAppState().insuranceBasicBrandNameList.toList(),
+                                                                                functions.toUpperCase(_model.brandNameTextFieldTextController.text)),
+                                                                            FFAppState().insuranceBasicVehicleGroupList.toList(),
+                                                                            FFAppState().insuranceBasicVehicleGroup,
+                                                                            FFAppState().insuranceBasicCarGroupDetail.toList(),
+                                                                            FFAppState().insuranceBasicCarTypeContain,
+                                                                            FFAppState().insuranceBasicCarDoorList.toList(),
+                                                                            FFAppState().insuranceBasicCarTypeDoors)
+                                                                        .toList()
+                                                                        .cast<String>();
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  } else {
+                                                                    FFAppState().nonePackageSearchModelList = functions
+                                                                        .returnMappedListFrom3ListOther(
+                                                                            FFAppState()
+                                                                                .insuranceBasicModelNameListOriginal
+                                                                                .toList(),
+                                                                            FFAppState()
+                                                                                .insuranceBasicModelBrandIdListOriginal
+                                                                                .toList(),
+                                                                            functions.getValueWithMappedList(
+                                                                                FFAppState().insuranceBasicBrandIdList.toList(),
+                                                                                FFAppState().insuranceBasicBrandNameList.toList(),
+                                                                                functions.toUpperCase(_model.brandNameTextFieldTextController.text)),
+                                                                            FFAppState().insuranceBasicVehicleGroupList.toList(),
+                                                                            FFAppState().insuranceBasicVehicleGroup)
+                                                                        .toList()
+                                                                        .cast<String>();
+                                                                    FFAppState().nonePackageSearchModelIdList = functions
+                                                                        .returnMappedListFrom3ListOther(
+                                                                            FFAppState()
+                                                                                .insuranceBasicModelIdListOriginal
+                                                                                .toList(),
+                                                                            FFAppState()
+                                                                                .insuranceBasicModelBrandIdListOriginal
+                                                                                .toList(),
+                                                                            functions.getValueWithMappedList(
+                                                                                FFAppState().insuranceBasicBrandIdList.toList(),
+                                                                                FFAppState().insuranceBasicBrandNameList.toList(),
+                                                                                functions.toUpperCase(_model.brandNameTextFieldTextController.text)),
+                                                                            FFAppState().insuranceBasicVehicleGroupList.toList(),
+                                                                            FFAppState().insuranceBasicVehicleGroup)
+                                                                        .toList()
+                                                                        .cast<String>();
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  }
+
+                                                                  FFAppState()
+                                                                      .insuranceInfoBrandName = _model.brandNameTextFieldTextController.text !=
+                                                                              null &&
+                                                                          _model.brandNameTextFieldTextController.text !=
+                                                                              ''
+                                                                      ? _model
+                                                                          .brandNameTextFieldTextController
+                                                                          .text
+                                                                      : _model
+                                                                          .brandNameTextFieldSelectedOption!;
+                                                                  safeSetState(
+                                                                      () {});
+                                                                },
+                                                              );
+                                                            }
+                                                            _model.brandNameTextFieldTextController =
+                                                                textEditingController;
+                                                            return TextFormField(
+                                                              key: _model
+                                                                  .brandNameTextFieldKey,
+                                                              controller:
+                                                                  textEditingController,
+                                                              focusNode:
+                                                                  focusNode,
+                                                              onEditingComplete:
+                                                                  onEditingComplete,
+                                                              onChanged: (_) =>
+                                                                  EasyDebounce
+                                                                      .debounce(
+                                                                '_model.brandNameTextFieldTextController',
+                                                                Duration(
+                                                                    milliseconds:
+                                                                        1000),
+                                                                () async {},
+                                                              ),
+                                                              onFieldSubmitted:
+                                                                  (_) async {
+                                                                await actions
+                                                                    .hideKeyboardAction(
+                                                                  context,
+                                                                );
+                                                              },
+                                                              autofocus: false,
+                                                              readOnly: FFAppState()
+                                                                      .flagRenew !=
+                                                                  '1',
+                                                              obscureText:
+                                                                  false,
+                                                              decoration:
+                                                                  InputDecoration(
+                                                                labelStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      font: GoogleFonts
+                                                                          .notoSansThai(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .labelMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .labelMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                      fontSize:
+                                                                          15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                                hintText:
+                                                                    'กรุณากรอกรุ่นรถ',
+                                                                hintStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      font: GoogleFonts
+                                                                          .notoSansThai(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .labelMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .labelMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                      color: Color(
+                                                                          0xFFB3B3B3),
+                                                                      fontSize:
+                                                                          15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                                enabledBorder:
+                                                                    InputBorder
+                                                                        .none,
+                                                                focusedBorder:
+                                                                    InputBorder
+                                                                        .none,
+                                                                errorBorder:
+                                                                    InputBorder
+                                                                        .none,
+                                                                focusedErrorBorder:
+                                                                    InputBorder
+                                                                        .none,
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    font: GoogleFonts
+                                                                        .notoSansThai(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                                    color: Colors
+                                                                        .black,
+                                                                    fontSize:
+                                                                        15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                              validator: _model
+                                                                  .brandNameTextFieldTextControllerValidator
+                                                                  .asValidator(
+                                                                      context),
+                                                            );
+                                                          },
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  if (false)
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 5.0, 0.0, 0.0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        decoration: BoxDecoration(),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    'รุ่นรถ',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .notoSansThai(
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      '(บังคับกรอก)',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .notoSansThai(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: Color(
+                                                                    0xFFFB0606),
+                                                                fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
@@ -2600,7 +3391,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                                   0.0),
                                                       child: Text(
                                                         FFAppState()
-                                                            .insuranceInfoBrandName,
+                                                            .insuranceInfoModelName,
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -2637,11 +3428,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 5.0, 0.0, 0.0),
@@ -2655,7 +3445,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 12.0, 0.0),
+                                                    12.0, 0.0, 0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -2748,52 +3538,264 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                   color: Color(0xFFB3B3B3),
                                                 ),
                                               ),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      FFAppState()
-                                                          .insuranceInfoModelName,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .notoSansThai(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
+                                              child: Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 10.0, 0.0),
+                                                  child: Autocomplete<String>(
+                                                    initialValue: TextEditingValue(
+                                                        text: functions.containWordinStringUrl(
+                                                                    'กรุณา',
+                                                                    FFAppState()
+                                                                        .insuranceInfoModelName)! ||
+                                                                functions.containWordinStringUrl(
+                                                                    'เลือก',
+                                                                    FFAppState()
+                                                                        .insuranceInfoModelName)!
+                                                            ? ''
+                                                            : FFAppState()
+                                                                .insuranceInfoModelName),
+                                                    optionsBuilder:
+                                                        (textEditingValue) {
+                                                      if (textEditingValue
+                                                              .text ==
+                                                          '') {
+                                                        return const Iterable<
+                                                            String>.empty();
+                                                      }
+                                                      return FFAppState()
+                                                          .nonePackageSearchModelList
+                                                          .where((option) {
+                                                        final lowercaseOption =
+                                                            option
+                                                                .toLowerCase();
+                                                        return lowercaseOption
+                                                            .contains(
+                                                                textEditingValue
+                                                                    .text
+                                                                    .toLowerCase());
+                                                      });
+                                                    },
+                                                    optionsViewBuilder:
+                                                        (context, onSelected,
+                                                            options) {
+                                                      return AutocompleteOptionsList(
+                                                        textFieldKey:
+                                                            _model.modelNameKey,
+                                                        textController: _model
+                                                            .modelNameTextController!,
+                                                        options:
+                                                            options.toList(),
+                                                        onSelected: onSelected,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .notoSansThai(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
                                                                   fontStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .fontStyle,
                                                                 ),
-                                                                color: FlutterFlowTheme.of(
+                                                        textHighlightStyle:
+                                                            TextStyle(),
+                                                        elevation: 4.0,
+                                                        optionBackgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryBackground,
+                                                        optionHighlightColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryBackground,
+                                                        maxHeight: 200.0,
+                                                      );
+                                                    },
+                                                    onSelected:
+                                                        (String selection) {
+                                                      safeSetState(() => _model
+                                                              .modelNameSelectedOption =
+                                                          selection);
+                                                      FocusScope.of(context)
+                                                          .unfocus();
+                                                    },
+                                                    fieldViewBuilder: (
+                                                      context,
+                                                      textEditingController,
+                                                      focusNode,
+                                                      onEditingComplete,
+                                                    ) {
+                                                      _model.modelNameFocusNode =
+                                                          focusNode;
+
+                                                      _model.modelNameTextController =
+                                                          textEditingController;
+                                                      return TextFormField(
+                                                        key:
+                                                            _model.modelNameKey,
+                                                        controller:
+                                                            textEditingController,
+                                                        focusNode: focusNode,
+                                                        onEditingComplete:
+                                                            onEditingComplete,
+                                                        onFieldSubmitted:
+                                                            (_) async {
+                                                          await actions
+                                                              .hideKeyboardAction(
+                                                            context,
+                                                          );
+                                                          FFAppState()
+                                                              .insuranceInfoModelName = _model
+                                                                          .modelNameTextController
+                                                                          .text !=
+                                                                      null &&
+                                                                  _model.modelNameTextController
+                                                                          .text !=
+                                                                      ''
+                                                              ? _model
+                                                                  .modelNameTextController
+                                                                  .text
+                                                              : _model
+                                                                  .modelNameSelectedOption!;
+                                                          safeSetState(() {});
+                                                        },
+                                                        autofocus: false,
+                                                        readOnly: FFAppState()
+                                                                .flagRenew !=
+                                                            '1',
+                                                        obscureText: false,
+                                                        decoration:
+                                                            InputDecoration(
+                                                          labelStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    font: GoogleFonts
+                                                                        .notoSansThai(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                                    fontSize:
+                                                                        15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                          hintText:
+                                                              'กรุณากรอกรุ่นรถ',
+                                                          hintStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    font: GoogleFonts
+                                                                        .notoSansThai(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                                    color: Color(
+                                                                        0xFFB3B3B3),
+                                                                    fontSize:
+                                                                        15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                          enabledBorder:
+                                                              InputBorder.none,
+                                                          focusedBorder:
+                                                              InputBorder.none,
+                                                          errorBorder:
+                                                              InputBorder.none,
+                                                          focusedErrorBorder:
+                                                              InputBorder.none,
+                                                        ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              font: GoogleFonts
+                                                                  .notoSansThai(
+                                                                fontWeight: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .black600,
-                                                                fontSize: 15.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
+                                                                    .bodyMedium
+                                                                    .fontWeight,
                                                                 fontStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
                                                                     .fontStyle,
                                                               ),
-                                                    ),
+                                                              color:
+                                                                  Colors.black,
+                                                              fontSize: 15.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                            ),
+                                                        validator: _model
+                                                            .modelNameTextControllerValidator
+                                                            .asValidator(
+                                                                context),
+                                                      );
+                                                    },
                                                   ),
-                                                ],
+                                                ),
                                               ),
                                             ),
                                           ),

@@ -80,7 +80,7 @@ class NonePackageBasicPageModel
   // State field(s) for CusPhoneTextField widget.
   FocusNode? cusPhoneTextFieldFocusNode;
   TextEditingController? cusPhoneTextFieldTextController;
-  final cusPhoneTextFieldMask = MaskTextInputFormatter(mask: '###-###-####');
+  late MaskTextInputFormatter cusPhoneTextFieldMask;
   String? Function(BuildContext, String?)?
       cusPhoneTextFieldTextControllerValidator;
   // State field(s) for PlateTextField widget.
@@ -91,7 +91,7 @@ class NonePackageBasicPageModel
   // State field(s) for PlateAdditionalTextField widget.
   FocusNode? plateAdditionalTextFieldFocusNode;
   TextEditingController? plateAdditionalTextFieldTextController;
-  final plateAdditionalTextFieldMask = MaskTextInputFormatter(mask: '######');
+  late MaskTextInputFormatter plateAdditionalTextFieldMask;
   String? Function(BuildContext, String?)?
       plateAdditionalTextFieldTextControllerValidator;
   // State field(s) for SumInsuredTextField widget.
@@ -109,20 +109,20 @@ class NonePackageBasicPageModel
   TextEditingController? remarkTextFieldTextController;
   String? Function(BuildContext, String?)?
       remarkTextFieldTextControllerValidator;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_oldVmiUploadedAction = false;
+  FFUploadedFile uploadedLocalFile_oldVmiUploadedAction =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl1 = '';
+  String uploadedFileUrl_oldVmiUploadedAction = '';
 
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_idCardUploadedAction = false;
+  FFUploadedFile uploadedLocalFile_idCardUploadedAction =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
+  String uploadedFileUrl_idCardUploadedAction = '';
 
-  bool isDataUploading3 = false;
-  FFUploadedFile uploadedLocalFile3 =
+  bool isDataUploading_companyBookUploadedAction = false;
+  FFUploadedFile uploadedLocalFile_companyBookUploadedAction =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl3 = '';
+  String uploadedFileUrl_companyBookUploadedAction = '';
 
   @override
   void initState(BuildContext context) {}

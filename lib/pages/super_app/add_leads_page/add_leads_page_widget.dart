@@ -53,6 +53,7 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
     _model.phoneNumberTextController ??= TextEditingController();
     _model.phoneNumberFocusNode ??= FocusNode();
 
+    _model.phoneNumberMask = MaskTextInputFormatter(mask: '###-###-####');
     _model.remarkTextController ??= TextEditingController();
     _model.remarkFocusNode ??= FocusNode();
 
@@ -108,8 +109,8 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
             FocusScope.of(context).unfocus();
             FocusManager.instance.primaryFocus?.unfocus();
           },
-          child: WillPopScope(
-            onWillPop: () async => false,
+          child: PopScope(
+            canPop: false,
             child: Scaffold(
               key: scaffoldKey,
               backgroundColor: Colors.white,

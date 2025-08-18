@@ -50,8 +50,7 @@ class FireInsuranceInfoPage1Model
   // State field(s) for IdCardTextField widget.
   FocusNode? idCardTextFieldFocusNode1;
   TextEditingController? idCardTextFieldTextController1;
-  final idCardTextFieldMask1 =
-      MaskTextInputFormatter(mask: '#-####-#####-##-#');
+  late MaskTextInputFormatter idCardTextFieldMask1;
   String? Function(BuildContext, String?)?
       idCardTextFieldTextController1Validator;
   // Stores action output result for [Backend Call - API (checkBlackList)] action in Container widget.
@@ -59,8 +58,7 @@ class FireInsuranceInfoPage1Model
   // State field(s) for TaxIDCardTextField widget.
   FocusNode? taxIDCardTextFieldFocusNode;
   TextEditingController? taxIDCardTextFieldTextController;
-  final taxIDCardTextFieldMask =
-      MaskTextInputFormatter(mask: '#-####-#####-##-#');
+  late MaskTextInputFormatter taxIDCardTextFieldMask;
   String? Function(BuildContext, String?)?
       taxIDCardTextFieldTextControllerValidator;
   // Stores action output result for [Backend Call - API (checkBlackList)] action in Container widget.
@@ -95,14 +93,13 @@ class FireInsuranceInfoPage1Model
   // State field(s) for CusPhoneTextField widget.
   FocusNode? cusPhoneTextFieldFocusNode;
   TextEditingController? cusPhoneTextFieldTextController;
-  final cusPhoneTextFieldMask = MaskTextInputFormatter(mask: '###-###-####');
+  late MaskTextInputFormatter cusPhoneTextFieldMask;
   String? Function(BuildContext, String?)?
       cusPhoneTextFieldTextControllerValidator;
   // State field(s) for CusPhoneOtherTextField widget.
   FocusNode? cusPhoneOtherTextFieldFocusNode;
   TextEditingController? cusPhoneOtherTextFieldTextController;
-  final cusPhoneOtherTextFieldMask =
-      MaskTextInputFormatter(mask: '###-###-####');
+  late MaskTextInputFormatter cusPhoneOtherTextFieldMask;
   String? Function(BuildContext, String?)?
       cusPhoneOtherTextFieldTextControllerValidator;
   // State field(s) for EmailTextField widget.

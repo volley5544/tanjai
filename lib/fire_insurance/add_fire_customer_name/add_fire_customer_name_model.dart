@@ -31,7 +31,7 @@ class AddFireCustomerNameModel
   // State field(s) for phonenumber widget.
   FocusNode? phonenumberFocusNode;
   TextEditingController? phonenumberTextController;
-  final phonenumberMask = MaskTextInputFormatter(mask: '###-###-####');
+  late MaskTextInputFormatter phonenumberMask;
   String? Function(BuildContext, String?)? phonenumberTextControllerValidator;
   // Stores action output result for [Backend Call - API (saveQuotation)] action in Button widget.
   ApiCallResponse? saveQuotationApiOutput;

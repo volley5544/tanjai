@@ -627,6 +627,7 @@ class _NonePackageBasicPageWidgetState
         TextEditingController(text: widget!.cusPhone);
     _model.cusPhoneTextFieldFocusNode ??= FocusNode();
 
+    _model.cusPhoneTextFieldMask = MaskTextInputFormatter(mask: '###-###-####');
     _model.plateTextFieldTextController ??=
         TextEditingController(text: widget!.plate);
     _model.plateTextFieldFocusNode ??= FocusNode();
@@ -635,6 +636,8 @@ class _NonePackageBasicPageWidgetState
         TextEditingController(text: widget!.plateAdditional);
     _model.plateAdditionalTextFieldFocusNode ??= FocusNode();
 
+    _model.plateAdditionalTextFieldMask =
+        MaskTextInputFormatter(mask: '######');
     _model.sumInsuredTextFieldTextController ??=
         TextEditingController(text: widget!.sumInsured);
     _model.sumInsuredTextFieldFocusNode ??= FocusNode();
@@ -710,8 +713,8 @@ class _NonePackageBasicPageWidgetState
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -6376,7 +6379,7 @@ class _NonePackageBasicPageWidgetState
                                                                     m.storagePath,
                                                                     context))) {
                                                           safeSetState(() =>
-                                                              _model.isDataUploading1 =
+                                                              _model.isDataUploading_oldVmiUploadedAction =
                                                                   true);
                                                           var selectedUploadedFiles =
                                                               <FFUploadedFile>[];
@@ -6422,7 +6425,7 @@ class _NonePackageBasicPageWidgetState
                                                                         u!)
                                                                     .toList();
                                                           } finally {
-                                                            _model.isDataUploading1 =
+                                                            _model.isDataUploading_oldVmiUploadedAction =
                                                                 false;
                                                           }
                                                           if (selectedUploadedFiles
@@ -6434,10 +6437,10 @@ class _NonePackageBasicPageWidgetState
                                                                   selectedMedia
                                                                       .length) {
                                                             safeSetState(() {
-                                                              _model.uploadedLocalFile1 =
+                                                              _model.uploadedLocalFile_oldVmiUploadedAction =
                                                                   selectedUploadedFiles
                                                                       .first;
-                                                              _model.uploadedFileUrl1 =
+                                                              _model.uploadedFileUrl_oldVmiUploadedAction =
                                                                   downloadUrls
                                                                       .first;
                                                             });
@@ -6451,9 +6454,9 @@ class _NonePackageBasicPageWidgetState
                                                             .hideKeyboardAction(
                                                           context,
                                                         );
-                                                        if (!(_model.uploadedFileUrl1 !=
+                                                        if (!(_model.uploadedFileUrl_oldVmiUploadedAction !=
                                                                 null &&
-                                                            _model.uploadedFileUrl1 !=
+                                                            _model.uploadedFileUrl_oldVmiUploadedAction !=
                                                                 '')) {
                                                           ScaffoldMessenger.of(
                                                                   context)
@@ -6599,9 +6602,9 @@ class _NonePackageBasicPageWidgetState
                                                       ),
                                                     ),
                                                     Text(
-                                                      _model.uploadedFileUrl1 !=
+                                                      _model.uploadedFileUrl_oldVmiUploadedAction !=
                                                                   null &&
-                                                              _model.uploadedFileUrl1 !=
+                                                              _model.uploadedFileUrl_oldVmiUploadedAction !=
                                                                   ''
                                                           ? 'อัพโหลดแล้ว'
                                                           : 'ยังไม่อัพโหลด',
@@ -6642,25 +6645,27 @@ class _NonePackageBasicPageWidgetState
                                               height: 100.0,
                                               decoration: BoxDecoration(),
                                             ),
-                                            if (_model.uploadedFileUrl1 !=
+                                            if (_model.uploadedFileUrl_oldVmiUploadedAction !=
                                                     null &&
-                                                _model.uploadedFileUrl1 != '')
+                                                _model.uploadedFileUrl_oldVmiUploadedAction !=
+                                                    '')
                                               Icon(
                                                 Icons.check,
                                                 color: Color(0xFF2EDD78),
                                                 size: 24.0,
                                               ),
-                                            if (_model.uploadedFileUrl1 ==
+                                            if (_model.uploadedFileUrl_oldVmiUploadedAction ==
                                                     null ||
-                                                _model.uploadedFileUrl1 == '')
+                                                _model.uploadedFileUrl_oldVmiUploadedAction ==
+                                                    '')
                                               Container(
                                                 height: 100.0,
                                                 decoration: BoxDecoration(),
                                                 child: Visibility(
                                                   visible: _model
-                                                              .uploadedFileUrl1 ==
+                                                              .uploadedFileUrl_oldVmiUploadedAction ==
                                                           null ||
-                                                      _model.uploadedFileUrl1 ==
+                                                      _model.uploadedFileUrl_oldVmiUploadedAction ==
                                                           '',
                                                   child: Icon(
                                                     Icons.close,
@@ -6855,7 +6860,7 @@ class _NonePackageBasicPageWidgetState
                                                                     m.storagePath,
                                                                     context))) {
                                                           safeSetState(() =>
-                                                              _model.isDataUploading2 =
+                                                              _model.isDataUploading_idCardUploadedAction =
                                                                   true);
                                                           var selectedUploadedFiles =
                                                               <FFUploadedFile>[];
@@ -6901,7 +6906,7 @@ class _NonePackageBasicPageWidgetState
                                                                         u!)
                                                                     .toList();
                                                           } finally {
-                                                            _model.isDataUploading2 =
+                                                            _model.isDataUploading_idCardUploadedAction =
                                                                 false;
                                                           }
                                                           if (selectedUploadedFiles
@@ -6913,10 +6918,10 @@ class _NonePackageBasicPageWidgetState
                                                                   selectedMedia
                                                                       .length) {
                                                             safeSetState(() {
-                                                              _model.uploadedLocalFile2 =
+                                                              _model.uploadedLocalFile_idCardUploadedAction =
                                                                   selectedUploadedFiles
                                                                       .first;
-                                                              _model.uploadedFileUrl2 =
+                                                              _model.uploadedFileUrl_idCardUploadedAction =
                                                                   downloadUrls
                                                                       .first;
                                                             });
@@ -6930,9 +6935,9 @@ class _NonePackageBasicPageWidgetState
                                                             .hideKeyboardAction(
                                                           context,
                                                         );
-                                                        if (!(_model.uploadedFileUrl2 !=
+                                                        if (!(_model.uploadedFileUrl_idCardUploadedAction !=
                                                                 null &&
-                                                            _model.uploadedFileUrl2 !=
+                                                            _model.uploadedFileUrl_idCardUploadedAction !=
                                                                 '')) {
                                                           ScaffoldMessenger.of(
                                                                   context)
@@ -7078,9 +7083,9 @@ class _NonePackageBasicPageWidgetState
                                                       ),
                                                     ),
                                                     Text(
-                                                      _model.uploadedFileUrl2 !=
+                                                      _model.uploadedFileUrl_idCardUploadedAction !=
                                                                   null &&
-                                                              _model.uploadedFileUrl2 !=
+                                                              _model.uploadedFileUrl_idCardUploadedAction !=
                                                                   ''
                                                           ? 'อัพโหลดแล้ว'
                                                           : 'ยังไม่อัพโหลด',
@@ -7121,26 +7126,28 @@ class _NonePackageBasicPageWidgetState
                                               height: 100.0,
                                               decoration: BoxDecoration(),
                                             ),
-                                            if (_model.uploadedFileUrl2 !=
+                                            if (_model.uploadedFileUrl_idCardUploadedAction !=
                                                     null &&
-                                                _model.uploadedFileUrl2 != '')
+                                                _model.uploadedFileUrl_idCardUploadedAction !=
+                                                    '')
                                               Icon(
                                                 Icons.check,
                                                 color: Color(0xFF2EDD78),
                                                 size: 24.0,
                                               ),
-                                            if (_model.uploadedFileUrl2 ==
+                                            if (_model.uploadedFileUrl_idCardUploadedAction ==
                                                     null ||
-                                                _model.uploadedFileUrl2 == '')
+                                                _model.uploadedFileUrl_idCardUploadedAction ==
+                                                    '')
                                               Flexible(
                                                 child: Container(
                                                   height: 100.0,
                                                   decoration: BoxDecoration(),
                                                   child: Visibility(
                                                     visible: _model
-                                                                .uploadedFileUrl2 ==
+                                                                .uploadedFileUrl_idCardUploadedAction ==
                                                             null ||
-                                                        _model.uploadedFileUrl2 ==
+                                                        _model.uploadedFileUrl_idCardUploadedAction ==
                                                             '',
                                                     child: Icon(
                                                       Icons.close,
@@ -7289,7 +7296,7 @@ class _NonePackageBasicPageWidgetState
                                                                       m.storagePath,
                                                                       context))) {
                                                             safeSetState(() =>
-                                                                _model.isDataUploading3 =
+                                                                _model.isDataUploading_companyBookUploadedAction =
                                                                     true);
                                                             var selectedUploadedFiles =
                                                                 <FFUploadedFile>[];
@@ -7332,7 +7339,7 @@ class _NonePackageBasicPageWidgetState
                                                                           u!)
                                                                       .toList();
                                                             } finally {
-                                                              _model.isDataUploading3 =
+                                                              _model.isDataUploading_companyBookUploadedAction =
                                                                   false;
                                                             }
                                                             if (selectedUploadedFiles
@@ -7344,10 +7351,10 @@ class _NonePackageBasicPageWidgetState
                                                                     selectedMedia
                                                                         .length) {
                                                               safeSetState(() {
-                                                                _model.uploadedLocalFile3 =
+                                                                _model.uploadedLocalFile_companyBookUploadedAction =
                                                                     selectedUploadedFiles
                                                                         .first;
-                                                                _model.uploadedFileUrl3 =
+                                                                _model.uploadedFileUrl_companyBookUploadedAction =
                                                                     downloadUrls
                                                                         .first;
                                                               });
@@ -7362,9 +7369,9 @@ class _NonePackageBasicPageWidgetState
                                                               .hideKeyboardAction(
                                                             context,
                                                           );
-                                                          if (!(_model.uploadedFileUrl3 !=
+                                                          if (!(_model.uploadedFileUrl_companyBookUploadedAction !=
                                                                   null &&
-                                                              _model.uploadedFileUrl3 !=
+                                                              _model.uploadedFileUrl_companyBookUploadedAction !=
                                                                   '')) {
                                                             ScaffoldMessenger
                                                                     .of(context)
@@ -7391,7 +7398,7 @@ class _NonePackageBasicPageWidgetState
                                                           FFAppState()
                                                                   .nonePackageCompanyBookImageUrl =
                                                               _model
-                                                                  .uploadedFileUrl3;
+                                                                  .uploadedFileUrl_companyBookUploadedAction;
                                                           safeSetState(() {});
                                                           ScaffoldMessenger.of(
                                                                   context)
@@ -7518,9 +7525,9 @@ class _NonePackageBasicPageWidgetState
                                                         ),
                                                       ),
                                                       Text(
-                                                        _model.uploadedFileUrl3 !=
+                                                        _model.uploadedFileUrl_companyBookUploadedAction !=
                                                                     null &&
-                                                                _model.uploadedFileUrl3 !=
+                                                                _model.uploadedFileUrl_companyBookUploadedAction !=
                                                                     ''
                                                             ? 'อัพโหลดแล้ว'
                                                             : 'ยังไม่อัพโหลด',
@@ -7562,25 +7569,27 @@ class _NonePackageBasicPageWidgetState
                                                 height: 100.0,
                                                 decoration: BoxDecoration(),
                                               ),
-                                              if (_model.uploadedFileUrl3 !=
+                                              if (_model.uploadedFileUrl_companyBookUploadedAction !=
                                                       null &&
-                                                  _model.uploadedFileUrl3 != '')
+                                                  _model.uploadedFileUrl_companyBookUploadedAction !=
+                                                      '')
                                                 Icon(
                                                   Icons.check,
                                                   color: Color(0xFF2EDD78),
                                                   size: 24.0,
                                                 ),
-                                              if (_model.uploadedFileUrl3 ==
+                                              if (_model.uploadedFileUrl_companyBookUploadedAction ==
                                                       null ||
-                                                  _model.uploadedFileUrl3 == '')
+                                                  _model.uploadedFileUrl_companyBookUploadedAction ==
+                                                      '')
                                                 Container(
                                                   height: 100.0,
                                                   decoration: BoxDecoration(),
                                                   child: Visibility(
                                                     visible: _model
-                                                                .uploadedFileUrl3 ==
+                                                                .uploadedFileUrl_companyBookUploadedAction ==
                                                             null ||
-                                                        _model.uploadedFileUrl3 ==
+                                                        _model.uploadedFileUrl_companyBookUploadedAction ==
                                                             '',
                                                     child: Icon(
                                                       Icons.close,
@@ -8152,8 +8161,10 @@ class _NonePackageBasicPageWidgetState
                                   }
 
                                   if (widget!.workType == 'transfer') {
-                                    if (!(_model.uploadedFileUrl1 != null &&
-                                        _model.uploadedFileUrl1 != '')) {
+                                    if (!(_model.uploadedFileUrl_oldVmiUploadedAction !=
+                                            null &&
+                                        _model.uploadedFileUrl_oldVmiUploadedAction !=
+                                            '')) {
                                       await showDialog(
                                         context: context,
                                         builder: (alertDialogContext) {
@@ -8175,8 +8186,10 @@ class _NonePackageBasicPageWidgetState
                                       );
                                       return;
                                     }
-                                    if (!(_model.uploadedFileUrl2 != null &&
-                                        _model.uploadedFileUrl2 != '')) {
+                                    if (!(_model.uploadedFileUrl_idCardUploadedAction !=
+                                            null &&
+                                        _model.uploadedFileUrl_idCardUploadedAction !=
+                                            '')) {
                                       await showDialog(
                                         context: context,
                                         builder: (alertDialogContext) {
@@ -8199,8 +8212,10 @@ class _NonePackageBasicPageWidgetState
                                       return;
                                     }
                                     if (!FFAppState().buttonOrdinary) {
-                                      if (!(_model.uploadedFileUrl3 != null &&
-                                          _model.uploadedFileUrl3 != '')) {
+                                      if (!(_model.uploadedFileUrl_companyBookUploadedAction !=
+                                              null &&
+                                          _model.uploadedFileUrl_companyBookUploadedAction !=
+                                              '')) {
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
@@ -8313,12 +8328,15 @@ class _NonePackageBasicPageWidgetState
                                         .oldVmiTextFieldTextController.text;
                                     safeSetState(() {});
                                     FFAppState().nonePackageOldVmiImageUrl =
-                                        _model.uploadedFileUrl1;
+                                        _model
+                                            .uploadedFileUrl_oldVmiUploadedAction;
                                     FFAppState().nonePackageIdCardImageUrl =
-                                        _model.uploadedFileUrl2;
+                                        _model
+                                            .uploadedFileUrl_idCardUploadedAction;
                                     FFAppState()
                                             .nonePackageCompanyBookImageUrl =
-                                        _model.uploadedFileUrl3;
+                                        _model
+                                            .uploadedFileUrl_companyBookUploadedAction;
                                     safeSetState(() {});
                                   } else {
                                     FFAppState().nonePackageOldVmiExpDate =

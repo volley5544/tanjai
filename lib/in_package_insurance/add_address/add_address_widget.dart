@@ -202,8 +202,8 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -1039,12 +1039,18 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                     });
                                                   }
                                                 },
-                                                side: BorderSide(
-                                                  width: 2,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                ),
+                                                side: (FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText !=
+                                                        null)
+                                                    ? BorderSide(
+                                                        width: 2,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText!,
+                                                      )
+                                                    : null,
                                                 activeColor: Color(0xFF00B505),
                                                 checkColor:
                                                     FlutterFlowTheme.of(context)
@@ -1236,12 +1242,18 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                     });
                                                   }
                                                 },
-                                                side: BorderSide(
-                                                  width: 2,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                ),
+                                                side: (FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText !=
+                                                        null)
+                                                    ? BorderSide(
+                                                        width: 2,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText!,
+                                                      )
+                                                    : null,
                                                 activeColor: Color(0xFF00B505),
                                                 checkColor:
                                                     FlutterFlowTheme.of(context)

@@ -55,7 +55,7 @@ class LoginScreen1Model extends FlutterFlowModel<LoginScreen1Widget> {
   // State field(s) for idCard widget.
   FocusNode? idCardFocusNode;
   TextEditingController? idCardTextController;
-  final idCardMask = MaskTextInputFormatter(mask: '#-####-#####-##-#');
+  late MaskTextInputFormatter idCardMask;
   String? Function(BuildContext, String?)? idCardTextControllerValidator;
   // State field(s) for phonenumber widget.
   FocusNode? phonenumberFocusNode;

@@ -219,8 +219,8 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -259,7 +259,11 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                   },
                 ).then((value) => safeSetState(() {}));
 
-                await Future.delayed(const Duration(milliseconds: 500));
+                await Future.delayed(
+                  Duration(
+                    milliseconds: 500,
+                  ),
+                );
 
                 context.goNamed(SuperAppPageWidget.routeName);
 

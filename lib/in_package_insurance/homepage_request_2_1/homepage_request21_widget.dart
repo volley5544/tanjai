@@ -57,8 +57,8 @@ class _HomepageRequest21WidgetState extends State<HomepageRequest21Widget> {
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -395,12 +395,17 @@ class _HomepageRequest21WidgetState extends State<HomepageRequest21Widget> {
                                                       });
                                                     }
                                                   },
-                                                  side: BorderSide(
-                                                    width: 2,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                  ),
+                                                  side: (FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText !=
+                                                          null)
+                                                      ? BorderSide(
+                                                          width: 2,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText!,
+                                                        )
+                                                      : null,
                                                   activeColor:
                                                       Color(0xFF00FD76),
                                                   checkColor:
@@ -631,12 +636,17 @@ class _HomepageRequest21WidgetState extends State<HomepageRequest21Widget> {
                                                       });
                                                     }
                                                   },
-                                                  side: BorderSide(
-                                                    width: 2,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                  ),
+                                                  side: (FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText !=
+                                                          null)
+                                                      ? BorderSide(
+                                                          width: 2,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText!,
+                                                        )
+                                                      : null,
                                                   activeColor:
                                                       Color(0xFF00FD76),
                                                   checkColor:

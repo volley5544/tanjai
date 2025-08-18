@@ -25,7 +25,7 @@ class SearchOldVmiModel extends FlutterFlowModel<SearchOldVmiWidget> {
   // State field(s) for searchFire widget.
   FocusNode? searchFireFocusNode;
   TextEditingController? searchFireTextController;
-  final searchFireMask = MaskTextInputFormatter(mask: '#-####-#####-##-#');
+  late MaskTextInputFormatter searchFireMask;
   String? Function(BuildContext, String?)? searchFireTextControllerValidator;
   // Stores action output result for [Backend Call - API (searchOldVmiApi)] action in Button widget.
   ApiCallResponse? searchVmiOutput;

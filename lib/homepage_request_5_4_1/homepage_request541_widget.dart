@@ -103,7 +103,11 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
                   backgroundColor: Colors.black,
                 ),
               );
-              await Future.delayed(const Duration(milliseconds: 5000));
+              await Future.delayed(
+                Duration(
+                  milliseconds: 5000,
+                ),
+              );
               final streamingApiResult = await TimerApiCall.call();
               if (streamingApiResult?.succeeded ?? true) {
                 final streamSubscription = streamingApiResult

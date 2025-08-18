@@ -86,8 +86,8 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -1133,7 +1133,6 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                 text: 'Delete Account',
                                 icon: Icon(
                                   Icons.cancel_outlined,
-                                  color: FlutterFlowTheme.of(context).error,
                                   size: 15.0,
                                 ),
                                 options: FFButtonOptions(
@@ -1143,6 +1142,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
+                                  iconColor: FlutterFlowTheme.of(context).error,
                                   color: Color(0xFFF0F0F0),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium

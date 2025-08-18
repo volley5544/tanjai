@@ -70,8 +70,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: Color(0xFFFAFAFA),
@@ -217,7 +217,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                   m.storagePath,
                                                                   context))) {
                                                         safeSetState(() => _model
-                                                                .isDataUploading1 =
+                                                                .isDataUploading_uploaded04 =
                                                             true);
                                                         var selectedUploadedFiles =
                                                             <FFUploadedFile>[];
@@ -244,7 +244,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                       ))
                                                                   .toList();
                                                         } finally {
-                                                          _model.isDataUploading1 =
+                                                          _model.isDataUploading_uploaded04 =
                                                               false;
                                                         }
                                                         if (selectedUploadedFiles
@@ -252,7 +252,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                             selectedMedia
                                                                 .length) {
                                                           safeSetState(() {
-                                                            _model.uploadedLocalFile1 =
+                                                            _model.uploadedLocalFile_uploaded04 =
                                                                 selectedUploadedFiles
                                                                     .first;
                                                           });
@@ -262,10 +262,10 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                         }
                                                       }
 
-                                                      if (_model.uploadedLocalFile1 !=
+                                                      if (_model.uploadedLocalFile_uploaded04 !=
                                                               null &&
                                                           (_model
-                                                                  .uploadedLocalFile1
+                                                                  .uploadedLocalFile_uploaded04
                                                                   .bytes
                                                                   ?.isNotEmpty ??
                                                               false)) {
@@ -433,9 +433,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                         ),
                                                   ),
                                                 ),
-                                                if (_model.uploadedLocalFile1 ==
+                                                if (_model.uploadedLocalFile_uploaded04 ==
                                                         null ||
-                                                    (_model.uploadedLocalFile1
+                                                    (_model.uploadedLocalFile_uploaded04
                                                             .bytes?.isEmpty ??
                                                         true))
                                                   Text(
@@ -470,12 +470,10 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                   .fontStyle,
                                                         ),
                                                   ),
-                                                if (_model.uploadedLocalFile1 !=
+                                                if (_model.uploadedLocalFile_uploaded04 !=
                                                         null &&
-                                                    (_model
-                                                            .uploadedLocalFile1
-                                                            .bytes
-                                                            ?.isNotEmpty ??
+                                                    (_model.uploadedLocalFile_uploaded04
+                                                            .bytes?.isNotEmpty ??
                                                         false))
                                                   Text(
                                                     'อัพโหลดสำเร็จ',
@@ -529,12 +527,12 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                             height: 100.0,
                                             decoration: BoxDecoration(),
                                             child: Visibility(
-                                              visible:
-                                                  _model.uploadedLocalFile1 ==
-                                                          null ||
-                                                      (_model.uploadedLocalFile1
-                                                              .bytes?.isEmpty ??
-                                                          true),
+                                              visible: _model
+                                                          .uploadedLocalFile_uploaded04 ==
+                                                      null ||
+                                                  (_model.uploadedLocalFile_uploaded04
+                                                          .bytes?.isEmpty ??
+                                                      true),
                                               child: Icon(
                                                 Icons.close,
                                                 color: Color(0xFFFC0A0A),
@@ -549,9 +547,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                             decoration: BoxDecoration(),
                                             child: Visibility(
                                               visible: _model
-                                                          .uploadedLocalFile1 !=
+                                                          .uploadedLocalFile_uploaded04 !=
                                                       null &&
-                                                  (_model.uploadedLocalFile1
+                                                  (_model.uploadedLocalFile_uploaded04
                                                           .bytes?.isNotEmpty ??
                                                       false),
                                               child: Icon(
@@ -566,8 +564,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                     ),
                                   ),
                                 ),
-                                if (_model.uploadedLocalFile1 != null &&
-                                    (_model.uploadedLocalFile1.bytes
+                                if (_model.uploadedLocalFile_uploaded04 !=
+                                        null &&
+                                    (_model.uploadedLocalFile_uploaded04.bytes
                                             ?.isNotEmpty ??
                                         false))
                                   Padding(
@@ -627,7 +626,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                     m.storagePath,
                                                                     context))) {
                                                           safeSetState(() =>
-                                                              _model.isDataUploading2 =
+                                                              _model.isDataUploading_uploaded041 =
                                                                   true);
                                                           var selectedUploadedFiles =
                                                               <FFUploadedFile>[];
@@ -654,7 +653,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                         ))
                                                                     .toList();
                                                           } finally {
-                                                            _model.isDataUploading2 =
+                                                            _model.isDataUploading_uploaded041 =
                                                                 false;
                                                           }
                                                           if (selectedUploadedFiles
@@ -662,7 +661,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                               selectedMedia
                                                                   .length) {
                                                             safeSetState(() {
-                                                              _model.uploadedLocalFile2 =
+                                                              _model.uploadedLocalFile_uploaded041 =
                                                                   selectedUploadedFiles
                                                                       .first;
                                                             });
@@ -672,10 +671,10 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                           }
                                                         }
 
-                                                        if (_model.uploadedLocalFile2 !=
+                                                        if (_model.uploadedLocalFile_uploaded041 !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile2
+                                                                    .uploadedLocalFile_uploaded041
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)) {
@@ -844,9 +843,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                               ),
                                                     ),
                                                   ),
-                                                  if (_model.uploadedLocalFile2 ==
+                                                  if (_model.uploadedLocalFile_uploaded041 ==
                                                           null ||
-                                                      (_model.uploadedLocalFile2
+                                                      (_model.uploadedLocalFile_uploaded041
                                                               .bytes?.isEmpty ??
                                                           true))
                                                     Text(
@@ -879,10 +878,10 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                     .fontStyle,
                                                               ),
                                                     ),
-                                                  if (_model.uploadedLocalFile2 !=
+                                                  if (_model.uploadedLocalFile_uploaded041 !=
                                                           null &&
                                                       (_model
-                                                              .uploadedLocalFile2
+                                                              .uploadedLocalFile_uploaded041
                                                               .bytes
                                                               ?.isNotEmpty ??
                                                           false))
@@ -936,9 +935,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
-                                                            .uploadedLocalFile2 ==
+                                                            .uploadedLocalFile_uploaded041 ==
                                                         null ||
-                                                    (_model.uploadedLocalFile2
+                                                    (_model.uploadedLocalFile_uploaded041
                                                             .bytes?.isEmpty ??
                                                         true),
                                                 child: Icon(
@@ -955,12 +954,10 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
-                                                            .uploadedLocalFile2 !=
+                                                            .uploadedLocalFile_uploaded041 !=
                                                         null &&
-                                                    (_model
-                                                            .uploadedLocalFile2
-                                                            .bytes
-                                                            ?.isNotEmpty ??
+                                                    (_model.uploadedLocalFile_uploaded041
+                                                            .bytes?.isNotEmpty ??
                                                         false),
                                                 child: Icon(
                                                   Icons.check_sharp,
@@ -974,8 +971,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                       ),
                                     ),
                                   ),
-                                if (_model.uploadedLocalFile2 != null &&
-                                    (_model.uploadedLocalFile2.bytes
+                                if (_model.uploadedLocalFile_uploaded041 !=
+                                        null &&
+                                    (_model.uploadedLocalFile_uploaded041.bytes
                                             ?.isNotEmpty ??
                                         false))
                                   Padding(
@@ -1035,7 +1033,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                     m.storagePath,
                                                                     context))) {
                                                           safeSetState(() =>
-                                                              _model.isDataUploading3 =
+                                                              _model.isDataUploading_uploaded042 =
                                                                   true);
                                                           var selectedUploadedFiles =
                                                               <FFUploadedFile>[];
@@ -1062,7 +1060,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                         ))
                                                                     .toList();
                                                           } finally {
-                                                            _model.isDataUploading3 =
+                                                            _model.isDataUploading_uploaded042 =
                                                                 false;
                                                           }
                                                           if (selectedUploadedFiles
@@ -1070,7 +1068,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                               selectedMedia
                                                                   .length) {
                                                             safeSetState(() {
-                                                              _model.uploadedLocalFile3 =
+                                                              _model.uploadedLocalFile_uploaded042 =
                                                                   selectedUploadedFiles
                                                                       .first;
                                                             });
@@ -1080,10 +1078,10 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                           }
                                                         }
 
-                                                        if (_model.uploadedLocalFile3 !=
+                                                        if (_model.uploadedLocalFile_uploaded042 !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile3
+                                                                    .uploadedLocalFile_uploaded042
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)) {
@@ -1252,9 +1250,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                               ),
                                                     ),
                                                   ),
-                                                  if (_model.uploadedLocalFile3 ==
+                                                  if (_model.uploadedLocalFile_uploaded042 ==
                                                           null ||
-                                                      (_model.uploadedLocalFile3
+                                                      (_model.uploadedLocalFile_uploaded042
                                                               .bytes?.isEmpty ??
                                                           true))
                                                     Text(
@@ -1287,10 +1285,10 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                     .fontStyle,
                                                               ),
                                                     ),
-                                                  if (_model.uploadedLocalFile3 !=
+                                                  if (_model.uploadedLocalFile_uploaded042 !=
                                                           null &&
                                                       (_model
-                                                              .uploadedLocalFile3
+                                                              .uploadedLocalFile_uploaded042
                                                               .bytes
                                                               ?.isNotEmpty ??
                                                           false))
@@ -1344,9 +1342,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
-                                                            .uploadedLocalFile3 ==
+                                                            .uploadedLocalFile_uploaded042 ==
                                                         null ||
-                                                    (_model.uploadedLocalFile3
+                                                    (_model.uploadedLocalFile_uploaded042
                                                             .bytes?.isEmpty ??
                                                         true),
                                                 child: Icon(
@@ -1363,12 +1361,10 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
-                                                            .uploadedLocalFile3 !=
+                                                            .uploadedLocalFile_uploaded042 !=
                                                         null &&
-                                                    (_model
-                                                            .uploadedLocalFile3
-                                                            .bytes
-                                                            ?.isNotEmpty ??
+                                                    (_model.uploadedLocalFile_uploaded042
+                                                            .bytes?.isNotEmpty ??
                                                         false),
                                                 child: Icon(
                                                   Icons.check_sharp,
@@ -1382,8 +1378,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                       ),
                                     ),
                                   ),
-                                if (_model.uploadedLocalFile3 != null &&
-                                    (_model.uploadedLocalFile3.bytes
+                                if (_model.uploadedLocalFile_uploaded042 !=
+                                        null &&
+                                    (_model.uploadedLocalFile_uploaded042.bytes
                                             ?.isNotEmpty ??
                                         false))
                                   Padding(
@@ -1443,7 +1440,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                     m.storagePath,
                                                                     context))) {
                                                           safeSetState(() =>
-                                                              _model.isDataUploading4 =
+                                                              _model.isDataUploading_uploaded043 =
                                                                   true);
                                                           var selectedUploadedFiles =
                                                               <FFUploadedFile>[];
@@ -1470,7 +1467,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                         ))
                                                                     .toList();
                                                           } finally {
-                                                            _model.isDataUploading4 =
+                                                            _model.isDataUploading_uploaded043 =
                                                                 false;
                                                           }
                                                           if (selectedUploadedFiles
@@ -1478,7 +1475,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                               selectedMedia
                                                                   .length) {
                                                             safeSetState(() {
-                                                              _model.uploadedLocalFile4 =
+                                                              _model.uploadedLocalFile_uploaded043 =
                                                                   selectedUploadedFiles
                                                                       .first;
                                                             });
@@ -1488,10 +1485,10 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                           }
                                                         }
 
-                                                        if (_model.uploadedLocalFile4 !=
+                                                        if (_model.uploadedLocalFile_uploaded043 !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile4
+                                                                    .uploadedLocalFile_uploaded043
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)) {
@@ -1660,9 +1657,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                               ),
                                                     ),
                                                   ),
-                                                  if (_model.uploadedLocalFile4 ==
+                                                  if (_model.uploadedLocalFile_uploaded043 ==
                                                           null ||
-                                                      (_model.uploadedLocalFile4
+                                                      (_model.uploadedLocalFile_uploaded043
                                                               .bytes?.isEmpty ??
                                                           true))
                                                     Text(
@@ -1695,10 +1692,10 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                     .fontStyle,
                                                               ),
                                                     ),
-                                                  if (_model.uploadedLocalFile4 !=
+                                                  if (_model.uploadedLocalFile_uploaded043 !=
                                                           null &&
                                                       (_model
-                                                              .uploadedLocalFile4
+                                                              .uploadedLocalFile_uploaded043
                                                               .bytes
                                                               ?.isNotEmpty ??
                                                           false))
@@ -1752,9 +1749,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
-                                                            .uploadedLocalFile4 ==
+                                                            .uploadedLocalFile_uploaded043 ==
                                                         null ||
-                                                    (_model.uploadedLocalFile4
+                                                    (_model.uploadedLocalFile_uploaded043
                                                             .bytes?.isEmpty ??
                                                         true),
                                                 child: Icon(
@@ -1771,12 +1768,10 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
-                                                            .uploadedLocalFile4 !=
+                                                            .uploadedLocalFile_uploaded043 !=
                                                         null &&
-                                                    (_model
-                                                            .uploadedLocalFile4
-                                                            .bytes
-                                                            ?.isNotEmpty ??
+                                                    (_model.uploadedLocalFile_uploaded043
+                                                            .bytes?.isNotEmpty ??
                                                         false),
                                                 child: Icon(
                                                   Icons.check_sharp,
@@ -1790,8 +1785,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                       ),
                                     ),
                                   ),
-                                if (_model.uploadedLocalFile4 != null &&
-                                    (_model.uploadedLocalFile4.bytes
+                                if (_model.uploadedLocalFile_uploaded043 !=
+                                        null &&
+                                    (_model.uploadedLocalFile_uploaded043.bytes
                                             ?.isNotEmpty ??
                                         false))
                                   Padding(
@@ -1851,7 +1847,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                     m.storagePath,
                                                                     context))) {
                                                           safeSetState(() =>
-                                                              _model.isDataUploading5 =
+                                                              _model.isDataUploading_uploaded044 =
                                                                   true);
                                                           var selectedUploadedFiles =
                                                               <FFUploadedFile>[];
@@ -1878,7 +1874,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                         ))
                                                                     .toList();
                                                           } finally {
-                                                            _model.isDataUploading5 =
+                                                            _model.isDataUploading_uploaded044 =
                                                                 false;
                                                           }
                                                           if (selectedUploadedFiles
@@ -1886,7 +1882,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                               selectedMedia
                                                                   .length) {
                                                             safeSetState(() {
-                                                              _model.uploadedLocalFile5 =
+                                                              _model.uploadedLocalFile_uploaded044 =
                                                                   selectedUploadedFiles
                                                                       .first;
                                                             });
@@ -1896,10 +1892,10 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                           }
                                                         }
 
-                                                        if (_model.uploadedLocalFile5 !=
+                                                        if (_model.uploadedLocalFile_uploaded044 !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile5
+                                                                    .uploadedLocalFile_uploaded044
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)) {
@@ -2068,9 +2064,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                               ),
                                                     ),
                                                   ),
-                                                  if (_model.uploadedLocalFile5 ==
+                                                  if (_model.uploadedLocalFile_uploaded044 ==
                                                           null ||
-                                                      (_model.uploadedLocalFile5
+                                                      (_model.uploadedLocalFile_uploaded044
                                                               .bytes?.isEmpty ??
                                                           true))
                                                     Text(
@@ -2103,10 +2099,10 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                     .fontStyle,
                                                               ),
                                                     ),
-                                                  if (_model.uploadedLocalFile5 !=
+                                                  if (_model.uploadedLocalFile_uploaded044 !=
                                                           null &&
                                                       (_model
-                                                              .uploadedLocalFile5
+                                                              .uploadedLocalFile_uploaded044
                                                               .bytes
                                                               ?.isNotEmpty ??
                                                           false))
@@ -2160,9 +2156,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
-                                                            .uploadedLocalFile5 ==
+                                                            .uploadedLocalFile_uploaded044 ==
                                                         null ||
-                                                    (_model.uploadedLocalFile5
+                                                    (_model.uploadedLocalFile_uploaded044
                                                             .bytes?.isEmpty ??
                                                         true),
                                                 child: Icon(
@@ -2179,12 +2175,10 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
-                                                            .uploadedLocalFile5 !=
+                                                            .uploadedLocalFile_uploaded044 !=
                                                         null &&
-                                                    (_model
-                                                            .uploadedLocalFile5
-                                                            .bytes
-                                                            ?.isNotEmpty ??
+                                                    (_model.uploadedLocalFile_uploaded044
+                                                            .bytes?.isNotEmpty ??
                                                         false),
                                                 child: Icon(
                                                   Icons.check_sharp,
@@ -2198,9 +2192,10 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                       ),
                                     ),
                                   ),
-                                if ((_model.uploadedLocalFile5 != null &&
-                                        (_model.uploadedLocalFile5.bytes
-                                                ?.isNotEmpty ??
+                                if ((_model.uploadedLocalFile_uploaded044 !=
+                                            null &&
+                                        (_model.uploadedLocalFile_uploaded044
+                                                .bytes?.isNotEmpty ??
                                             false)) &&
                                     (widget!.titleText != 'รูปเอกสารอื่นๆ'))
                                   Padding(
@@ -2260,7 +2255,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                     m.storagePath,
                                                                     context))) {
                                                           safeSetState(() =>
-                                                              _model.isDataUploading6 =
+                                                              _model.isDataUploading_uploaded045 =
                                                                   true);
                                                           var selectedUploadedFiles =
                                                               <FFUploadedFile>[];
@@ -2287,7 +2282,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                         ))
                                                                     .toList();
                                                           } finally {
-                                                            _model.isDataUploading6 =
+                                                            _model.isDataUploading_uploaded045 =
                                                                 false;
                                                           }
                                                           if (selectedUploadedFiles
@@ -2295,7 +2290,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                               selectedMedia
                                                                   .length) {
                                                             safeSetState(() {
-                                                              _model.uploadedLocalFile6 =
+                                                              _model.uploadedLocalFile_uploaded045 =
                                                                   selectedUploadedFiles
                                                                       .first;
                                                             });
@@ -2305,10 +2300,10 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                           }
                                                         }
 
-                                                        if (_model.uploadedLocalFile6 !=
+                                                        if (_model.uploadedLocalFile_uploaded045 !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile6
+                                                                    .uploadedLocalFile_uploaded045
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)) {
@@ -2477,9 +2472,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                               ),
                                                     ),
                                                   ),
-                                                  if (_model.uploadedLocalFile6 ==
+                                                  if (_model.uploadedLocalFile_uploaded045 ==
                                                           null ||
-                                                      (_model.uploadedLocalFile6
+                                                      (_model.uploadedLocalFile_uploaded045
                                                               .bytes?.isEmpty ??
                                                           true))
                                                     Text(
@@ -2512,10 +2507,10 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                     .fontStyle,
                                                               ),
                                                     ),
-                                                  if (_model.uploadedLocalFile6 !=
+                                                  if (_model.uploadedLocalFile_uploaded045 !=
                                                           null &&
                                                       (_model
-                                                              .uploadedLocalFile6
+                                                              .uploadedLocalFile_uploaded045
                                                               .bytes
                                                               ?.isNotEmpty ??
                                                           false))
@@ -2569,9 +2564,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
-                                                            .uploadedLocalFile6 ==
+                                                            .uploadedLocalFile_uploaded045 ==
                                                         null ||
-                                                    (_model.uploadedLocalFile6
+                                                    (_model.uploadedLocalFile_uploaded045
                                                             .bytes?.isEmpty ??
                                                         true),
                                                 child: Icon(
@@ -2588,12 +2583,10 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
-                                                            .uploadedLocalFile6 !=
+                                                            .uploadedLocalFile_uploaded045 !=
                                                         null &&
-                                                    (_model
-                                                            .uploadedLocalFile6
-                                                            .bytes
-                                                            ?.isNotEmpty ??
+                                                    (_model.uploadedLocalFile_uploaded045
+                                                            .bytes?.isNotEmpty ??
                                                         false),
                                                 child: Icon(
                                                   Icons.check_sharp,
@@ -2634,8 +2627,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                 8.0, 0.0, 8.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                if (!(_model.uploadedLocalFile1 != null &&
-                                    (_model.uploadedLocalFile1.bytes
+                                if (!(_model.uploadedLocalFile_uploaded04 !=
+                                        null &&
+                                    (_model.uploadedLocalFile_uploaded04.bytes
                                             ?.isNotEmpty ??
                                         false))) {
                                   await showDialog(
@@ -2658,8 +2652,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                   return;
                                 }
                                 {
-                                  safeSetState(
-                                      () => _model.isDataUploading7 = true);
+                                  safeSetState(() => _model
+                                          .isDataUploading_firebaseUploadedUrlList2 =
+                                      true);
                                   var selectedUploadedFiles =
                                       <FFUploadedFile>[];
                                   var selectedMedia = <SelectedFile>[];
@@ -2667,12 +2662,17 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                   try {
                                     selectedUploadedFiles =
                                         functions.createFileUploadedListCopy(
-                                            _model.uploadedLocalFile1,
-                                            _model.uploadedLocalFile2,
-                                            _model.uploadedLocalFile3,
-                                            _model.uploadedLocalFile4,
-                                            _model.uploadedLocalFile5,
-                                            _model.uploadedLocalFile6)!;
+                                            _model.uploadedLocalFile_uploaded04,
+                                            _model
+                                                .uploadedLocalFile_uploaded041,
+                                            _model
+                                                .uploadedLocalFile_uploaded042,
+                                            _model
+                                                .uploadedLocalFile_uploaded043,
+                                            _model
+                                                .uploadedLocalFile_uploaded044,
+                                            _model
+                                                .uploadedLocalFile_uploaded045)!;
                                     selectedMedia =
                                         selectedFilesFromUploadedFiles(
                                       selectedUploadedFiles,
@@ -2688,16 +2688,18 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                         .map((u) => u!)
                                         .toList();
                                   } finally {
-                                    _model.isDataUploading7 = false;
+                                    _model.isDataUploading_firebaseUploadedUrlList2 =
+                                        false;
                                   }
                                   if (selectedUploadedFiles.length ==
                                           selectedMedia.length &&
                                       downloadUrls.length ==
                                           selectedMedia.length) {
                                     safeSetState(() {
-                                      _model.uploadedLocalFiles7 =
+                                      _model.uploadedLocalFiles_firebaseUploadedUrlList2 =
                                           selectedUploadedFiles;
-                                      _model.uploadedFileUrls7 = downloadUrls;
+                                      _model.uploadedFileUrls_firebaseUploadedUrlList2 =
+                                          downloadUrls;
                                     });
                                   } else {
                                     safeSetState(() {});
@@ -2706,25 +2708,28 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                 }
 
                                 if (widget!.titleText == 'รูปเอกสารอื่นๆ') {
-                                  FFAppState().insuranceInfoUploadImgOther =
-                                      _model.uploadedFileUrls7
-                                          .toList()
-                                          .cast<String>();
+                                  FFAppState().insuranceInfoUploadImgOther = _model
+                                      .uploadedFileUrls_firebaseUploadedUrlList2
+                                      .toList()
+                                      .cast<String>();
                                   FFAppState().insuranceInfoPage3ImageOther =
-                                      functions.imgFirebaseListToString(
-                                          _model.uploadedFileUrls7.toList())!;
+                                      functions.imgFirebaseListToString(_model
+                                          .uploadedFileUrls_firebaseUploadedUrlList2
+                                          .toList())!;
                                   safeSetState(() {});
                                   context.safePop();
                                   return;
                                 }
                                 if (widget!.titleText == 'รูปอุปกรณ์เสริม') {
                                   FFAppState().insuranceInfoUploadImgAccessory =
-                                      _model.uploadedFileUrls7
+                                      _model
+                                          .uploadedFileUrls_firebaseUploadedUrlList2
                                           .toList()
                                           .cast<String>();
                                   FFAppState()
                                           .insuranceInfoPage3ImageAccessories =
-                                      _model.uploadedFileUrls7
+                                      _model
+                                          .uploadedFileUrls_firebaseUploadedUrlList2
                                           .toList()
                                           .cast<String>();
                                   safeSetState(() {});
@@ -2732,14 +2737,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                   return;
                                 }
                                 if (widget!.titleText == 'รูปรอยแผล') {
-                                  FFAppState().insuranceInfoUploadImgScar =
-                                      _model.uploadedFileUrls7
-                                          .toList()
-                                          .cast<String>();
-                                  FFAppState().insuranceInfoPage3ImageWound =
-                                      _model.uploadedFileUrls7
-                                          .toList()
-                                          .cast<String>();
+                                  FFAppState().insuranceInfoUploadImgScar = _model
+                                      .uploadedFileUrls_firebaseUploadedUrlList2
+                                      .toList()
+                                      .cast<String>();
+                                  FFAppState().insuranceInfoPage3ImageWound = _model
+                                      .uploadedFileUrls_firebaseUploadedUrlList2
+                                      .toList()
+                                      .cast<String>();
                                   safeSetState(() {});
                                   context.safePop();
                                   return;

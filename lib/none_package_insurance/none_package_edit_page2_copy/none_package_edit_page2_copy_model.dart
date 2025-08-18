@@ -16,40 +16,40 @@ class NonePackageEditPage2CopyModel
     extends FlutterFlowModel<NonePackageEditPage2CopyWidget> {
   ///  State fields for stateful widgets in this page.
 
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_uploadPhoto13 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto13 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_uploadPhoto235 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto235 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading3 = false;
-  FFUploadedFile uploadedLocalFile3 =
+  bool isDataUploading_uploadPhoto335 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto335 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading4 = false;
-  FFUploadedFile uploadedLocalFile4 =
+  bool isDataUploading_uploadPhoto435 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto435 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading5 = false;
-  FFUploadedFile uploadedLocalFile5 =
+  bool isDataUploading_uploadPhoto535 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto535 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading6 = false;
-  FFUploadedFile uploadedLocalFile6 =
+  bool isDataUploading_uploadPhoto6355 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto6355 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading7 = false;
-  FFUploadedFile uploadedLocalFile7 =
+  bool isDataUploading_uploadPhotoShow35 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhotoShow35 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading8 = false;
-  FFUploadedFile uploadedLocalFile8 =
+  bool isDataUploading_uploadPhoto835 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto835 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading9 = false;
-  FFUploadedFile uploadedLocalFile9 =
+  bool isDataUploading_uploadPhoto935 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto935 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   @override

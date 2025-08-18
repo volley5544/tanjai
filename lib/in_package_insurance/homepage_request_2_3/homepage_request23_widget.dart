@@ -147,8 +147,8 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -442,11 +442,16 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                          ),
+                                          side: (FlutterFlowTheme.of(context)
+                                                      .secondaryText !=
+                                                  null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText!,
+                                                )
+                                              : null,
                                           activeColor:
                                               FlutterFlowTheme.of(context)
                                                   .success,

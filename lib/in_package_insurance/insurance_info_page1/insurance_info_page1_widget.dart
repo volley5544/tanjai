@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
@@ -18,6 +19,7 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -88,6 +90,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         },
       ).then((value) => safeSetState(() {}));
 
+      _model.profileImagesUrl = await UrlLinkStorageRecord.getDocumentOnce(
+          FFAppState().profileImagesUrlDocRef!);
       FFAppState().benefitorData = [];
       FFAppState().leadsHouse = [];
       safeSetState(() {});
@@ -1490,7 +1494,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         if ('${getJsonField(
               (_model.detailAPIOutput?.jsonBody ?? ''),
               r'''$.results.data.app_house[0].lead_id''',
-            ).toString().toString()}' !=
+            ).toString()}' !=
             '') {
           FFAppState().leadsHouse = IbsApplicationsDetailCall.apphouse(
             (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -1659,55 +1663,30 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
 
         _model.profileImgOutputPage = await GetProfileImageCall.call(
           employeeCode: FFAppState().employeeID,
-          insuranceUrl: FFAppState().apiUrlInsuranceAppState,
+          insuranceUrl: _model.profileImagesUrl?.urlLink,
         );
 
-        if ((_model.profileImgOutputPage?.statusCode ?? 200) != 200) {
-          await showDialog(
-            context: context,
-            builder: (alertDialogContext) {
-              return WebViewAware(
-                child: AlertDialog(
-                  content: Text(
-                      'พบข้อผิดพลาด (${(_model.profileImgOutputPage?.statusCode ?? 200).toString()})'),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(alertDialogContext),
-                      child: Text('Ok'),
-                    ),
-                  ],
-                ),
-              );
-            },
-          );
-          Navigator.pop(context);
-          return;
-        }
-        if (GetProfileImageCall.statusLayer1(
+        if ((_model.profileImgOutputPage?.statusCode ?? 200) == 200) {
+          if (GetProfileImageCall.statusLayer1(
+                (_model.profileImgOutputPage?.jsonBody ?? ''),
+              ) ==
+              200) {
+            FFAppState().insuranceInfoLicenseImg =
+                '${GetProfileImageCall.imgProfile(
               (_model.profileImgOutputPage?.jsonBody ?? ''),
-            ) !=
-            200) {
-          await showDialog(
-            context: context,
-            builder: (alertDialogContext) {
-              return WebViewAware(
-                child: AlertDialog(
-                  content: Text(GetProfileImageCall.messageLayer1(
-                    (_model.profileImgOutputPage?.jsonBody ?? ''),
-                  )!),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(alertDialogContext),
-                      child: Text('Ok'),
-                    ),
-                  ],
-                ),
-              );
-            },
-          );
-          Navigator.pop(context);
-          return;
+            )}';
+            safeSetState(() {});
+          } else {
+            FFAppState().insuranceInfoLicenseImg =
+                'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=a4b9142c-c774-492a-a5a4-caa39f16ec3c';
+            safeSetState(() {});
+          }
+        } else {
+          FFAppState().insuranceInfoLicenseImg =
+              'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=a4b9142c-c774-492a-a5a4-caa39f16ec3c';
+          safeSetState(() {});
         }
+
         FFAppState().insuranceInfoLicenseEmployeeId =
             '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().employeeID)}';
         FFAppState().insuranceInfoLicenseTitle =
@@ -1722,10 +1701,6 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
             '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseExpiredDate.toList(), FFAppState().employeeID)}';
         FFAppState().insuranceInfoLicenseMobilePhone =
             '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseMobilePhone.toList(), FFAppState().employeeID)}';
-        FFAppState().insuranceInfoLicenseImg =
-            '${GetProfileImageCall.imgProfile(
-          (_model.profileImgOutputPage?.jsonBody ?? ''),
-        )}';
         FFAppState().insuranceInfoLicenseBranch =
             '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), FFAppState().employeeID)}';
         safeSetState(() {});
@@ -1740,10 +1715,14 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
     _model.idCardTextFieldTextController1 ??= TextEditingController();
     _model.idCardTextFieldFocusNode1 ??= FocusNode();
 
+    _model.idCardTextFieldMask1 =
+        MaskTextInputFormatter(mask: '#-####-#####-##-#');
     _model.taxIDCardTextFieldTextController ??=
         TextEditingController(text: FFAppState().insuranceInfoIdCard);
     _model.taxIDCardTextFieldFocusNode ??= FocusNode();
 
+    _model.taxIDCardTextFieldMask =
+        MaskTextInputFormatter(mask: '#-####-#####-##-#');
     _model.idCardTextFieldTextController2 ??= TextEditingController();
     _model.idCardTextFieldFocusNode2 ??= FocusNode();
 
@@ -1770,10 +1749,13 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         TextEditingController(text: FFAppState().insuranceInfoPhonenumber);
     _model.cusPhoneTextFieldFocusNode ??= FocusNode();
 
+    _model.cusPhoneTextFieldMask = MaskTextInputFormatter(mask: '###-###-####');
     _model.cusPhoneOtherTextFieldTextController ??=
         TextEditingController(text: FFAppState().insuranceInfoOtherPhone);
     _model.cusPhoneOtherTextFieldFocusNode ??= FocusNode();
 
+    _model.cusPhoneOtherTextFieldMask =
+        MaskTextInputFormatter(mask: '###-###-####');
     _model.emailTextFieldTextController ??=
         TextEditingController(text: FFAppState().insuranceInfoEmail);
     _model.emailTextFieldFocusNode ??= FocusNode();
@@ -1805,8 +1787,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -1824,7 +1806,11 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                 size: 30.0,
               ),
               onPressed: () async {
-                await Future.delayed(const Duration(milliseconds: 500));
+                await Future.delayed(
+                  Duration(
+                    milliseconds: 500,
+                  ),
+                );
                 if (widget!.fromPage == 'FireInsurance') {
                   context.goNamed(FireLeadFollowUpPageWidget.routeName);
 
@@ -1897,6 +1883,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                 model:
                                     _model.infomationCustomerFireInsuranceModel,
                                 updateCallback: () => safeSetState(() {}),
+                                updateOnChange: true,
                                 child: InfomationCustomerFireInsuranceWidget(),
                               ),
                             if ((FFAppState().insuranceinfoActType != 'CMI') &&
@@ -8087,83 +8074,44 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           employeeCode: _model
                                                               .licenseCodeTextController
                                                               .text,
-                                                          insuranceUrl: FFAppState()
-                                                              .apiUrlInsuranceAppState,
+                                                          insuranceUrl: _model
+                                                              .profileImagesUrl
+                                                              ?.urlLink,
                                                         );
 
                                                         _shouldSetState = true;
                                                         if ((_model.profileImgOutput
                                                                     ?.statusCode ??
-                                                                200) !=
+                                                                200) ==
                                                             200) {
-                                                          await showDialog(
-                                                            context: context,
-                                                            builder:
-                                                                (alertDialogContext) {
-                                                              return WebViewAware(
-                                                                child:
-                                                                    AlertDialog(
-                                                                  content: Text(
-                                                                      'พบข้อผิดพลาด (${(_model.profileImgOutput?.statusCode ?? 200).toString()})'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed:
-                                                                          () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                      child: Text(
-                                                                          'Ok'),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              );
-                                                            },
-                                                          );
-                                                          Navigator.pop(
-                                                              context);
-                                                          if (_shouldSetState)
-                                                            safeSetState(() {});
-                                                          return;
-                                                        }
-                                                        if (GetProfileImageCall
-                                                                .statusLayer1(
+                                                          if (GetProfileImageCall
+                                                                  .statusLayer1(
+                                                                (_model.profileImgOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) ==
+                                                              200) {
+                                                            FFAppState()
+                                                                    .insuranceInfoLicenseImg =
+                                                                '${GetProfileImageCall.imgProfile(
                                                               (_model.profileImgOutput
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) !=
-                                                            200) {
-                                                          await showDialog(
-                                                            context: context,
-                                                            builder:
-                                                                (alertDialogContext) {
-                                                              return WebViewAware(
-                                                                child:
-                                                                    AlertDialog(
-                                                                  content: Text(
-                                                                      GetProfileImageCall
-                                                                          .messageLayer1(
-                                                                    (_model.profileImgOutput
-                                                                            ?.jsonBody ??
-                                                                        ''),
-                                                                  )!),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed:
-                                                                          () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                      child: Text(
-                                                                          'Ok'),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              );
-                                                            },
-                                                          );
-                                                          Navigator.pop(
-                                                              context);
-                                                          if (_shouldSetState)
+                                                            )}';
                                                             safeSetState(() {});
-                                                          return;
+                                                          } else {
+                                                            FFAppState()
+                                                                    .insuranceInfoLicenseImg =
+                                                                'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=a4b9142c-c774-492a-a5a4-caa39f16ec3c';
+                                                            safeSetState(() {});
+                                                          }
+                                                        } else {
+                                                          FFAppState()
+                                                                  .insuranceInfoLicenseImg =
+                                                              'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=a4b9142c-c774-492a-a5a4-caa39f16ec3c';
+                                                          safeSetState(() {});
                                                         }
+
                                                         FFAppState()
                                                                 .insuranceInfoLicenseEmployeeId =
                                                             '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseEmployeeId.toList(), _model.licenseCodeTextController.text)}';
@@ -8185,13 +8133,6 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         FFAppState()
                                                                 .insuranceInfoLicenseMobilePhone =
                                                             '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseMobilePhone.toList(), _model.licenseCodeTextController.text)}';
-                                                        FFAppState()
-                                                                .insuranceInfoLicenseImg =
-                                                            '${GetProfileImageCall.imgProfile(
-                                                          (_model.profileImgOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )}';
                                                         FFAppState()
                                                                 .insuranceInfoLicenseBranch =
                                                             '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), _model.licenseCodeTextController.text)}';
@@ -8694,7 +8635,12 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                   child: Image
                                                                       .network(
                                                                     getCORSProxyUrl(
-                                                                      'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74&_gl=1*ualx7r*_ga*OTc3MzI3NDY5LjE2NzU2NzMwNDE.*_ga_CW55HF8NVT*MTY5NjMyNzI4MS4yMzguMS4xNjk2MzI3MzEyLjI5LjAuMA..',
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        functions
+                                                                            .stringToImgPath(FFAppState().insuranceInfoLicenseImg),
+                                                                        'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=a4b9142c-c774-492a-a5a4-caa39f16ec3c',
+                                                                      ),
                                                                     ),
                                                                     fit: BoxFit
                                                                         .cover,

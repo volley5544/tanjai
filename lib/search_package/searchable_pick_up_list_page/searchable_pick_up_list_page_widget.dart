@@ -100,8 +100,8 @@ class _SearchablePickUpListPageWidgetState
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: Color(0xFFFAFAFA),
@@ -3429,7 +3429,7 @@ class _SearchablePickUpListPageWidgetState
                                               return;
                                             } else {
                                               if (widget!.fromPage ==
-                                                  'NonePackage') {
+                                                  'RenewStep2') {
                                                 FFAppState()
                                                         .insuranceCarTypeDetailSelected =
                                                     'กระบะตู้ทึบ/ตู้แห้ง';

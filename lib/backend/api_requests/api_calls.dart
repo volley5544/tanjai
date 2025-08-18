@@ -12978,7 +12978,7 @@ class GetProfileImageCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getProfileImage',
-      apiUrl: 'https://dev.swpfin.com/firestore/get-profile/${employeeCode}',
+      apiUrl: '${insuranceUrl}/firestore/get-profile/${employeeCode}',
       callType: ApiCallType.POST,
       headers: {},
       params: {},
@@ -13882,7 +13882,7 @@ class IbsApplicationsDetailCall {
           .toList();
   static List<String>? netpremium(dynamic response) => (getJsonField(
         response,
-        r'''$.results.data.leads_detail[:].net_premium''',
+        r'''$.results.data.leads_detail[:].net_premium_total''',
         true,
       ) as List?)
           ?.withoutNulls

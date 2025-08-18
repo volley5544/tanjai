@@ -1374,10 +1374,12 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                               safeSetState(
                                   () => _model.addressCheckValue = newValue!);
                             },
-                            side: BorderSide(
-                              width: 2,
-                              color: Color(0xFF969696),
-                            ),
+                            side: (Color(0xFF969696) != null)
+                                ? BorderSide(
+                                    width: 2,
+                                    color: Color(0xFF969696)!,
+                                  )
+                                : null,
                             activeColor: Color(0xFFEAEAEA),
                             checkColor: FlutterFlowTheme.of(context).info,
                           ),
@@ -1432,10 +1434,12 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                               safeSetState(
                                   () => _model.actCheckValue = newValue!);
                             },
-                            side: BorderSide(
-                              width: 2,
-                              color: Color(0xFF969696),
-                            ),
+                            side: (Color(0xFF969696) != null)
+                                ? BorderSide(
+                                    width: 2,
+                                    color: Color(0xFF969696)!,
+                                  )
+                                : null,
                             activeColor: Color(0xFFEAEAEA),
                             checkColor: FlutterFlowTheme.of(context).info,
                           ),

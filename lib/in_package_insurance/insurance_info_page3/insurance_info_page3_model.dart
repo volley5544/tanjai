@@ -29,70 +29,70 @@ class InsuranceInfoPage3Model
   late InfomationCustomerModel infomationCustomerModel;
   // Model for infomationCustomerAct component.
   late InfomationCustomerActModel infomationCustomerActModel;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_uploaded012 = false;
+  FFUploadedFile uploadedLocalFile_uploaded012 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl1 = '';
+  String uploadedFileUrl_uploaded012 = '';
 
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_uploaded022 = false;
+  FFUploadedFile uploadedLocalFile_uploaded022 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
+  String uploadedFileUrl_uploaded022 = '';
 
-  bool isDataUploading3 = false;
-  FFUploadedFile uploadedLocalFile3 =
+  bool isDataUploading_uploaded032 = false;
+  FFUploadedFile uploadedLocalFile_uploaded032 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl3 = '';
+  String uploadedFileUrl_uploaded032 = '';
 
-  bool isDataUploading4 = false;
-  FFUploadedFile uploadedLocalFile4 =
+  bool isDataUploading_uploaded032112 = false;
+  FFUploadedFile uploadedLocalFile_uploaded032112 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl4 = '';
+  String uploadedFileUrl_uploaded032112 = '';
 
-  bool isDataUploading5 = false;
-  FFUploadedFile uploadedLocalFile5 =
+  bool isDataUploading_upload01 = false;
+  FFUploadedFile uploadedLocalFile_upload01 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl5 = '';
+  String uploadedFileUrl_upload01 = '';
 
-  bool isDataUploading6 = false;
-  FFUploadedFile uploadedLocalFile6 =
+  bool isDataUploading_upload02 = false;
+  FFUploadedFile uploadedLocalFile_upload02 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl6 = '';
+  String uploadedFileUrl_upload02 = '';
 
-  bool isDataUploading7 = false;
-  FFUploadedFile uploadedLocalFile7 =
+  bool isDataUploading_upload03 = false;
+  FFUploadedFile uploadedLocalFile_upload03 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl7 = '';
+  String uploadedFileUrl_upload03 = '';
 
-  bool isDataUploading8 = false;
-  FFUploadedFile uploadedLocalFile8 =
+  bool isDataUploading_upload04 = false;
+  FFUploadedFile uploadedLocalFile_upload04 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl8 = '';
+  String uploadedFileUrl_upload04 = '';
 
-  bool isDataUploading9 = false;
-  FFUploadedFile uploadedLocalFile9 =
+  bool isDataUploading_uploadPhoto046 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto046 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl9 = '';
+  String uploadedFileUrl_uploadPhoto046 = '';
 
-  bool isDataUploading10 = false;
-  FFUploadedFile uploadedLocalFile10 =
+  bool isDataUploading_uploadPhoto06 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto06 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl10 = '';
+  String uploadedFileUrl_uploadPhoto06 = '';
 
-  bool isDataUploading11 = false;
-  FFUploadedFile uploadedLocalFile11 =
+  bool isDataUploading_uploadDataUzm6 = false;
+  FFUploadedFile uploadedLocalFile_uploadDataUzm6 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl11 = '';
+  String uploadedFileUrl_uploadDataUzm6 = '';
 
-  bool isDataUploading12 = false;
-  FFUploadedFile uploadedLocalFile12 =
+  bool isDataUploading_uploadDataUzm5 = false;
+  FFUploadedFile uploadedLocalFile_uploadDataUzm5 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl12 = '';
+  String uploadedFileUrl_uploadDataUzm5 = '';
 
-  bool isDataUploading13 = false;
-  FFUploadedFile uploadedLocalFile13 =
+  bool isDataUploading_uploadPhoto061 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto061 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl13 = '';
+  String uploadedFileUrl_uploadPhoto061 = '';
 
   // State field(s) for sensitive_consent widget.
   bool? sensitiveConsentValue;

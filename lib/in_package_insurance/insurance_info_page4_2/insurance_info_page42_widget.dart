@@ -405,7 +405,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         FFAppState().insuranceInfoGrossTotal = '${'${getJsonField(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           r'''$.results.data.app_detail_house[:].gross_total''',
-        ).toString().toString()}'}';
+        ).toString()}'}';
         FFAppState().insuranceInfoActAmount =
             '${IbsApplicationsDetailCall.acttotal(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -445,7 +445,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         FFAppState().insuranceInfoPage4NetPremiumTotal = '${getJsonField(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           r'''$.results.data.app_detail_house[0].net_premium_total''',
-        ).toString().toString()}';
+        ).toString()}';
         FFAppState().insuranceinfoActType =
             '${IbsApplicationsDetailCall.subProduct(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -760,8 +760,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -4952,10 +4952,13 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                             );
                                                             Navigator.pop(
                                                                 context);
-                                                            await Future.delayed(
-                                                                const Duration(
-                                                                    milliseconds:
-                                                                        10000));
+                                                            await Future
+                                                                .delayed(
+                                                              Duration(
+                                                                milliseconds:
+                                                                    10000,
+                                                              ),
+                                                            );
                                                             FFAppState()
                                                                     .isProcessing =
                                                                 false;
@@ -5593,10 +5596,13 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
 
                                                             Navigator.pop(
                                                                 context);
-                                                            await Future.delayed(
-                                                                const Duration(
-                                                                    milliseconds:
-                                                                        30000));
+                                                            await Future
+                                                                .delayed(
+                                                              Duration(
+                                                                milliseconds:
+                                                                    30000,
+                                                              ),
+                                                            );
                                                             FFAppState()
                                                                     .isProcessing =
                                                                 false;

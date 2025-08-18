@@ -29,25 +29,25 @@ class FireInsuranceInfoPage3Model
   // Model for infomationCustomerFireInsurance component.
   late InfomationCustomerFireInsuranceModel
       infomationCustomerFireInsuranceModel;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_uploaded012Fire = false;
+  FFUploadedFile uploadedLocalFile_uploaded012Fire =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl1 = '';
+  String uploadedFileUrl_uploaded012Fire = '';
 
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_uploaded022Fire = false;
+  FFUploadedFile uploadedLocalFile_uploaded022Fire =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
+  String uploadedFileUrl_uploaded022Fire = '';
 
-  bool isDataUploading3 = false;
-  FFUploadedFile uploadedLocalFile3 =
+  bool isDataUploading_uploaded0322 = false;
+  FFUploadedFile uploadedLocalFile_uploaded0322 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl3 = '';
+  String uploadedFileUrl_uploaded0322 = '';
 
-  bool isDataUploading4 = false;
-  FFUploadedFile uploadedLocalFile4 =
+  bool isDataUploading_uploadedAttoneyIDcardhouse = false;
+  FFUploadedFile uploadedLocalFile_uploadedAttoneyIDcardhouse =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl4 = '';
+  String uploadedFileUrl_uploadedAttoneyIDcardhouse = '';
 
   // State field(s) for sensitive_consent widget.
   bool? sensitiveConsentValue;

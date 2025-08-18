@@ -52,8 +52,8 @@ class _GeminiPageWidgetState extends State<GeminiPageWidget> {
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -215,7 +215,8 @@ class _GeminiPageWidgetState extends State<GeminiPageWidget> {
                           if (selectedMedia != null &&
                               selectedMedia.every((m) =>
                                   validateFileFormat(m.storagePath, context))) {
-                            safeSetState(() => _model.isDataUploading = true);
+                            safeSetState(() =>
+                                _model.isDataUploading_uploadDataVkf = true);
                             var selectedUploadedFiles = <FFUploadedFile>[];
 
                             try {
@@ -229,12 +230,12 @@ class _GeminiPageWidgetState extends State<GeminiPageWidget> {
                                       ))
                                   .toList();
                             } finally {
-                              _model.isDataUploading = false;
+                              _model.isDataUploading_uploadDataVkf = false;
                             }
                             if (selectedUploadedFiles.length ==
                                 selectedMedia.length) {
                               safeSetState(() {
-                                _model.uploadedLocalFile =
+                                _model.uploadedLocalFile_uploadDataVkf =
                                     selectedUploadedFiles.first;
                               });
                             } else {

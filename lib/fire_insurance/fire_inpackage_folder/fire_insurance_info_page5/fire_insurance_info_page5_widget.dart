@@ -490,8 +490,8 @@ class _FireInsuranceInfoPage5WidgetState
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -3495,9 +3495,10 @@ class _FireInsuranceInfoPage5WidgetState
                                                     safeSetState(() {});
                                                     Navigator.pop(context);
                                                     await Future.delayed(
-                                                        const Duration(
-                                                            milliseconds:
-                                                                10000));
+                                                      Duration(
+                                                        milliseconds: 10000,
+                                                      ),
+                                                    );
                                                     FFAppState().isProcessing =
                                                         false;
                                                     safeSetState(() {});

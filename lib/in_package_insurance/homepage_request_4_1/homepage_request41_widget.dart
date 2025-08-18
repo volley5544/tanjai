@@ -65,8 +65,8 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -148,55 +148,375 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Expanded(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                decoration: BoxDecoration(),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 12.0, 0.0),
+                        child: FutureBuilder<List<InsurerConfigRecord>>(
+                          future: queryInsurerConfigRecordOnce(
+                            singleRecord: true,
+                          ),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      FlutterFlowTheme.of(context).primary,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }
+                            List<InsurerConfigRecord>
+                                columnInsurerConfigRecordList = snapshot.data!;
+                            // Return an empty Container when the item does not exist.
+                            if (snapshot.data!.isEmpty) {
+                              return Container();
+                            }
+                            final columnInsurerConfigRecord =
+                                columnInsurerConfigRecordList.isNotEmpty
+                                    ? columnInsurerConfigRecordList.first
+                                    : null;
+
+                            return Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 5.0, 0.0, 0.0),
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    decoration: BoxDecoration(),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 0.0, 12.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Text(
+                                                'ประเภทการชำระเงิน',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .notoSansThai(
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          color:
+                                                              Color(0xFF1D4774),
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  '(บังคับเลือก)',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        font: GoogleFonts
+                                                            .notoSansThai(
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        color:
+                                                            Color(0xFFFB0606),
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        if (!columnInsurerConfig2Record!
+                                            .insurerFullPayment
+                                            .contains(FFAppState()
+                                                .insuranceInfoCompayId))
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 5.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                FFAppState()
+                                                    .maxCurrentSelected = true;
+                                                FFAppState()
+                                                        .installmentSelected =
+                                                    false;
+                                                safeSetState(() {});
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 60.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color: Color(0xFFB3B3B3),
+                                                  ),
+                                                ),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        'ชำระเต็มจำนวน',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              font: GoogleFonts
+                                                                  .notoSansThai(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                              color: Color(
+                                                                  0xFFB3B3B3),
+                                                              fontSize: 15.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                    if (!FFAppState()
+                                                        .maxCurrentSelected)
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    10.0,
+                                                                    0.0),
+                                                        child: Container(
+                                                          width: 25.0,
+                                                          height: 25.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                            shape:
+                                                                BoxShape.circle,
+                                                            border: Border.all(
+                                                              color: Color(
+                                                                  0xFF9F9F9F),
+                                                              width: 1.0,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    if (FFAppState()
+                                                        .maxCurrentSelected)
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    10.0,
+                                                                    0.0),
+                                                        child: Container(
+                                                          width: 25.0,
+                                                          height: 25.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .success,
+                                                            shape:
+                                                                BoxShape.circle,
+                                                          ),
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Icon(
+                                                              Icons.check,
+                                                              color:
+                                                                  Colors.white,
+                                                              size: 18.0,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                if ((FFAppState().flagRenew == '1') &&
+                                        columnInsurerConfig2Record!
+                                            .renewInstallment
+                                    ? !columnInsurerConfig2Record!.insurerInstallment
+                                        .contains(
+                                            FFAppState().insuranceInfoCompayId)
+                                    : (!columnInsurerConfig2Record!
+                                            .insurerInstallment
+                                            .contains(FFAppState()
+                                                .insuranceInfoCompayId) &&
+                                        (columnInsurerConfig2Record!
+                                                .canInstallmentList
+                                                .contains(FFAppState()
+                                                    .profilePositionName) ||
+                                            columnInsurerConfig2Record!
+                                                .canInstallmentListEmployee
+                                                .contains(
+                                                    FFAppState().employeeID) ||
+                                            columnInsurerConfig2Record!
+                                                .canInstallmentLevel
+                                                .contains(
+                                                    FFAppState().profileLevel)) &&
+                                        () {
+                                          if (FFAppState()
+                                                  .insuranceInfoCoverTypeCode ==
+                                              'VMI1') {
+                                            return columnInsurerConfig2Record!
+                                                .checkInstallmentVmi1
+                                                .contains(FFAppState()
+                                                    .insuranceInfoCompayId);
+                                          } else if (FFAppState()
+                                                  .insuranceInfoCoverTypeCode ==
+                                              'VMI2') {
+                                            return columnInsurerConfig2Record!
+                                                .checkInstallmentVmi2
+                                                .contains(FFAppState()
+                                                    .insuranceInfoCompayId);
+                                          } else if (FFAppState()
+                                                  .insuranceInfoCoverTypeCode ==
+                                              'VMI2+') {
+                                            return columnInsurerConfig2Record!
+                                                .checkInstallmentVmi2plus
+                                                .contains(FFAppState()
+                                                    .insuranceInfoCompayId);
+                                          } else if (FFAppState()
+                                                  .insuranceInfoCoverTypeCode ==
+                                              'VMI3') {
+                                            return columnInsurerConfig2Record!
+                                                .checkInstallmentVmi3
+                                                .contains(FFAppState()
+                                                    .insuranceInfoCompayId);
+                                          } else if (FFAppState()
+                                                  .insuranceInfoCoverTypeCode ==
+                                              'VMI3+') {
+                                            return columnInsurerConfig2Record!
+                                                .checkInstallmentVmi3plus
+                                                .contains(FFAppState()
+                                                    .insuranceInfoCompayId);
+                                          } else {
+                                            return true;
+                                          }
+                                        }()))
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      FFAppState().maxCurrentSelected = false;
+                                      FFAppState().installmentSelected = true;
+                                      safeSetState(() {});
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 60.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: Color(0xFFB3B3B3),
+                                        ),
+                                      ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text(
-                                            'ประเภทการชำระเงิน',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  font:
-                                                      GoogleFonts.notoSansThai(
-                                                    fontWeight: FontWeight.w600,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Color(0xFF1D4774),
-                                                  fontSize: 15.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                          ),
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 0.0, 0.0),
                                             child: Text(
-                                              '(บังคับเลือก)',
+                                              'ผ่อนชำระ (เป้า ง)',
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
@@ -211,8 +531,8 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                                               .bodyMedium
                                                               .fontStyle,
                                                     ),
-                                                    color: Color(0xFFFB0606),
-                                                    fontSize: 12.0,
+                                                    color: Color(0xFFB3B3B3),
+                                                    fontSize: 15.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                     fontStyle:
@@ -223,310 +543,62 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                                   ),
                                             ),
                                           ),
+                                          if (!FFAppState().installmentSelected)
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
+                                              child: Container(
+                                                width: 25.0,
+                                                height: 25.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(
+                                                    color: Color(0xFF9F9F9F),
+                                                    width: 1.0,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          if (FFAppState().installmentSelected)
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
+                                              child: Container(
+                                                width: 25.0,
+                                                height: 25.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .success,
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Icon(
+                                                    Icons.check,
+                                                    color: Colors.white,
+                                                    size: 18.0,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
                                         ],
                                       ),
                                     ),
-                                    if (!columnInsurerConfig2Record!
-                                        .insurerFullPayment
-                                        .contains(
-                                            FFAppState().insuranceInfoCompayId))
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            FFAppState().maxCurrentSelected =
-                                                true;
-                                            FFAppState().installmentSelected =
-                                                false;
-                                            safeSetState(() {});
-                                          },
-                                          child: Container(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.0,
-                                            height: 60.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              border: Border.all(
-                                                color: Color(0xFFB3B3B3),
-                                              ),
-                                            ),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    'ชำระเต็มจำนวน',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .notoSansThai(
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          color:
-                                                              Color(0xFFB3B3B3),
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                  ),
-                                                ),
-                                                if (!FFAppState()
-                                                    .maxCurrentSelected)
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                10.0, 0.0),
-                                                    child: Container(
-                                                      width: 25.0,
-                                                      height: 25.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        shape: BoxShape.circle,
-                                                        border: Border.all(
-                                                          color:
-                                                              Color(0xFF9F9F9F),
-                                                          width: 1.0,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                if (FFAppState()
-                                                    .maxCurrentSelected)
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                10.0, 0.0),
-                                                    child: Container(
-                                                      width: 25.0,
-                                                      height: 25.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .success,
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      child: Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: Icon(
-                                                          Icons.check,
-                                                          color: Colors.white,
-                                                          size: 18.0,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            if ((FFAppState().flagRenew == '1') &&
-                                    columnInsurerConfig2Record!.renewInstallment
-                                ? !columnInsurerConfig2Record!
-                                    .insurerInstallment
-                                    .contains(
-                                        FFAppState().insuranceInfoCompayId)
-                                : (!columnInsurerConfig2Record!.insurerInstallment
-                                        .contains(FFAppState()
-                                            .insuranceInfoCompayId) &&
-                                    (columnInsurerConfig2Record!
-                                            .canInstallmentList
-                                            .contains(FFAppState()
-                                                .profilePositionName) ||
-                                        columnInsurerConfig2Record!
-                                            .canInstallmentListEmployee
-                                            .contains(
-                                                FFAppState().employeeID) ||
-                                        columnInsurerConfig2Record!
-                                            .canInstallmentLevel
-                                            .contains(FFAppState().profileLevel)) &&
-                                    () {
-                                      if (FFAppState()
-                                              .insuranceInfoCoverTypeCode ==
-                                          'VMI1') {
-                                        return columnInsurerConfig2Record!
-                                            .checkInstallmentVmi1
-                                            .contains(FFAppState()
-                                                .insuranceInfoCompayId);
-                                      } else if (FFAppState()
-                                              .insuranceInfoCoverTypeCode ==
-                                          'VMI2') {
-                                        return columnInsurerConfig2Record!
-                                            .checkInstallmentVmi2
-                                            .contains(FFAppState()
-                                                .insuranceInfoCompayId);
-                                      } else if (FFAppState()
-                                              .insuranceInfoCoverTypeCode ==
-                                          'VMI2+') {
-                                        return columnInsurerConfig2Record!
-                                            .checkInstallmentVmi2plus
-                                            .contains(FFAppState()
-                                                .insuranceInfoCompayId);
-                                      } else if (FFAppState()
-                                              .insuranceInfoCoverTypeCode ==
-                                          'VMI3') {
-                                        return columnInsurerConfig2Record!
-                                            .checkInstallmentVmi3
-                                            .contains(FFAppState()
-                                                .insuranceInfoCompayId);
-                                      } else if (FFAppState()
-                                              .insuranceInfoCoverTypeCode ==
-                                          'VMI3+') {
-                                        return columnInsurerConfig2Record!
-                                            .checkInstallmentVmi3plus
-                                            .contains(FFAppState()
-                                                .insuranceInfoCompayId);
-                                      } else {
-                                        return true;
-                                      }
-                                    }()))
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  FFAppState().maxCurrentSelected = false;
-                                  FFAppState().installmentSelected = true;
-                                  safeSetState(() {});
-                                },
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 60.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    border: Border.all(
-                                      color: Color(0xFFB3B3B3),
-                                    ),
                                   ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          'ผ่อนชำระ (เป้า ง)',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.notoSansThai(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                color: Color(0xFFB3B3B3),
-                                                fontSize: 15.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                      ),
-                                      if (!FFAppState().installmentSelected)
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 10.0, 0.0),
-                                          child: Container(
-                                            width: 25.0,
-                                            height: 25.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              shape: BoxShape.circle,
-                                              border: Border.all(
-                                                color: Color(0xFF9F9F9F),
-                                                width: 1.0,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      if (FFAppState().installmentSelected)
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 10.0, 0.0),
-                                          child: Container(
-                                            width: 25.0,
-                                            height: 25.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .success,
-                                              shape: BoxShape.circle,
-                                            ),
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: Icon(
-                                                Icons.check,
-                                                color: Colors.white,
-                                                size: 18.0,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                          ]
-                              .divide(SizedBox(height: 12.0))
-                              .addToStart(SizedBox(height: 12.0))
-                              .addToEnd(SizedBox(height: 24.0)),
+                              ]
+                                  .divide(SizedBox(height: 12.0))
+                                  .addToStart(SizedBox(height: 12.0))
+                                  .addToEnd(SizedBox(height: 24.0)),
+                            );
+                          },
                         ),
                       ),
                       Expanded(

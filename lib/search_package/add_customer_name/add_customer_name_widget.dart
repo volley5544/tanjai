@@ -167,6 +167,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
             : '');
     _model.phonenumberFocusNode ??= FocusNode();
 
+    _model.phonenumberMask = MaskTextInputFormatter(mask: '###-###-####');
     _model.textFieldTextController ??= TextEditingController(
         text: FFAppState().AddCustomerPageCarRegistration != null &&
                 FFAppState().AddCustomerPageCarRegistration != ''
@@ -193,8 +194,8 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,

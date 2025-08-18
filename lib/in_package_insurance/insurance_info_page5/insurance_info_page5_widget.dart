@@ -515,8 +515,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -3544,9 +3544,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                     safeSetState(() {});
                                                     Navigator.pop(context);
                                                     await Future.delayed(
-                                                        const Duration(
-                                                            milliseconds:
-                                                                10000));
+                                                      Duration(
+                                                        milliseconds: 10000,
+                                                      ),
+                                                    );
                                                     FFAppState().isProcessing =
                                                         false;
                                                     safeSetState(() {});

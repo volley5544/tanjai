@@ -55,8 +55,8 @@ class SearchPackageFireInsurancePageModel
       buildinAssetTextFieldTextControllerValidator;
   // Stores action output result for [Custom Action - a21] action in Text widget.
   String? userUID;
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  bool isDataUploading_uploadData00m = false;
+  FFUploadedFile uploadedLocalFile_uploadData00m =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Custom Action - uploadFileFirebaseStorage] action in Text widget.

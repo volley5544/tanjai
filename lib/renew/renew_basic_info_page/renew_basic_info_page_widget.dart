@@ -458,8 +458,8 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -477,7 +477,11 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                 size: 30.0,
               ),
               onPressed: () async {
-                await Future.delayed(const Duration(milliseconds: 500));
+                await Future.delayed(
+                  Duration(
+                    milliseconds: 500,
+                  ),
+                );
 
                 context.goNamed(LeadFollowUpPageWidget.routeName);
               },
@@ -1975,7 +1979,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                       m.storagePath,
                                                                       context))) {
                                                             safeSetState(() =>
-                                                                _model.isDataUploading =
+                                                                _model.isDataUploading_uploaded0321 =
                                                                     true);
                                                             var selectedUploadedFiles =
                                                                 <FFUploadedFile>[];
@@ -2018,7 +2022,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                           u!)
                                                                       .toList();
                                                             } finally {
-                                                              _model.isDataUploading =
+                                                              _model.isDataUploading_uploaded0321 =
                                                                   false;
                                                             }
                                                             if (selectedUploadedFiles
@@ -2030,10 +2034,10 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                     selectedMedia
                                                                         .length) {
                                                               safeSetState(() {
-                                                                _model.uploadedLocalFile =
+                                                                _model.uploadedLocalFile_uploaded0321 =
                                                                     selectedUploadedFiles
                                                                         .first;
-                                                                _model.uploadedFileUrl =
+                                                                _model.uploadedFileUrl_uploaded0321 =
                                                                     downloadUrls
                                                                         .first;
                                                               });
@@ -2047,11 +2051,11 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                           FFAppState()
                                                                   .insuranceInfoPage3ImageIdCard =
                                                               _model
-                                                                  .uploadedFileUrl;
+                                                                  .uploadedFileUrl_uploaded0321;
                                                           safeSetState(() {});
-                                                          if (_model.uploadedFileUrl !=
+                                                          if (_model.uploadedFileUrl_uploaded0321 !=
                                                                   null &&
-                                                              _model.uploadedFileUrl !=
+                                                              _model.uploadedFileUrl_uploaded0321 !=
                                                                   '') {
                                                             ScaffoldMessenger
                                                                     .of(context)

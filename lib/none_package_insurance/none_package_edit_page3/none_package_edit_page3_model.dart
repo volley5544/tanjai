@@ -24,55 +24,55 @@ class NonePackageEditPage3Model
     extends FlutterFlowModel<NonePackageEditPage3Widget> {
   ///  State fields for stateful widgets in this page.
 
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_oldVmiUploadedAction1 = false;
+  FFUploadedFile uploadedLocalFile_oldVmiUploadedAction1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl1 = '';
+  String uploadedFileUrl_oldVmiUploadedAction1 = '';
 
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_idCardUploadedAction1 = false;
+  FFUploadedFile uploadedLocalFile_idCardUploadedAction1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
+  String uploadedFileUrl_idCardUploadedAction1 = '';
 
-  bool isDataUploading3 = false;
-  FFUploadedFile uploadedLocalFile3 =
+  bool isDataUploading_companyBookUploadedAction1 = false;
+  FFUploadedFile uploadedLocalFile_companyBookUploadedAction1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl3 = '';
+  String uploadedFileUrl_companyBookUploadedAction1 = '';
 
-  bool isDataUploading4 = false;
-  FFUploadedFile uploadedLocalFile4 =
+  bool isDataUploading_blueBookUploadedAction = false;
+  FFUploadedFile uploadedLocalFile_blueBookUploadedAction =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl4 = '';
+  String uploadedFileUrl_blueBookUploadedAction = '';
 
-  bool isDataUploading5 = false;
-  FFUploadedFile uploadedLocalFile5 =
+  bool isDataUploading_normalIdCardUploadedAction = false;
+  FFUploadedFile uploadedLocalFile_normalIdCardUploadedAction =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl5 = '';
+  String uploadedFileUrl_normalIdCardUploadedAction = '';
 
-  bool isDataUploading6 = false;
-  FFUploadedFile uploadedLocalFile6 =
+  bool isDataUploading_imageOther1UploadedAction = false;
+  FFUploadedFile uploadedLocalFile_imageOther1UploadedAction =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl6 = '';
+  String uploadedFileUrl_imageOther1UploadedAction = '';
 
-  bool isDataUploading7 = false;
-  FFUploadedFile uploadedLocalFile7 =
+  bool isDataUploading_imageOther2UploadedAction = false;
+  FFUploadedFile uploadedLocalFile_imageOther2UploadedAction =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl7 = '';
+  String uploadedFileUrl_imageOther2UploadedAction = '';
 
-  bool isDataUploading8 = false;
-  FFUploadedFile uploadedLocalFile8 =
+  bool isDataUploading_imageOther3UploadedAction = false;
+  FFUploadedFile uploadedLocalFile_imageOther3UploadedAction =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl8 = '';
+  String uploadedFileUrl_imageOther3UploadedAction = '';
 
-  bool isDataUploading9 = false;
-  FFUploadedFile uploadedLocalFile9 =
+  bool isDataUploading_imageOther4UploadedAction = false;
+  FFUploadedFile uploadedLocalFile_imageOther4UploadedAction =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl9 = '';
+  String uploadedFileUrl_imageOther4UploadedAction = '';
 
-  bool isDataUploading10 = false;
-  FFUploadedFile uploadedLocalFile10 =
+  bool isDataUploading_imageOther5UploadedAction = false;
+  FFUploadedFile uploadedLocalFile_imageOther5UploadedAction =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl10 = '';
+  String uploadedFileUrl_imageOther5UploadedAction = '';
 
   // Stores action output result for [Backend Call - API (insuranceRequestEditAPI)] action in Button widget.
   ApiCallResponse? insuranceEditOutput;

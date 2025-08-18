@@ -158,8 +158,8 @@ class _MakeInsuranceListPageSearchWidgetState
             FocusScope.of(context).unfocus();
             FocusManager.instance.primaryFocus?.unfocus();
           },
-          child: WillPopScope(
-            onWillPop: () async => false,
+          child: PopScope(
+            canPop: false,
             child: Scaffold(
               key: scaffoldKey,
               backgroundColor: Colors.white,
@@ -961,9 +961,8 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                       FFAppState().jsonTemp,
                                                                                       r'''$.pdf_quotation''',
                                                                                       true,
-                                                                                    ) as List)
-                                                                                        .map<String>((s) => s.toString())
-                                                                                        .toList(),
+                                                                                    ) as List?)
+                                                                                        ?.cast<String>(),
                                                                                     ParamType.String,
                                                                                     isList: true,
                                                                                   ),

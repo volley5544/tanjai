@@ -17,17 +17,17 @@ class UploadImgFireInsurerPageModel
     extends FlutterFlowModel<UploadImgFireInsurerPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_uploaded111 = false;
+  FFUploadedFile uploadedLocalFile_uploaded111 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_uploaded112 = false;
+  FFUploadedFile uploadedLocalFile_uploaded112 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading3 = false;
-  List<FFUploadedFile> uploadedLocalFiles3 = [];
-  List<String> uploadedFileUrls3 = [];
+  bool isDataUploading_firebaseUploadedUrlList123 = false;
+  List<FFUploadedFile> uploadedLocalFiles_firebaseUploadedUrlList123 = [];
+  List<String> uploadedFileUrls_firebaseUploadedUrlList123 = [];
 
   @override
   void initState(BuildContext context) {}

@@ -96,8 +96,8 @@ class _NonePackageEditPage3WidgetState
             FocusScope.of(context).unfocus();
             FocusManager.instance.primaryFocus?.unfocus();
           },
-          child: WillPopScope(
-            onWillPop: () async => false,
+          child: PopScope(
+            canPop: false,
             child: Scaffold(
               key: scaffoldKey,
               appBar: AppBar(
@@ -352,7 +352,7 @@ class _NonePackageEditPage3WidgetState
                                                                             m.storagePath,
                                                                             context))) {
                                                                   safeSetState(() =>
-                                                                      _model.isDataUploading1 =
+                                                                      _model.isDataUploading_oldVmiUploadedAction1 =
                                                                           true);
                                                                   var selectedUploadedFiles =
                                                                       <FFUploadedFile>[];
@@ -386,7 +386,7 @@ class _NonePackageEditPage3WidgetState
                                                                             u!)
                                                                         .toList();
                                                                   } finally {
-                                                                    _model.isDataUploading1 =
+                                                                    _model.isDataUploading_oldVmiUploadedAction1 =
                                                                         false;
                                                                   }
                                                                   if (selectedUploadedFiles
@@ -399,10 +399,10 @@ class _NonePackageEditPage3WidgetState
                                                                               .length) {
                                                                     safeSetState(
                                                                         () {
-                                                                      _model.uploadedLocalFile1 =
+                                                                      _model.uploadedLocalFile_oldVmiUploadedAction1 =
                                                                           selectedUploadedFiles
                                                                               .first;
-                                                                      _model.uploadedFileUrl1 =
+                                                                      _model.uploadedFileUrl_oldVmiUploadedAction1 =
                                                                           downloadUrls
                                                                               .first;
                                                                     });
@@ -413,9 +413,9 @@ class _NonePackageEditPage3WidgetState
                                                                   }
                                                                 }
 
-                                                                if (!(_model.uploadedFileUrl1 !=
+                                                                if (!(_model.uploadedFileUrl_oldVmiUploadedAction1 !=
                                                                         null &&
-                                                                    _model.uploadedFileUrl1 !=
+                                                                    _model.uploadedFileUrl_oldVmiUploadedAction1 !=
                                                                         '')) {
                                                                   ScaffoldMessenger.of(
                                                                           context)
@@ -443,7 +443,7 @@ class _NonePackageEditPage3WidgetState
                                                                 FFAppState()
                                                                         .nonePackageOldVmiImageUrl =
                                                                     _model
-                                                                        .uploadedFileUrl1;
+                                                                        .uploadedFileUrl_oldVmiUploadedAction1;
                                                                 safeSetState(
                                                                     () {});
                                                                 ScaffoldMessenger.of(
@@ -568,9 +568,9 @@ class _NonePackageEditPage3WidgetState
                                                               ),
                                                             ),
                                                             Text(
-                                                              _model.uploadedFileUrl1 !=
+                                                              _model.uploadedFileUrl_oldVmiUploadedAction1 !=
                                                                           null &&
-                                                                      _model.uploadedFileUrl1 !=
+                                                                      _model.uploadedFileUrl_oldVmiUploadedAction1 !=
                                                                           ''
                                                                   ? 'อัพโหลดแล้ว'
                                                                   : 'ยังไม่อัพโหลด',
@@ -679,9 +679,9 @@ class _NonePackageEditPage3WidgetState
                                                           size: 24.0,
                                                         ),
                                                       ),
-                                                    if (_model.uploadedFileUrl1 !=
+                                                    if (_model.uploadedFileUrl_oldVmiUploadedAction1 !=
                                                             null &&
-                                                        _model.uploadedFileUrl1 !=
+                                                        _model.uploadedFileUrl_oldVmiUploadedAction1 !=
                                                             '')
                                                       Icon(
                                                         Icons.check,
@@ -689,9 +689,9 @@ class _NonePackageEditPage3WidgetState
                                                             Color(0xFF2EDD78),
                                                         size: 24.0,
                                                       ),
-                                                    if (_model.uploadedFileUrl1 ==
+                                                    if (_model.uploadedFileUrl_oldVmiUploadedAction1 ==
                                                             null ||
-                                                        _model.uploadedFileUrl1 ==
+                                                        _model.uploadedFileUrl_oldVmiUploadedAction1 ==
                                                             '')
                                                       Container(
                                                         height: 100.0,
@@ -699,9 +699,9 @@ class _NonePackageEditPage3WidgetState
                                                             BoxDecoration(),
                                                         child: Visibility(
                                                           visible: _model
-                                                                      .uploadedFileUrl1 ==
+                                                                      .uploadedFileUrl_oldVmiUploadedAction1 ==
                                                                   null ||
-                                                              _model.uploadedFileUrl1 ==
+                                                              _model.uploadedFileUrl_oldVmiUploadedAction1 ==
                                                                   '',
                                                           child: Icon(
                                                             Icons.close,
@@ -887,7 +887,7 @@ class _NonePackageEditPage3WidgetState
                                                                             m.storagePath,
                                                                             context))) {
                                                                   safeSetState(() =>
-                                                                      _model.isDataUploading2 =
+                                                                      _model.isDataUploading_idCardUploadedAction1 =
                                                                           true);
                                                                   var selectedUploadedFiles =
                                                                       <FFUploadedFile>[];
@@ -921,7 +921,7 @@ class _NonePackageEditPage3WidgetState
                                                                             u!)
                                                                         .toList();
                                                                   } finally {
-                                                                    _model.isDataUploading2 =
+                                                                    _model.isDataUploading_idCardUploadedAction1 =
                                                                         false;
                                                                   }
                                                                   if (selectedUploadedFiles
@@ -934,10 +934,10 @@ class _NonePackageEditPage3WidgetState
                                                                               .length) {
                                                                     safeSetState(
                                                                         () {
-                                                                      _model.uploadedLocalFile2 =
+                                                                      _model.uploadedLocalFile_idCardUploadedAction1 =
                                                                           selectedUploadedFiles
                                                                               .first;
-                                                                      _model.uploadedFileUrl2 =
+                                                                      _model.uploadedFileUrl_idCardUploadedAction1 =
                                                                           downloadUrls
                                                                               .first;
                                                                     });
@@ -948,9 +948,9 @@ class _NonePackageEditPage3WidgetState
                                                                   }
                                                                 }
 
-                                                                if (!(_model.uploadedFileUrl2 !=
+                                                                if (!(_model.uploadedFileUrl_idCardUploadedAction1 !=
                                                                         null &&
-                                                                    _model.uploadedFileUrl2 !=
+                                                                    _model.uploadedFileUrl_idCardUploadedAction1 !=
                                                                         '')) {
                                                                   ScaffoldMessenger.of(
                                                                           context)
@@ -978,7 +978,7 @@ class _NonePackageEditPage3WidgetState
                                                                 FFAppState()
                                                                         .nonePackageIdCardImageUrl =
                                                                     _model
-                                                                        .uploadedFileUrl2;
+                                                                        .uploadedFileUrl_idCardUploadedAction1;
                                                                 safeSetState(
                                                                     () {});
                                                                 ScaffoldMessenger.of(
@@ -1103,9 +1103,9 @@ class _NonePackageEditPage3WidgetState
                                                               ),
                                                             ),
                                                             Text(
-                                                              _model.uploadedFileUrl2 !=
+                                                              _model.uploadedFileUrl_idCardUploadedAction1 !=
                                                                           null &&
-                                                                      _model.uploadedFileUrl2 !=
+                                                                      _model.uploadedFileUrl_idCardUploadedAction1 !=
                                                                           ''
                                                                   ? 'อัพโหลดแล้ว'
                                                                   : 'ยังไม่อัพโหลด',
@@ -1214,9 +1214,9 @@ class _NonePackageEditPage3WidgetState
                                                           size: 24.0,
                                                         ),
                                                       ),
-                                                    if (_model.uploadedFileUrl2 !=
+                                                    if (_model.uploadedFileUrl_idCardUploadedAction1 !=
                                                             null &&
-                                                        _model.uploadedFileUrl2 !=
+                                                        _model.uploadedFileUrl_idCardUploadedAction1 !=
                                                             '')
                                                       Icon(
                                                         Icons.check,
@@ -1224,9 +1224,9 @@ class _NonePackageEditPage3WidgetState
                                                             Color(0xFF2EDD78),
                                                         size: 24.0,
                                                       ),
-                                                    if (_model.uploadedFileUrl2 ==
+                                                    if (_model.uploadedFileUrl_idCardUploadedAction1 ==
                                                             null ||
-                                                        _model.uploadedFileUrl2 ==
+                                                        _model.uploadedFileUrl_idCardUploadedAction1 ==
                                                             '')
                                                       Flexible(
                                                         child: Container(
@@ -1235,9 +1235,9 @@ class _NonePackageEditPage3WidgetState
                                                               BoxDecoration(),
                                                           child: Visibility(
                                                             visible: _model
-                                                                        .uploadedFileUrl2 ==
+                                                                        .uploadedFileUrl_idCardUploadedAction1 ==
                                                                     null ||
-                                                                _model.uploadedFileUrl2 ==
+                                                                _model.uploadedFileUrl_idCardUploadedAction1 ==
                                                                     '',
                                                             child: Icon(
                                                               Icons.close,
@@ -1364,7 +1364,7 @@ class _NonePackageEditPage3WidgetState
                                                                           m.storagePath,
                                                                           context))) {
                                                                     safeSetState(() =>
-                                                                        _model.isDataUploading3 =
+                                                                        _model.isDataUploading_companyBookUploadedAction1 =
                                                                             true);
                                                                     var selectedUploadedFiles =
                                                                         <FFUploadedFile>[];
@@ -1398,7 +1398,7 @@ class _NonePackageEditPage3WidgetState
                                                                               u!)
                                                                           .toList();
                                                                     } finally {
-                                                                      _model.isDataUploading3 =
+                                                                      _model.isDataUploading_companyBookUploadedAction1 =
                                                                           false;
                                                                     }
                                                                     if (selectedUploadedFiles.length ==
@@ -1408,9 +1408,9 @@ class _NonePackageEditPage3WidgetState
                                                                             selectedMedia.length) {
                                                                       safeSetState(
                                                                           () {
-                                                                        _model.uploadedLocalFile3 =
+                                                                        _model.uploadedLocalFile_companyBookUploadedAction1 =
                                                                             selectedUploadedFiles.first;
-                                                                        _model.uploadedFileUrl3 =
+                                                                        _model.uploadedFileUrl_companyBookUploadedAction1 =
                                                                             downloadUrls.first;
                                                                       });
                                                                     } else {
@@ -1424,9 +1424,9 @@ class _NonePackageEditPage3WidgetState
                                                                       .hideKeyboardAction(
                                                                     context,
                                                                   );
-                                                                  if (!(_model.uploadedFileUrl3 !=
+                                                                  if (!(_model.uploadedFileUrl_companyBookUploadedAction1 !=
                                                                           null &&
-                                                                      _model.uploadedFileUrl3 !=
+                                                                      _model.uploadedFileUrl_companyBookUploadedAction1 !=
                                                                           '')) {
                                                                     ScaffoldMessenger.of(
                                                                             context)
@@ -1452,7 +1452,7 @@ class _NonePackageEditPage3WidgetState
                                                                   FFAppState()
                                                                           .nonePackageCompanyBookImageUrl =
                                                                       _model
-                                                                          .uploadedFileUrl3;
+                                                                          .uploadedFileUrl_companyBookUploadedAction1;
                                                                   safeSetState(
                                                                       () {});
                                                                   ScaffoldMessenger.of(
@@ -1573,9 +1573,9 @@ class _NonePackageEditPage3WidgetState
                                                                 ),
                                                               ),
                                                               Text(
-                                                                _model.uploadedFileUrl3 !=
+                                                                _model.uploadedFileUrl_companyBookUploadedAction1 !=
                                                                             null &&
-                                                                        _model.uploadedFileUrl3 !=
+                                                                        _model.uploadedFileUrl_companyBookUploadedAction1 !=
                                                                             ''
                                                                     ? 'อัพโหลดแล้ว'
                                                                     : 'ยังไม่อัพโหลด',
@@ -1615,9 +1615,9 @@ class _NonePackageEditPage3WidgetState
                                                         decoration:
                                                             BoxDecoration(),
                                                       ),
-                                                      if (_model.uploadedFileUrl3 !=
+                                                      if (_model.uploadedFileUrl_companyBookUploadedAction1 !=
                                                               null &&
-                                                          _model.uploadedFileUrl3 !=
+                                                          _model.uploadedFileUrl_companyBookUploadedAction1 !=
                                                               '')
                                                         Icon(
                                                           Icons.check,
@@ -1625,9 +1625,9 @@ class _NonePackageEditPage3WidgetState
                                                               Color(0xFF2EDD78),
                                                           size: 24.0,
                                                         ),
-                                                      if (_model.uploadedFileUrl3 ==
+                                                      if (_model.uploadedFileUrl_companyBookUploadedAction1 ==
                                                               null ||
-                                                          _model.uploadedFileUrl3 ==
+                                                          _model.uploadedFileUrl_companyBookUploadedAction1 ==
                                                               '')
                                                         Container(
                                                           height: 100.0,
@@ -1635,9 +1635,9 @@ class _NonePackageEditPage3WidgetState
                                                               BoxDecoration(),
                                                           child: Visibility(
                                                             visible: _model
-                                                                        .uploadedFileUrl3 ==
+                                                                        .uploadedFileUrl_companyBookUploadedAction1 ==
                                                                     null ||
-                                                                _model.uploadedFileUrl3 ==
+                                                                _model.uploadedFileUrl_companyBookUploadedAction1 ==
                                                                     '',
                                                             child: Icon(
                                                               Icons.close,
@@ -1816,7 +1816,7 @@ class _NonePackageEditPage3WidgetState
                                                               m.storagePath,
                                                               context))) {
                                                     safeSetState(() => _model
-                                                            .isDataUploading4 =
+                                                            .isDataUploading_blueBookUploadedAction =
                                                         true);
                                                     var selectedUploadedFiles =
                                                         <FFUploadedFile>[];
@@ -1860,7 +1860,7 @@ class _NonePackageEditPage3WidgetState
                                                               .map((u) => u!)
                                                               .toList();
                                                     } finally {
-                                                      _model.isDataUploading4 =
+                                                      _model.isDataUploading_blueBookUploadedAction =
                                                           false;
                                                     }
                                                     if (selectedUploadedFiles
@@ -1871,10 +1871,10 @@ class _NonePackageEditPage3WidgetState
                                                             selectedMedia
                                                                 .length) {
                                                       safeSetState(() {
-                                                        _model.uploadedLocalFile4 =
+                                                        _model.uploadedLocalFile_blueBookUploadedAction =
                                                             selectedUploadedFiles
                                                                 .first;
-                                                        _model.uploadedFileUrl4 =
+                                                        _model.uploadedFileUrl_blueBookUploadedAction =
                                                             downloadUrls.first;
                                                       });
                                                     } else {
@@ -1883,9 +1883,9 @@ class _NonePackageEditPage3WidgetState
                                                     }
                                                   }
 
-                                                  if (!(_model.uploadedFileUrl4 !=
+                                                  if (!(_model.uploadedFileUrl_blueBookUploadedAction !=
                                                           null &&
-                                                      _model.uploadedFileUrl4 !=
+                                                      _model.uploadedFileUrl_blueBookUploadedAction !=
                                                           '')) {
                                                     ScaffoldMessenger.of(
                                                             context)
@@ -1907,7 +1907,8 @@ class _NonePackageEditPage3WidgetState
                                                   }
                                                   FFAppState()
                                                           .nonePackageImageBlueBookUploaded =
-                                                      _model.uploadedFileUrl4;
+                                                      _model
+                                                          .uploadedFileUrl_blueBookUploadedAction;
                                                   safeSetState(() {});
                                                   ScaffoldMessenger.of(context)
                                                       .clearSnackBars();
@@ -1986,9 +1987,9 @@ class _NonePackageEditPage3WidgetState
                                                     .fromSTEB(
                                                         12.0, 0.0, 0.0, 0.0),
                                                 child: Text(
-                                                  _model.uploadedFileUrl4 !=
+                                                  _model.uploadedFileUrl_blueBookUploadedAction !=
                                                               null &&
-                                                          _model.uploadedFileUrl4 !=
+                                                          _model.uploadedFileUrl_blueBookUploadedAction !=
                                                               ''
                                                       ? 'สถานะ : อัพโหลดแล้ว'
                                                       : 'สถานะ : ยังไม่อัพโหลด',
@@ -2093,17 +2094,19 @@ class _NonePackageEditPage3WidgetState
                                                     size: 24.0,
                                                   ),
                                                 ),
-                                              if (_model.uploadedFileUrl4 !=
+                                              if (_model.uploadedFileUrl_blueBookUploadedAction !=
                                                       null &&
-                                                  _model.uploadedFileUrl4 != '')
+                                                  _model.uploadedFileUrl_blueBookUploadedAction !=
+                                                      '')
                                                 Icon(
                                                   Icons.check,
                                                   color: Color(0xFF2EDD78),
                                                   size: 24.0,
                                                 ),
-                                              if (_model.uploadedFileUrl4 ==
+                                              if (_model.uploadedFileUrl_blueBookUploadedAction ==
                                                       null ||
-                                                  _model.uploadedFileUrl4 == '')
+                                                  _model.uploadedFileUrl_blueBookUploadedAction ==
+                                                      '')
                                                 Icon(
                                                   Icons.close,
                                                   color: Color(0xFFFC0A0A),
@@ -2229,7 +2232,7 @@ class _NonePackageEditPage3WidgetState
                                                                   m.storagePath,
                                                                   context))) {
                                                         safeSetState(() => _model
-                                                                .isDataUploading5 =
+                                                                .isDataUploading_normalIdCardUploadedAction =
                                                             true);
                                                         var selectedUploadedFiles =
                                                             <FFUploadedFile>[];
@@ -2274,7 +2277,7 @@ class _NonePackageEditPage3WidgetState
                                                                       (u) => u!)
                                                                   .toList();
                                                         } finally {
-                                                          _model.isDataUploading5 =
+                                                          _model.isDataUploading_normalIdCardUploadedAction =
                                                               false;
                                                         }
                                                         if (selectedUploadedFiles
@@ -2286,10 +2289,10 @@ class _NonePackageEditPage3WidgetState
                                                                 selectedMedia
                                                                     .length) {
                                                           safeSetState(() {
-                                                            _model.uploadedLocalFile5 =
+                                                            _model.uploadedLocalFile_normalIdCardUploadedAction =
                                                                 selectedUploadedFiles
                                                                     .first;
-                                                            _model.uploadedFileUrl5 =
+                                                            _model.uploadedFileUrl_normalIdCardUploadedAction =
                                                                 downloadUrls
                                                                     .first;
                                                           });
@@ -2299,9 +2302,9 @@ class _NonePackageEditPage3WidgetState
                                                         }
                                                       }
 
-                                                      if (!(_model.uploadedFileUrl5 !=
+                                                      if (!(_model.uploadedFileUrl_normalIdCardUploadedAction !=
                                                               null &&
-                                                          _model.uploadedFileUrl5 !=
+                                                          _model.uploadedFileUrl_normalIdCardUploadedAction !=
                                                               '')) {
                                                         ScaffoldMessenger.of(
                                                                 context)
@@ -2327,7 +2330,7 @@ class _NonePackageEditPage3WidgetState
                                                       FFAppState()
                                                               .nonePackageIdCardImageUrl =
                                                           _model
-                                                              .uploadedFileUrl5;
+                                                              .uploadedFileUrl_normalIdCardUploadedAction;
                                                       safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
@@ -2411,9 +2414,9 @@ class _NonePackageEditPage3WidgetState
                                                             .fromSTEB(12.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      _model.uploadedFileUrl5 !=
+                                                      _model.uploadedFileUrl_normalIdCardUploadedAction !=
                                                                   null &&
-                                                              _model.uploadedFileUrl5 !=
+                                                              _model.uploadedFileUrl_normalIdCardUploadedAction !=
                                                                   ''
                                                           ? 'สถานะ : อัพโหลดแล้ว'
                                                           : 'สถานะ : ยังไม่อัพโหลด',
@@ -2518,18 +2521,18 @@ class _NonePackageEditPage3WidgetState
                                                         size: 24.0,
                                                       ),
                                                     ),
-                                                  if (_model.uploadedFileUrl5 !=
+                                                  if (_model.uploadedFileUrl_normalIdCardUploadedAction !=
                                                           null &&
-                                                      _model.uploadedFileUrl5 !=
+                                                      _model.uploadedFileUrl_normalIdCardUploadedAction !=
                                                           '')
                                                     Icon(
                                                       Icons.check,
                                                       color: Color(0xFF2EDD78),
                                                       size: 24.0,
                                                     ),
-                                                  if (_model.uploadedFileUrl5 ==
+                                                  if (_model.uploadedFileUrl_normalIdCardUploadedAction ==
                                                           null ||
-                                                      _model.uploadedFileUrl5 ==
+                                                      _model.uploadedFileUrl_normalIdCardUploadedAction ==
                                                           '')
                                                     Icon(
                                                       Icons.close,
@@ -2790,7 +2793,7 @@ class _NonePackageEditPage3WidgetState
                                                               m.storagePath,
                                                               context))) {
                                                     safeSetState(() => _model
-                                                            .isDataUploading6 =
+                                                            .isDataUploading_imageOther1UploadedAction =
                                                         true);
                                                     var selectedUploadedFiles =
                                                         <FFUploadedFile>[];
@@ -2834,7 +2837,7 @@ class _NonePackageEditPage3WidgetState
                                                               .map((u) => u!)
                                                               .toList();
                                                     } finally {
-                                                      _model.isDataUploading6 =
+                                                      _model.isDataUploading_imageOther1UploadedAction =
                                                           false;
                                                     }
                                                     if (selectedUploadedFiles
@@ -2845,10 +2848,10 @@ class _NonePackageEditPage3WidgetState
                                                             selectedMedia
                                                                 .length) {
                                                       safeSetState(() {
-                                                        _model.uploadedLocalFile6 =
+                                                        _model.uploadedLocalFile_imageOther1UploadedAction =
                                                             selectedUploadedFiles
                                                                 .first;
-                                                        _model.uploadedFileUrl6 =
+                                                        _model.uploadedFileUrl_imageOther1UploadedAction =
                                                             downloadUrls.first;
                                                       });
                                                     } else {
@@ -2857,9 +2860,9 @@ class _NonePackageEditPage3WidgetState
                                                     }
                                                   }
 
-                                                  if (!(_model.uploadedFileUrl6 !=
+                                                  if (!(_model.uploadedFileUrl_imageOther1UploadedAction !=
                                                           null &&
-                                                      _model.uploadedFileUrl6 !=
+                                                      _model.uploadedFileUrl_imageOther1UploadedAction !=
                                                           '')) {
                                                     ScaffoldMessenger.of(
                                                             context)
@@ -2881,7 +2884,8 @@ class _NonePackageEditPage3WidgetState
                                                   }
                                                   FFAppState()
                                                           .nonePackageImageOther1 =
-                                                      _model.uploadedFileUrl6;
+                                                      _model
+                                                          .uploadedFileUrl_imageOther1UploadedAction;
                                                   safeSetState(() {});
                                                   ScaffoldMessenger.of(context)
                                                       .clearSnackBars();
@@ -2960,9 +2964,9 @@ class _NonePackageEditPage3WidgetState
                                                     .fromSTEB(
                                                         12.0, 0.0, 0.0, 0.0),
                                                 child: Text(
-                                                  _model.uploadedFileUrl6 !=
+                                                  _model.uploadedFileUrl_imageOther1UploadedAction !=
                                                               null &&
-                                                          _model.uploadedFileUrl6 !=
+                                                          _model.uploadedFileUrl_imageOther1UploadedAction !=
                                                               ''
                                                       ? 'สถานะ : อัพโหลดแล้ว'
                                                       : 'สถานะ : ยังไม่อัพโหลด',
@@ -2997,17 +3001,19 @@ class _NonePackageEditPage3WidgetState
                                                       ),
                                                 ),
                                               ),
-                                              if (_model.uploadedFileUrl6 !=
+                                              if (_model.uploadedFileUrl_imageOther1UploadedAction !=
                                                       null &&
-                                                  _model.uploadedFileUrl6 != '')
+                                                  _model.uploadedFileUrl_imageOther1UploadedAction !=
+                                                      '')
                                                 Icon(
                                                   Icons.check,
                                                   color: Color(0xFF2EDD78),
                                                   size: 24.0,
                                                 ),
-                                              if (_model.uploadedFileUrl6 ==
+                                              if (_model.uploadedFileUrl_imageOther1UploadedAction ==
                                                       null ||
-                                                  _model.uploadedFileUrl6 == '')
+                                                  _model.uploadedFileUrl_imageOther1UploadedAction ==
+                                                      '')
                                                 Icon(
                                                   Icons.close,
                                                   color: Color(0xFFFC0A0A),
@@ -3016,8 +3022,10 @@ class _NonePackageEditPage3WidgetState
                                             ],
                                           ),
                                         ),
-                                        if (_model.uploadedFileUrl6 != null &&
-                                            _model.uploadedFileUrl6 != '')
+                                        if (_model.uploadedFileUrl_imageOther1UploadedAction !=
+                                                null &&
+                                            _model.uploadedFileUrl_imageOther1UploadedAction !=
+                                                '')
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -3049,7 +3057,7 @@ class _NonePackageEditPage3WidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading7 =
+                                                              .isDataUploading_imageOther2UploadedAction =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -3093,7 +3101,7 @@ class _NonePackageEditPage3WidgetState
                                                                 .map((u) => u!)
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading7 =
+                                                        _model.isDataUploading_imageOther2UploadedAction =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -3104,10 +3112,10 @@ class _NonePackageEditPage3WidgetState
                                                               selectedMedia
                                                                   .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile7 =
+                                                          _model.uploadedLocalFile_imageOther2UploadedAction =
                                                               selectedUploadedFiles
                                                                   .first;
-                                                          _model.uploadedFileUrl7 =
+                                                          _model.uploadedFileUrl_imageOther2UploadedAction =
                                                               downloadUrls
                                                                   .first;
                                                         });
@@ -3117,9 +3125,9 @@ class _NonePackageEditPage3WidgetState
                                                       }
                                                     }
 
-                                                    if (!(_model.uploadedFileUrl7 !=
+                                                    if (!(_model.uploadedFileUrl_imageOther2UploadedAction !=
                                                             null &&
-                                                        _model.uploadedFileUrl7 !=
+                                                        _model.uploadedFileUrl_imageOther2UploadedAction !=
                                                             '')) {
                                                       ScaffoldMessenger.of(
                                                               context)
@@ -3143,7 +3151,8 @@ class _NonePackageEditPage3WidgetState
                                                     }
                                                     FFAppState()
                                                             .nonePackageImageOther2 =
-                                                        _model.uploadedFileUrl7;
+                                                        _model
+                                                            .uploadedFileUrl_imageOther2UploadedAction;
                                                     safeSetState(() {});
                                                     ScaffoldMessenger.of(
                                                             context)
@@ -3222,9 +3231,9 @@ class _NonePackageEditPage3WidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedFileUrl7 !=
+                                                    _model.uploadedFileUrl_imageOther2UploadedAction !=
                                                                 null &&
-                                                            _model.uploadedFileUrl7 !=
+                                                            _model.uploadedFileUrl_imageOther2UploadedAction !=
                                                                 ''
                                                         ? 'สถานะ : อัพโหลดแล้ว'
                                                         : 'สถานะ : ยังไม่อัพโหลด',
@@ -3259,18 +3268,18 @@ class _NonePackageEditPage3WidgetState
                                                         ),
                                                   ),
                                                 ),
-                                                if (_model.uploadedFileUrl7 !=
+                                                if (_model.uploadedFileUrl_imageOther2UploadedAction !=
                                                         null &&
-                                                    _model.uploadedFileUrl7 !=
+                                                    _model.uploadedFileUrl_imageOther2UploadedAction !=
                                                         '')
                                                   Icon(
                                                     Icons.check,
                                                     color: Color(0xFF2EDD78),
                                                     size: 24.0,
                                                   ),
-                                                if (_model.uploadedFileUrl7 ==
+                                                if (_model.uploadedFileUrl_imageOther2UploadedAction ==
                                                         null ||
-                                                    _model.uploadedFileUrl7 ==
+                                                    _model.uploadedFileUrl_imageOther2UploadedAction ==
                                                         '')
                                                   Icon(
                                                     Icons.close,
@@ -3280,8 +3289,10 @@ class _NonePackageEditPage3WidgetState
                                               ],
                                             ),
                                           ),
-                                        if (_model.uploadedFileUrl7 != null &&
-                                            _model.uploadedFileUrl7 != '')
+                                        if (_model.uploadedFileUrl_imageOther2UploadedAction !=
+                                                null &&
+                                            _model.uploadedFileUrl_imageOther2UploadedAction !=
+                                                '')
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -3313,7 +3324,7 @@ class _NonePackageEditPage3WidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading8 =
+                                                              .isDataUploading_imageOther3UploadedAction =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -3357,7 +3368,7 @@ class _NonePackageEditPage3WidgetState
                                                                 .map((u) => u!)
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading8 =
+                                                        _model.isDataUploading_imageOther3UploadedAction =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -3368,10 +3379,10 @@ class _NonePackageEditPage3WidgetState
                                                               selectedMedia
                                                                   .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile8 =
+                                                          _model.uploadedLocalFile_imageOther3UploadedAction =
                                                               selectedUploadedFiles
                                                                   .first;
-                                                          _model.uploadedFileUrl8 =
+                                                          _model.uploadedFileUrl_imageOther3UploadedAction =
                                                               downloadUrls
                                                                   .first;
                                                         });
@@ -3381,9 +3392,9 @@ class _NonePackageEditPage3WidgetState
                                                       }
                                                     }
 
-                                                    if (!(_model.uploadedFileUrl8 !=
+                                                    if (!(_model.uploadedFileUrl_imageOther3UploadedAction !=
                                                             null &&
-                                                        _model.uploadedFileUrl8 !=
+                                                        _model.uploadedFileUrl_imageOther3UploadedAction !=
                                                             '')) {
                                                       ScaffoldMessenger.of(
                                                               context)
@@ -3407,7 +3418,8 @@ class _NonePackageEditPage3WidgetState
                                                     }
                                                     FFAppState()
                                                             .nonePackageImageOther3 =
-                                                        _model.uploadedFileUrl8;
+                                                        _model
+                                                            .uploadedFileUrl_imageOther3UploadedAction;
                                                     safeSetState(() {});
                                                     ScaffoldMessenger.of(
                                                             context)
@@ -3486,9 +3498,9 @@ class _NonePackageEditPage3WidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedFileUrl8 !=
+                                                    _model.uploadedFileUrl_imageOther3UploadedAction !=
                                                                 null &&
-                                                            _model.uploadedFileUrl8 !=
+                                                            _model.uploadedFileUrl_imageOther3UploadedAction !=
                                                                 ''
                                                         ? 'สถานะ : อัพโหลดแล้ว'
                                                         : 'สถานะ : ยังไม่อัพโหลด',
@@ -3523,18 +3535,18 @@ class _NonePackageEditPage3WidgetState
                                                         ),
                                                   ),
                                                 ),
-                                                if (_model.uploadedFileUrl8 !=
+                                                if (_model.uploadedFileUrl_imageOther3UploadedAction !=
                                                         null &&
-                                                    _model.uploadedFileUrl8 !=
+                                                    _model.uploadedFileUrl_imageOther3UploadedAction !=
                                                         '')
                                                   Icon(
                                                     Icons.check,
                                                     color: Color(0xFF2EDD78),
                                                     size: 24.0,
                                                   ),
-                                                if (_model.uploadedFileUrl8 ==
+                                                if (_model.uploadedFileUrl_imageOther3UploadedAction ==
                                                         null ||
-                                                    _model.uploadedFileUrl8 ==
+                                                    _model.uploadedFileUrl_imageOther3UploadedAction ==
                                                         '')
                                                   Icon(
                                                     Icons.close,
@@ -3544,8 +3556,10 @@ class _NonePackageEditPage3WidgetState
                                               ],
                                             ),
                                           ),
-                                        if (_model.uploadedFileUrl8 != null &&
-                                            _model.uploadedFileUrl8 != '')
+                                        if (_model.uploadedFileUrl_imageOther3UploadedAction !=
+                                                null &&
+                                            _model.uploadedFileUrl_imageOther3UploadedAction !=
+                                                '')
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -3577,7 +3591,7 @@ class _NonePackageEditPage3WidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading9 =
+                                                              .isDataUploading_imageOther4UploadedAction =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -3621,7 +3635,7 @@ class _NonePackageEditPage3WidgetState
                                                                 .map((u) => u!)
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading9 =
+                                                        _model.isDataUploading_imageOther4UploadedAction =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -3632,10 +3646,10 @@ class _NonePackageEditPage3WidgetState
                                                               selectedMedia
                                                                   .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile9 =
+                                                          _model.uploadedLocalFile_imageOther4UploadedAction =
                                                               selectedUploadedFiles
                                                                   .first;
-                                                          _model.uploadedFileUrl9 =
+                                                          _model.uploadedFileUrl_imageOther4UploadedAction =
                                                               downloadUrls
                                                                   .first;
                                                         });
@@ -3645,9 +3659,9 @@ class _NonePackageEditPage3WidgetState
                                                       }
                                                     }
 
-                                                    if (!(_model.uploadedFileUrl9 !=
+                                                    if (!(_model.uploadedFileUrl_imageOther4UploadedAction !=
                                                             null &&
-                                                        _model.uploadedFileUrl9 !=
+                                                        _model.uploadedFileUrl_imageOther4UploadedAction !=
                                                             '')) {
                                                       ScaffoldMessenger.of(
                                                               context)
@@ -3671,7 +3685,8 @@ class _NonePackageEditPage3WidgetState
                                                     }
                                                     FFAppState()
                                                             .nonePackageImageOther4 =
-                                                        _model.uploadedFileUrl9;
+                                                        _model
+                                                            .uploadedFileUrl_imageOther4UploadedAction;
                                                     safeSetState(() {});
                                                     ScaffoldMessenger.of(
                                                             context)
@@ -3750,9 +3765,9 @@ class _NonePackageEditPage3WidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedFileUrl9 !=
+                                                    _model.uploadedFileUrl_imageOther4UploadedAction !=
                                                                 null &&
-                                                            _model.uploadedFileUrl9 !=
+                                                            _model.uploadedFileUrl_imageOther4UploadedAction !=
                                                                 ''
                                                         ? 'สถานะ : อัพโหลดแล้ว'
                                                         : 'สถานะ : ยังไม่อัพโหลด',
@@ -3787,18 +3802,18 @@ class _NonePackageEditPage3WidgetState
                                                         ),
                                                   ),
                                                 ),
-                                                if (_model.uploadedFileUrl9 !=
+                                                if (_model.uploadedFileUrl_imageOther4UploadedAction !=
                                                         null &&
-                                                    _model.uploadedFileUrl9 !=
+                                                    _model.uploadedFileUrl_imageOther4UploadedAction !=
                                                         '')
                                                   Icon(
                                                     Icons.check,
                                                     color: Color(0xFF2EDD78),
                                                     size: 24.0,
                                                   ),
-                                                if (_model.uploadedFileUrl9 ==
+                                                if (_model.uploadedFileUrl_imageOther4UploadedAction ==
                                                         null ||
-                                                    _model.uploadedFileUrl9 ==
+                                                    _model.uploadedFileUrl_imageOther4UploadedAction ==
                                                         '')
                                                   Icon(
                                                     Icons.close,
@@ -3808,8 +3823,10 @@ class _NonePackageEditPage3WidgetState
                                               ],
                                             ),
                                           ),
-                                        if (_model.uploadedFileUrl9 != null &&
-                                            _model.uploadedFileUrl9 != '')
+                                        if (_model.uploadedFileUrl_imageOther4UploadedAction !=
+                                                null &&
+                                            _model.uploadedFileUrl_imageOther4UploadedAction !=
+                                                '')
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -3841,7 +3858,7 @@ class _NonePackageEditPage3WidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading10 =
+                                                              .isDataUploading_imageOther5UploadedAction =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -3885,7 +3902,7 @@ class _NonePackageEditPage3WidgetState
                                                                 .map((u) => u!)
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading10 =
+                                                        _model.isDataUploading_imageOther5UploadedAction =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -3896,10 +3913,10 @@ class _NonePackageEditPage3WidgetState
                                                               selectedMedia
                                                                   .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile10 =
+                                                          _model.uploadedLocalFile_imageOther5UploadedAction =
                                                               selectedUploadedFiles
                                                                   .first;
-                                                          _model.uploadedFileUrl10 =
+                                                          _model.uploadedFileUrl_imageOther5UploadedAction =
                                                               downloadUrls
                                                                   .first;
                                                         });
@@ -3909,9 +3926,9 @@ class _NonePackageEditPage3WidgetState
                                                       }
                                                     }
 
-                                                    if (!(_model.uploadedFileUrl10 !=
+                                                    if (!(_model.uploadedFileUrl_imageOther5UploadedAction !=
                                                             null &&
-                                                        _model.uploadedFileUrl10 !=
+                                                        _model.uploadedFileUrl_imageOther5UploadedAction !=
                                                             '')) {
                                                       ScaffoldMessenger.of(
                                                               context)
@@ -3936,7 +3953,7 @@ class _NonePackageEditPage3WidgetState
                                                     FFAppState()
                                                             .nonePackageImageOther5 =
                                                         _model
-                                                            .uploadedFileUrl10;
+                                                            .uploadedFileUrl_imageOther5UploadedAction;
                                                     safeSetState(() {});
                                                     ScaffoldMessenger.of(
                                                             context)
@@ -4015,9 +4032,9 @@ class _NonePackageEditPage3WidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedFileUrl10 !=
+                                                    _model.uploadedFileUrl_imageOther5UploadedAction !=
                                                                 null &&
-                                                            _model.uploadedFileUrl10 !=
+                                                            _model.uploadedFileUrl_imageOther5UploadedAction !=
                                                                 ''
                                                         ? 'สถานะ : อัพโหลดแล้ว'
                                                         : 'สถานะ : ยังไม่อัพโหลด',
@@ -4052,18 +4069,18 @@ class _NonePackageEditPage3WidgetState
                                                         ),
                                                   ),
                                                 ),
-                                                if (_model.uploadedFileUrl10 !=
+                                                if (_model.uploadedFileUrl_imageOther5UploadedAction !=
                                                         null &&
-                                                    _model.uploadedFileUrl10 !=
+                                                    _model.uploadedFileUrl_imageOther5UploadedAction !=
                                                         '')
                                                   Icon(
                                                     Icons.check,
                                                     color: Color(0xFF2EDD78),
                                                     size: 24.0,
                                                   ),
-                                                if (_model.uploadedFileUrl10 ==
+                                                if (_model.uploadedFileUrl_imageOther5UploadedAction ==
                                                         null ||
-                                                    _model.uploadedFileUrl10 ==
+                                                    _model.uploadedFileUrl_imageOther5UploadedAction ==
                                                         '')
                                                   Icon(
                                                     Icons.close,

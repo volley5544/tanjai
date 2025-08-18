@@ -121,7 +121,7 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
       if ('${getJsonField(
             (_model.apiGetpackageOutput?.jsonBody ?? ''),
             r'''$.code''',
-          ).toString().toString()}' !=
+          ).toString()}' !=
           '200') {
         await showDialog(
           context: context,
@@ -175,8 +175,8 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
           FocusScope.of(context).unfocus();
           FocusManager.instance.primaryFocus?.unfocus();
         },
-        child: WillPopScope(
-          onWillPop: () async => false,
+        child: PopScope(
+          canPop: false,
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,

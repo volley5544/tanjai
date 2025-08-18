@@ -36,10 +36,10 @@ class RenewBasicInfoPageModel
   ApiCallResponse? getLicenseAPIOutoutCopy;
   // Stores action output result for [Backend Call - API (getProfileImage)] action in RenewBasicInfoPage widget.
   ApiCallResponse? profileImgOutputPage;
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  bool isDataUploading_uploaded0321 = false;
+  FFUploadedFile uploadedLocalFile_uploaded0321 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl = '';
+  String uploadedFileUrl_uploaded0321 = '';
 
   // State field(s) for licenseCode widget.
   FocusNode? licenseCodeFocusNode;

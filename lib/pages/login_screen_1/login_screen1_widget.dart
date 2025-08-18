@@ -52,6 +52,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
     _model.idCardTextController ??= TextEditingController();
     _model.idCardFocusNode ??= FocusNode();
 
+    _model.idCardMask = MaskTextInputFormatter(mask: '#-####-#####-##-#');
     _model.phonenumberTextController ??= TextEditingController();
     _model.phonenumberFocusNode ??= FocusNode();
 
@@ -75,8 +76,8 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: Colors.white,

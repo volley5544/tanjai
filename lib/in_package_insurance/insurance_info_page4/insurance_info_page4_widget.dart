@@ -97,8 +97,8 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
             FocusScope.of(context).unfocus();
             FocusManager.instance.primaryFocus?.unfocus();
           },
-          child: WillPopScope(
-            onWillPop: () async => false,
+          child: PopScope(
+            canPop: false,
             child: Scaffold(
               key: scaffoldKey,
               backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -1208,7 +1208,7 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                       allowPhoto: true,
                                                                                     );
                                                                                     if (selectedMedia != null && selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
-                                                                                      safeSetState(() => _model.isDataUploading1 = true);
+                                                                                      safeSetState(() => _model.isDataUploading_uploaded41 = true);
                                                                                       var selectedUploadedFiles = <FFUploadedFile>[];
 
                                                                                       var downloadUrls = <String>[];
@@ -1232,12 +1232,12 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                             .map((u) => u!)
                                                                                             .toList();
                                                                                       } finally {
-                                                                                        _model.isDataUploading1 = false;
+                                                                                        _model.isDataUploading_uploaded41 = false;
                                                                                       }
                                                                                       if (selectedUploadedFiles.length == selectedMedia.length && downloadUrls.length == selectedMedia.length) {
                                                                                         safeSetState(() {
-                                                                                          _model.uploadedLocalFile1 = selectedUploadedFiles.first;
-                                                                                          _model.uploadedFileUrl1 = downloadUrls.first;
+                                                                                          _model.uploadedLocalFile_uploaded41 = selectedUploadedFiles.first;
+                                                                                          _model.uploadedFileUrl_uploaded41 = downloadUrls.first;
                                                                                         });
                                                                                       } else {
                                                                                         safeSetState(() {});
@@ -1245,10 +1245,10 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                       }
                                                                                     }
 
-                                                                                    FFAppState().insuranceInfoImageApplication = _model.uploadedFileUrl1;
-                                                                                    FFAppState().insuranceInfoPage4ImageApplication = _model.uploadedFileUrl1;
+                                                                                    FFAppState().insuranceInfoImageApplication = _model.uploadedFileUrl_uploaded41;
+                                                                                    FFAppState().insuranceInfoPage4ImageApplication = _model.uploadedFileUrl_uploaded41;
                                                                                     safeSetState(() {});
-                                                                                    if (_model.uploadedFileUrl1 != null && _model.uploadedFileUrl1 != '') {
+                                                                                    if (_model.uploadedFileUrl_uploaded41 != null && _model.uploadedFileUrl_uploaded41 != '') {
                                                                                       ScaffoldMessenger.of(context).showSnackBar(
                                                                                         SnackBar(
                                                                                           content: Text(
@@ -1336,7 +1336,7 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                       ),
                                                                                 ),
                                                                               ),
-                                                                              if (_model.uploadedFileUrl1 == null || _model.uploadedFileUrl1 == '')
+                                                                              if (_model.uploadedFileUrl_uploaded41 == null || _model.uploadedFileUrl_uploaded41 == '')
                                                                                 Text(
                                                                                   'ยังไม่อัพโหลด',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1350,7 +1350,7 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                         fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                       ),
                                                                                 ),
-                                                                              if (_model.uploadedFileUrl1 != null && _model.uploadedFileUrl1 != '')
+                                                                              if (_model.uploadedFileUrl_uploaded41 != null && _model.uploadedFileUrl_uploaded41 != '')
                                                                                 Text(
                                                                                   'อัพโหลดสำเร็จ',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1790,7 +1790,7 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                     allowPhoto: true,
                                                                                   );
                                                                                   if (selectedMedia != null && selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
-                                                                                    safeSetState(() => _model.isDataUploading2 = true);
+                                                                                    safeSetState(() => _model.isDataUploading_uploaded08 = true);
                                                                                     var selectedUploadedFiles = <FFUploadedFile>[];
 
                                                                                     var downloadUrls = <String>[];
@@ -1814,12 +1814,12 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                           .map((u) => u!)
                                                                                           .toList();
                                                                                     } finally {
-                                                                                      _model.isDataUploading2 = false;
+                                                                                      _model.isDataUploading_uploaded08 = false;
                                                                                     }
                                                                                     if (selectedUploadedFiles.length == selectedMedia.length && downloadUrls.length == selectedMedia.length) {
                                                                                       safeSetState(() {
-                                                                                        _model.uploadedLocalFile2 = selectedUploadedFiles.first;
-                                                                                        _model.uploadedFileUrl2 = downloadUrls.first;
+                                                                                        _model.uploadedLocalFile_uploaded08 = selectedUploadedFiles.first;
+                                                                                        _model.uploadedFileUrl_uploaded08 = downloadUrls.first;
                                                                                       });
                                                                                     } else {
                                                                                       safeSetState(() {});
@@ -1827,10 +1827,10 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                     }
                                                                                   }
 
-                                                                                  FFAppState().insuranceInfoImageFileloanApplicationRegister = _model.uploadedFileUrl2;
-                                                                                  FFAppState().insuranceInfoPage4FileLoanApplicationRegister = _model.uploadedFileUrl2;
+                                                                                  FFAppState().insuranceInfoImageFileloanApplicationRegister = _model.uploadedFileUrl_uploaded08;
+                                                                                  FFAppState().insuranceInfoPage4FileLoanApplicationRegister = _model.uploadedFileUrl_uploaded08;
                                                                                   safeSetState(() {});
-                                                                                  if (_model.uploadedFileUrl2 != null && _model.uploadedFileUrl2 != '') {
+                                                                                  if (_model.uploadedFileUrl_uploaded08 != null && _model.uploadedFileUrl_uploaded08 != '') {
                                                                                     ScaffoldMessenger.of(context).showSnackBar(
                                                                                       SnackBar(
                                                                                         content: Text(
@@ -1918,8 +1918,8 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                     ),
                                                                               ),
                                                                             ),
-                                                                            if (_model.uploadedFileUrl2 == null ||
-                                                                                _model.uploadedFileUrl2 == '')
+                                                                            if (_model.uploadedFileUrl_uploaded08 == null ||
+                                                                                _model.uploadedFileUrl_uploaded08 == '')
                                                                               Text(
                                                                                 'ยังไม่อัพโหลด',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1933,8 +1933,8 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                       fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                     ),
                                                                               ),
-                                                                            if (_model.uploadedFileUrl2 != null &&
-                                                                                _model.uploadedFileUrl2 != '')
+                                                                            if (_model.uploadedFileUrl_uploaded08 != null &&
+                                                                                _model.uploadedFileUrl_uploaded08 != '')
                                                                               Text(
                                                                                 'อัพโหลดสำเร็จ',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -2371,7 +2371,7 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                     allowPhoto: true,
                                                                                   );
                                                                                   if (selectedMedia != null && selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
-                                                                                    safeSetState(() => _model.isDataUploading3 = true);
+                                                                                    safeSetState(() => _model.isDataUploading_uploadedCancel = true);
                                                                                     var selectedUploadedFiles = <FFUploadedFile>[];
 
                                                                                     var downloadUrls = <String>[];
@@ -2395,12 +2395,12 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                           .map((u) => u!)
                                                                                           .toList();
                                                                                     } finally {
-                                                                                      _model.isDataUploading3 = false;
+                                                                                      _model.isDataUploading_uploadedCancel = false;
                                                                                     }
                                                                                     if (selectedUploadedFiles.length == selectedMedia.length && downloadUrls.length == selectedMedia.length) {
                                                                                       safeSetState(() {
-                                                                                        _model.uploadedLocalFile3 = selectedUploadedFiles.first;
-                                                                                        _model.uploadedFileUrl3 = downloadUrls.first;
+                                                                                        _model.uploadedLocalFile_uploadedCancel = selectedUploadedFiles.first;
+                                                                                        _model.uploadedFileUrl_uploadedCancel = downloadUrls.first;
                                                                                       });
                                                                                     } else {
                                                                                       safeSetState(() {});
@@ -2408,9 +2408,9 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                     }
                                                                                   }
 
-                                                                                  FFAppState().insuranceInfoPage4FileCancelLoan = _model.uploadedFileUrl3;
+                                                                                  FFAppState().insuranceInfoPage4FileCancelLoan = _model.uploadedFileUrl_uploadedCancel;
                                                                                   safeSetState(() {});
-                                                                                  if (_model.uploadedFileUrl3 != null && _model.uploadedFileUrl3 != '') {
+                                                                                  if (_model.uploadedFileUrl_uploadedCancel != null && _model.uploadedFileUrl_uploadedCancel != '') {
                                                                                     ScaffoldMessenger.of(context).showSnackBar(
                                                                                       SnackBar(
                                                                                         content: Text(
@@ -2498,8 +2498,8 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                     ),
                                                                               ),
                                                                             ),
-                                                                            if (_model.uploadedFileUrl3 == null ||
-                                                                                _model.uploadedFileUrl3 == '')
+                                                                            if (_model.uploadedFileUrl_uploadedCancel == null ||
+                                                                                _model.uploadedFileUrl_uploadedCancel == '')
                                                                               Text(
                                                                                 'ยังไม่อัพโหลด',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -2513,8 +2513,8 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                       fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                     ),
                                                                               ),
-                                                                            if (_model.uploadedFileUrl3 != null &&
-                                                                                _model.uploadedFileUrl3 != '')
+                                                                            if (_model.uploadedFileUrl_uploadedCancel != null &&
+                                                                                _model.uploadedFileUrl_uploadedCancel != '')
                                                                               Text(
                                                                                 'อัพโหลดสำเร็จ',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -2959,7 +2959,7 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                     allowPhoto: true,
                                                                                   );
                                                                                   if (selectedMedia != null && selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
-                                                                                    safeSetState(() => _model.isDataUploading4 = true);
+                                                                                    safeSetState(() => _model.isDataUploading_uploadedAttoney = true);
                                                                                     var selectedUploadedFiles = <FFUploadedFile>[];
 
                                                                                     var downloadUrls = <String>[];
@@ -2983,12 +2983,12 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                           .map((u) => u!)
                                                                                           .toList();
                                                                                     } finally {
-                                                                                      _model.isDataUploading4 = false;
+                                                                                      _model.isDataUploading_uploadedAttoney = false;
                                                                                     }
                                                                                     if (selectedUploadedFiles.length == selectedMedia.length && downloadUrls.length == selectedMedia.length) {
                                                                                       safeSetState(() {
-                                                                                        _model.uploadedLocalFile4 = selectedUploadedFiles.first;
-                                                                                        _model.uploadedFileUrl4 = downloadUrls.first;
+                                                                                        _model.uploadedLocalFile_uploadedAttoney = selectedUploadedFiles.first;
+                                                                                        _model.uploadedFileUrl_uploadedAttoney = downloadUrls.first;
                                                                                       });
                                                                                     } else {
                                                                                       safeSetState(() {});
@@ -2996,9 +2996,9 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                     }
                                                                                   }
 
-                                                                                  FFAppState().InsuranceInfoPage4PowerOfAttoney = _model.uploadedFileUrl4;
+                                                                                  FFAppState().InsuranceInfoPage4PowerOfAttoney = _model.uploadedFileUrl_uploadedAttoney;
                                                                                   safeSetState(() {});
-                                                                                  if (_model.uploadedFileUrl4 != null && _model.uploadedFileUrl4 != '') {
+                                                                                  if (_model.uploadedFileUrl_uploadedAttoney != null && _model.uploadedFileUrl_uploadedAttoney != '') {
                                                                                     ScaffoldMessenger.of(context).showSnackBar(
                                                                                       SnackBar(
                                                                                         content: Text(
@@ -3086,8 +3086,8 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                     ),
                                                                               ),
                                                                             ),
-                                                                            if (_model.uploadedFileUrl4 == null ||
-                                                                                _model.uploadedFileUrl4 == '')
+                                                                            if (_model.uploadedFileUrl_uploadedAttoney == null ||
+                                                                                _model.uploadedFileUrl_uploadedAttoney == '')
                                                                               Text(
                                                                                 'ยังไม่อัพโหลด',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -3101,8 +3101,8 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                       fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                     ),
                                                                               ),
-                                                                            if (_model.uploadedFileUrl4 != null &&
-                                                                                _model.uploadedFileUrl4 != '')
+                                                                            if (_model.uploadedFileUrl_uploadedAttoney != null &&
+                                                                                _model.uploadedFileUrl_uploadedAttoney != '')
                                                                               Text(
                                                                                 'อัพโหลดสำเร็จ',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -3469,7 +3469,7 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                     allowPhoto: true,
                                                                                   );
                                                                                   if (selectedMedia != null && selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
-                                                                                    safeSetState(() => _model.isDataUploading5 = true);
+                                                                                    safeSetState(() => _model.isDataUploading_uploadedAttoneyIDcard = true);
                                                                                     var selectedUploadedFiles = <FFUploadedFile>[];
 
                                                                                     var downloadUrls = <String>[];
@@ -3493,12 +3493,12 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                           .map((u) => u!)
                                                                                           .toList();
                                                                                     } finally {
-                                                                                      _model.isDataUploading5 = false;
+                                                                                      _model.isDataUploading_uploadedAttoneyIDcard = false;
                                                                                     }
                                                                                     if (selectedUploadedFiles.length == selectedMedia.length && downloadUrls.length == selectedMedia.length) {
                                                                                       safeSetState(() {
-                                                                                        _model.uploadedLocalFile5 = selectedUploadedFiles.first;
-                                                                                        _model.uploadedFileUrl5 = downloadUrls.first;
+                                                                                        _model.uploadedLocalFile_uploadedAttoneyIDcard = selectedUploadedFiles.first;
+                                                                                        _model.uploadedFileUrl_uploadedAttoneyIDcard = downloadUrls.first;
                                                                                       });
                                                                                     } else {
                                                                                       safeSetState(() {});
@@ -3506,9 +3506,9 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                     }
                                                                                   }
 
-                                                                                  FFAppState().insuranceInfoPage4IdCardPowerattorney = _model.uploadedFileUrl5;
+                                                                                  FFAppState().insuranceInfoPage4IdCardPowerattorney = _model.uploadedFileUrl_uploadedAttoneyIDcard;
                                                                                   safeSetState(() {});
-                                                                                  if (_model.uploadedFileUrl5 != null && _model.uploadedFileUrl5 != '') {
+                                                                                  if (_model.uploadedFileUrl_uploadedAttoneyIDcard != null && _model.uploadedFileUrl_uploadedAttoneyIDcard != '') {
                                                                                     ScaffoldMessenger.of(context).showSnackBar(
                                                                                       SnackBar(
                                                                                         content: Text(
@@ -3596,8 +3596,8 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                     ),
                                                                               ),
                                                                             ),
-                                                                            if (_model.uploadedFileUrl5 == null ||
-                                                                                _model.uploadedFileUrl5 == '')
+                                                                            if (_model.uploadedFileUrl_uploadedAttoneyIDcard == null ||
+                                                                                _model.uploadedFileUrl_uploadedAttoneyIDcard == '')
                                                                               Text(
                                                                                 'ยังไม่อัพโหลด',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -3611,8 +3611,8 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                       fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                     ),
                                                                               ),
-                                                                            if (_model.uploadedFileUrl5 != null &&
-                                                                                _model.uploadedFileUrl5 != '')
+                                                                            if (_model.uploadedFileUrl_uploadedAttoneyIDcard != null &&
+                                                                                _model.uploadedFileUrl_uploadedAttoneyIDcard != '')
                                                                               Text(
                                                                                 'อัพโหลดสำเร็จ',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(

@@ -137,7 +137,7 @@ class _SearchPackageFireInsurancePageWidgetState
               if ('${getJsonField(
                     (_model.calEstimatedOutputWidth?.jsonBody ?? ''),
                     r'''$.code''',
-                  ).toString().toString()}' ==
+                  ).toString()}' ==
                   '200') {
                 FFAppState().calEstimatedData =
                     HouseInsuranceGroup.houseCalEstimatedApiCall.data(
@@ -239,7 +239,7 @@ class _SearchPackageFireInsurancePageWidgetState
               if ('${getJsonField(
                     (_model.calEstimatedOutputLong?.jsonBody ?? ''),
                     r'''$.code''',
-                  ).toString().toString()}' ==
+                  ).toString()}' ==
                   '200') {
                 FFAppState().calEstimatedData =
                     HouseInsuranceGroup.houseCalEstimatedApiCall.data(
@@ -360,7 +360,7 @@ class _SearchPackageFireInsurancePageWidgetState
               if ('${getJsonField(
                     (_model.calEstimatedOutputCmSq?.jsonBody ?? ''),
                     r'''$.code''',
-                  ).toString().toString()}' ==
+                  ).toString()}' ==
                   '200') {
                 FFAppState().calEstimatedData =
                     HouseInsuranceGroup.houseCalEstimatedApiCall.data(
@@ -535,7 +535,8 @@ class _SearchPackageFireInsurancePageWidgetState
                   if (selectedMedia != null &&
                       selectedMedia.every(
                           (m) => validateFileFormat(m.storagePath, context))) {
-                    safeSetState(() => _model.isDataUploading = true);
+                    safeSetState(
+                        () => _model.isDataUploading_uploadData00m = true);
                     var selectedUploadedFiles = <FFUploadedFile>[];
 
                     try {
@@ -549,11 +550,12 @@ class _SearchPackageFireInsurancePageWidgetState
                               ))
                           .toList();
                     } finally {
-                      _model.isDataUploading = false;
+                      _model.isDataUploading_uploadData00m = false;
                     }
                     if (selectedUploadedFiles.length == selectedMedia.length) {
                       safeSetState(() {
-                        _model.uploadedLocalFile = selectedUploadedFiles.first;
+                        _model.uploadedLocalFile_uploadData00m =
+                            selectedUploadedFiles.first;
                       });
                     } else {
                       safeSetState(() {});
@@ -564,7 +566,7 @@ class _SearchPackageFireInsurancePageWidgetState
                   _model.uploadStorageOutput =
                       await actions.uploadFileFirebaseStorage(
                     'UploadFile',
-                    _model.uploadedLocalFile,
+                    _model.uploadedLocalFile_uploadData00m,
                   );
                   await showDialog(
                     context: context,

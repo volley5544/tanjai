@@ -41,7 +41,7 @@ class DriverInfomationFormComponentModel
   // State field(s) for ThaiIdTextfield widget.
   FocusNode? thaiIdTextfieldFocusNode;
   TextEditingController? thaiIdTextfieldTextController;
-  final thaiIdTextfieldMask = MaskTextInputFormatter(mask: '#-####-#####-##-#');
+  late MaskTextInputFormatter thaiIdTextfieldMask;
   String? Function(BuildContext, String?)?
       thaiIdTextfieldTextControllerValidator;
   // State field(s) for DriverLicenseTextfield widget.
@@ -49,15 +49,15 @@ class DriverInfomationFormComponentModel
   TextEditingController? driverLicenseTextfieldTextController;
   String? Function(BuildContext, String?)?
       driverLicenseTextfieldTextControllerValidator;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_driverUploadThaiIdImg = false;
+  FFUploadedFile uploadedLocalFile_driverUploadThaiIdImg =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl1 = '';
+  String uploadedFileUrl_driverUploadThaiIdImg = '';
 
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_driverUploadLicenseNoImg = false;
+  FFUploadedFile uploadedLocalFile_driverUploadLicenseNoImg =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
+  String uploadedFileUrl_driverUploadLicenseNoImg = '';
 
   @override
   void initState(BuildContext context) {}

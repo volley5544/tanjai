@@ -72,8 +72,8 @@ class _UploadImgFireInsurerPageWidgetState
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: Color(0xFFFAFAFA),
@@ -219,7 +219,7 @@ class _UploadImgFireInsurerPageWidgetState
                                                                   m.storagePath,
                                                                   context))) {
                                                         safeSetState(() => _model
-                                                                .isDataUploading1 =
+                                                                .isDataUploading_uploaded111 =
                                                             true);
                                                         var selectedUploadedFiles =
                                                             <FFUploadedFile>[];
@@ -246,7 +246,7 @@ class _UploadImgFireInsurerPageWidgetState
                                                                       ))
                                                                   .toList();
                                                         } finally {
-                                                          _model.isDataUploading1 =
+                                                          _model.isDataUploading_uploaded111 =
                                                               false;
                                                         }
                                                         if (selectedUploadedFiles
@@ -254,7 +254,7 @@ class _UploadImgFireInsurerPageWidgetState
                                                             selectedMedia
                                                                 .length) {
                                                           safeSetState(() {
-                                                            _model.uploadedLocalFile1 =
+                                                            _model.uploadedLocalFile_uploaded111 =
                                                                 selectedUploadedFiles
                                                                     .first;
                                                           });
@@ -264,10 +264,10 @@ class _UploadImgFireInsurerPageWidgetState
                                                         }
                                                       }
 
-                                                      if (_model.uploadedLocalFile1 !=
+                                                      if (_model.uploadedLocalFile_uploaded111 !=
                                                               null &&
                                                           (_model
-                                                                  .uploadedLocalFile1
+                                                                  .uploadedLocalFile_uploaded111
                                                                   .bytes
                                                                   ?.isNotEmpty ??
                                                               false)) {
@@ -435,9 +435,9 @@ class _UploadImgFireInsurerPageWidgetState
                                                         ),
                                                   ),
                                                 ),
-                                                if (_model.uploadedLocalFile1 ==
+                                                if (_model.uploadedLocalFile_uploaded111 ==
                                                         null ||
-                                                    (_model.uploadedLocalFile1
+                                                    (_model.uploadedLocalFile_uploaded111
                                                             .bytes?.isEmpty ??
                                                         true))
                                                   Text(
@@ -472,12 +472,10 @@ class _UploadImgFireInsurerPageWidgetState
                                                                   .fontStyle,
                                                         ),
                                                   ),
-                                                if (_model.uploadedLocalFile1 !=
+                                                if (_model.uploadedLocalFile_uploaded111 !=
                                                         null &&
-                                                    (_model
-                                                            .uploadedLocalFile1
-                                                            .bytes
-                                                            ?.isNotEmpty ??
+                                                    (_model.uploadedLocalFile_uploaded111
+                                                            .bytes?.isNotEmpty ??
                                                         false))
                                                   Text(
                                                     'อัพโหลดสำเร็จ',
@@ -531,12 +529,12 @@ class _UploadImgFireInsurerPageWidgetState
                                             height: 100.0,
                                             decoration: BoxDecoration(),
                                             child: Visibility(
-                                              visible:
-                                                  _model.uploadedLocalFile1 ==
-                                                          null ||
-                                                      (_model.uploadedLocalFile1
-                                                              .bytes?.isEmpty ??
-                                                          true),
+                                              visible: _model
+                                                          .uploadedLocalFile_uploaded111 ==
+                                                      null ||
+                                                  (_model.uploadedLocalFile_uploaded111
+                                                          .bytes?.isEmpty ??
+                                                      true),
                                               child: Icon(
                                                 Icons.close,
                                                 color: Color(0xFFFC0A0A),
@@ -551,9 +549,9 @@ class _UploadImgFireInsurerPageWidgetState
                                             decoration: BoxDecoration(),
                                             child: Visibility(
                                               visible: _model
-                                                          .uploadedLocalFile1 !=
+                                                          .uploadedLocalFile_uploaded111 !=
                                                       null &&
-                                                  (_model.uploadedLocalFile1
+                                                  (_model.uploadedLocalFile_uploaded111
                                                           .bytes?.isNotEmpty ??
                                                       false),
                                               child: Icon(
@@ -568,8 +566,9 @@ class _UploadImgFireInsurerPageWidgetState
                                     ),
                                   ),
                                 ),
-                                if (_model.uploadedLocalFile1 != null &&
-                                    (_model.uploadedLocalFile1.bytes
+                                if (_model.uploadedLocalFile_uploaded111 !=
+                                        null &&
+                                    (_model.uploadedLocalFile_uploaded111.bytes
                                             ?.isNotEmpty ??
                                         false))
                                   Padding(
@@ -629,7 +628,7 @@ class _UploadImgFireInsurerPageWidgetState
                                                                     m.storagePath,
                                                                     context))) {
                                                           safeSetState(() =>
-                                                              _model.isDataUploading2 =
+                                                              _model.isDataUploading_uploaded112 =
                                                                   true);
                                                           var selectedUploadedFiles =
                                                               <FFUploadedFile>[];
@@ -656,7 +655,7 @@ class _UploadImgFireInsurerPageWidgetState
                                                                         ))
                                                                     .toList();
                                                           } finally {
-                                                            _model.isDataUploading2 =
+                                                            _model.isDataUploading_uploaded112 =
                                                                 false;
                                                           }
                                                           if (selectedUploadedFiles
@@ -664,7 +663,7 @@ class _UploadImgFireInsurerPageWidgetState
                                                               selectedMedia
                                                                   .length) {
                                                             safeSetState(() {
-                                                              _model.uploadedLocalFile2 =
+                                                              _model.uploadedLocalFile_uploaded112 =
                                                                   selectedUploadedFiles
                                                                       .first;
                                                             });
@@ -674,10 +673,10 @@ class _UploadImgFireInsurerPageWidgetState
                                                           }
                                                         }
 
-                                                        if (_model.uploadedLocalFile2 !=
+                                                        if (_model.uploadedLocalFile_uploaded112 !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile2
+                                                                    .uploadedLocalFile_uploaded112
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)) {
@@ -846,9 +845,9 @@ class _UploadImgFireInsurerPageWidgetState
                                                               ),
                                                     ),
                                                   ),
-                                                  if (_model.uploadedLocalFile2 ==
+                                                  if (_model.uploadedLocalFile_uploaded112 ==
                                                           null ||
-                                                      (_model.uploadedLocalFile2
+                                                      (_model.uploadedLocalFile_uploaded112
                                                               .bytes?.isEmpty ??
                                                           true))
                                                     Text(
@@ -881,10 +880,10 @@ class _UploadImgFireInsurerPageWidgetState
                                                                     .fontStyle,
                                                               ),
                                                     ),
-                                                  if (_model.uploadedLocalFile2 !=
+                                                  if (_model.uploadedLocalFile_uploaded112 !=
                                                           null &&
                                                       (_model
-                                                              .uploadedLocalFile2
+                                                              .uploadedLocalFile_uploaded112
                                                               .bytes
                                                               ?.isNotEmpty ??
                                                           false))
@@ -938,9 +937,9 @@ class _UploadImgFireInsurerPageWidgetState
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
-                                                            .uploadedLocalFile2 ==
+                                                            .uploadedLocalFile_uploaded112 ==
                                                         null ||
-                                                    (_model.uploadedLocalFile2
+                                                    (_model.uploadedLocalFile_uploaded112
                                                             .bytes?.isEmpty ??
                                                         true),
                                                 child: Icon(
@@ -957,12 +956,10 @@ class _UploadImgFireInsurerPageWidgetState
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
-                                                            .uploadedLocalFile2 !=
+                                                            .uploadedLocalFile_uploaded112 !=
                                                         null &&
-                                                    (_model
-                                                            .uploadedLocalFile2
-                                                            .bytes
-                                                            ?.isNotEmpty ??
+                                                    (_model.uploadedLocalFile_uploaded112
+                                                            .bytes?.isNotEmpty ??
                                                         false),
                                                 child: Icon(
                                                   Icons.check_sharp,
@@ -1003,8 +1000,9 @@ class _UploadImgFireInsurerPageWidgetState
                                 8.0, 0.0, 8.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                if (!(_model.uploadedLocalFile1 != null &&
-                                    (_model.uploadedLocalFile1.bytes
+                                if (!(_model.uploadedLocalFile_uploaded111 !=
+                                        null &&
+                                    (_model.uploadedLocalFile_uploaded111.bytes
                                             ?.isNotEmpty ??
                                         false))) {
                                   await showDialog(
@@ -1027,8 +1025,9 @@ class _UploadImgFireInsurerPageWidgetState
                                   return;
                                 }
                                 {
-                                  safeSetState(
-                                      () => _model.isDataUploading3 = true);
+                                  safeSetState(() => _model
+                                          .isDataUploading_firebaseUploadedUrlList123 =
+                                      true);
                                   var selectedUploadedFiles =
                                       <FFUploadedFile>[];
                                   var selectedMedia = <SelectedFile>[];
@@ -1036,8 +1035,10 @@ class _UploadImgFireInsurerPageWidgetState
                                   try {
                                     selectedUploadedFiles = functions
                                         .createFileUploadedListPage3Copy(
-                                            _model.uploadedLocalFile1,
-                                            _model.uploadedLocalFile2)!;
+                                            _model
+                                                .uploadedLocalFile_uploaded111,
+                                            _model
+                                                .uploadedLocalFile_uploaded112)!;
                                     selectedMedia =
                                         selectedFilesFromUploadedFiles(
                                       selectedUploadedFiles,
@@ -1053,16 +1054,18 @@ class _UploadImgFireInsurerPageWidgetState
                                         .map((u) => u!)
                                         .toList();
                                   } finally {
-                                    _model.isDataUploading3 = false;
+                                    _model.isDataUploading_firebaseUploadedUrlList123 =
+                                        false;
                                   }
                                   if (selectedUploadedFiles.length ==
                                           selectedMedia.length &&
                                       downloadUrls.length ==
                                           selectedMedia.length) {
                                     safeSetState(() {
-                                      _model.uploadedLocalFiles3 =
+                                      _model.uploadedLocalFiles_firebaseUploadedUrlList123 =
                                           selectedUploadedFiles;
-                                      _model.uploadedFileUrls3 = downloadUrls;
+                                      _model.uploadedFileUrls_firebaseUploadedUrlList123 =
+                                          downloadUrls;
                                     });
                                   } else {
                                     safeSetState(() {});
@@ -1070,13 +1073,14 @@ class _UploadImgFireInsurerPageWidgetState
                                   }
                                 }
 
-                                FFAppState().insuranceInfoUploadImgOther =
-                                    _model.uploadedFileUrls3
-                                        .toList()
-                                        .cast<String>();
+                                FFAppState().insuranceInfoUploadImgOther = _model
+                                    .uploadedFileUrls_firebaseUploadedUrlList123
+                                    .toList()
+                                    .cast<String>();
                                 FFAppState().insuranceInfoPage3ImageOther =
-                                    functions.imgFirebaseListToString(
-                                        _model.uploadedFileUrls3.toList())!;
+                                    functions.imgFirebaseListToString(_model
+                                        .uploadedFileUrls_firebaseUploadedUrlList123
+                                        .toList())!;
                                 safeSetState(() {});
                                 context.safePop();
                               },

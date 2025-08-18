@@ -25,20 +25,20 @@ class FireInsuranceInfoPage4Model
   // Model for infomationCustomerFireInsurance component.
   late InfomationCustomerFireInsuranceModel
       infomationCustomerFireInsuranceModel;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_uploaded41Fire1 = false;
+  FFUploadedFile uploadedLocalFile_uploaded41Fire1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl1 = '';
+  String uploadedFileUrl_uploaded41Fire1 = '';
 
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_uploaded41Fire = false;
+  FFUploadedFile uploadedLocalFile_uploaded41Fire =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
+  String uploadedFileUrl_uploaded41Fire = '';
 
-  bool isDataUploading3 = false;
-  FFUploadedFile uploadedLocalFile3 =
+  bool isDataUploading_uploaded08Fire = false;
+  FFUploadedFile uploadedLocalFile_uploaded08Fire =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl3 = '';
+  String uploadedFileUrl_uploaded08Fire = '';
 
   @override
   void initState(BuildContext context) {

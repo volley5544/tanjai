@@ -153,6 +153,8 @@ class _DriverInfomationFormComponentWidgetState
             : '');
     _model.thaiIdTextfieldFocusNode ??= FocusNode();
 
+    _model.thaiIdTextfieldMask =
+        MaskTextInputFormatter(mask: '#-####-#####-##-#');
     _model.driverLicenseTextfieldTextController ??= TextEditingController(
         text: FFAppState()
                     .DriverList
@@ -1903,8 +1905,9 @@ class _DriverInfomationFormComponentWidgetState
                                         selectedMedia.every((m) =>
                                             validateFileFormat(
                                                 m.storagePath, context))) {
-                                      safeSetState(
-                                          () => _model.isDataUploading1 = true);
+                                      safeSetState(() => _model
+                                              .isDataUploading_driverUploadThaiIdImg =
+                                          true);
                                       var selectedUploadedFiles =
                                           <FFUploadedFile>[];
 
@@ -1932,16 +1935,17 @@ class _DriverInfomationFormComponentWidgetState
                                             .map((u) => u!)
                                             .toList();
                                       } finally {
-                                        _model.isDataUploading1 = false;
+                                        _model.isDataUploading_driverUploadThaiIdImg =
+                                            false;
                                       }
                                       if (selectedUploadedFiles.length ==
                                               selectedMedia.length &&
                                           downloadUrls.length ==
                                               selectedMedia.length) {
                                         safeSetState(() {
-                                          _model.uploadedLocalFile1 =
+                                          _model.uploadedLocalFile_driverUploadThaiIdImg =
                                               selectedUploadedFiles.first;
-                                          _model.uploadedFileUrl1 =
+                                          _model.uploadedFileUrl_driverUploadThaiIdImg =
                                               downloadUrls.first;
                                         });
                                       } else {
@@ -1950,8 +1954,10 @@ class _DriverInfomationFormComponentWidgetState
                                       }
                                     }
 
-                                    if (!(_model.uploadedFileUrl1 != null &&
-                                        _model.uploadedFileUrl1 != '')) {
+                                    if (!(_model.uploadedFileUrl_driverUploadThaiIdImg !=
+                                            null &&
+                                        _model.uploadedFileUrl_driverUploadThaiIdImg !=
+                                            '')) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
                                         SnackBar(
@@ -1971,7 +1977,8 @@ class _DriverInfomationFormComponentWidgetState
                                     FFAppState().updateDriverListAtIndex(
                                       widget!.index!,
                                       (e) => e
-                                        ..imageIdcard = _model.uploadedFileUrl1,
+                                        ..imageIdcard = _model
+                                            .uploadedFileUrl_driverUploadThaiIdImg,
                                     );
                                     safeSetState(() {});
                                     ScaffoldMessenger.of(context)
@@ -2257,8 +2264,9 @@ class _DriverInfomationFormComponentWidgetState
                                         selectedMedia.every((m) =>
                                             validateFileFormat(
                                                 m.storagePath, context))) {
-                                      safeSetState(
-                                          () => _model.isDataUploading2 = true);
+                                      safeSetState(() => _model
+                                              .isDataUploading_driverUploadLicenseNoImg =
+                                          true);
                                       var selectedUploadedFiles =
                                           <FFUploadedFile>[];
 
@@ -2286,16 +2294,17 @@ class _DriverInfomationFormComponentWidgetState
                                             .map((u) => u!)
                                             .toList();
                                       } finally {
-                                        _model.isDataUploading2 = false;
+                                        _model.isDataUploading_driverUploadLicenseNoImg =
+                                            false;
                                       }
                                       if (selectedUploadedFiles.length ==
                                               selectedMedia.length &&
                                           downloadUrls.length ==
                                               selectedMedia.length) {
                                         safeSetState(() {
-                                          _model.uploadedLocalFile2 =
+                                          _model.uploadedLocalFile_driverUploadLicenseNoImg =
                                               selectedUploadedFiles.first;
-                                          _model.uploadedFileUrl2 =
+                                          _model.uploadedFileUrl_driverUploadLicenseNoImg =
                                               downloadUrls.first;
                                         });
                                       } else {
@@ -2304,8 +2313,10 @@ class _DriverInfomationFormComponentWidgetState
                                       }
                                     }
 
-                                    if (!(_model.uploadedFileUrl2 != null &&
-                                        _model.uploadedFileUrl2 != '')) {
+                                    if (!(_model.uploadedFileUrl_driverUploadLicenseNoImg !=
+                                            null &&
+                                        _model.uploadedFileUrl_driverUploadLicenseNoImg !=
+                                            '')) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
                                         SnackBar(
@@ -2325,8 +2336,8 @@ class _DriverInfomationFormComponentWidgetState
                                     FFAppState().updateDriverListAtIndex(
                                       widget!.index!,
                                       (e) => e
-                                        ..imageLicenseNo =
-                                            _model.uploadedFileUrl2,
+                                        ..imageLicenseNo = _model
+                                            .uploadedFileUrl_driverUploadLicenseNoImg,
                                     );
                                     safeSetState(() {});
                                     ScaffoldMessenger.of(context)

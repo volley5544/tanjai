@@ -56,6 +56,7 @@ class _AddFireCustomerNameWidgetState extends State<AddFireCustomerNameWidget> {
     _model.phonenumberTextController ??= TextEditingController();
     _model.phonenumberFocusNode ??= FocusNode();
 
+    _model.phonenumberMask = MaskTextInputFormatter(mask: '###-###-####');
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
@@ -75,8 +76,8 @@ class _AddFireCustomerNameWidgetState extends State<AddFireCustomerNameWidget> {
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -1249,9 +1250,8 @@ class _AddFireCustomerNameWidgetState extends State<AddFireCustomerNameWidget> {
                                             ''),
                                         r'''$.results.data.detail_house[:].url''',
                                         true,
-                                      ) as List)
-                                          .map<String>((s) => s.toString())
-                                          .toList(),
+                                      ) as List?)
+                                          ?.cast<String>(),
                                       ParamType.String,
                                       isList: true,
                                     ),

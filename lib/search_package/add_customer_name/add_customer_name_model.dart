@@ -34,7 +34,7 @@ class AddCustomerNameModel extends FlutterFlowModel<AddCustomerNameWidget> {
   // State field(s) for phonenumber widget.
   FocusNode? phonenumberFocusNode;
   TextEditingController? phonenumberTextController;
-  final phonenumberMask = MaskTextInputFormatter(mask: '###-###-####');
+  late MaskTextInputFormatter phonenumberMask;
   String? Function(BuildContext, String?)? phonenumberTextControllerValidator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;

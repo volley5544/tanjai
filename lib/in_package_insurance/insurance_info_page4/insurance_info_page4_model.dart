@@ -23,30 +23,30 @@ class InsuranceInfoPage4Model
 
   // Model for infomationCustomer component.
   late InfomationCustomerModel infomationCustomerModel;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_uploaded41 = false;
+  FFUploadedFile uploadedLocalFile_uploaded41 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl1 = '';
+  String uploadedFileUrl_uploaded41 = '';
 
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_uploaded08 = false;
+  FFUploadedFile uploadedLocalFile_uploaded08 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
+  String uploadedFileUrl_uploaded08 = '';
 
-  bool isDataUploading3 = false;
-  FFUploadedFile uploadedLocalFile3 =
+  bool isDataUploading_uploadedCancel = false;
+  FFUploadedFile uploadedLocalFile_uploadedCancel =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl3 = '';
+  String uploadedFileUrl_uploadedCancel = '';
 
-  bool isDataUploading4 = false;
-  FFUploadedFile uploadedLocalFile4 =
+  bool isDataUploading_uploadedAttoney = false;
+  FFUploadedFile uploadedLocalFile_uploadedAttoney =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl4 = '';
+  String uploadedFileUrl_uploadedAttoney = '';
 
-  bool isDataUploading5 = false;
-  FFUploadedFile uploadedLocalFile5 =
+  bool isDataUploading_uploadedAttoneyIDcard = false;
+  FFUploadedFile uploadedLocalFile_uploadedAttoneyIDcard =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl5 = '';
+  String uploadedFileUrl_uploadedAttoneyIDcard = '';
 
   @override
   void initState(BuildContext context) {

@@ -48,6 +48,7 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
     _model.searchFireTextController ??= TextEditingController();
     _model.searchFireFocusNode ??= FocusNode();
 
+    _model.searchFireMask = MaskTextInputFormatter(mask: '#-####-#####-##-#');
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
