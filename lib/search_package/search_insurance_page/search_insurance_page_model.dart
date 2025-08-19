@@ -27,6 +27,10 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 
 class SearchInsurancePageModel
     extends FlutterFlowModel<SearchInsurancePageWidget> {
+  ///  Local state fields for this page.
+
+  DataListRecord? masterDataDoc;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Custom Action - getBuildVersion1] action in SearchInsurancePage widget.
@@ -67,6 +71,8 @@ class SearchInsurancePageModel
   ApiCallResponse? getVehicleUsedTypeEVAPI;
   // Stores action output result for [Backend Call - API (teleGetProvinceAPI)] action in SearchInsurancePage widget.
   ApiCallResponse? getProvince2;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  DataListRecord? masterDataQueryAction;
   DateTime? datePicked;
   // State field(s) for Slider widget.
   double? sliderValue;

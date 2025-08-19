@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'package:url_launcher/url_launcher.dart';
-import 'package:android_intent/android_intent.dart';
+import 'package:android_intent_plus/android_intent.dart';
 
 Future<void> urlLauncherActionSafari(String? urlLink, String? platform) async {
   if (platform == 'android') {

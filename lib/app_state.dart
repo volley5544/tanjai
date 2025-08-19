@@ -14320,6 +14320,13 @@ class FFAppState extends ChangeNotifier {
   set profileImagesUrlDocRef(DocumentReference? value) {
     _profileImagesUrlDocRef = value;
   }
+
+  DocumentReference? _dataListCollectionDocRef =
+      FirebaseFirestore.instance.doc('/dataList/2Q9LbpYE3M6j0mq2emFm');
+  DocumentReference? get dataListCollectionDocRef => _dataListCollectionDocRef;
+  set dataListCollectionDocRef(DocumentReference? value) {
+    _dataListCollectionDocRef = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {
