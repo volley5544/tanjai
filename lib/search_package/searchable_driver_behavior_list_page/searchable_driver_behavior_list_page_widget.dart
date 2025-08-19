@@ -429,11 +429,13 @@ class _SearchableDriverBehaviorListPageWidgetState
                                                       .elementAtOrNull(
                                                           dataListIndex)!;
                                               safeSetState(() {});
-                                              if (!FFAppState()
+                                              if (FFAppState()
                                                   .driverBehaviorData
                                                   .driverBehaviorFlag
                                                   .elementAtOrNull(
                                                       dataListIndex)!) {
+                                                context.safePop();
+                                              } else {
                                                 context.goNamed(
                                                     InsuranceWorkSelectPageWidget
                                                         .routeName);

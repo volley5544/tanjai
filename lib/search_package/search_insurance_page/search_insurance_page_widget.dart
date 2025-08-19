@@ -3693,11 +3693,8 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                                   .fontStyle,
                                                         ),
                                                         color: FFAppState()
-                                                                        .insuranceInfoRegistrationProvinceSelect ==
-                                                                    null ||
-                                                                FFAppState()
-                                                                        .insuranceInfoRegistrationProvinceSelect ==
-                                                                    ''
+                                                                    .insuranceBasicDriverBehaviorName ==
+                                                                ''
                                                             ? Color(0xFF9F9F9F)
                                                             : Colors.black,
                                                         fontSize: 15.0,
