@@ -45,10 +45,15 @@ class DriverInfomationFormComponentModel
   String? Function(BuildContext, String?)?
       thaiIdTextfieldTextControllerValidator;
   // State field(s) for DriverLicenseTextfield widget.
-  FocusNode? driverLicenseTextfieldFocusNode;
-  TextEditingController? driverLicenseTextfieldTextController;
+  FocusNode? driverLicenseTextfieldFocusNode1;
+  TextEditingController? driverLicenseTextfieldTextController1;
   String? Function(BuildContext, String?)?
-      driverLicenseTextfieldTextControllerValidator;
+      driverLicenseTextfieldTextController1Validator;
+  // State field(s) for DriverLicenseTextfield widget.
+  FocusNode? driverLicenseTextfieldFocusNode2;
+  TextEditingController? driverLicenseTextfieldTextController2;
+  String? Function(BuildContext, String?)?
+      driverLicenseTextfieldTextController2Validator;
   bool isDataUploading_driverUploadThaiIdImg = false;
   FFUploadedFile uploadedLocalFile_driverUploadThaiIdImg =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -73,7 +78,10 @@ class DriverInfomationFormComponentModel
     thaiIdTextfieldFocusNode?.dispose();
     thaiIdTextfieldTextController?.dispose();
 
-    driverLicenseTextfieldFocusNode?.dispose();
-    driverLicenseTextfieldTextController?.dispose();
+    driverLicenseTextfieldFocusNode1?.dispose();
+    driverLicenseTextfieldTextController1?.dispose();
+
+    driverLicenseTextfieldFocusNode2?.dispose();
+    driverLicenseTextfieldTextController2?.dispose();
   }
 }

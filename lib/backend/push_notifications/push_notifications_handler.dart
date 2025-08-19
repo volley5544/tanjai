@@ -742,6 +742,14 @@ final parametersBuilderMap =
           'webUrl': getParameter<String>(data, 'webUrl'),
         },
       ),
+  'SearchableDriverBehaviorListPage': (data) async => ParameterData(
+        allParams: {
+          'titleText': getParameter<String>(data, 'titleText'),
+          'searchLabel': getParameter<String>(data, 'searchLabel'),
+          'multiSelect': getParameter<bool>(data, 'multiSelect'),
+          'maxSelected': getParameter<int>(data, 'maxSelected'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

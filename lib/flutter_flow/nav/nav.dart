@@ -2512,6 +2512,29 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                 ),
               ),
+            ),
+            FFRoute(
+              name: SearchableDriverBehaviorListPageWidget.routeName,
+              path: SearchableDriverBehaviorListPageWidget.routePath,
+              builder: (context, params) =>
+                  SearchableDriverBehaviorListPageWidget(
+                titleText: params.getParam(
+                  'titleText',
+                  ParamType.String,
+                ),
+                searchLabel: params.getParam(
+                  'searchLabel',
+                  ParamType.String,
+                ),
+                multiSelect: params.getParam(
+                  'multiSelect',
+                  ParamType.bool,
+                ),
+                maxSelected: params.getParam(
+                  'maxSelected',
+                  ParamType.int,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

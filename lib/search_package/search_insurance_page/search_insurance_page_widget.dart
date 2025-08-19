@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -981,10 +982,39 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                   .toList()
                   .cast<String>();
           safeSetState(() {});
+          if (!(_model.masterDataDoc != null)) {
+            _model.masterDataQueryAction = await DataListRecord.getDocumentOnce(
+                FFAppState().dataListCollectionDocRef!);
+            _model.masterDataDoc = _model.masterDataQueryActionDriver;
+            safeSetState(() {});
+            FFAppState().driverBehaviorData = FFAppState().isProduction
+                ? DriverBehaviorDataModelStruct(
+                    driverBehavior: _model.masterDataDoc?.driverBehavior,
+                    driverBehaviorName:
+                        _model.masterDataDoc?.driverBehaviorName,
+                    driverBehaviorFlag:
+                        _model.masterDataDoc?.driverBehaviorFlag,
+                  )
+                : DriverBehaviorDataModelStruct(
+                    driverBehavior: _model.masterDataDoc?.driverBehaviorUat,
+                    driverBehaviorName:
+                        _model.masterDataDoc?.driverBehaviorNameUat,
+                    driverBehaviorFlag:
+                        _model.masterDataDoc?.driverBehaviorFlagUat,
+                  );
+            safeSetState(() {});
+          }
         }
-        Navigator.pop(context);
         FFAppState().searchPackageSubProduct = 'Motor';
         safeSetState(() {});
+        FFAppState().insuranceBasicDriverBehaviorName =
+            FFAppState().driverBehaviorData.driverBehaviorName.firstOrNull!;
+        FFAppState().insuranceBasicDriverBehaviorCode =
+            FFAppState().driverBehaviorData.driverBehavior.firstOrNull!;
+        FFAppState().insuranceBasicDriverBehaviorFlag =
+            FFAppState().driverBehaviorData.driverBehaviorFlag.firstOrNull!;
+        safeSetState(() {});
+        Navigator.pop(context);
       } else {
         if (!false) {
           FFAppState().insuranceCarTypeDetailSelected = '';
@@ -3114,27 +3144,38 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              decoration: BoxDecoration(),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 0.0, 20.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Text(
-                                          'ระบุผู้ขับขี่',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.notoSansThai(
+                          if (false)
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                decoration: BoxDecoration(),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 0.0, 20.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text(
+                                            'ระบุผู้ขับขี่',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  font:
+                                                      GoogleFonts.notoSansThai(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
+                                                  fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                   fontStyle:
                                                       FlutterFlowTheme.of(
@@ -3142,338 +3183,344 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                           .bodyMedium
                                                           .fontStyle,
                                                 ),
-                                                fontSize: 15.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w500,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
-                                          child: Text(
-                                            '(บังคับกรอก)',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  font:
-                                                      GoogleFonts.notoSansThai(
-                                                    fontWeight:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontWeight,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Color(0xFFFB0606),
-                                                  fontSize: 12.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Builder(
-                                    builder: (context) => Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 5.0, 16.0, 0.0),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          var _shouldSetState = false;
-                                          showDialog(
-                                            context: context,
-                                            builder: (dialogContext) {
-                                              return Dialog(
-                                                elevation: 0,
-                                                insetPadding: EdgeInsets.zero,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                alignment: AlignmentDirectional(
-                                                        0.0, 0.0)
-                                                    .resolve(Directionality.of(
-                                                        context)),
-                                                child: WebViewAware(
-                                                  child: GestureDetector(
-                                                    onTap: () {
-                                                      FocusScope.of(
-                                                              dialogContext)
-                                                          .unfocus();
-                                                      FocusManager
-                                                          .instance.primaryFocus
-                                                          ?.unfocus();
-                                                    },
-                                                    child: Container(
-                                                      height: double.infinity,
-                                                      width: double.infinity,
-                                                      child:
-                                                          LoadingSceneWidget(),
-                                                    ),
-                                                  ),
-                                                ),
-                                              );
-                                            },
-                                          );
-
-                                          if (!(_model.masterDataDoc != null)) {
-                                            _model.masterDataQueryAction =
-                                                await DataListRecord
-                                                    .getDocumentOnce(FFAppState()
-                                                        .dataListCollectionDocRef!);
-                                            _shouldSetState = true;
-                                            _model.masterDataDoc =
-                                                _model.masterDataQueryAction;
-                                            safeSetState(() {});
-                                          }
-                                          if (!((FFAppState().insuranceInfoOccupationName.isNotEmpty) &&
-                                              (FFAppState()
-                                                  .insuranceInfoOccupationName
-                                                  .isNotEmpty) &&
-                                              (FFAppState()
-                                                  .insuranceInfoOccupationSubCode
-                                                  .isNotEmpty) &&
-                                              (FFAppState()
-                                                  .insuranceInfoOccupationSubName
-                                                  .isNotEmpty))) {
-                                            _model.getOccuAPIOutput =
-                                                await GetOccupationCall.call(
-                                              insuranceUrl: FFAppState()
-                                                  .apiUrlInsuranceAppState,
-                                            );
-
-                                            _shouldSetState = true;
-                                            if ((_model.getOccuAPIOutput
-                                                        ?.statusCode ??
-                                                    200) !=
-                                                200) {
-                                              Navigator.pop(context);
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                    child: AlertDialog(
-                                                      content: Text(
-                                                          'พบข้อผิดพลาด (Get Occupation ${(_model.getOccuAPIOutput?.statusCode ?? 200).toString()})'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  );
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                safeSetState(() {});
-                                              return;
-                                            }
-                                            if ('${getJsonField(
-                                                  (_model.getOccuAPIOutput
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                  r'''$.code''',
-                                                ).toString()}' !=
-                                                '200') {
-                                              Navigator.pop(context);
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                    child: AlertDialog(
-                                                      content: Text(
-                                                          GetOccupationCall
-                                                              .messageLayer1(
-                                                        (_model.getOccuAPIOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )!),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  );
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                safeSetState(() {});
-                                              return;
-                                            }
-                                            FFAppState()
-                                                    .insuranceInfoOccupationCode =
-                                                GetOccupationCall
-                                                        .occupationcode(
-                                              (_model.getOccuAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!
-                                                    .toList()
-                                                    .cast<String>();
-                                            FFAppState()
-                                                    .insuranceInfoOccupationName =
-                                                GetOccupationCall
-                                                        .occupationname(
-                                              (_model.getOccuAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!
-                                                    .toList()
-                                                    .cast<String>();
-                                            FFAppState()
-                                                    .insuranceInfoOccupationSubCode =
-                                                GetOccupationCall
-                                                        .occupationsubcode(
-                                              (_model.getOccuAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!
-                                                    .toList()
-                                                    .cast<String>();
-                                            FFAppState()
-                                                    .insuranceInfoOccupationSubName =
-                                                GetOccupationCall
-                                                        .occupationsubname(
-                                              (_model.getOccuAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!
-                                                    .toList()
-                                                    .cast<String>();
-                                            safeSetState(() {});
-                                          }
-                                          Navigator.pop(context);
-
-                                          context.pushNamed(
-                                            ShowDriverPageWidget.routeName,
-                                            queryParameters: {
-                                              'firestoreDataConfigList':
-                                                  serializeParam(
-                                                _model.masterDataDoc,
-                                                ParamType.Document,
-                                              ),
-                                            }.withoutNulls,
-                                            extra: <String, dynamic>{
-                                              'firestoreDataConfigList':
-                                                  _model.masterDataDoc,
-                                            },
-                                          );
-
-                                          await actions.hideKeyboardAction(
-                                            context,
-                                          );
-                                          if (_shouldSetState)
-                                            safeSetState(() {});
-                                        },
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: 60.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            border: Border.all(
-                                              color: Color(0xFFB3B3B3),
-                                            ),
-                                          ),
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                              child: Material(
-                                                color: Colors.transparent,
-                                                child: ListTile(
-                                                  title: Text(
-                                                    FFAppState().insuranceInfoRegistrationProvinceSelect !=
-                                                                null &&
-                                                            FFAppState()
-                                                                    .insuranceInfoRegistrationProvinceSelect !=
-                                                                ''
-                                                        ? FFAppState()
-                                                            .insuranceInfoRegistrationProvinceSelect
-                                                        : 'กรุณาเลือกจังหวัดที่จดทะเบียน',
-                                                    textAlign: TextAlign.start,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleLarge
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .notoSansThai(
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleLarge
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: FFAppState()
-                                                                          .insuranceInfoRegistrationProvinceSelect ==
-                                                                      null ||
-                                                                  FFAppState()
-                                                                          .insuranceInfoRegistrationProvinceSelect ==
-                                                                      ''
-                                                              ? Color(
-                                                                  0xFF9F9F9F)
-                                                              : Colors.black,
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              '(บังคับกรอก)',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        font: GoogleFonts
+                                                            .notoSansThai(
                                                           fontWeight:
-                                                              FontWeight.w600,
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
                                                           fontStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .titleLarge
+                                                                  .bodyMedium
                                                                   .fontStyle,
                                                         ),
+                                                        color:
+                                                            Color(0xFFFB0606),
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Builder(
+                                      builder: (context) => Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 5.0, 16.0, 0.0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            var _shouldSetState = false;
+                                            showDialog(
+                                              context: context,
+                                              builder: (dialogContext) {
+                                                return Dialog(
+                                                  elevation: 0,
+                                                  insetPadding: EdgeInsets.zero,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                              0.0, 0.0)
+                                                          .resolve(
+                                                              Directionality.of(
+                                                                  context)),
+                                                  child: WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () {
+                                                        FocusScope.of(
+                                                                dialogContext)
+                                                            .unfocus();
+                                                        FocusManager.instance
+                                                            .primaryFocus
+                                                            ?.unfocus();
+                                                      },
+                                                      child: Container(
+                                                        height: double.infinity,
+                                                        width: double.infinity,
+                                                        child:
+                                                            LoadingSceneWidget(),
+                                                      ),
+                                                    ),
                                                   ),
-                                                  trailing: Icon(
-                                                    Icons.arrow_forward_ios,
-                                                    color: Color(0xFF474747),
-                                                    size: 20.0,
-                                                  ),
-                                                  tileColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                  dense: false,
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
+                                                );
+                                              },
+                                            );
+
+                                            if (!(_model.masterDataDoc !=
+                                                null)) {
+                                              _model.masterDataQueryActionDriver =
+                                                  await DataListRecord
+                                                      .getDocumentOnce(FFAppState()
+                                                          .dataListCollectionDocRef!);
+                                              _shouldSetState = true;
+                                              _model.masterDataDoc = _model
+                                                  .masterDataQueryActionDriver;
+                                              safeSetState(() {});
+                                            }
+                                            if (!((FFAppState()
+                                                    .insuranceInfoOccupationName
+                                                    .isNotEmpty) &&
+                                                (FFAppState()
+                                                    .insuranceInfoOccupationName
+                                                    .isNotEmpty) &&
+                                                (FFAppState()
+                                                    .insuranceInfoOccupationSubCode
+                                                    .isNotEmpty) &&
+                                                (FFAppState()
+                                                    .insuranceInfoOccupationSubName
+                                                    .isNotEmpty))) {
+                                              _model.getOccuAPIOutput =
+                                                  await GetOccupationCall.call(
+                                                insuranceUrl: FFAppState()
+                                                    .apiUrlInsuranceAppState,
+                                              );
+
+                                              _shouldSetState = true;
+                                              if ((_model.getOccuAPIOutput
+                                                          ?.statusCode ??
+                                                      200) !=
+                                                  200) {
+                                                Navigator.pop(context);
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        content: Text(
+                                                            'พบข้อผิดพลาด (Get Occupation ${(_model.getOccuAPIOutput?.statusCode ?? 200).toString()})'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                                if (_shouldSetState)
+                                                  safeSetState(() {});
+                                                return;
+                                              }
+                                              if ('${getJsonField(
+                                                    (_model.getOccuAPIOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                    r'''$.code''',
+                                                  ).toString()}' !=
+                                                  '200') {
+                                                Navigator.pop(context);
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        content: Text(
+                                                            GetOccupationCall
+                                                                .messageLayer1(
+                                                          (_model.getOccuAPIOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )!),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                                if (_shouldSetState)
+                                                  safeSetState(() {});
+                                                return;
+                                              }
+                                              FFAppState()
+                                                      .insuranceInfoOccupationCode =
+                                                  GetOccupationCall
+                                                          .occupationcode(
+                                                (_model.getOccuAPIOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )!
+                                                      .toList()
+                                                      .cast<String>();
+                                              FFAppState()
+                                                      .insuranceInfoOccupationName =
+                                                  GetOccupationCall
+                                                          .occupationname(
+                                                (_model.getOccuAPIOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )!
+                                                      .toList()
+                                                      .cast<String>();
+                                              FFAppState()
+                                                      .insuranceInfoOccupationSubCode =
+                                                  GetOccupationCall
+                                                          .occupationsubcode(
+                                                (_model.getOccuAPIOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )!
+                                                      .toList()
+                                                      .cast<String>();
+                                              FFAppState()
+                                                      .insuranceInfoOccupationSubName =
+                                                  GetOccupationCall
+                                                          .occupationsubname(
+                                                (_model.getOccuAPIOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )!
+                                                      .toList()
+                                                      .cast<String>();
+                                              safeSetState(() {});
+                                            }
+                                            Navigator.pop(context);
+
+                                            context.pushNamed(
+                                              ShowDriverPageWidget.routeName,
+                                              queryParameters: {
+                                                'firestoreDataConfigList':
+                                                    serializeParam(
+                                                  _model.masterDataDoc,
+                                                  ParamType.Document,
+                                                ),
+                                              }.withoutNulls,
+                                              extra: <String, dynamic>{
+                                                'firestoreDataConfigList':
+                                                    _model.masterDataDoc,
+                                              },
+                                            );
+
+                                            await actions.hideKeyboardAction(
+                                              context,
+                                            );
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                          },
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                1.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              border: Border.all(
+                                                color: Color(0xFFB3B3B3),
+                                              ),
+                                            ),
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        4.0, 0.0, 0.0, 0.0),
+                                                child: Material(
+                                                  color: Colors.transparent,
+                                                  child: ListTile(
+                                                    title: Text(
+                                                      FFAppState().insuranceInfoRegistrationProvinceSelect !=
+                                                                  null &&
+                                                              FFAppState()
+                                                                      .insuranceInfoRegistrationProvinceSelect !=
+                                                                  ''
+                                                          ? FFAppState()
+                                                              .insuranceInfoRegistrationProvinceSelect
+                                                          : 'กรุณาเลือกจังหวัดที่จดทะเบียน',
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleLarge
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .notoSansThai(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleLarge
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: FFAppState().insuranceInfoRegistrationProvinceSelect ==
+                                                                            null ||
+                                                                        FFAppState().insuranceInfoRegistrationProvinceSelect ==
+                                                                            ''
+                                                                    ? Color(
+                                                                        0xFF9F9F9F)
+                                                                    : Colors
+                                                                        .black,
+                                                                fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleLarge
+                                                                    .fontStyle,
+                                                              ),
+                                                    ),
+                                                    trailing: Icon(
+                                                      Icons.arrow_forward_ios,
+                                                      color: Color(0xFF474747),
+                                                      size: 20.0,
+                                                    ),
+                                                    tileColor: FlutterFlowTheme
+                                                            .of(context)
+                                                        .secondaryBackground,
+                                                    dense: false,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10.0),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -3482,11 +3529,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 5.0, 0.0, 0.0),
@@ -3529,7 +3575,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                               EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 0.0, 0.0),
                                           child: Text(
-                                            '(บังคับกรอก)',
+                                            '(บังคับเลือก)',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -3575,21 +3621,16 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          SearchableListPageWidget.routeName,
+                                          SearchableDriverBehaviorListPageWidget
+                                              .routeName,
                                           queryParameters: {
                                             'titleText': serializeParam(
-                                              'เลือกจังหวัดที่จดทะเบียน',
+                                              'เลือกพฤติกรรมผู้ขับขี่',
                                               ParamType.String,
                                             ),
                                             'searchLabel': serializeParam(
-                                              'เลือกจังหวัดที่จดทะเบียน',
+                                              'เลือกพฤติกรรมผู้ขับขี่',
                                               ParamType.String,
-                                            ),
-                                            'dataList': serializeParam(
-                                              FFAppState()
-                                                  .insuranceInfoRegistrationprovinceList,
-                                              ParamType.String,
-                                              isList: true,
                                             ),
                                             'multiSelect': serializeParam(
                                               false,
@@ -3631,14 +3672,11 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                               color: Colors.transparent,
                                               child: ListTile(
                                                 title: Text(
-                                                  FFAppState().insuranceInfoRegistrationProvinceSelect !=
-                                                              null &&
-                                                          FFAppState()
-                                                                  .insuranceInfoRegistrationProvinceSelect !=
-                                                              ''
+                                                  FFAppState().insuranceBasicDriverBehaviorName !=
+                                                          ''
                                                       ? FFAppState()
-                                                          .insuranceInfoRegistrationProvinceSelect
-                                                      : 'กรุณาเลือกจังหวัดที่จดทะเบียน',
+                                                          .insuranceBasicDriverBehaviorName
+                                                      : 'กรุณาเลือกพฤติกรรมผู้ขับขี่',
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)

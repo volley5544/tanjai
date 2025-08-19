@@ -14327,6 +14327,39 @@ class FFAppState extends ChangeNotifier {
   set dataListCollectionDocRef(DocumentReference? value) {
     _dataListCollectionDocRef = value;
   }
+
+  String _insuranceBasicDriverBehaviorName = '';
+  String get insuranceBasicDriverBehaviorName =>
+      _insuranceBasicDriverBehaviorName;
+  set insuranceBasicDriverBehaviorName(String value) {
+    _insuranceBasicDriverBehaviorName = value;
+  }
+
+  String _insuranceBasicDriverBehaviorCode = '';
+  String get insuranceBasicDriverBehaviorCode =>
+      _insuranceBasicDriverBehaviorCode;
+  set insuranceBasicDriverBehaviorCode(String value) {
+    _insuranceBasicDriverBehaviorCode = value;
+  }
+
+  bool _insuranceBasicDriverBehaviorFlag = false;
+  bool get insuranceBasicDriverBehaviorFlag =>
+      _insuranceBasicDriverBehaviorFlag;
+  set insuranceBasicDriverBehaviorFlag(bool value) {
+    _insuranceBasicDriverBehaviorFlag = value;
+  }
+
+  DriverBehaviorDataModelStruct _driverBehaviorData =
+      DriverBehaviorDataModelStruct();
+  DriverBehaviorDataModelStruct get driverBehaviorData => _driverBehaviorData;
+  set driverBehaviorData(DriverBehaviorDataModelStruct value) {
+    _driverBehaviorData = value;
+  }
+
+  void updateDriverBehaviorDataStruct(
+      Function(DriverBehaviorDataModelStruct) updateFn) {
+    updateFn(_driverBehaviorData);
+  }
 }
 
 void _safeInit(Function() initializeField) {

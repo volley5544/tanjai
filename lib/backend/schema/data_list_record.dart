@@ -86,6 +86,36 @@ class DataListRecord extends FirestoreRecord {
   List<String> get assured => _assured ?? const [];
   bool hasAssured() => _assured != null;
 
+  // "driver_behavior" field.
+  List<String>? _driverBehavior;
+  List<String> get driverBehavior => _driverBehavior ?? const [];
+  bool hasDriverBehavior() => _driverBehavior != null;
+
+  // "driver_behavior_uat" field.
+  List<String>? _driverBehaviorUat;
+  List<String> get driverBehaviorUat => _driverBehaviorUat ?? const [];
+  bool hasDriverBehaviorUat() => _driverBehaviorUat != null;
+
+  // "driver_behavior_flag" field.
+  List<bool>? _driverBehaviorFlag;
+  List<bool> get driverBehaviorFlag => _driverBehaviorFlag ?? const [];
+  bool hasDriverBehaviorFlag() => _driverBehaviorFlag != null;
+
+  // "driver_behavior_flag_uat" field.
+  List<bool>? _driverBehaviorFlagUat;
+  List<bool> get driverBehaviorFlagUat => _driverBehaviorFlagUat ?? const [];
+  bool hasDriverBehaviorFlagUat() => _driverBehaviorFlagUat != null;
+
+  // "driver_behavior_name" field.
+  List<String>? _driverBehaviorName;
+  List<String> get driverBehaviorName => _driverBehaviorName ?? const [];
+  bool hasDriverBehaviorName() => _driverBehaviorName != null;
+
+  // "driver_behavior_name_uat" field.
+  List<String>? _driverBehaviorNameUat;
+  List<String> get driverBehaviorNameUat => _driverBehaviorNameUat ?? const [];
+  bool hasDriverBehaviorNameUat() => _driverBehaviorNameUat != null;
+
   void _initializeFields() {
     _cardType = getDataList(snapshotData['CardType']);
     _gender = getDataList(snapshotData['Gender']);
@@ -101,6 +131,14 @@ class DataListRecord extends FirestoreRecord {
     _roof = getDataList(snapshotData['roof']);
     _floor = getDataList(snapshotData['floor']);
     _assured = getDataList(snapshotData['assured']);
+    _driverBehavior = getDataList(snapshotData['driver_behavior']);
+    _driverBehaviorUat = getDataList(snapshotData['driver_behavior_uat']);
+    _driverBehaviorFlag = getDataList(snapshotData['driver_behavior_flag']);
+    _driverBehaviorFlagUat =
+        getDataList(snapshotData['driver_behavior_flag_uat']);
+    _driverBehaviorName = getDataList(snapshotData['driver_behavior_name']);
+    _driverBehaviorNameUat =
+        getDataList(snapshotData['driver_behavior_name_uat']);
   }
 
   static CollectionReference get collection =>
@@ -164,7 +202,15 @@ class DataListRecordDocumentEquality implements Equality<DataListRecord> {
         listEquality.equals(e1?.roofFrame, e2?.roofFrame) &&
         listEquality.equals(e1?.roof, e2?.roof) &&
         listEquality.equals(e1?.floor, e2?.floor) &&
-        listEquality.equals(e1?.assured, e2?.assured);
+        listEquality.equals(e1?.assured, e2?.assured) &&
+        listEquality.equals(e1?.driverBehavior, e2?.driverBehavior) &&
+        listEquality.equals(e1?.driverBehaviorUat, e2?.driverBehaviorUat) &&
+        listEquality.equals(e1?.driverBehaviorFlag, e2?.driverBehaviorFlag) &&
+        listEquality.equals(
+            e1?.driverBehaviorFlagUat, e2?.driverBehaviorFlagUat) &&
+        listEquality.equals(e1?.driverBehaviorName, e2?.driverBehaviorName) &&
+        listEquality.equals(
+            e1?.driverBehaviorNameUat, e2?.driverBehaviorNameUat);
   }
 
   @override
@@ -182,7 +228,13 @@ class DataListRecordDocumentEquality implements Equality<DataListRecord> {
         e?.roofFrame,
         e?.roof,
         e?.floor,
-        e?.assured
+        e?.assured,
+        e?.driverBehavior,
+        e?.driverBehaviorUat,
+        e?.driverBehaviorFlag,
+        e?.driverBehaviorFlagUat,
+        e?.driverBehaviorName,
+        e?.driverBehaviorNameUat
       ]);
 
   @override

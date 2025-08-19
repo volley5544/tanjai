@@ -104,7 +104,7 @@ class _DriverInfomationFormComponentWidgetState
                       .nationalThaiId
                   : ''),
         );
-        _model.driverLicenseTextfieldTextController?.text = FFAppState()
+        _model.driverLicenseTextfieldTextController1?.text = FFAppState()
                     .DriverList
                     .elementAtOrNull(widget!.index!)
                     ?.licenseNo !=
@@ -155,7 +155,7 @@ class _DriverInfomationFormComponentWidgetState
 
     _model.thaiIdTextfieldMask =
         MaskTextInputFormatter(mask: '#-####-#####-##-#');
-    _model.driverLicenseTextfieldTextController ??= TextEditingController(
+    _model.driverLicenseTextfieldTextController1 ??= TextEditingController(
         text: FFAppState()
                     .DriverList
                     .elementAtOrNull(widget!.index!)
@@ -163,7 +163,17 @@ class _DriverInfomationFormComponentWidgetState
                 ''
             ? FFAppState().DriverList.elementAtOrNull(widget!.index!)?.licenseNo
             : '');
-    _model.driverLicenseTextfieldFocusNode ??= FocusNode();
+    _model.driverLicenseTextfieldFocusNode1 ??= FocusNode();
+
+    _model.driverLicenseTextfieldTextController2 ??= TextEditingController(
+        text: FFAppState()
+                    .DriverList
+                    .elementAtOrNull(widget!.index!)
+                    ?.licenseNo !=
+                ''
+            ? FFAppState().DriverList.elementAtOrNull(widget!.index!)?.licenseNo
+            : '');
+    _model.driverLicenseTextfieldFocusNode2 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -1694,9 +1704,9 @@ class _DriverInfomationFormComponentWidgetState
                                     10.0, 0.0, 10.0, 0.0),
                                 child: TextFormField(
                                   controller: _model
-                                      .driverLicenseTextfieldTextController,
+                                      .driverLicenseTextfieldTextController1,
                                   focusNode:
-                                      _model.driverLicenseTextfieldFocusNode,
+                                      _model.driverLicenseTextfieldFocusNode1,
                                   autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
@@ -1766,7 +1776,179 @@ class _DriverInfomationFormComponentWidgetState
                                             .fontStyle,
                                       ),
                                   validator: _model
-                                      .driverLicenseTextfieldTextControllerValidator
+                                      .driverLicenseTextfieldTextController1Validator
+                                      .asValidator(context),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 10.0),
+                child: Container(
+                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  decoration: BoxDecoration(),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 4.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              'พฤติกรรมผู้ขับขี่',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.notoSansThai(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color: Color(0xFF1D4774),
+                                    fontSize: 15.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                'บังคับเลือก',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.notoSansThai(
+                                        fontWeight: FontWeight.w600,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      color: Color(0xFFFB0606),
+                                      fontSize: 12.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 0.0, 16.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {},
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            height: 60.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(8.0),
+                              border: Border.all(
+                                color: Color(0xFFB3B3B3),
+                              ),
+                            ),
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 10.0, 0.0),
+                                child: TextFormField(
+                                  controller: _model
+                                      .driverLicenseTextfieldTextController2,
+                                  focusNode:
+                                      _model.driverLicenseTextfieldFocusNode2,
+                                  autofocus: false,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .override(
+                                          font: GoogleFonts.notoSansThai(
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          fontSize: 15.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
+                                        ),
+                                    hintText: 'กรุณากรอกเลขที่ใบอนุญาตขับขี่',
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .override(
+                                          font: GoogleFonts.notoSansThai(
+                                            fontWeight: FontWeight.w600,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontSize: 15.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
+                                        ),
+                                    enabledBorder: InputBorder.none,
+                                    focusedBorder: InputBorder.none,
+                                    errorBorder: InputBorder.none,
+                                    focusedErrorBorder: InputBorder.none,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: GoogleFonts.notoSansThai(
+                                          fontWeight: FontWeight.w600,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 15.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                  validator: _model
+                                      .driverLicenseTextfieldTextController2Validator
                                       .asValidator(context),
                                 ),
                               ),

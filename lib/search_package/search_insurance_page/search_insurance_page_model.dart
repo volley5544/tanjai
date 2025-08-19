@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -61,6 +62,8 @@ class SearchInsurancePageModel
   ApiCallResponse? getVehicleUsedTypeAPI;
   // Stores action output result for [Backend Call - API (teleGetProvinceAPI)] action in SearchInsurancePage widget.
   ApiCallResponse? getProvince;
+  // Stores action output result for [Backend Call - Read Document] action in SearchInsurancePage widget.
+  DataListRecord? masterDataQueryAction;
   // Stores action output result for [Backend Call - API (teleGetBrandAPI)] action in SearchInsurancePage widget.
   ApiCallResponse? getBrandEVAPI;
   // Stores action output result for [Backend Call - API (teleGetModelAPI )] action in SearchInsurancePage widget.
@@ -72,7 +75,7 @@ class SearchInsurancePageModel
   // Stores action output result for [Backend Call - API (teleGetProvinceAPI)] action in SearchInsurancePage widget.
   ApiCallResponse? getProvince2;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
-  DataListRecord? masterDataQueryAction;
+  DataListRecord? masterDataQueryActionDriver;
   // Stores action output result for [Backend Call - API (GetOccupation)] action in Container widget.
   ApiCallResponse? getOccuAPIOutput;
   DateTime? datePicked;

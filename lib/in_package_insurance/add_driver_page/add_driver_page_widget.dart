@@ -220,10 +220,10 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                                               '') &&
                                       (functions.checkStringLength(functions.removeCommaFromNumText(_model.driverInfomationFormComponentModel.thaiIdTextfieldTextController.text)).toString() ==
                                           '13')) &&
-                                  (_model.driverInfomationFormComponentModel.driverLicenseTextfieldTextController.text != null &&
+                                  (_model.driverInfomationFormComponentModel.driverLicenseTextfieldTextController1.text != null &&
                                       _model
                                               .driverInfomationFormComponentModel
-                                              .driverLicenseTextfieldTextController
+                                              .driverLicenseTextfieldTextController1
                                               .text !=
                                           '') &&
                                   (FFAppState().DriverList.elementAtOrNull(widget!.index!)?.imageIdcard != '') &&
@@ -262,7 +262,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                                           .text)
                                   ..licenseNo = _model
                                       .driverInfomationFormComponentModel
-                                      .driverLicenseTextfieldTextController
+                                      .driverLicenseTextfieldTextController1
                                       .text
                                   ..gender = FFAppState()
                                       .DriverList

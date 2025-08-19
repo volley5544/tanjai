@@ -3,6 +3,7 @@ export '/backend/schema/util/schema_util.dart';
 export 'admin_role_menu_struct.dart';
 export 'banner_data_struct.dart';
 export 'benefitor_model_struct.dart';
+export 'driver_behavior_data_model_struct.dart';
 export 'driver_data_struct.dart';
 export 'fire_get_leads_struct.dart';
 export 'fire_insurance_search_package_data_struct.dart';
