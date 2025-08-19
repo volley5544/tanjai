@@ -4395,6 +4395,14 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                           .insuranceInfoRegistrationCodeSelect,
                                       ParamType.String,
                                     ),
+                                    'driverBehaviorScoreList': serializeParam(
+                                      functions.filledDataInListByLength(
+                                          FFAppState()
+                                              .insuranceBasicDriverBehaviorCode,
+                                          5),
+                                      ParamType.String,
+                                      isList: true,
+                                    ),
                                   }.withoutNulls,
                                 );
 

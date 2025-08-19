@@ -37,6 +37,7 @@ class InsurerListOverallPageWidget extends StatefulWidget {
     this.carTypeDetail,
     required this.oldVmiExpDate,
     required this.provinceCode,
+    required this.driverBehaviorScoreList,
   });
 
   final String? brandCode;
@@ -51,6 +52,7 @@ class InsurerListOverallPageWidget extends StatefulWidget {
   final String? carTypeDetail;
   final String? oldVmiExpDate;
   final String? provinceCode;
+  final List<String>? driverBehaviorScoreList;
 
   static String routeName = 'insurerListOverallPage';
   static String routePath = 'insurerListOverallPage';
@@ -495,6 +497,39 @@ class _InsurerListOverallPageWidgetState
           FFAppState().sliderMaxSumInsuredPage2;
       safeSetState(() {});
       Navigator.pop(context);
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(widget!.driverBehaviorScoreList!.length.toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(functions.combineStringFromList(
+                  widget!.driverBehaviorScoreList?.toList())!),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));

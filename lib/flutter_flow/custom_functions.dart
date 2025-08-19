@@ -5449,3 +5449,12 @@ String? getFieldFromJson(
 
   return (data[fieldName!]);
 }
+
+List<String>? filledDataInListByLength(
+  String? input,
+  int? length,
+) {
+  List<String> outputList = List.filled(length!, input!);
+
+  return outputList;
+}

@@ -1987,6 +1987,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'provinceCode',
                   ParamType.String,
                 ),
+                driverBehaviorScoreList: params.getParam<String>(
+                  'driverBehaviorScoreList',
+                  ParamType.String,
+                  isList: true,
+                ),
               ),
             ),
             FFRoute(
