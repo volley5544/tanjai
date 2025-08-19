@@ -3192,86 +3192,142 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                       ],
                                     ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 5.0, 16.0, 0.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        if (!(_model.masterDataDoc != null)) {
-                                          _model.masterDataQueryAction =
-                                              await DataListRecord
-                                                  .getDocumentOnce(FFAppState()
-                                                      .dataListCollectionDocRef!);
-                                          _model.masterDataDoc =
-                                              _model.masterDataQueryAction;
-                                          safeSetState(() {});
-                                        }
+                                  Builder(
+                                    builder: (context) => Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 5.0, 16.0, 0.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          if (!(_model.masterDataDoc != null)) {
+                                            showDialog(
+                                              context: context,
+                                              builder: (dialogContext) {
+                                                return Dialog(
+                                                  elevation: 0,
+                                                  insetPadding: EdgeInsets.zero,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                              0.0, 0.0)
+                                                          .resolve(
+                                                              Directionality.of(
+                                                                  context)),
+                                                  child: WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () {
+                                                        FocusScope.of(
+                                                                dialogContext)
+                                                            .unfocus();
+                                                        FocusManager.instance
+                                                            .primaryFocus
+                                                            ?.unfocus();
+                                                      },
+                                                      child: Container(
+                                                        height: double.infinity,
+                                                        width: double.infinity,
+                                                        child:
+                                                            LoadingSceneWidget(),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            );
 
-                                        context.pushNamed(
-                                          ShowDriverPageWidget.routeName,
-                                          queryParameters: {
-                                            'firestoreDataConfigList':
-                                                serializeParam(
-                                              _model.masterDataDoc,
-                                              ParamType.Document,
-                                            ),
-                                          }.withoutNulls,
-                                          extra: <String, dynamic>{
-                                            'firestoreDataConfigList':
+                                            _model.masterDataQueryAction =
+                                                await DataListRecord
+                                                    .getDocumentOnce(FFAppState()
+                                                        .dataListCollectionDocRef!);
+                                            _model.masterDataDoc =
+                                                _model.masterDataQueryAction;
+                                            safeSetState(() {});
+                                            Navigator.pop(context);
+                                          }
+
+                                          context.pushNamed(
+                                            ShowDriverPageWidget.routeName,
+                                            queryParameters: {
+                                              'firestoreDataConfigList':
+                                                  serializeParam(
                                                 _model.masterDataDoc,
-                                          },
-                                        );
+                                                ParamType.Document,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              'firestoreDataConfigList':
+                                                  _model.masterDataDoc,
+                                            },
+                                          );
 
-                                        await actions.hideKeyboardAction(
-                                          context,
-                                        );
+                                          await actions.hideKeyboardAction(
+                                            context,
+                                          );
 
-                                        safeSetState(() {});
-                                      },
-                                      child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
-                                        height: 60.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          border: Border.all(
-                                            color: Color(0xFFB3B3B3),
+                                          safeSetState(() {});
+                                        },
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 60.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            border: Border.all(
+                                              color: Color(0xFFB3B3B3),
+                                            ),
                                           ),
-                                        ),
-                                        child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    4.0, 0.0, 0.0, 0.0),
-                                            child: Material(
-                                              color: Colors.transparent,
-                                              child: ListTile(
-                                                title: Text(
-                                                  FFAppState().insuranceInfoRegistrationProvinceSelect !=
-                                                              null &&
-                                                          FFAppState()
-                                                                  .insuranceInfoRegistrationProvinceSelect !=
-                                                              ''
-                                                      ? FFAppState()
-                                                          .insuranceInfoRegistrationProvinceSelect
-                                                      : 'กรุณาเลือกจังหวัดที่จดทะเบียน',
-                                                  textAlign: TextAlign.start,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .titleLarge
-                                                      .override(
-                                                        font: GoogleFonts
-                                                            .notoSansThai(
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                              child: Material(
+                                                color: Colors.transparent,
+                                                child: ListTile(
+                                                  title: Text(
+                                                    FFAppState().insuranceInfoRegistrationProvinceSelect !=
+                                                                null &&
+                                                            FFAppState()
+                                                                    .insuranceInfoRegistrationProvinceSelect !=
+                                                                ''
+                                                        ? FFAppState()
+                                                            .insuranceInfoRegistrationProvinceSelect
+                                                        : 'กรุณาเลือกจังหวัดที่จดทะเบียน',
+                                                    textAlign: TextAlign.start,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleLarge
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .notoSansThai(
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleLarge
+                                                                    .fontStyle,
+                                                          ),
+                                                          color: FFAppState()
+                                                                          .insuranceInfoRegistrationProvinceSelect ==
+                                                                      null ||
+                                                                  FFAppState()
+                                                                          .insuranceInfoRegistrationProvinceSelect ==
+                                                                      ''
+                                                              ? Color(
+                                                                  0xFF9F9F9F)
+                                                              : Colors.black,
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                           fontStyle:
@@ -3280,38 +3336,22 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                                   .titleLarge
                                                                   .fontStyle,
                                                         ),
-                                                        color: FFAppState()
-                                                                        .insuranceInfoRegistrationProvinceSelect ==
-                                                                    null ||
-                                                                FFAppState()
-                                                                        .insuranceInfoRegistrationProvinceSelect ==
-                                                                    ''
-                                                            ? Color(0xFF9F9F9F)
-                                                            : Colors.black,
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleLarge
-                                                                .fontStyle,
-                                                      ),
-                                                ),
-                                                trailing: Icon(
-                                                  Icons.arrow_forward_ios,
-                                                  color: Color(0xFF474747),
-                                                  size: 20.0,
-                                                ),
-                                                tileColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                dense: false,
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
+                                                  ),
+                                                  trailing: Icon(
+                                                    Icons.arrow_forward_ios,
+                                                    color: Color(0xFF474747),
+                                                    size: 20.0,
+                                                  ),
+                                                  tileColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
+                                                  dense: false,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10.0),
+                                                  ),
                                                 ),
                                               ),
                                             ),
