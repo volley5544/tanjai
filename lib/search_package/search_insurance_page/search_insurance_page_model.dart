@@ -73,6 +73,8 @@ class SearchInsurancePageModel
   ApiCallResponse? getProvince2;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
   DataListRecord? masterDataQueryAction;
+  // Stores action output result for [Backend Call - API (GetOccupation)] action in Container widget.
+  ApiCallResponse? getOccuAPIOutput;
   DateTime? datePicked;
   // State field(s) for Slider widget.
   double? sliderValue;

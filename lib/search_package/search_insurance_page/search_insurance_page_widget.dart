@@ -3202,52 +3202,175 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          if (!(_model.masterDataDoc != null)) {
-                                            showDialog(
-                                              context: context,
-                                              builder: (dialogContext) {
-                                                return Dialog(
-                                                  elevation: 0,
-                                                  insetPadding: EdgeInsets.zero,
-                                                  backgroundColor:
-                                                      Colors.transparent,
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                              0.0, 0.0)
-                                                          .resolve(
-                                                              Directionality.of(
-                                                                  context)),
-                                                  child: WebViewAware(
-                                                    child: GestureDetector(
-                                                      onTap: () {
-                                                        FocusScope.of(
-                                                                dialogContext)
-                                                            .unfocus();
-                                                        FocusManager.instance
-                                                            .primaryFocus
-                                                            ?.unfocus();
-                                                      },
-                                                      child: Container(
-                                                        height: double.infinity,
-                                                        width: double.infinity,
-                                                        child:
-                                                            LoadingSceneWidget(),
-                                                      ),
+                                          var _shouldSetState = false;
+                                          showDialog(
+                                            context: context,
+                                            builder: (dialogContext) {
+                                              return Dialog(
+                                                elevation: 0,
+                                                insetPadding: EdgeInsets.zero,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                alignment: AlignmentDirectional(
+                                                        0.0, 0.0)
+                                                    .resolve(Directionality.of(
+                                                        context)),
+                                                child: WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () {
+                                                      FocusScope.of(
+                                                              dialogContext)
+                                                          .unfocus();
+                                                      FocusManager
+                                                          .instance.primaryFocus
+                                                          ?.unfocus();
+                                                    },
+                                                    child: Container(
+                                                      height: double.infinity,
+                                                      width: double.infinity,
+                                                      child:
+                                                          LoadingSceneWidget(),
                                                     ),
                                                   ),
-                                                );
-                                              },
-                                            );
+                                                ),
+                                              );
+                                            },
+                                          );
 
+                                          if (!(_model.masterDataDoc != null)) {
                                             _model.masterDataQueryAction =
                                                 await DataListRecord
                                                     .getDocumentOnce(FFAppState()
                                                         .dataListCollectionDocRef!);
+                                            _shouldSetState = true;
                                             _model.masterDataDoc =
                                                 _model.masterDataQueryAction;
                                             safeSetState(() {});
-                                            Navigator.pop(context);
                                           }
+                                          if (!((FFAppState().insuranceInfoOccupationName.isNotEmpty) &&
+                                              (FFAppState()
+                                                  .insuranceInfoOccupationName
+                                                  .isNotEmpty) &&
+                                              (FFAppState()
+                                                  .insuranceInfoOccupationSubCode
+                                                  .isNotEmpty) &&
+                                              (FFAppState()
+                                                  .insuranceInfoOccupationSubName
+                                                  .isNotEmpty))) {
+                                            _model.getOccuAPIOutput =
+                                                await GetOccupationCall.call(
+                                              insuranceUrl: FFAppState()
+                                                  .apiUrlInsuranceAppState,
+                                            );
+
+                                            _shouldSetState = true;
+                                            if ((_model.getOccuAPIOutput
+                                                        ?.statusCode ??
+                                                    200) !=
+                                                200) {
+                                              Navigator.pop(context);
+                                              await showDialog(
+                                                context: context,
+                                                builder: (alertDialogContext) {
+                                                  return WebViewAware(
+                                                    child: AlertDialog(
+                                                      content: Text(
+                                                          'พบข้อผิดพลาด (Get Occupation ${(_model.getOccuAPIOutput?.statusCode ?? 200).toString()})'),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                              if (_shouldSetState)
+                                                safeSetState(() {});
+                                              return;
+                                            }
+                                            if ('${getJsonField(
+                                                  (_model.getOccuAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                  r'''$.code''',
+                                                ).toString()}' !=
+                                                '200') {
+                                              Navigator.pop(context);
+                                              await showDialog(
+                                                context: context,
+                                                builder: (alertDialogContext) {
+                                                  return WebViewAware(
+                                                    child: AlertDialog(
+                                                      content: Text(
+                                                          GetOccupationCall
+                                                              .messageLayer1(
+                                                        (_model.getOccuAPIOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )!),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                              if (_shouldSetState)
+                                                safeSetState(() {});
+                                              return;
+                                            }
+                                            FFAppState()
+                                                    .insuranceInfoOccupationCode =
+                                                GetOccupationCall
+                                                        .occupationcode(
+                                              (_model.getOccuAPIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )!
+                                                    .toList()
+                                                    .cast<String>();
+                                            FFAppState()
+                                                    .insuranceInfoOccupationName =
+                                                GetOccupationCall
+                                                        .occupationname(
+                                              (_model.getOccuAPIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )!
+                                                    .toList()
+                                                    .cast<String>();
+                                            FFAppState()
+                                                    .insuranceInfoOccupationSubCode =
+                                                GetOccupationCall
+                                                        .occupationsubcode(
+                                              (_model.getOccuAPIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )!
+                                                    .toList()
+                                                    .cast<String>();
+                                            FFAppState()
+                                                    .insuranceInfoOccupationSubName =
+                                                GetOccupationCall
+                                                        .occupationsubname(
+                                              (_model.getOccuAPIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )!
+                                                    .toList()
+                                                    .cast<String>();
+                                            safeSetState(() {});
+                                          }
+                                          Navigator.pop(context);
 
                                           context.pushNamed(
                                             ShowDriverPageWidget.routeName,
@@ -3267,8 +3390,8 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                           await actions.hideKeyboardAction(
                                             context,
                                           );
-
-                                          safeSetState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                         },
                                         child: Container(
                                           width:
