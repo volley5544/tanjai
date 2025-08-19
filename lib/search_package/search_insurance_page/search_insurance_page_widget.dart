@@ -985,7 +985,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
           if (!(_model.masterDataDoc != null)) {
             _model.masterDataQueryAction = await DataListRecord.getDocumentOnce(
                 FFAppState().dataListCollectionDocRef!);
-            _model.masterDataDoc = _model.masterDataQueryActionDriver;
+            _model.masterDataDoc = _model.masterDataQueryAction;
             safeSetState(() {});
             FFAppState().driverBehaviorData = FFAppState().isProduction
                 ? DriverBehaviorDataModelStruct(

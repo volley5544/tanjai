@@ -79,7 +79,7 @@ class _InsuranceWorkSelectPageWidgetState
                   SearchInsurancePageWidget.routeName,
                   queryParameters: {
                     'fromIcon': serializeParam(
-                      'moto',
+                      'motor',
                       ParamType.String,
                     ),
                   }.withoutNulls,
