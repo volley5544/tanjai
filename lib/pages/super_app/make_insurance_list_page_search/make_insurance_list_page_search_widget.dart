@@ -962,7 +962,9 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                       r'''$.pdf_quotation''',
                                                                                       true,
                                                                                     ) as List?)
-                                                                                        ?.cast<String>(),
+                                                                                        ?.map<String>((e) => e.toString())
+                                                                                        .toList()
+                                                                                        .cast<String>(),
                                                                                     ParamType.String,
                                                                                     isList: true,
                                                                                   ),

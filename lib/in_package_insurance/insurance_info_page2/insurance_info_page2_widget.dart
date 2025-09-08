@@ -8487,24 +8487,20 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          if (FFAppState()
-                                                  .insuranceInfoEvFlag ==
-                                              'Y') {
-                                            context.pushNamed(
-                                              ShowDriverPageWidget.routeName,
-                                              queryParameters: {
-                                                'firestoreDataConfigList':
-                                                    serializeParam(
+                                          context.pushNamed(
+                                            ShowDriverPageWidget.routeName,
+                                            queryParameters: {
+                                              'firestoreDataConfigList':
+                                                  serializeParam(
+                                                widget!.masterDataFirebase,
+                                                ParamType.Document,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              'firestoreDataConfigList':
                                                   widget!.masterDataFirebase,
-                                                  ParamType.Document,
-                                                ),
-                                              }.withoutNulls,
-                                              extra: <String, dynamic>{
-                                                'firestoreDataConfigList':
-                                                    widget!.masterDataFirebase,
-                                              },
-                                            );
-                                          }
+                                            },
+                                          );
                                         },
                                         child: Container(
                                           width:

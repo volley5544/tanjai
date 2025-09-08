@@ -1251,7 +1251,9 @@ class _AddFireCustomerNameWidgetState extends State<AddFireCustomerNameWidget> {
                                         r'''$.results.data.detail_house[:].url''',
                                         true,
                                       ) as List?)
-                                          ?.cast<String>(),
+                                          ?.map<String>((e) => e.toString())
+                                          .toList()
+                                          .cast<String>(),
                                       ParamType.String,
                                       isList: true,
                                     ),

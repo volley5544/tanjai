@@ -375,7 +375,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                         Colors
                                                                             .transparent,
                                                                     onTap:
-                                                                        () async {},
+                                                                        () async {
+                                                                      await actions
+                                                                          .urlLauncherActionCopy(
+                                                                        '',
+                                                                      );
+                                                                    },
                                                                     child: Text(
                                                                       'เข้าสู่ระบบ',
                                                                       style: FlutterFlowTheme.of(

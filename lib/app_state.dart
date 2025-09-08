@@ -14360,6 +14360,13 @@ class FFAppState extends ChangeNotifier {
       Function(DriverBehaviorDataModelStruct) updateFn) {
     updateFn(_driverBehaviorData);
   }
+
+  String _insuranceInfoSelectOccupationCodeChoose = '';
+  String get insuranceInfoSelectOccupationCodeChoose =>
+      _insuranceInfoSelectOccupationCodeChoose;
+  set insuranceInfoSelectOccupationCodeChoose(String value) {
+    _insuranceInfoSelectOccupationCodeChoose = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

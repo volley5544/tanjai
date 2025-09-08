@@ -976,6 +976,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
               )).toList(), widget!.leadDtailId))}';
+      FFAppState().insuranceInfoSelectOccupationCodeChoose =
+          '${IbsApplicationsDetailCall.occupationsubcode(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
       safeSetState(() {});
       if (FFAppState().insuranceInfoApplicationType != 'auto') {
         FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
@@ -9637,7 +9641,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       .insuranceInfoSelectOccupationCode,
                                                   occupationName: FFAppState()
                                                       .insuranceInfoOccupationGroup,
-                                                  occupationSubcode: '',
+                                                  occupationSubcode: FFAppState()
+                                                      .insuranceInfoSelectOccupationCodeChoose,
                                                   occupationSubname: FFAppState()
                                                       .insuranceInfoSelectOccupationSubNameChoose,
                                                   mobile1: functions
@@ -10898,7 +10903,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       .insuranceInfoSelectOccupationCode,
                                                   occupationName: FFAppState()
                                                       .insuranceInfoOccupationGroup,
-                                                  occupationSubcode: '',
+                                                  occupationSubcode: FFAppState()
+                                                      .insuranceInfoSelectOccupationCodeChoose,
                                                   occupationSubname: FFAppState()
                                                       .insuranceInfoSelectOccupationSubNameChoose,
                                                   mobile1: functions

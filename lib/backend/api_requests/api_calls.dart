@@ -14852,6 +14852,11 @@ class IbsApplicationsDetailCall {
         response,
         r'''$.results.data.app_detail[:].work_type''',
       ));
+  static String? occupationsubcode(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.occupation_subcode''',
+      ));
 }
 
 class IbsApplicationsPaymentSaveCall {

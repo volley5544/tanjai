@@ -1964,6 +1964,16 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                       .searchableListComponentSelectedList
                                                                       .toList(),
                                                                   true)))!;
+                                                  FFAppState()
+                                                          .insuranceInfoSelectOccupationCodeChoose =
+                                                      FFAppState()
+                                                          .insuranceInfoSelectOccupationSubCode
+                                                          .elementAtOrNull(functions
+                                                              .getIndexOfBoolList(
+                                                                  FFAppState()
+                                                                      .searchableListComponentSelectedList
+                                                                      .toList(),
+                                                                  true))!;
                                                   safeSetState(() {});
                                                   context.safePop();
                                                   return;
