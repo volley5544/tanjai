@@ -5009,10 +5009,12 @@ class TelePackageSearchAPICall {
     int? minGrossTotal,
     int? maxSumInsured,
     int? minSumInsured,
+    List<String>? driverBehaviorList,
   }) async {
     final companyId = _serializeList(companyIdList);
     final coverType = _serializeList(coverTypeList);
     final garageType = _serializeList(garageTypeList);
+    final driverBehavior = _serializeList(driverBehaviorList);
 
     final ffApiRequestBody = '''
 {
@@ -5026,7 +5028,8 @@ class TelePackageSearchAPICall {
   "min_sum_insured": ${minSumInsured},
   "max_sum_insured": ${maxSumInsured},
   "min_gross_total": ${minGrossTotal},
-  "max_gross_total": ${maxGrossTotal}
+  "max_gross_total": ${maxGrossTotal},
+  "driver_behavior": ${driverBehavior}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'telePackageSearchAPI',
@@ -14856,6 +14859,16 @@ class IbsApplicationsDetailCall {
       castToType<String>(getJsonField(
         response,
         r'''$.results.data.occupation_subcode''',
+      ));
+  static String? driverBehaviorApp(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.app_detail[:].driver_behavior''',
+      ));
+  static String? driverBehaviorLead(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.leads_detail[:].driver_behavior''',
       ));
 }
 

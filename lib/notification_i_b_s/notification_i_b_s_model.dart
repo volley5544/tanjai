@@ -15,6 +15,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class NotificationIBSModel extends FlutterFlowModel<NotificationIBSWidget> {
+  ///  State fields for stateful widgets in this page.
+
+  // Stores action output result for [Backend Call - Read Document] action in Column widget.
+  UrlLinkStorageRecord? webViewUrlProd;
+  // Stores action output result for [Backend Call - Read Document] action in Column widget.
+  UrlLinkStorageRecord? webViewUrlDev;
+
   @override
   void initState(BuildContext context) {}
 

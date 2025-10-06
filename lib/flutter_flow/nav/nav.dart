@@ -2539,6 +2539,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'maxSelected',
                   ParamType.int,
                 ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
               ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),

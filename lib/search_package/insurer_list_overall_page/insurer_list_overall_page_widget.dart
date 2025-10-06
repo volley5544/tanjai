@@ -107,6 +107,7 @@ class _InsurerListOverallPageWidgetState
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
         garageTypeList: widget!.garageType,
         province: widget!.province,
+        driverBehaviorList: widget!.driverBehaviorScoreList,
       );
 
       if ((_model.packageAPIOutput?.statusCode ?? 200) != 200) {

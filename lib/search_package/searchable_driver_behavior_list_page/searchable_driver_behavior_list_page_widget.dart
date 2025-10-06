@@ -19,6 +19,7 @@ class SearchableDriverBehaviorListPageWidget extends StatefulWidget {
     required this.searchLabel,
     bool? multiSelect,
     int? maxSelected,
+    this.fromPage,
   })  : this.titleText = titleText ?? 'เลือก...',
         this.multiSelect = multiSelect ?? false,
         this.maxSelected = maxSelected ?? 0;
@@ -27,6 +28,7 @@ class SearchableDriverBehaviorListPageWidget extends StatefulWidget {
   final String? searchLabel;
   final bool multiSelect;
   final int maxSelected;
+  final String? fromPage;
 
   static String routeName = 'SearchableDriverBehaviorListPage';
   static String routePath = 'SearchableDriverBehaviorListPage';
@@ -411,29 +413,54 @@ class _SearchableDriverBehaviorListPageWidgetState
                                                       .toList()
                                                       .cast<bool>();
                                               safeSetState(() {});
-                                              FFAppState()
-                                                      .insuranceBasicDriverBehaviorName =
-                                                  dataListItem;
-                                              FFAppState()
-                                                      .insuranceBasicDriverBehaviorCode =
-                                                  FFAppState()
-                                                      .driverBehaviorData
-                                                      .driverBehavior
-                                                      .elementAtOrNull(
-                                                          dataListIndex)!;
-                                              FFAppState()
-                                                      .insuranceBasicDriverBehaviorFlag =
-                                                  FFAppState()
+                                              if ('${widget!.fromPage}' ==
+                                                  'NonePackage') {
+                                                FFAppState()
+                                                        .nonePackageDriverBehaviorName =
+                                                    dataListItem;
+                                                FFAppState()
+                                                        .nonePackageDriverBehaviorCode =
+                                                    FFAppState()
+                                                        .driverBehaviorData
+                                                        .driverBehavior
+                                                        .elementAtOrNull(
+                                                            dataListIndex)!;
+                                                FFAppState()
+                                                        .nonePackageDriverBehaviorFlag =
+                                                    FFAppState()
+                                                        .driverBehaviorData
+                                                        .driverBehaviorFlag
+                                                        .elementAtOrNull(
+                                                            dataListIndex)!;
+                                                safeSetState(() {});
+                                              } else {
+                                                FFAppState()
+                                                        .insuranceBasicDriverBehaviorName =
+                                                    dataListItem;
+                                                FFAppState()
+                                                        .insuranceBasicDriverBehaviorCode =
+                                                    FFAppState()
+                                                        .driverBehaviorData
+                                                        .driverBehavior
+                                                        .elementAtOrNull(
+                                                            dataListIndex)!;
+                                                FFAppState()
+                                                        .insuranceBasicDriverBehaviorFlag =
+                                                    FFAppState()
+                                                        .driverBehaviorData
+                                                        .driverBehaviorFlag
+                                                        .elementAtOrNull(
+                                                            dataListIndex)!;
+                                                safeSetState(() {});
+                                              }
+
+                                              if (FFAppState()
                                                       .driverBehaviorData
                                                       .driverBehaviorFlag
                                                       .elementAtOrNull(
-                                                          dataListIndex)!;
-                                              safeSetState(() {});
-                                              if (FFAppState()
-                                                  .driverBehaviorData
-                                                  .driverBehaviorFlag
-                                                  .elementAtOrNull(
-                                                      dataListIndex)!) {
+                                                          dataListIndex)! ||
+                                                  ('${widget!.fromPage}' ==
+                                                      'NonePackage')) {
                                                 context.safePop();
                                               } else {
                                                 context.goNamed(
@@ -473,7 +500,7 @@ class _SearchableDriverBehaviorListPageWidgetState
                                                                     0.0,
                                                                     0.0),
                                                         child: Text(
-                                                          '${FFAppState().driverBehaviorData.driverBehavior.elementAtOrNull(dataListIndex)} ${dataListItem}${FFAppState().driverBehaviorData.driverBehaviorFlag.elementAtOrNull(dataListIndex)! ? '' : ' (เฉพาะงานนอกเรท)'}',
+                                                          '${FFAppState().driverBehaviorData.driverBehavior.elementAtOrNull(dataListIndex)} ${dataListItem}${FFAppState().driverBehaviorData.driverBehaviorFlag.elementAtOrNull(dataListIndex)! || ('${widget!.fromPage}' == 'NonePackage') ? '' : ' (เฉพาะงานนอกเรท)'}',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium

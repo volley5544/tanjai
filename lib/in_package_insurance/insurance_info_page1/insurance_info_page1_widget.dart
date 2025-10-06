@@ -980,6 +980,17 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           '${IbsApplicationsDetailCall.occupationsubcode(
         (_model.detailAPIOutput?.jsonBody ?? ''),
       )}';
+      FFAppState().insuranceInfoDriverBehavior =
+          '${IbsApplicationsDetailCall.driverBehaviorApp(
+                    (_model.detailAPIOutput?.jsonBody ?? ''),
+                  )}' !=
+                  ''
+              ? '${IbsApplicationsDetailCall.driverBehaviorApp(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                )}'
+              : '${IbsApplicationsDetailCall.driverBehaviorLead(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                )}';
       safeSetState(() {});
       if (FFAppState().insuranceInfoApplicationType != 'auto') {
         FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(

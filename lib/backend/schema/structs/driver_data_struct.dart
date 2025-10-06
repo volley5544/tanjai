@@ -29,6 +29,7 @@ class DriverDataStruct extends FFFirebaseStruct {
     String? occupationName,
     String? occupationSubcode,
     String? occupationSubname,
+    String? driverBehavior,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _driverId = driverId,
         _driverNo = driverNo,
@@ -49,6 +50,7 @@ class DriverDataStruct extends FFFirebaseStruct {
         _occupationName = occupationName,
         _occupationSubcode = occupationSubcode,
         _occupationSubname = occupationSubname,
+        _driverBehavior = driverBehavior,
         super(firestoreUtilData);
 
   // "driver_id" field.
@@ -184,6 +186,13 @@ class DriverDataStruct extends FFFirebaseStruct {
 
   bool hasOccupationSubname() => _occupationSubname != null;
 
+  // "driver_behavior" field.
+  String? _driverBehavior;
+  String get driverBehavior => _driverBehavior ?? '';
+  set driverBehavior(String? val) => _driverBehavior = val;
+
+  bool hasDriverBehavior() => _driverBehavior != null;
+
   static DriverDataStruct fromMap(Map<String, dynamic> data) =>
       DriverDataStruct(
         driverId: data['driver_id'] as String?,
@@ -205,6 +214,7 @@ class DriverDataStruct extends FFFirebaseStruct {
         occupationName: data['occupation_name'] as String?,
         occupationSubcode: data['occupation_subcode'] as String?,
         occupationSubname: data['occupation_subname'] as String?,
+        driverBehavior: data['driver_behavior'] as String?,
       );
 
   static DriverDataStruct? maybeFromMap(dynamic data) => data is Map
@@ -231,6 +241,7 @@ class DriverDataStruct extends FFFirebaseStruct {
         'occupation_name': _occupationName,
         'occupation_subcode': _occupationSubcode,
         'occupation_subname': _occupationSubname,
+        'driver_behavior': _driverBehavior,
       }.withoutNulls;
 
   @override
@@ -309,6 +320,10 @@ class DriverDataStruct extends FFFirebaseStruct {
         ),
         'occupation_subname': serializeParam(
           _occupationSubname,
+          ParamType.String,
+        ),
+        'driver_behavior': serializeParam(
+          _driverBehavior,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -410,6 +425,11 @@ class DriverDataStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        driverBehavior: deserializeParam(
+          data['driver_behavior'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -436,7 +456,8 @@ class DriverDataStruct extends FFFirebaseStruct {
         occupationCode == other.occupationCode &&
         occupationName == other.occupationName &&
         occupationSubcode == other.occupationSubcode &&
-        occupationSubname == other.occupationSubname;
+        occupationSubname == other.occupationSubname &&
+        driverBehavior == other.driverBehavior;
   }
 
   @override
@@ -459,7 +480,8 @@ class DriverDataStruct extends FFFirebaseStruct {
         occupationCode,
         occupationName,
         occupationSubcode,
-        occupationSubname
+        occupationSubname,
+        driverBehavior
       ]);
 }
 
@@ -483,6 +505,7 @@ DriverDataStruct createDriverDataStruct({
   String? occupationName,
   String? occupationSubcode,
   String? occupationSubname,
+  String? driverBehavior,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -508,6 +531,7 @@ DriverDataStruct createDriverDataStruct({
       occupationName: occupationName,
       occupationSubcode: occupationSubcode,
       occupationSubname: occupationSubname,
+      driverBehavior: driverBehavior,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

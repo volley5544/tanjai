@@ -166,12 +166,24 @@ class _DriverInfomationFormComponentWidgetState
     _model.driverLicenseTextfieldFocusNode1 ??= FocusNode();
 
     _model.driverLicenseTextfieldTextController2 ??= TextEditingController(
-        text: FFAppState()
-                    .DriverList
-                    .elementAtOrNull(widget!.index!)
-                    ?.licenseNo !=
-                ''
-            ? FFAppState().DriverList.elementAtOrNull(widget!.index!)?.licenseNo
+        text: FFAppState().DriverList.elementAtOrNull(widget!.index!)?.driverBehavior != ''
+            ? (FFAppState().isProduction
+                ? (functions.getIndexOfSomethingList(widget!.firestoreDataConfigList?.driverBehavior?.toList(), FFAppState().DriverList.elementAtOrNull(widget!.index!)?.driverBehavior) != -1
+                    ? (widget!.firestoreDataConfigList?.driverBehaviorName
+                        ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                            widget!.firestoreDataConfigList?.driverBehavior
+                                ?.toList(),
+                            FFAppState()
+                                .DriverList
+                                .elementAtOrNull(widget!.index!)
+                                ?.driverBehavior)))
+                    : '-')
+                : (functions.getIndexOfSomethingList(
+                            widget!.firestoreDataConfigList?.driverBehaviorUat?.toList(),
+                            FFAppState().DriverList.elementAtOrNull(widget!.index!)?.driverBehavior) !=
+                        -1
+                    ? (widget!.firestoreDataConfigList?.driverBehaviorNameUat?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.firestoreDataConfigList?.driverBehaviorUat?.toList(), FFAppState().DriverList.elementAtOrNull(widget!.index!)?.driverBehavior)))
+                    : '-'))
             : '');
     _model.driverLicenseTextfieldFocusNode2 ??= FocusNode();
 

@@ -1,6 +1,9 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
+import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -13,6 +16,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -540,6 +544,24 @@ class _NonePackageBasicPageWidgetState
         safeSetState(() {});
       }
 
+      if (!(_model.masterDataDoc != null)) {
+        _model.masterDataQueryAction = await DataListRecord.getDocumentOnce(
+            FFAppState().dataListCollectionDocRef!);
+        _model.masterDataDoc = _model.masterDataQueryAction;
+        safeSetState(() {});
+        FFAppState().driverBehaviorData = FFAppState().isProduction
+            ? DriverBehaviorDataModelStruct(
+                driverBehavior: _model.masterDataDoc?.driverBehavior,
+                driverBehaviorName: _model.masterDataDoc?.driverBehaviorName,
+                driverBehaviorFlag: _model.masterDataDoc?.driverBehaviorFlag,
+              )
+            : DriverBehaviorDataModelStruct(
+                driverBehavior: _model.masterDataDoc?.driverBehaviorUat,
+                driverBehaviorName: _model.masterDataDoc?.driverBehaviorNameUat,
+                driverBehaviorFlag: _model.masterDataDoc?.driverBehaviorFlagUat,
+              );
+        safeSetState(() {});
+      }
       Navigator.pop(context);
     });
 
@@ -2831,6 +2853,137 @@ class _NonePackageBasicPageWidgetState
                                                     .hideKeyboardAction(
                                                   context,
                                                 );
+                                                if (FFAppState()
+                                                        .insuranceBasicVehicleGroup ==
+                                                    'PICKUP') {
+                                                  FFAppState().nonePackageSearchModelList = functions
+                                                      .returnMappedListFrom3List(
+                                                          FFAppState()
+                                                              .insuranceBasicModelNameListOriginal
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicModelBrandIdListOriginal
+                                                              .toList(),
+                                                          functions.getValueWithMappedList(
+                                                              FFAppState()
+                                                                  .insuranceBasicBrandIdList
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicBrandNameList
+                                                                  .toList(),
+                                                              functions.toUpperCase(
+                                                                  _model
+                                                                      .brandNameTextFieldTextController
+                                                                      .text)),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroupList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroup,
+                                                          FFAppState()
+                                                              .insuranceBasicCarGroupDetail
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeContain,
+                                                          FFAppState()
+                                                              .insuranceBasicCarDoorList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeDoors)
+                                                      .toList()
+                                                      .cast<String>();
+                                                  FFAppState().nonePackageSearchModelIdList = functions
+                                                      .returnMappedListFrom3List(
+                                                          FFAppState()
+                                                              .insuranceBasicModelIdListOriginal
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicModelBrandIdListOriginal
+                                                              .toList(),
+                                                          functions.getValueWithMappedList(
+                                                              FFAppState()
+                                                                  .insuranceBasicBrandIdList
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicBrandNameList
+                                                                  .toList(),
+                                                              functions.toUpperCase(
+                                                                  _model
+                                                                      .brandNameTextFieldTextController
+                                                                      .text)),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroupList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroup,
+                                                          FFAppState()
+                                                              .insuranceBasicCarGroupDetail
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeContain,
+                                                          FFAppState()
+                                                              .insuranceBasicCarDoorList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeDoors)
+                                                      .toList()
+                                                      .cast<String>();
+                                                  safeSetState(() {});
+                                                } else {
+                                                  FFAppState().nonePackageSearchModelList = functions
+                                                      .returnMappedListFrom3ListOther(
+                                                          FFAppState()
+                                                              .insuranceBasicModelNameListOriginal
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicModelBrandIdListOriginal
+                                                              .toList(),
+                                                          functions.getValueWithMappedList(
+                                                              FFAppState()
+                                                                  .insuranceBasicBrandIdList
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicBrandNameList
+                                                                  .toList(),
+                                                              functions.toUpperCase(
+                                                                  _model
+                                                                      .brandNameTextFieldTextController
+                                                                      .text)),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroupList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroup)
+                                                      .toList()
+                                                      .cast<String>();
+                                                  FFAppState().nonePackageSearchModelIdList = functions
+                                                      .returnMappedListFrom3ListOther(
+                                                          FFAppState()
+                                                              .insuranceBasicModelIdListOriginal
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicModelBrandIdListOriginal
+                                                              .toList(),
+                                                          functions.getValueWithMappedList(
+                                                              FFAppState()
+                                                                  .insuranceBasicBrandIdList
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicBrandNameList
+                                                                  .toList(),
+                                                              functions.toUpperCase(
+                                                                  _model
+                                                                      .brandNameTextFieldTextController
+                                                                      .text)),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroupList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroup)
+                                                      .toList()
+                                                      .cast<String>();
+                                                  safeSetState(() {});
+                                                }
                                               },
                                               autofocus: false,
                                               obscureText: false,
@@ -5468,6 +5621,191 @@ class _NonePackageBasicPageWidgetState
                       ),
                     ),
                   ),
+                  if (true)
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                      child: Container(
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        decoration: BoxDecoration(),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 0.0, 20.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Text(
+                                    'พฤติกรรมผู้ขับขี่',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.notoSansThai(
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          fontSize: 15.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 0.0, 0.0),
+                                    child: Text(
+                                      '(บังคับเลือก)',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            font: GoogleFonts.notoSansThai(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                            color: Color(0xFFFB0606),
+                                            fontSize: 12.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 5.0, 16.0, 0.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed(
+                                    SearchableDriverBehaviorListPageWidget
+                                        .routeName,
+                                    queryParameters: {
+                                      'titleText': serializeParam(
+                                        'เลือกพฤติกรรมผู้ขับขี่',
+                                        ParamType.String,
+                                      ),
+                                      'searchLabel': serializeParam(
+                                        'เลือกพฤติกรรมผู้ขับขี่',
+                                        ParamType.String,
+                                      ),
+                                      'multiSelect': serializeParam(
+                                        false,
+                                        ParamType.bool,
+                                      ),
+                                      'maxSelected': serializeParam(
+                                        0,
+                                        ParamType.int,
+                                      ),
+                                    }.withoutNulls,
+                                  );
+
+                                  await actions.hideKeyboardAction(
+                                    context,
+                                  );
+                                },
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: 60.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    border: Border.all(
+                                      color: Color(0xFFB3B3B3),
+                                    ),
+                                  ),
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          4.0, 0.0, 0.0, 0.0),
+                                      child: Material(
+                                        color: Colors.transparent,
+                                        child: ListTile(
+                                          title: Text(
+                                            FFAppState().nonePackageDriverBehaviorName !=
+                                                    ''
+                                                ? FFAppState()
+                                                    .nonePackageDriverBehaviorName
+                                                : 'กรุณาเลือกพฤติกรรมผู้ขับขี่',
+                                            textAlign: TextAlign.start,
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleLarge
+                                                .override(
+                                                  font:
+                                                      GoogleFonts.notoSansThai(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleLarge
+                                                            .fontStyle,
+                                                  ),
+                                                  color: FFAppState()
+                                                              .nonePackageDriverBehaviorName ==
+                                                          ''
+                                                      ? Color(0xFF9F9F9F)
+                                                      : Colors.black,
+                                                  fontSize: 15.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleLarge
+                                                          .fontStyle,
+                                                ),
+                                          ),
+                                          trailing: Icon(
+                                            Icons.arrow_forward_ios,
+                                            color: Color(0xFF474747),
+                                            size: 20.0,
+                                          ),
+                                          tileColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryBackground,
+                                          dense: false,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 5.0),
@@ -8238,6 +8576,32 @@ class _NonePackageBasicPageWidgetState
                                         return;
                                       }
                                     }
+                                  }
+                                  if (!((FFAppState()
+                                              .nonePackageDriverBehaviorName !=
+                                          '') &&
+                                      (FFAppState()
+                                              .nonePackageDriverBehaviorCode !=
+                                          ''))) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'บังคับเลือกพฤติกรรมผู้ขับขี่'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    return;
                                   }
                                   FFAppState().nonePackageModelName =
                                       functions.toUpperCase(

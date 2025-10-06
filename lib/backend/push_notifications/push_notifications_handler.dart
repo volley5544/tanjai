@@ -748,6 +748,7 @@ final parametersBuilderMap =
           'searchLabel': getParameter<String>(data, 'searchLabel'),
           'multiSelect': getParameter<bool>(data, 'multiSelect'),
           'maxSelected': getParameter<int>(data, 'maxSelected'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
         },
       ),
 };

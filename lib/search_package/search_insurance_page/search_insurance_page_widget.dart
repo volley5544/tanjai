@@ -4328,6 +4328,33 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                               safeSetState(() {});
                               if (FFAppState().searchPackageSubProduct !=
                                   'MC') {
+                                if (!((FFAppState()
+                                            .insuranceBasicDriverBehaviorName !=
+                                        '') &&
+                                    (FFAppState()
+                                            .insuranceBasicDriverBehaviorCode !=
+                                        ''))) {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return WebViewAware(
+                                        child: AlertDialog(
+                                          content: Text(
+                                              'บังคับเลือกพฤติกรรมผู้ขับขี่'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                  return;
+                                }
+
                                 context.pushNamed(
                                   InsurerListOverallPageWidget.routeName,
                                   queryParameters: {

@@ -1,6 +1,9 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
+import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -14,6 +17,7 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'none_package_basic_page_widget.dart' show NonePackageBasicPageWidget;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +30,10 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 
 class NonePackageBasicPageModel
     extends FlutterFlowModel<NonePackageBasicPageWidget> {
+  ///  Local state fields for this page.
+
+  DataListRecord? masterDataDoc;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - API (teleGetProvinceAPI)] action in NonePackageBasicPage widget.
@@ -38,6 +46,8 @@ class NonePackageBasicPageModel
   ApiCallResponse? getModelAPI;
   // Stores action output result for [Backend Call - API (teleGetCoverTypeAPI)] action in NonePackageBasicPage widget.
   ApiCallResponse? getCoverTypeAPI;
+  // Stores action output result for [Backend Call - Read Document] action in NonePackageBasicPage widget.
+  DataListRecord? masterDataQueryAction;
   // State field(s) for CarryPurposeTextField widget.
   FocusNode? carryPurposeTextFieldFocusNode;
   TextEditingController? carryPurposeTextFieldTextController;

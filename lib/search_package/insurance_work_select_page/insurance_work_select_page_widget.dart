@@ -75,15 +75,7 @@ class _InsuranceWorkSelectPageWidgetState
                 size: 30.0,
               ),
               onPressed: () async {
-                context.goNamed(
-                  SearchInsurancePageWidget.routeName,
-                  queryParameters: {
-                    'fromIcon': serializeParam(
-                      'motor',
-                      ParamType.String,
-                    ),
-                  }.withoutNulls,
-                );
+                context.safePop();
               },
             ),
             title: InkWell(

@@ -214,6 +214,8 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
+                            var _shouldSetState = false;
+
                             await listViewNotificationRecord.reference
                                 .update(createNotificationRecordData(
                               thisNotiIsRead: true,
@@ -222,6 +224,7 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                               context
                                   .pushNamed(LeadFollowUpPageWidget.routeName);
 
+                              if (_shouldSetState) safeSetState(() {});
                               return;
                             }
                             if (listViewNotificationRecord.notiType ==
@@ -229,20 +232,36 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                               context
                                   .pushNamed(InsuranceListPageWidget.routeName);
 
+                              if (_shouldSetState) safeSetState(() {});
                               return;
                             }
                             if (listViewNotificationRecord.notiType ==
                                 'installment_request') {
+                              _model.webViewUrlProd =
+                                  await UrlLinkStorageRecord.getDocumentOnce(
+                                      FFAppState().webviewApproveDocRef!);
+                              _shouldSetState = true;
+                              _model.webViewUrlDev =
+                                  await UrlLinkStorageRecord.getDocumentOnce(
+                                      FFAppState().webViewApproveDocRefDev!);
+                              _shouldSetState = true;
+                              FFAppState().webViewUrlAppState =
+                                  FFAppState().isProduction
+                                      ? _model.webViewUrlProd!.urlLink
+                                      : _model.webViewUrlDev!.urlLink;
+                              safeSetState(() {});
+
                               context.goNamed(
                                 WebviewNewPageWidget.routeName,
                                 queryParameters: {
                                   'webUrl': serializeParam(
-                                    'https://land-and-house-web-aujw3o-uat.flutterflow.app/approveInsurancePage',
+                                    FFAppState().webViewUrlAppState,
                                     ParamType.String,
                                   ),
                                 }.withoutNulls,
                               );
 
+                              if (_shouldSetState) safeSetState(() {});
                               return;
                             }
                             if (listViewNotificationRecord.notiType ==
@@ -265,8 +284,10 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                                 }.withoutNulls,
                               );
 
+                              if (_shouldSetState) safeSetState(() {});
                               return;
                             }
+                            if (_shouldSetState) safeSetState(() {});
                           },
                           child: Column(
                             mainAxisSize: MainAxisSize.max,

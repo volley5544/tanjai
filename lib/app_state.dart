@@ -14367,6 +14367,30 @@ class FFAppState extends ChangeNotifier {
   set insuranceInfoSelectOccupationCodeChoose(String value) {
     _insuranceInfoSelectOccupationCodeChoose = value;
   }
+
+  String _insuranceInfoDriverBehavior = '';
+  String get insuranceInfoDriverBehavior => _insuranceInfoDriverBehavior;
+  set insuranceInfoDriverBehavior(String value) {
+    _insuranceInfoDriverBehavior = value;
+  }
+
+  String _nonePackageDriverBehaviorName = '';
+  String get nonePackageDriverBehaviorName => _nonePackageDriverBehaviorName;
+  set nonePackageDriverBehaviorName(String value) {
+    _nonePackageDriverBehaviorName = value;
+  }
+
+  String _nonePackageDriverBehaviorCode = '';
+  String get nonePackageDriverBehaviorCode => _nonePackageDriverBehaviorCode;
+  set nonePackageDriverBehaviorCode(String value) {
+    _nonePackageDriverBehaviorCode = value;
+  }
+
+  bool _nonePackageDriverBehaviorFlag = false;
+  bool get nonePackageDriverBehaviorFlag => _nonePackageDriverBehaviorFlag;
+  set nonePackageDriverBehaviorFlag(bool value) {
+    _nonePackageDriverBehaviorFlag = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {
