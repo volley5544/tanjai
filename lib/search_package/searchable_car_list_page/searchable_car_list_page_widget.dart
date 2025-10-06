@@ -2839,11 +2839,7 @@ class _SearchableCarListPageWidgetState
                                               if (widget!.fromPage ==
                                                   'searchPackage') {
                                                 if (true) {
-                                                  if (Navigator.of(context)
-                                                      .canPop()) {
-                                                    context.pop();
-                                                  }
-                                                  context.pushNamed(
+                                                  context.goNamed(
                                                       InsuranceWorkSelectPageWidget
                                                           .routeName);
 
@@ -2857,11 +2853,7 @@ class _SearchableCarListPageWidgetState
                                                                       .toList(),
                                                                   true))) ==
                                                       'รถแต่ง ต่อคอก') {
-                                                    if (Navigator.of(context)
-                                                        .canPop()) {
-                                                      context.pop();
-                                                    }
-                                                    context.pushNamed(
+                                                    context.goNamed(
                                                         InsuranceWorkSelectPageWidget
                                                             .routeName);
 

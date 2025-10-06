@@ -74,7 +74,17 @@ class _InsuranceWorkSelectPageWidgetState
                 color: Color(0xFFDB771A),
                 size: 30.0,
               ),
-              onPressed: () async {},
+              onPressed: () async {
+                context.goNamed(
+                  SearchInsurancePageWidget.routeName,
+                  queryParameters: {
+                    'fromIcon': serializeParam(
+                      'motor',
+                      ParamType.String,
+                    ),
+                  }.withoutNulls,
+                );
+              },
             ),
             title: InkWell(
               splashColor: Colors.transparent,
