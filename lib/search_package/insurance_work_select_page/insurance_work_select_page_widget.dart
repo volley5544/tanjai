@@ -74,9 +74,7 @@ class _InsuranceWorkSelectPageWidgetState
                 color: Color(0xFFDB771A),
                 size: 30.0,
               ),
-              onPressed: () async {
-                context.safePop();
-              },
+              onPressed: () async {},
             ),
             title: InkWell(
               splashColor: Colors.transparent,
