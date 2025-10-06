@@ -4192,11 +4192,7 @@ class _SearchableCarListPageWidgetState
                                               if (widget!.fromPage ==
                                                   'searchPackage') {
                                                 if (false) {
-                                                  if (Navigator.of(context)
-                                                      .canPop()) {
-                                                    context.pop();
-                                                  }
-                                                  context.pushNamed(
+                                                  context.goNamed(
                                                       InsuranceWorkSelectPageWidget
                                                           .routeName);
 
