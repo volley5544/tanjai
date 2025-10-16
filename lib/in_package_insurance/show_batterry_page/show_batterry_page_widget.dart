@@ -129,7 +129,7 @@ class _ShowBatterryPageWidgetState extends State<ShowBatterryPageWidget> {
                             batteryListItem[batteryListItemIndex];
                         return Visibility(
                           visible: FFAppState().EvBatteryData.length == 1
-                              ? ((FFAppState().DriverList.length == 1) &&
+                              ? ((FFAppState().EvBatteryData.length == 1) &&
                                   (FFAppState()
                                           .EvBatteryData
                                           .firstOrNull
@@ -871,6 +871,27 @@ class _ShowBatterryPageWidgetState extends State<ShowBatterryPageWidget> {
                                                         FFAppState()
                                                             .loopCountTemp = 0;
                                                         safeSetState(() {});
+                                                        for (int loop1Index = 0;
+                                                            loop1Index <
+                                                                FFAppState()
+                                                                    .EvBatteryData
+                                                                    .length;
+                                                            loop1Index++) {
+                                                          final currentLoop1Item =
+                                                              FFAppState()
+                                                                      .EvBatteryData[
+                                                                  loop1Index];
+                                                          FFAppState()
+                                                              .updateEvBatteryDataAtIndex(
+                                                            loop1Index,
+                                                            (e) => e
+                                                              ..batteryNumber =
+                                                                  (loop1Index +
+                                                                          1)
+                                                                      .toString(),
+                                                          );
+                                                          safeSetState(() {});
+                                                        }
                                                       },
                                                       text: 'ลบแบตเตอร์รี่',
                                                       icon: Icon(

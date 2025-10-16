@@ -540,10 +540,7 @@ class _BatteryInfomationFormComponentWidgetState
                                                       widget!.index!)
                                                   ?.batteryYear !=
                                               ''
-                                          ? FFAppState()
-                                              .EvBatteryData
-                                              .elementAtOrNull(widget!.index!)
-                                              ?.batteryYear
+                                          ? '${FFAppState().EvBatteryData.elementAtOrNull(widget!.index!)?.batteryYear} ปี'
                                           : 'กรุณาเลือกอายุแบตเตอร์รี่',
                                       'วันที่ซื้อแบต',
                                     ),
