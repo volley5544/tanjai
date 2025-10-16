@@ -549,7 +549,7 @@ class _ShowBatterryPageWidgetState extends State<ShowBatterryPageWidget> {
                                                             children: [
                                                               Text(
                                                                 batteryListItemItem
-                                                                            .batteryPurchaseDate ==
+                                                                            .batteryPurchaseDate !=
                                                                         ''
                                                                     ? valueOrDefault<
                                                                         String>(
