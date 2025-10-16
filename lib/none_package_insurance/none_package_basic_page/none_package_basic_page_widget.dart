@@ -226,6 +226,8 @@ class _NonePackageBasicPageWidgetState
         _model.getVehicleUsedTypeAPI =
             await InsuranceRequestGetVehicleAPICall.call(
           apiUrl: FFAppState().apiUrlInsuranceAppState,
+          vehicleCategory: 'manual',
+          carType: FFAppState().fromMenuAppState,
         );
 
         if ((_model.getVehicleUsedTypeAPI?.statusCode ?? 200) != 200) {

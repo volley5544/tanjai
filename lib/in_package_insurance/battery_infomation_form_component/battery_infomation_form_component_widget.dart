@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -47,7 +48,7 @@ class _BatteryInfomationFormComponentWidgetState
     super.initState();
     _model = createModel(context, () => BatteryInfomationFormComponentModel());
 
-    _model.batteryNumberTextfieldTextController1 ??= TextEditingController(
+    _model.batteryNumberTextfieldTextController ??= TextEditingController(
         text: FFAppState()
                     .EvBatteryData
                     .elementAtOrNull(widget!.index!)
@@ -58,20 +59,7 @@ class _BatteryInfomationFormComponentWidgetState
                 .elementAtOrNull(widget!.index!)
                 ?.batteryNumber
             : '');
-    _model.batteryNumberTextfieldFocusNode1 ??= FocusNode();
-
-    _model.batteryNumberTextfieldTextController2 ??= TextEditingController(
-        text: FFAppState()
-                    .EvBatteryData
-                    .elementAtOrNull(widget!.index!)
-                    ?.batteryYear !=
-                ''
-            ? FFAppState()
-                .EvBatteryData
-                .elementAtOrNull(widget!.index!)
-                ?.batteryYear
-            : '');
-    _model.batteryNumberTextfieldFocusNode2 ??= FocusNode();
+    _model.batteryNumberTextfieldFocusNode ??= FocusNode();
 
     _model.batteryPriceTextfieldTextController ??= TextEditingController(
         text: FFAppState()
@@ -85,7 +73,23 @@ class _BatteryInfomationFormComponentWidgetState
                 ?.batteryPrice)
             : '');
     _model.batteryPriceTextfieldFocusNode ??= FocusNode();
-
+    _model.batteryPriceTextfieldFocusNode!.addListener(
+      () async {
+        if ((_model.batteryPriceTextfieldFocusNode?.hasFocus ?? false)) {
+          safeSetState(() {
+            _model.batteryPriceTextfieldTextController?.text =
+                functions.removeCommaFromNumText(
+                    _model.batteryPriceTextfieldTextController.text);
+          });
+        } else {
+          safeSetState(() {
+            _model.batteryPriceTextfieldTextController?.text =
+                functions.returnNumberWithComma2Decimal(
+                    _model.batteryPriceTextfieldTextController.text)!;
+          });
+        }
+      },
+    );
     _model.batterySumInsuredTextfieldTextController ??= TextEditingController(
         text: FFAppState()
                     .EvBatteryData
@@ -98,7 +102,25 @@ class _BatteryInfomationFormComponentWidgetState
                 ?.batteryRepSumInsured)
             : '');
     _model.batterySumInsuredTextfieldFocusNode ??= FocusNode();
-
+    _model.batterySumInsuredTextfieldFocusNode!.addListener(
+      () async {
+        if (/* NOT RECOMMENDED */ _model
+                .batterySumInsuredTextfieldTextController.text ==
+            'true') {
+          safeSetState(() {
+            _model.batterySumInsuredTextfieldTextController?.text =
+                functions.removeCommaFromNumText(
+                    _model.batterySumInsuredTextfieldTextController.text);
+          });
+        } else {
+          safeSetState(() {
+            _model.batterySumInsuredTextfieldTextController?.text =
+                functions.returnNumberWithComma2Decimal(
+                    _model.batterySumInsuredTextfieldTextController.text)!;
+          });
+        }
+      },
+    );
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
@@ -295,9 +317,9 @@ class _BatteryInfomationFormComponentWidgetState
                                         10.0, 0.0, 10.0, 0.0),
                                     child: TextFormField(
                                       controller: _model
-                                          .batteryNumberTextfieldTextController1,
+                                          .batteryNumberTextfieldTextController,
                                       focusNode: _model
-                                          .batteryNumberTextfieldFocusNode1,
+                                          .batteryNumberTextfieldFocusNode,
                                       autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
@@ -370,7 +392,7 @@ class _BatteryInfomationFormComponentWidgetState
                                                     .fontStyle,
                                           ),
                                       validator: _model
-                                          .batteryNumberTextfieldTextController1Validator
+                                          .batteryNumberTextfieldTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -460,6 +482,43 @@ class _BatteryInfomationFormComponentWidgetState
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
+                              context.pushNamed(
+                                SearchableListPageWidget.routeName,
+                                queryParameters: {
+                                  'titleText': serializeParam(
+                                    'อายุแบตเตอร์รี่',
+                                    ParamType.String,
+                                  ),
+                                  'searchLabel': serializeParam(
+                                    'ระบุอายุแบตเตอร์รี่',
+                                    ParamType.String,
+                                  ),
+                                  'dataList': serializeParam(
+                                    functions.generateListNumber(widget!
+                                        .firestoreDataConfigList
+                                        ?.batteryMaxYear),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'multiSelect': serializeParam(
+                                    false,
+                                    ParamType.bool,
+                                  ),
+                                  'maxSelected': serializeParam(
+                                    0,
+                                    ParamType.int,
+                                  ),
+                                  'fromPage': serializeParam(
+                                    'AddBatteryPage',
+                                    ParamType.String,
+                                  ),
+                                  'index': serializeParam(
+                                    widget!.index,
+                                    ParamType.int,
+                                  ),
+                                }.withoutNulls,
+                              );
+
                               await actions.hideKeyboardAction(
                                 context,
                               );
@@ -480,104 +539,47 @@ class _BatteryInfomationFormComponentWidgetState
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Expanded(
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 0.0),
-                                        child: TextFormField(
-                                          controller: _model
-                                              .batteryNumberTextfieldTextController2,
-                                          focusNode: _model
-                                              .batteryNumberTextfieldFocusNode2,
-                                          autofocus: false,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            labelStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .labelMedium
-                                                .override(
-                                                  font:
-                                                      GoogleFonts.notoSansThai(
-                                                    fontWeight: FontWeight.w500,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMedium
-                                                            .fontStyle,
-                                                  ),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  fontSize: 15.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelMedium
-                                                          .fontStyle,
-                                                ),
-                                            hintText: 'กรุณากรอกสกุล',
-                                            hintStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .labelMedium
-                                                .override(
-                                                  font:
-                                                      GoogleFonts.notoSansThai(
-                                                    fontWeight: FontWeight.w600,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMedium
-                                                            .fontStyle,
-                                                  ),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  fontSize: 15.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelMedium
-                                                          .fontStyle,
-                                                ),
-                                            enabledBorder: InputBorder.none,
-                                            focusedBorder: InputBorder.none,
-                                            errorBorder: InputBorder.none,
-                                            focusedErrorBorder:
-                                                InputBorder.none,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.notoSansThai(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                fontSize: 15.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                          validator: _model
-                                              .batteryNumberTextfieldTextController2Validator
-                                              .asValidator(context),
-                                        ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 10.0, 0.0),
+                                    child: Text(
+                                      valueOrDefault<String>(
+                                        FFAppState()
+                                                    .EvBatteryData
+                                                    .elementAtOrNull(
+                                                        widget!.index!)
+                                                    ?.batteryYear !=
+                                                ''
+                                            ? FFAppState()
+                                                .EvBatteryData
+                                                .elementAtOrNull(widget!.index!)
+                                                ?.batteryYear
+                                            : 'กรุณาเลือกอายุแบตเตอร์รี่',
+                                        'วันที่ซื้อแบต',
                                       ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            font: GoogleFonts.notoSansThai(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                            letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                     ),
                                   ),
                                 ],
@@ -947,6 +949,9 @@ class _BatteryInfomationFormComponentWidgetState
                                                     .bodyMedium
                                                     .fontStyle,
                                           ),
+                                      keyboardType:
+                                          const TextInputType.numberWithOptions(
+                                              decimal: true),
                                       validator: _model
                                           .batteryPriceTextfieldTextControllerValidator
                                           .asValidator(context),
@@ -1170,6 +1175,8 @@ class _BatteryInfomationFormComponentWidgetState
                                                       .bodyMedium
                                                       .fontStyle,
                                             ),
+                                        keyboardType: const TextInputType
+                                            .numberWithOptions(decimal: true),
                                         validator: _model
                                             .batterySumInsuredTextfieldTextControllerValidator
                                             .asValidator(context),

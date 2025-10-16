@@ -844,6 +844,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
               await InsuranceRequestGetVehicleAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,
             vehicleCategory: 'auto',
+            carType: FFAppState().fromMenuAppState,
           );
 
           if ((_model.getVehicleUsedTypeAPI?.statusCode ?? 200) != 200) {
@@ -1260,6 +1261,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
               await InsuranceRequestGetVehicleAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,
             vehicleCategory: 'auto',
+            carType: FFAppState().fromMenuAppState,
           );
 
           if ((_model.getVehicleUsedTypeEVAPI?.statusCode ?? 200) != 200) {

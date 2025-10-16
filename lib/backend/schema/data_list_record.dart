@@ -116,6 +116,21 @@ class DataListRecord extends FirestoreRecord {
   List<String> get driverBehaviorNameUat => _driverBehaviorNameUat ?? const [];
   bool hasDriverBehaviorNameUat() => _driverBehaviorNameUat != null;
 
+  // "battery_start_year" field.
+  String? _batteryStartYear;
+  String get batteryStartYear => _batteryStartYear ?? '';
+  bool hasBatteryStartYear() => _batteryStartYear != null;
+
+  // "battery_end_year" field.
+  String? _batteryEndYear;
+  String get batteryEndYear => _batteryEndYear ?? '';
+  bool hasBatteryEndYear() => _batteryEndYear != null;
+
+  // "battery_max_year" field.
+  String? _batteryMaxYear;
+  String get batteryMaxYear => _batteryMaxYear ?? '';
+  bool hasBatteryMaxYear() => _batteryMaxYear != null;
+
   void _initializeFields() {
     _cardType = getDataList(snapshotData['CardType']);
     _gender = getDataList(snapshotData['Gender']);
@@ -139,6 +154,9 @@ class DataListRecord extends FirestoreRecord {
     _driverBehaviorName = getDataList(snapshotData['driver_behavior_name']);
     _driverBehaviorNameUat =
         getDataList(snapshotData['driver_behavior_name_uat']);
+    _batteryStartYear = snapshotData['battery_start_year'] as String?;
+    _batteryEndYear = snapshotData['battery_end_year'] as String?;
+    _batteryMaxYear = snapshotData['battery_max_year'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -175,9 +193,17 @@ class DataListRecord extends FirestoreRecord {
       reference.path.hashCode == other.reference.path.hashCode;
 }
 
-Map<String, dynamic> createDataListRecordData() {
+Map<String, dynamic> createDataListRecordData({
+  String? batteryStartYear,
+  String? batteryEndYear,
+  String? batteryMaxYear,
+}) {
   final firestoreData = mapToFirestore(
-    <String, dynamic>{}.withoutNulls,
+    <String, dynamic>{
+      'battery_start_year': batteryStartYear,
+      'battery_end_year': batteryEndYear,
+      'battery_max_year': batteryMaxYear,
+    }.withoutNulls,
   );
 
   return firestoreData;
@@ -210,7 +236,10 @@ class DataListRecordDocumentEquality implements Equality<DataListRecord> {
             e1?.driverBehaviorFlagUat, e2?.driverBehaviorFlagUat) &&
         listEquality.equals(e1?.driverBehaviorName, e2?.driverBehaviorName) &&
         listEquality.equals(
-            e1?.driverBehaviorNameUat, e2?.driverBehaviorNameUat);
+            e1?.driverBehaviorNameUat, e2?.driverBehaviorNameUat) &&
+        e1?.batteryStartYear == e2?.batteryStartYear &&
+        e1?.batteryEndYear == e2?.batteryEndYear &&
+        e1?.batteryMaxYear == e2?.batteryMaxYear;
   }
 
   @override
@@ -234,7 +263,10 @@ class DataListRecordDocumentEquality implements Equality<DataListRecord> {
         e?.driverBehaviorFlag,
         e?.driverBehaviorFlagUat,
         e?.driverBehaviorName,
-        e?.driverBehaviorNameUat
+        e?.driverBehaviorNameUat,
+        e?.batteryStartYear,
+        e?.batteryEndYear,
+        e?.batteryMaxYear
       ]);
 
   @override

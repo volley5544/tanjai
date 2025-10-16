@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'battery_infomation_form_component_widget.dart'
     show BatteryInfomationFormComponentWidget;
 import 'package:flutter/foundation.dart';
@@ -20,15 +21,10 @@ class BatteryInfomationFormComponentModel
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for BatteryNumberTextfield widget.
-  FocusNode? batteryNumberTextfieldFocusNode1;
-  TextEditingController? batteryNumberTextfieldTextController1;
+  FocusNode? batteryNumberTextfieldFocusNode;
+  TextEditingController? batteryNumberTextfieldTextController;
   String? Function(BuildContext, String?)?
-      batteryNumberTextfieldTextController1Validator;
-  // State field(s) for BatteryNumberTextfield widget.
-  FocusNode? batteryNumberTextfieldFocusNode2;
-  TextEditingController? batteryNumberTextfieldTextController2;
-  String? Function(BuildContext, String?)?
-      batteryNumberTextfieldTextController2Validator;
+      batteryNumberTextfieldTextControllerValidator;
   DateTime? datePicked1;
   // State field(s) for BatteryPriceTextfield widget.
   FocusNode? batteryPriceTextfieldFocusNode;
@@ -47,11 +43,8 @@ class BatteryInfomationFormComponentModel
 
   @override
   void dispose() {
-    batteryNumberTextfieldFocusNode1?.dispose();
-    batteryNumberTextfieldTextController1?.dispose();
-
-    batteryNumberTextfieldFocusNode2?.dispose();
-    batteryNumberTextfieldTextController2?.dispose();
+    batteryNumberTextfieldFocusNode?.dispose();
+    batteryNumberTextfieldTextController?.dispose();
 
     batteryPriceTextfieldFocusNode?.dispose();
     batteryPriceTextfieldTextController?.dispose();

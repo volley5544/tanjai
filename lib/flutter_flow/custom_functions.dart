@@ -5458,3 +5458,10 @@ List<String>? filledDataInListByLength(
 
   return outputList;
 }
+
+List<String>? generateListNumber(String? maxNumber) {
+  List<String> outputList =
+      List.generate(int.parse(maxNumber!), (index) => '${index + 1}');
+
+  return outputList;
+}

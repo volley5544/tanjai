@@ -2056,6 +2056,25 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                 context.safePop();
                                                 return;
                                               }
+                                              if (widget!.fromPage ==
+                                                  'AddBatteryPage') {
+                                                FFAppState()
+                                                    .updateEvBatteryDataAtIndex(
+                                                  widget!.index!,
+                                                  (e) => e
+                                                    ..batteryYear = widget!
+                                                        .dataList
+                                                        ?.elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true)),
+                                                );
+                                                safeSetState(() {});
+                                                context.safePop();
+                                                return;
+                                              }
                                             }
                                           },
                                           child: Container(
