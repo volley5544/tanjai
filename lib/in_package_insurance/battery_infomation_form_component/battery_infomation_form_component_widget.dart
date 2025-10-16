@@ -726,7 +726,7 @@ class _BatteryInfomationFormComponentWidgetState
                             FFAppState().updateEvBatteryDataAtIndex(
                               widget!.index!,
                               (e) => e
-                                ..batteryYear =
+                                ..batteryPurchaseDate =
                                     functions.getDateFormat(_model.datePicked),
                             );
                             safeSetState(() {});
