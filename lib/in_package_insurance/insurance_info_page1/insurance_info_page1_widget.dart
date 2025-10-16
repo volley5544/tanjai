@@ -991,6 +991,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
               : '${IbsApplicationsDetailCall.driverBehaviorLead(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
                 )}';
+      FFAppState().insuranceInfoEvFlag =
+          '${IbsApplicationsDetailCall.evflagdata(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
       safeSetState(() {});
       if (FFAppState().insuranceInfoApplicationType != 'auto') {
         FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
@@ -1047,10 +1051,6 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         )!
             .toList()
             .cast<DriverDataStruct>();
-        FFAppState().insuranceInfoEvFlag = IbsApplicationsDetailCall.evflaglead(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )!
-            .firstOrNull!;
         safeSetState(() {});
       } else {
         FFAppState().addToDriverList(DriverDataStruct(
@@ -1074,7 +1074,6 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           occupationSubcode: '',
           occupationSubname: '',
         ));
-        FFAppState().insuranceInfoEvFlag = 'N';
         safeSetState(() {});
       }
 
@@ -1111,19 +1110,6 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
             (_model.detailAPIOutput?.jsonBody ?? ''),
           ))!
               .isNotEmpty) {
-        FFAppState().insuranceInfoEvFlag =
-            (IbsApplicationsDetailCall.evflaglead(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )!
-                .elementAtOrNull(functions.getIndexOfIntList(
-                    functions
-                        .convertDynamicListToIntList(getJsonField(
-                          (_model.detailAPIOutput?.jsonBody ?? ''),
-                          r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                          true,
-                        ))
-                        .toList(),
-                    widget!.leadDtailId)))!;
         FFAppState().EvBatteryData = IbsApplicationsDetailCall.appbattery(
           (_model.detailAPIOutput?.jsonBody ?? ''),
         )!
@@ -1137,6 +1123,9 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           batteryPurchaseDate: '',
           batteryPrice: '',
           batteryRepSumInsured: '',
+          batteryId: '',
+          applicationId: '',
+          batteryNo: '',
         ));
         safeSetState(() {});
       }

@@ -128,33 +128,13 @@ class _ShowBatterryPageWidgetState extends State<ShowBatterryPageWidget> {
                         final batteryListItemItem =
                             batteryListItem[batteryListItemIndex];
                         return Visibility(
-                          visible: FFAppState().DriverList.length == 1
+                          visible: FFAppState().EvBatteryData.length == 1
                               ? ((FFAppState().DriverList.length == 1) &&
-                                  ((FFAppState().DriverList.firstOrNull?.firstNameTh != '') &&
-                                      (FFAppState()
-                                              .DriverList
-                                              .firstOrNull
-                                              ?.lastNameTh !=
-                                          '') &&
-                                      (FFAppState().DriverList.firstOrNull?.birthDay !=
-                                          '') &&
-                                      (FFAppState()
-                                              .DriverList
-                                              .firstOrNull
-                                              ?.nationalThaiId !=
-                                          '') &&
-                                      (FFAppState().DriverList.firstOrNull?.licenseNo !=
-                                          '') &&
-                                      (FFAppState()
-                                              .DriverList
-                                              .firstOrNull
-                                              ?.imageIdcard !=
-                                          '') &&
-                                      (FFAppState()
-                                              .DriverList
-                                              .firstOrNull
-                                              ?.imageLicenseNo !=
-                                          '')))
+                                  (FFAppState()
+                                          .EvBatteryData
+                                          .firstOrNull
+                                          ?.batteryNumber !=
+                                      ''))
                               : true,
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -568,13 +548,16 @@ class _ShowBatterryPageWidgetState extends State<ShowBatterryPageWidget> {
                                                                     .max,
                                                             children: [
                                                               Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showDateBE(
-                                                                      batteryListItemItem
-                                                                          .batteryPurchaseDate),
-                                                                  '-',
-                                                                ),
+                                                                batteryListItemItem
+                                                                            .batteryPurchaseDate ==
+                                                                        ''
+                                                                    ? valueOrDefault<
+                                                                        String>(
+                                                                        functions
+                                                                            .showDateBE(batteryListItemItem.batteryPurchaseDate),
+                                                                        '-',
+                                                                      )
+                                                                    : 'ไม่ระบุ',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -690,7 +673,7 @@ class _ShowBatterryPageWidgetState extends State<ShowBatterryPageWidget> {
                                                                               .returnNumberWithComma2Decimal(batteryListItemItem.batteryPrice),
                                                                           '0',
                                                                         )} บาท'
-                                                                      : '-',
+                                                                      : 'ไม่ระบุ',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -788,12 +771,15 @@ class _ShowBatterryPageWidgetState extends State<ShowBatterryPageWidget> {
                                                                       .max,
                                                               children: [
                                                                 Text(
-                                                                  '${valueOrDefault<String>(
-                                                                    functions.returnNumberWithComma2Decimal(
-                                                                        batteryListItemItem
-                                                                            .batteryRepSumInsured),
-                                                                    '0',
-                                                                  )} บาท',
+                                                                  batteryListItemItem
+                                                                              .batteryRepSumInsured !=
+                                                                          ''
+                                                                      ? '${valueOrDefault<String>(
+                                                                          functions
+                                                                              .returnNumberWithComma2Decimal(batteryListItemItem.batteryRepSumInsured),
+                                                                          '0',
+                                                                        )} บาท'
+                                                                      : 'ไม่ระบุ',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
