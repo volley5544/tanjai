@@ -1399,6 +1399,31 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                   .toList()
                   .cast<String>();
           safeSetState(() {});
+          if (!(_model.masterDataDoc != null)) {
+            _model.masterDataQueryActionEV =
+                await DataListRecord.getDocumentOnce(
+                    FFAppState().dataListCollectionDocRef!);
+            _model.masterDataDoc = _model.masterDataQueryActionEV;
+            safeSetState(() {});
+            FFAppState().driverBehaviorData = FFAppState().isProduction
+                ? DriverBehaviorDataModelStruct(
+                    driverBehavior:
+                        _model.masterDataQueryActionEV?.driverBehavior,
+                    driverBehaviorName:
+                        _model.masterDataQueryActionEV?.driverBehaviorName,
+                    driverBehaviorFlag:
+                        _model.masterDataQueryActionEV?.driverBehaviorFlag,
+                  )
+                : DriverBehaviorDataModelStruct(
+                    driverBehavior:
+                        _model.masterDataQueryActionEV?.driverBehaviorUat,
+                    driverBehaviorName:
+                        _model.masterDataQueryActionEV?.driverBehaviorNameUat,
+                    driverBehaviorFlag:
+                        _model.masterDataQueryActionEV?.driverBehaviorFlagUat,
+                  );
+            safeSetState(() {});
+          }
         }
         Navigator.pop(context);
         FFAppState().searchPackageSubProduct = 'Motor';

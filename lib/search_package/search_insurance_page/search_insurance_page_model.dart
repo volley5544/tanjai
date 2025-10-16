@@ -74,6 +74,8 @@ class SearchInsurancePageModel
   ApiCallResponse? getVehicleUsedTypeEVAPI;
   // Stores action output result for [Backend Call - API (teleGetProvinceAPI)] action in SearchInsurancePage widget.
   ApiCallResponse? getProvince2;
+  // Stores action output result for [Backend Call - Read Document] action in SearchInsurancePage widget.
+  DataListRecord? masterDataQueryActionEV;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
   DataListRecord? masterDataQueryActionDriver;
   // Stores action output result for [Backend Call - API (GetOccupation)] action in Container widget.
