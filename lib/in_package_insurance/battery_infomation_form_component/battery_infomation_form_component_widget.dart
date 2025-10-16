@@ -64,7 +64,7 @@ class _BatteryInfomationFormComponentWidgetState
         text: FFAppState()
                     .EvBatteryData
                     .elementAtOrNull(widget!.index!)
-                    ?.batteryNumber !=
+                    ?.batteryYear !=
                 ''
             ? FFAppState()
                 .EvBatteryData
@@ -79,10 +79,10 @@ class _BatteryInfomationFormComponentWidgetState
                     .elementAtOrNull(widget!.index!)
                     ?.batteryPrice !=
                 ''
-            ? FFAppState()
+            ? functions.returnNumberWithComma2Decimal(FFAppState()
                 .EvBatteryData
                 .elementAtOrNull(widget!.index!)
-                ?.batteryPrice
+                ?.batteryPrice)
             : '');
     _model.batteryPriceTextfieldFocusNode ??= FocusNode();
 
@@ -92,10 +92,10 @@ class _BatteryInfomationFormComponentWidgetState
                     .elementAtOrNull(widget!.index!)
                     ?.batteryRepSumInsured !=
                 ''
-            ? FFAppState()
+            ? functions.returnNumberWithComma2Decimal(FFAppState()
                 .EvBatteryData
                 .elementAtOrNull(widget!.index!)
-                ?.batteryRepSumInsured
+                ?.batteryRepSumInsured)
             : '');
     _model.batterySumInsuredTextfieldFocusNode ??= FocusNode();
 
@@ -745,10 +745,10 @@ class _BatteryInfomationFormComponentWidgetState
                                                       widget!.index!)
                                                   ?.batteryPurchaseDate !=
                                               ''
-                                          ? FFAppState()
+                                          ? functions.showDateBE(FFAppState()
                                               .EvBatteryData
                                               .elementAtOrNull(widget!.index!)
-                                              ?.batteryPurchaseDate
+                                              ?.batteryPurchaseDate)
                                           : 'กรุณาเลือกวันที่ซื้อแบตเตอร์รี่',
                                       'วันที่ซื้อแบต',
                                     ),

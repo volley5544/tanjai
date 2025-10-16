@@ -98,7 +98,7 @@ class _AddBatteryPageWidgetState extends State<AddBatteryPageWidget> {
                         return WebViewAware(
                           child: AlertDialog(
                             content: Text(
-                                'คุณกำลังกรอกข้อมูลผู้ขับขี่อยู่ หากคุณย้อนกลับจะต้องกรอกข้อมูลผู้ขับขี่นี้ใหม่ คุณต้องการจะย้อนกลับหรือไม่?'),
+                                'คุณกำลังกรอกข้อมูลแบตตารี่อยู่ หากคุณย้อนกลับจะต้องกรอกข้อมูลแบตตารี่ใหม่ คุณต้องการจะย้อนกลับหรือไม่?'),
                             actions: [
                               TextButton(
                                 onPressed: () =>
@@ -117,7 +117,7 @@ class _AddBatteryPageWidgetState extends State<AddBatteryPageWidget> {
                     ) ??
                     false;
                 if (confirmDialogResponse) {
-                  FFAppState().removeAtIndexFromDriverList(widget!.index!);
+                  FFAppState().removeAtIndexFromEvBatteryData(widget!.index!);
                   safeSetState(() {});
                 } else {
                   return;

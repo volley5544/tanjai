@@ -82,7 +82,7 @@ class _ShowBatterryPageWidgetState extends State<ShowBatterryPageWidget> {
             },
           ),
           title: Text(
-            'เพิ่มแบตเตอร์รี่(${'${FFAppState().EvBatteryData.length == 1 ? ((FFAppState().EvBatteryData.length == 1) && (FFAppState().EvBatteryData.firstOrNull?.batteryNumber != '') ? FFAppState().EvBatteryData.length.toString() : '0') : FFAppState().EvBatteryData.length.toString()}/5'})',
+            'เพิ่มแบตเตอร์รี่ (${'${FFAppState().EvBatteryData.length == 1 ? ((FFAppState().EvBatteryData.length == 1) && (FFAppState().EvBatteryData.firstOrNull?.batteryNumber != '') ? FFAppState().EvBatteryData.length.toString() : '0') : FFAppState().EvBatteryData.length.toString()}/5'})',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   font: GoogleFonts.notoSansThai(
                     fontWeight:
@@ -968,14 +968,14 @@ class _ShowBatterryPageWidgetState extends State<ShowBatterryPageWidget> {
                                 0.0, 8.0, 0.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                if (FFAppState().DriverList.length != 0) {
+                                if (FFAppState().EvBatteryData.length != 0) {
                                   if (FFAppState()
-                                          .DriverList
+                                          .EvBatteryData
                                           .lastOrNull
-                                          ?.firstNameTh ==
+                                          ?.batteryNumber ==
                                       '') {
                                     context.pushNamed(
-                                      AddDriverPageWidget.routeName,
+                                      AddBatteryPageWidget.routeName,
                                       queryParameters: {
                                         'firestoreDataConfigList':
                                             serializeParam(
@@ -983,11 +983,11 @@ class _ShowBatterryPageWidgetState extends State<ShowBatterryPageWidget> {
                                           ParamType.Document,
                                         ),
                                         'index': serializeParam(
-                                          FFAppState().DriverList.length - 1,
+                                          FFAppState().EvBatteryData.length - 1,
                                           ParamType.int,
                                         ),
                                         'isEditing': serializeParam(
-                                          true,
+                                          false,
                                           ParamType.bool,
                                         ),
                                       }.withoutNulls,
@@ -1021,17 +1021,28 @@ class _ShowBatterryPageWidgetState extends State<ShowBatterryPageWidget> {
                                   occupationSubcode: '',
                                   occupationSubname: '',
                                 ));
+                                FFAppState()
+                                    .addToEvBatteryData(BatteryDataModelStruct(
+                                  batteryId: '',
+                                  applicationId: '',
+                                  batteryNo: '',
+                                  batteryNumber: '',
+                                  batteryYear: '',
+                                  batteryPurchaseDate: '',
+                                  batteryPrice: '',
+                                  batteryRepSumInsured: '',
+                                ));
                                 safeSetState(() {});
 
                                 context.pushNamed(
-                                  AddDriverPageWidget.routeName,
+                                  AddBatteryPageWidget.routeName,
                                   queryParameters: {
                                     'firestoreDataConfigList': serializeParam(
                                       widget!.firestoreDataConfigList,
                                       ParamType.Document,
                                     ),
                                     'index': serializeParam(
-                                      FFAppState().DriverList.length - 1,
+                                      FFAppState().EvBatteryData.length - 1,
                                       ParamType.int,
                                     ),
                                     'isEditing': serializeParam(
