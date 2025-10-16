@@ -13326,12 +13326,15 @@ class IbsApplicationsSaveCall {
     String? usableArea = '',
     dynamic? appInsuredPersonJson,
     String? imageApplication2 = '',
+    dynamic? appBatteryJson,
   }) async {
     final address = _serializeJson(addressJson);
     final appDriver = _serializeJson(appDriverJson, true);
     final appInsuredPerson = _serializeJson(appInsuredPersonJson, true);
+    final appBattery = _serializeJson(appBatteryJson, true);
     final ffApiRequestBody = '''
 {
+"app_battery":"${appBattery}",
 "image_application_2":"${imageApplication2}",
   "app_insured_person": ${appInsuredPerson},
   "sum_insure_house": "${sumInsureHouse}",

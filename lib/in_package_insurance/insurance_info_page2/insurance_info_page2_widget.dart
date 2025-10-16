@@ -11465,6 +11465,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                           : FFAppState()
                                                               .insuranceInfoHorsePower)
                                                       : '0',
+                                                  appBatteryJson: FFAppState()
+                                                      .EvBatteryData
+                                                      .map((e) => e.toMap())
+                                                      .toList(),
                                                 );
 
                                                 _shouldSetState = true;
