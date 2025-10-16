@@ -202,50 +202,59 @@ class _AddBatteryPageWidgetState extends State<AddBatteryPageWidget> {
                               16.0, 0.0, 16.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              if (!(true &&
-                                  true &&
-                                  (FFAppState()
-                                          .DriverList
-                                          .elementAtOrNull(widget!.index!)
-                                          ?.birthDay !=
-                                      '') &&
-                                  true &&
-                                  true &&
-                                  (FFAppState()
-                                          .DriverList
-                                          .elementAtOrNull(widget!.index!)
-                                          ?.imageIdcard !=
-                                      '') &&
-                                  (FFAppState()
-                                          .DriverList
-                                          .elementAtOrNull(widget!.index!)
-                                          ?.imageLicenseNo !=
-                                      ''))) {
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                      child: AlertDialog(
-                                        content: Text('กรุณากรอกข้อมูลให้ครบ'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
+                              if (!widget!.isEditing!) {
+                                if (!((_model
+                                            .batteryInfomationFormComponentModel
+                                            .batteryNumberTextfieldTextController
+                                            .text !=
+                                        '') &&
+                                    true)) {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return WebViewAware(
+                                        child: AlertDialog(
+                                          content: Text(
+                                              'กรุณากรอกหมายเลขแบตเตอร์รี่'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                  return;
+                                }
+                                FFAppState().updateEvBatteryDataAtIndex(
+                                  widget!.index!,
+                                  (e) => e
+                                    ..applicationId =
+                                        FFAppState().insuranceInfoApplicationId
+                                    ..batteryNo =
+                                        (FFAppState().EvBatteryData.length + 1)
+                                            .toString()
+                                    ..batteryNumber = _model
+                                        .batteryInfomationFormComponentModel
+                                        .batteryNumberTextfieldTextController
+                                        .text
+                                    ..batteryPrice =
+                                        functions.removeCommaFromNumText(_model
+                                            .batteryInfomationFormComponentModel
+                                            .batteryPriceTextfieldTextController
+                                            .text)
+                                    ..batteryRepSumInsured =
+                                        functions.removeCommaFromNumText(_model
+                                            .batteryInfomationFormComponentModel
+                                            .batterySumInsuredTextfieldTextController
+                                            .text),
                                 );
-                                return;
+                                safeSetState(() {});
+                                context.safePop();
                               }
-                              FFAppState().updateEvBatteryDataAtIndex(
-                                widget!.index!,
-                                (e) => e,
-                              );
-                              safeSetState(() {});
-                              context.safePop();
                             },
                             text: 'บันทึก',
                             options: FFButtonOptions(

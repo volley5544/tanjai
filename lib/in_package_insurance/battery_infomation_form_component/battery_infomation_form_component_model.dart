@@ -25,13 +25,12 @@ class BatteryInfomationFormComponentModel
   TextEditingController? batteryNumberTextfieldTextController;
   String? Function(BuildContext, String?)?
       batteryNumberTextfieldTextControllerValidator;
-  DateTime? datePicked1;
+  DateTime? datePicked;
   // State field(s) for BatteryPriceTextfield widget.
   FocusNode? batteryPriceTextfieldFocusNode;
   TextEditingController? batteryPriceTextfieldTextController;
   String? Function(BuildContext, String?)?
       batteryPriceTextfieldTextControllerValidator;
-  DateTime? datePicked2;
   // State field(s) for BatterySumInsuredTextfield widget.
   FocusNode? batterySumInsuredTextfieldFocusNode;
   TextEditingController? batterySumInsuredTextfieldTextController;
