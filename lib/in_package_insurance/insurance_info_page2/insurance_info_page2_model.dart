@@ -98,11 +98,6 @@ class InsuranceInfoPage2Model
   late MaskTextInputFormatter weightTextFieldMask;
   String? Function(BuildContext, String?)?
       weightTextFieldTextControllerValidator;
-  // State field(s) for BatteryNumberTextField widget.
-  FocusNode? batteryNumberTextFieldFocusNode;
-  TextEditingController? batteryNumberTextFieldTextController;
-  String? Function(BuildContext, String?)?
-      batteryNumberTextFieldTextControllerValidator;
   // State field(s) for BatteryNumber2TextField widget.
   FocusNode? batteryNumber2TextFieldFocusNode;
   TextEditingController? batteryNumber2TextFieldTextController;
@@ -157,9 +152,6 @@ class InsuranceInfoPage2Model
 
     weightTextFieldFocusNode?.dispose();
     weightTextFieldTextController?.dispose();
-
-    batteryNumberTextFieldFocusNode?.dispose();
-    batteryNumberTextFieldTextController?.dispose();
 
     batteryNumber2TextFieldFocusNode?.dispose();
     batteryNumber2TextFieldTextController?.dispose();

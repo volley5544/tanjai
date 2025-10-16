@@ -925,7 +925,7 @@ class _FireInsuranceInfoPage1WidgetState
         )!
             .toList()
             .cast<DriverDataStruct>();
-        FFAppState().insuranceInfoEvFlag = IbsApplicationsDetailCall.evflag(
+        FFAppState().insuranceInfoEvFlag = IbsApplicationsDetailCall.evflaglead(
           (_model.detailAPIOutput?.jsonBody ?? ''),
         )!
             .firstOrNull!;

@@ -94,6 +94,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
       FFAppState().filterGarageTypeList = [];
       safeSetState(() {});
       FFAppState().searchPackageEvFlag = 'N';
+      FFAppState().fromMenuAppState = widget!.fromIcon!;
       safeSetState(() {});
       FFAppState().sliderMinGrossTotal = '1000';
       FFAppState().sliderMaxGrossTotal = '50000';

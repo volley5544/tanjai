@@ -14391,6 +14391,41 @@ class FFAppState extends ChangeNotifier {
   set nonePackageDriverBehaviorFlag(bool value) {
     _nonePackageDriverBehaviorFlag = value;
   }
+
+  String _fromMenuAppState = '';
+  String get fromMenuAppState => _fromMenuAppState;
+  set fromMenuAppState(String value) {
+    _fromMenuAppState = value;
+  }
+
+  List<BatteryDataModelStruct> _EvBatteryData = [];
+  List<BatteryDataModelStruct> get EvBatteryData => _EvBatteryData;
+  set EvBatteryData(List<BatteryDataModelStruct> value) {
+    _EvBatteryData = value;
+  }
+
+  void addToEvBatteryData(BatteryDataModelStruct value) {
+    EvBatteryData.add(value);
+  }
+
+  void removeFromEvBatteryData(BatteryDataModelStruct value) {
+    EvBatteryData.remove(value);
+  }
+
+  void removeAtIndexFromEvBatteryData(int index) {
+    EvBatteryData.removeAt(index);
+  }
+
+  void updateEvBatteryDataAtIndex(
+    int index,
+    BatteryDataModelStruct Function(BatteryDataModelStruct) updateFn,
+  ) {
+    EvBatteryData[index] = updateFn(_EvBatteryData[index]);
+  }
+
+  void insertAtIndexInEvBatteryData(int index, BatteryDataModelStruct value) {
+    EvBatteryData.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

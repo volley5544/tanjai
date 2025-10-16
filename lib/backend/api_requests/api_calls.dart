@@ -14687,7 +14687,7 @@ class IbsApplicationsDetailCall {
           .map((x) => DriverDataStruct.maybeFromMap(x))
           .withoutNulls
           .toList();
-  static List<String>? evflag(dynamic response) => (getJsonField(
+  static List<String>? evflaglead(dynamic response) => (getJsonField(
         response,
         r'''$.results.data.leads[:].ev_flag''',
         true,
@@ -14870,6 +14870,30 @@ class IbsApplicationsDetailCall {
         response,
         r'''$.results.data.leads_detail[:].driver_behavior''',
       ));
+  static List<String>? carmotor(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data.car_motor''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? evflagdata(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.ev_flag''',
+      ));
+  static List<BatteryDataModelStruct>? appbattery(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.data.app_battery''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => BatteryDataModelStruct.maybeFromMap(x))
+          .withoutNulls
+          .toList();
 }
 
 class IbsApplicationsPaymentSaveCall {

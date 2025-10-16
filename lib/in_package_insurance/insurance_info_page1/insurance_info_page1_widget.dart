@@ -1047,7 +1047,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         )!
             .toList()
             .cast<DriverDataStruct>();
-        FFAppState().insuranceInfoEvFlag = IbsApplicationsDetailCall.evflag(
+        FFAppState().insuranceInfoEvFlag = IbsApplicationsDetailCall.evflaglead(
           (_model.detailAPIOutput?.jsonBody ?? ''),
         )!
             .firstOrNull!;
@@ -1103,6 +1103,44 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
             .cast<BenefitorModelStruct>();
         safeSetState(() {});
       }
+      if (IbsApplicationsDetailCall.appbattery(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) !=
+              null &&
+          (IbsApplicationsDetailCall.appbattery(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+          ))!
+              .isNotEmpty) {
+        FFAppState().insuranceInfoEvFlag =
+            (IbsApplicationsDetailCall.evflaglead(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )!
+                .elementAtOrNull(functions.getIndexOfIntList(
+                    functions
+                        .convertDynamicListToIntList(getJsonField(
+                          (_model.detailAPIOutput?.jsonBody ?? ''),
+                          r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                          true,
+                        ))
+                        .toList(),
+                    widget!.leadDtailId)))!;
+        FFAppState().EvBatteryData = IbsApplicationsDetailCall.appbattery(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<BatteryDataModelStruct>();
+        safeSetState(() {});
+      } else {
+        FFAppState().addToEvBatteryData(BatteryDataModelStruct(
+          batteryNumber: '',
+          batteryYear: '',
+          batteryPurchaseDate: '',
+          batteryPrice: '',
+          batteryRepSumInsured: '',
+        ));
+        safeSetState(() {});
+      }
+
       FFAppState().insuranceInfoPage4FileLoanApplicationRegister =
           '${IbsApplicationsDetailCall.imgfileloanapplicationregister(
         (_model.detailAPIOutput?.jsonBody ?? ''),

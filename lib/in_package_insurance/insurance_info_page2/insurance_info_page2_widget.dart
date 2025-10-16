@@ -410,15 +410,6 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
     _model.weightTextFieldFocusNode ??= FocusNode();
 
     _model.weightTextFieldMask = MaskTextInputFormatter(mask: '#####');
-    _model.batteryNumberTextFieldTextController ??= TextEditingController(
-        text: (FFAppState().insuranceInfoBatteryNumber1 != null &&
-                    FFAppState().insuranceInfoBatteryNumber1 != '') &&
-                (FFAppState().insuranceInfoBatteryNumber1 != '') &&
-                (FFAppState().insuranceInfoBatteryNumber1 != '')
-            ? FFAppState().insuranceInfoBatteryNumber1
-            : '');
-    _model.batteryNumberTextFieldFocusNode ??= FocusNode();
-
     _model.batteryNumber2TextFieldTextController ??= TextEditingController(
         text: (FFAppState().insuranceInfoBatteryNumber2 != null &&
                     FFAppState().insuranceInfoBatteryNumber2 != '') &&
@@ -7858,7 +7849,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Text(
-                                                    'หมายเลขแบตเตอรี่ 1',
+                                                    'แบตเตอรี่',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -7890,7 +7881,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                             .fromSTEB(10.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      '(บังคับกรอก)',
+                                                      '(บังคับกรอกอย่างน้อย 1 ลูก)',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -7929,144 +7920,87 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 5.0, 0.0, 0.0),
-                                              child: Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        1.0,
-                                                height: 60.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  border: Border.all(
-                                                    color: Color(0xFFB3B3B3),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  context.pushNamed(
+                                                    ShowBatterryPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'firestoreDataConfigList':
+                                                          serializeParam(
+                                                        widget!
+                                                            .masterDataFirebase,
+                                                        ParamType.Document,
+                                                      ),
+                                                    }.withoutNulls,
+                                                    extra: <String, dynamic>{
+                                                      'firestoreDataConfigList':
+                                                          widget!
+                                                              .masterDataFirebase,
+                                                    },
+                                                  );
+                                                },
+                                                child: Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          1.0,
+                                                  height: 60.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFFB3B3B3),
+                                                    ),
                                                   ),
-                                                ),
-                                                child: Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(10.0, 0.0,
                                                                 10.0, 0.0),
-                                                    child: TextFormField(
-                                                      controller: _model
-                                                          .batteryNumberTextFieldTextController,
-                                                      focusNode: _model
-                                                          .batteryNumberTextFieldFocusNode,
-                                                      autofocus: false,
-                                                      obscureText: false,
-                                                      decoration:
-                                                          InputDecoration(
-                                                        labelStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .notoSansThai(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      15.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                        hintText:
-                                                            'กรุณากรอกหมายเลขแบตเตอรี่',
-                                                        hintStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .notoSansThai(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  fontSize:
-                                                                      15.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                        enabledBorder:
-                                                            InputBorder.none,
-                                                        focusedBorder:
-                                                            InputBorder.none,
-                                                        errorBorder:
-                                                            InputBorder.none,
-                                                        focusedErrorBorder:
-                                                            InputBorder.none,
-                                                      ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Text(
+                                                          'แบตเตอร์รี่ ${'${FFAppState().EvBatteryData.length == 1 ? ((FFAppState().EvBatteryData.length == 1) && (FFAppState().EvBatteryData.firstOrNull?.batteryNumber != '') ? FFAppState().EvBatteryData.length.toString() : '0') : FFAppState().EvBatteryData.length.toString()}/5'}',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
                                                               .bodyMedium
                                                               .override(
                                                                 font: GoogleFonts
                                                                     .notoSansThai(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
                                                                   fontStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .fontStyle,
                                                                 ),
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                                fontSize: 15.0,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
                                                                 fontStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
                                                                     .fontStyle,
                                                               ),
-                                                      validator: _model
-                                                          .batteryNumberTextFieldTextControllerValidator
-                                                          .asValidator(context),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
                                                 ),
@@ -8076,7 +8010,9 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                         ),
                                       ),
                                     ),
-                                  if (FFAppState().insuranceInfoEvFlag == 'Y')
+                                  if ((FFAppState().insuranceInfoEvFlag ==
+                                          'Y') &&
+                                      false)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 5.0, 0.0, 10.0),
@@ -10314,11 +10250,11 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     if (FFAppState()
                                                             .insuranceInfoEvFlag ==
                                                         'Y') {
-                                                      if (!(_model.batteryNumberTextFieldTextController
-                                                                  .text !=
+                                                      if (!(FFAppState()
+                                                                  .insuranceInfoEvFlag !=
                                                               null &&
-                                                          _model.batteryNumberTextFieldTextController
-                                                                  .text !=
+                                                          FFAppState()
+                                                                  .insuranceInfoEvFlag !=
                                                               '')) {
                                                         await showDialog(
                                                           context: context,
@@ -11274,9 +11210,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                         .insuranceInfoBatteryNumber1 =
                                                     FFAppState().insuranceInfoEvFlag ==
                                                             'Y'
-                                                        ? _model
-                                                            .batteryNumberTextFieldTextController
-                                                            .text
+                                                        ? ''
                                                         : '';
                                                 FFAppState()
                                                     .insuranceInfoBatteryNumber2 = FFAppState()

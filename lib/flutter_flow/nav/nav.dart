@@ -2544,6 +2544,42 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                 ),
               ),
+            ),
+            FFRoute(
+              name: AddBatteryPageWidget.routeName,
+              path: AddBatteryPageWidget.routePath,
+              asyncParams: {
+                'firestoreDataConfigList':
+                    getDoc(['dataList'], DataListRecord.fromSnapshot),
+              },
+              builder: (context, params) => AddBatteryPageWidget(
+                firestoreDataConfigList: params.getParam(
+                  'firestoreDataConfigList',
+                  ParamType.Document,
+                ),
+                index: params.getParam(
+                  'index',
+                  ParamType.int,
+                ),
+                isEditing: params.getParam(
+                  'isEditing',
+                  ParamType.bool,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: ShowBatterryPageWidget.routeName,
+              path: ShowBatterryPageWidget.routePath,
+              asyncParams: {
+                'firestoreDataConfigList':
+                    getDoc(['dataList'], DataListRecord.fromSnapshot),
+              },
+              builder: (context, params) => ShowBatterryPageWidget(
+                firestoreDataConfigList: params.getParam(
+                  'firestoreDataConfigList',
+                  ParamType.Document,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

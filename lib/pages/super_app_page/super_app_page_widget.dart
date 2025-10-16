@@ -3006,7 +3006,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                      if (false)
+                                                                      if (true)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,

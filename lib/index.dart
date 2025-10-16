@@ -224,3 +224,7 @@ export '/webview_new_page/webview_new_page_widget.dart'
     show WebviewNewPageWidget;
 export '/search_package/searchable_driver_behavior_list_page/searchable_driver_behavior_list_page_widget.dart'
     show SearchableDriverBehaviorListPageWidget;
+export '/in_package_insurance/add_battery_page/add_battery_page_widget.dart'
+    show AddBatteryPageWidget;
+export '/in_package_insurance/show_batterry_page/show_batterry_page_widget.dart'
+    show ShowBatterryPageWidget;

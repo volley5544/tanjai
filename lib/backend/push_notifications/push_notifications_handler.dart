@@ -751,6 +751,20 @@ final parametersBuilderMap =
           'fromPage': getParameter<String>(data, 'fromPage'),
         },
       ),
+  'AddBatteryPage': (data) async => ParameterData(
+        allParams: {
+          'firestoreDataConfigList': await getDocumentParameter<DataListRecord>(
+              data, 'firestoreDataConfigList', DataListRecord.fromSnapshot),
+          'index': getParameter<int>(data, 'index'),
+          'isEditing': getParameter<bool>(data, 'isEditing'),
+        },
+      ),
+  'ShowBatterryPage': (data) async => ParameterData(
+        allParams: {
+          'firestoreDataConfigList': await getDocumentParameter<DataListRecord>(
+              data, 'firestoreDataConfigList', DataListRecord.fromSnapshot),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

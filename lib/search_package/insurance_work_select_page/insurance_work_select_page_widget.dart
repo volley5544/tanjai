@@ -79,7 +79,7 @@ class _InsuranceWorkSelectPageWidgetState
                   SearchInsurancePageWidget.routeName,
                   queryParameters: {
                     'fromIcon': serializeParam(
-                      'motor',
+                      FFAppState().fromMenuAppState,
                       ParamType.String,
                     ),
                   }.withoutNulls,

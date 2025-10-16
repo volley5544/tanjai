@@ -2,6 +2,8 @@ export '/backend/schema/util/schema_util.dart';
 
 export 'admin_role_menu_struct.dart';
 export 'banner_data_struct.dart';
+export 'battery_data_model_struct.dart';
+export 'battery_data_model2_struct.dart';
 export 'benefitor_model_struct.dart';
 export 'driver_behavior_data_model_struct.dart';
 export 'driver_data_struct.dart';
