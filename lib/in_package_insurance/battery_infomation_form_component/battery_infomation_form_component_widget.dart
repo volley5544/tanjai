@@ -143,7 +143,7 @@ class _BatteryInfomationFormComponentWidgetState
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'แบตเตอร์รีลูกที่${((widget!.index!) + 1).toString()}',
+                'แบตเตอร์รีลูกที่ ${((widget!.index!) + 1).toString()}',
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       font: GoogleFonts.notoSansThai(
                         fontWeight: FontWeight.w600,
@@ -256,7 +256,7 @@ class _BatteryInfomationFormComponentWidgetState
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 0.0, 0.0, 0.0),
                             child: Text(
-                              'บังคับเลือก',
+                              'บังคับกรอก',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -419,193 +419,6 @@ class _BatteryInfomationFormComponentWidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'อายุแบตเตอร์รี่',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    font: GoogleFonts.notoSansThai(
-                                      fontWeight: FontWeight.w600,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    color: Color(0xFF1D4774),
-                                    fontSize: 15.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                'บังคับเลือก',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      font: GoogleFonts.notoSansThai(
-                                        fontWeight: FontWeight.w600,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
-                                      ),
-                                      color: Color(0xFFFB0606),
-                                      fontSize: 12.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            context.pushNamed(
-                              SearchableListPageWidget.routeName,
-                              queryParameters: {
-                                'titleText': serializeParam(
-                                  'อายุแบตเตอร์รี่',
-                                  ParamType.String,
-                                ),
-                                'searchLabel': serializeParam(
-                                  'ระบุอายุแบตเตอร์รี่',
-                                  ParamType.String,
-                                ),
-                                'dataList': serializeParam(
-                                  functions.generateListNumber(widget!
-                                      .firestoreDataConfigList?.batteryMaxYear),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'multiSelect': serializeParam(
-                                  false,
-                                  ParamType.bool,
-                                ),
-                                'maxSelected': serializeParam(
-                                  0,
-                                  ParamType.int,
-                                ),
-                                'fromPage': serializeParam(
-                                  'AddBatteryPage',
-                                  ParamType.String,
-                                ),
-                                'index': serializeParam(
-                                  widget!.index,
-                                  ParamType.int,
-                                ),
-                              }.withoutNulls,
-                            );
-
-                            await actions.hideKeyboardAction(
-                              context,
-                            );
-                          },
-                          child: Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
-                            height: 60.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              borderRadius: BorderRadius.circular(8.0),
-                              border: Border.all(
-                                color: Color(0xFFB3B3B3),
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    valueOrDefault<String>(
-                                      FFAppState()
-                                                  .EvBatteryData
-                                                  .elementAtOrNull(
-                                                      widget!.index!)
-                                                  ?.batteryYear !=
-                                              ''
-                                          ? '${FFAppState().EvBatteryData.elementAtOrNull(widget!.index!)?.batteryYear} ปี'
-                                          : 'กรุณาเลือกอายุแบตเตอร์รี่',
-                                      'วันที่ซื้อแบต',
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          font: GoogleFonts.notoSansThai(
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                          color: valueOrDefault<Color>(
-                                            FFAppState()
-                                                        .EvBatteryData
-                                                        .elementAtOrNull(
-                                                            widget!.index!)
-                                                        ?.batteryYear !=
-                                                    ''
-                                                ? FlutterFlowTheme.of(context)
-                                                    .primaryText
-                                                : FlutterFlowTheme.of(context)
-                                                    .secondaryText,
-                                            Color(0x00000000),
-                                          ),
-                                          letterSpacing: 0.0,
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                child: Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
-                  decoration: BoxDecoration(),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 4.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
                               'วันที่ซื้อแบตเตอร์รี่',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -625,30 +438,34 @@ class _BatteryInfomationFormComponentWidgetState
                                         .fontStyle,
                                   ),
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                'บังคับกรอก',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      font: GoogleFonts.notoSansThai(
+                            if (FFAppState()
+                                    .InsuranceInfoPage2ChangeBatteryFlag ==
+                                'Y')
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'บังคับเลือก',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: GoogleFonts.notoSansThai(
+                                          fontWeight: FontWeight.w600,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: Color(0xFFFB0606),
+                                        fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                         fontStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .fontStyle,
                                       ),
-                                      color: Color(0xFFFB0606),
-                                      fontSize: 12.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
+                                ),
                               ),
-                            ),
                           ],
                         ),
                       ),
@@ -823,7 +640,7 @@ class _BatteryInfomationFormComponentWidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'ราคาแบตเตอร์รี่',
+                              'อายุแบตเตอร์รี่',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -842,29 +659,168 @@ class _BatteryInfomationFormComponentWidgetState
                                         .fontStyle,
                                   ),
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                'บังคับกรอก',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      font: GoogleFonts.notoSansThai(
-                                        fontWeight: FontWeight.w600,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
-                                      ),
-                                      color: Color(0xFFFB0606),
-                                      fontSize: 12.0,
-                                      letterSpacing: 0.0,
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 0.0, 16.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed(
+                              SearchableListPageWidget.routeName,
+                              queryParameters: {
+                                'titleText': serializeParam(
+                                  'อายุแบตเตอร์รี่',
+                                  ParamType.String,
+                                ),
+                                'searchLabel': serializeParam(
+                                  'ระบุอายุแบตเตอร์รี่',
+                                  ParamType.String,
+                                ),
+                                'dataList': serializeParam(
+                                  functions.generateListNumber(widget!
+                                      .firestoreDataConfigList?.batteryMaxYear),
+                                  ParamType.String,
+                                  isList: true,
+                                ),
+                                'multiSelect': serializeParam(
+                                  false,
+                                  ParamType.bool,
+                                ),
+                                'maxSelected': serializeParam(
+                                  0,
+                                  ParamType.int,
+                                ),
+                                'fromPage': serializeParam(
+                                  'AddBatteryPage',
+                                  ParamType.String,
+                                ),
+                                'index': serializeParam(
+                                  widget!.index,
+                                  ParamType.int,
+                                ),
+                              }.withoutNulls,
+                            );
+
+                            await actions.hideKeyboardAction(
+                              context,
+                            );
+                          },
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            height: 60.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(8.0),
+                              border: Border.all(
+                                color: Color(0xFFB3B3B3),
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 0.0, 10.0, 0.0),
+                                  child: Text(
+                                    valueOrDefault<String>(
+                                      FFAppState()
+                                                  .EvBatteryData
+                                                  .elementAtOrNull(
+                                                      widget!.index!)
+                                                  ?.batteryYear !=
+                                              ''
+                                          ? '${FFAppState().EvBatteryData.elementAtOrNull(widget!.index!)?.batteryYear} ปี'
+                                          : 'กรุณาเลือกอายุแบตเตอร์รี่',
+                                      'วันที่ซื้อแบต',
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.notoSansThai(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: valueOrDefault<Color>(
+                                            FFAppState()
+                                                        .EvBatteryData
+                                                        .elementAtOrNull(
+                                                            widget!.index!)
+                                                        ?.batteryYear !=
+                                                    ''
+                                                ? FlutterFlowTheme.of(context)
+                                                    .primaryText
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryText,
+                                            Color(0x00000000),
+                                          ),
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                child: Container(
+                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  decoration: BoxDecoration(),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 4.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              'ราคาแบตเตอร์รี่',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.notoSansThai(
                                       fontWeight: FontWeight.w600,
                                       fontStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                              ),
+                                    color: Color(0xFF1D4774),
+                                    fontSize: 15.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                             ),
                           ],
                         ),
@@ -1020,30 +976,6 @@ class _BatteryInfomationFormComponentWidgetState
                                         .bodyMedium
                                         .fontStyle,
                                   ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                'บังคับเลือก',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      font: GoogleFonts.notoSansThai(
-                                        fontWeight: FontWeight.w600,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
-                                      ),
-                                      color: Color(0xFFFB0606),
-                                      fontSize: 12.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                              ),
                             ),
                           ],
                         ),

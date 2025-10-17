@@ -317,48 +317,35 @@ class _ShowBatterryPageWidgetState extends State<ShowBatterryPageWidget> {
                                                 ),
                                               ],
                                             ),
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  8.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        'เลขแบตเตอร์รี่ : ${batteryListItemItem.batteryNumber}',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .notoSansThai(
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: Color(
-                                                                      0xFF204A77),
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    8.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          'เลขแบตเตอร์รี่ : ${batteryListItemItem.batteryNumber}',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .notoSansThai(
                                                                   fontWeight: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -368,120 +355,30 @@ class _ShowBatterryPageWidgetState extends State<ShowBatterryPageWidget> {
                                                                       .bodyMedium
                                                                       .fontStyle,
                                                                 ),
+                                                                color: Color(
+                                                                    0xFF204A77),
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                        ),
                                                       ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                Expanded(
-                                                  child: Container(
-                                                    decoration: BoxDecoration(),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      4.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Text(
-                                                                'อายุแบตเตอร์รี่',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .notoSansThai(
-                                                                        fontWeight: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontWeight,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      fontSize:
-                                                                          14.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontWeight,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      4.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Text(
-                                                                batteryListItemItem
-                                                                            .batteryYear !=
-                                                                        ''
-                                                                    ? '${batteryListItemItem.batteryYear} ปี'
-                                                                    : '-',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .notoSansThai(
-                                                                        fontWeight: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontWeight,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      fontSize:
-                                                                          13.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontWeight,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
                                                 Expanded(
                                                   child: Container(
                                                     decoration: BoxDecoration(),
@@ -571,6 +468,117 @@ class _ShowBatterryPageWidgetState extends State<ShowBatterryPageWidget> {
                                                                             .bodyMedium
                                                                             .fontStyle,
                                                                       ),
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .accent2,
+                                                                      fontSize:
+                                                                          13.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                Expanded(
+                                                  child: Container(
+                                                    decoration: BoxDecoration(),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      8.0,
+                                                                      4.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                'อายุแบตเตอร์รี่',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      font: GoogleFonts
+                                                                          .notoSansThai(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      8.0,
+                                                                      4.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                batteryListItemItem
+                                                                            .batteryYear !=
+                                                                        ''
+                                                                    ? '${batteryListItemItem.batteryYear} ปี'
+                                                                    : '-',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      font: GoogleFonts
+                                                                          .notoSansThai(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .accent2,
                                                                       fontSize:
                                                                           13.0,
                                                                       letterSpacing:
@@ -687,6 +695,8 @@ class _ShowBatterryPageWidgetState extends State<ShowBatterryPageWidget> {
                                                                               .bodyMedium
                                                                               .fontStyle,
                                                                         ),
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .accent2,
                                                                         fontSize:
                                                                             13.0,
                                                                         letterSpacing:
@@ -793,6 +803,8 @@ class _ShowBatterryPageWidgetState extends State<ShowBatterryPageWidget> {
                                                                               .bodyMedium
                                                                               .fontStyle,
                                                                         ),
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .accent2,
                                                                         fontSize:
                                                                             13.0,
                                                                         letterSpacing:
@@ -982,19 +994,63 @@ class _ShowBatterryPageWidgetState extends State<ShowBatterryPageWidget> {
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      if (FFAppState().EvBatteryData.length < 5)
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 8.0, 0.0, 0.0),
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                if (FFAppState().EvBatteryData.length != 0) {
-                                  if (FFAppState()
-                                          .EvBatteryData
-                                          .lastOrNull
-                                          ?.batteryNumber ==
-                                      '') {
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 8.0, 0.0, 0.0),
+                          child: FFButtonWidget(
+                            onPressed: (FFAppState().EvBatteryData.length >= 5)
+                                ? null
+                                : () async {
+                                    if (FFAppState().EvBatteryData.length !=
+                                        0) {
+                                      if (FFAppState()
+                                              .EvBatteryData
+                                              .lastOrNull
+                                              ?.batteryNumber ==
+                                          '') {
+                                        context.pushNamed(
+                                          AddBatteryPageWidget.routeName,
+                                          queryParameters: {
+                                            'firestoreDataConfigList':
+                                                serializeParam(
+                                              widget!.firestoreDataConfigList,
+                                              ParamType.Document,
+                                            ),
+                                            'index': serializeParam(
+                                              FFAppState()
+                                                      .EvBatteryData
+                                                      .length -
+                                                  1,
+                                              ParamType.int,
+                                            ),
+                                            'isEditing': serializeParam(
+                                              false,
+                                              ParamType.bool,
+                                            ),
+                                          }.withoutNulls,
+                                          extra: <String, dynamic>{
+                                            'firestoreDataConfigList':
+                                                widget!.firestoreDataConfigList,
+                                          },
+                                        );
+
+                                        return;
+                                      }
+                                    }
+                                    FFAppState().addToEvBatteryData(
+                                        BatteryDataModelStruct(
+                                      batteryId: '',
+                                      applicationId: '',
+                                      batteryNo: '',
+                                      batteryNumber: '',
+                                      batteryYear: '',
+                                      batteryPurchaseDate: '',
+                                      batteryPrice: '',
+                                      batteryRepSumInsured: '',
+                                    ));
+                                    safeSetState(() {});
+
                                     context.pushNamed(
                                       AddBatteryPageWidget.routeName,
                                       queryParameters: {
@@ -1017,106 +1073,50 @@ class _ShowBatterryPageWidgetState extends State<ShowBatterryPageWidget> {
                                             widget!.firestoreDataConfigList,
                                       },
                                     );
-
-                                    return;
-                                  }
-                                }
-                                FFAppState().addToDriverList(DriverDataStruct(
-                                  driverId: '',
-                                  driverNo: '',
-                                  applicationId: '',
-                                  idTypeId: '',
-                                  nationalThaiId: '',
-                                  licenseNo: '',
-                                  gender: '',
-                                  titleThId: '',
-                                  titleTh: '',
-                                  firstNameTh: '',
-                                  lastNameTh: '',
-                                  birthDay: '',
-                                  imageIdcard: '',
-                                  imageLicenseNo: '',
-                                  occupationId: '',
-                                  occupationCode: '',
-                                  occupationName: '',
-                                  occupationSubcode: '',
-                                  occupationSubname: '',
-                                ));
-                                FFAppState()
-                                    .addToEvBatteryData(BatteryDataModelStruct(
-                                  batteryId: '',
-                                  applicationId: '',
-                                  batteryNo: '',
-                                  batteryNumber: '',
-                                  batteryYear: '',
-                                  batteryPurchaseDate: '',
-                                  batteryPrice: '',
-                                  batteryRepSumInsured: '',
-                                ));
-                                safeSetState(() {});
-
-                                context.pushNamed(
-                                  AddBatteryPageWidget.routeName,
-                                  queryParameters: {
-                                    'firestoreDataConfigList': serializeParam(
-                                      widget!.firestoreDataConfigList,
-                                      ParamType.Document,
-                                    ),
-                                    'index': serializeParam(
-                                      FFAppState().EvBatteryData.length - 1,
-                                      ParamType.int,
-                                    ),
-                                    'isEditing': serializeParam(
-                                      false,
-                                      ParamType.bool,
-                                    ),
-                                  }.withoutNulls,
-                                  extra: <String, dynamic>{
-                                    'firestoreDataConfigList':
-                                        widget!.firestoreDataConfigList,
                                   },
-                                );
-                              },
-                              text: 'เพิ่มแบตเตอร์รี่',
-                              icon: Icon(
-                                Icons.add_circle_sharp,
-                                size: 24.0,
-                              ),
-                              options: FFButtonOptions(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      font: GoogleFonts.notoSansThai(
-                                        fontWeight: FontWeight.w600,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontStyle,
-                                      ),
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      letterSpacing: 0.0,
+                            text: 'เพิ่มแบตเตอร์รี่',
+                            icon: Icon(
+                              Icons.add_circle_sharp,
+                              size: 24.0,
+                            ),
+                            options: FFButtonOptions(
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 60.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    font: GoogleFonts.notoSansThai(
                                       fontWeight: FontWeight.w600,
                                       fontStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .fontStyle,
                                     ),
-                                elevation: 3.0,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(16.0),
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
                               ),
+                              borderRadius: BorderRadius.circular(16.0),
+                              disabledColor: Color(0x804B39EF),
+                              disabledTextColor:
+                                  FlutterFlowTheme.of(context).accent3,
                             ),
                           ),
                         ),
+                      ),
                       if (() {
                             if (FFAppState().DriverList.length == 0) {
                               return false;

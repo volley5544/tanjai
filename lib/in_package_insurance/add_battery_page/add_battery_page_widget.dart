@@ -202,20 +202,46 @@ class _AddBatteryPageWidgetState extends State<AddBatteryPageWidget> {
                               16.0, 0.0, 16.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              if (!widget!.isEditing!) {
-                                if (!((_model
-                                            .batteryInfomationFormComponentModel
-                                            .batteryNumberTextfieldTextController
-                                            .text !=
-                                        '') &&
-                                    true)) {
+                              if (_model
+                                      .batteryInfomationFormComponentModel
+                                      .batteryNumberTextfieldTextController
+                                      .text ==
+                                  '') {
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return WebViewAware(
+                                      child: AlertDialog(
+                                        content:
+                                            Text('กรุณากรอกหมายเลขแบตเตอร์รี่'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                );
+                                return;
+                              }
+                              if (FFAppState()
+                                      .InsuranceInfoPage2ChangeBatteryFlag ==
+                                  'Y') {
+                                if (FFAppState()
+                                        .EvBatteryData
+                                        .elementAtOrNull(widget!.index!)
+                                        ?.batteryPurchaseDate ==
+                                    '') {
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
                                         child: AlertDialog(
                                           content: Text(
-                                              'กรุณากรอกหมายเลขแบตเตอร์รี่'),
+                                              'กรุณาเลือกวันที่ซื้อแบตเตอร์รี่'),
                                           actions: [
                                             TextButton(
                                               onPressed: () => Navigator.pop(
@@ -229,32 +255,36 @@ class _AddBatteryPageWidgetState extends State<AddBatteryPageWidget> {
                                   );
                                   return;
                                 }
-                                FFAppState().updateEvBatteryDataAtIndex(
-                                  widget!.index!,
-                                  (e) => e
-                                    ..applicationId =
-                                        FFAppState().insuranceInfoApplicationId
-                                    ..batteryNo =
-                                        (FFAppState().EvBatteryData.length + 1)
-                                            .toString()
-                                    ..batteryNumber = _model
-                                        .batteryInfomationFormComponentModel
-                                        .batteryNumberTextfieldTextController
-                                        .text
-                                    ..batteryPrice =
-                                        functions.removeCommaFromNumText(_model
-                                            .batteryInfomationFormComponentModel
-                                            .batteryPriceTextfieldTextController
-                                            .text)
-                                    ..batteryRepSumInsured =
-                                        functions.removeCommaFromNumText(_model
-                                            .batteryInfomationFormComponentModel
-                                            .batterySumInsuredTextfieldTextController
-                                            .text),
-                                );
-                                safeSetState(() {});
-                                context.safePop();
                               }
+                              FFAppState().updateEvBatteryDataAtIndex(
+                                widget!.index!,
+                                (e) => e
+                                  ..applicationId =
+                                      FFAppState().insuranceInfoApplicationId
+                                  ..batteryNo = widget!.isEditing!
+                                      ? FFAppState()
+                                          .EvBatteryData
+                                          .elementAtOrNull(widget!.index!)
+                                          ?.batteryNo
+                                      : ((FFAppState().EvBatteryData.length + 1)
+                                          .toString())
+                                  ..batteryNumber = _model
+                                      .batteryInfomationFormComponentModel
+                                      .batteryNumberTextfieldTextController
+                                      .text
+                                  ..batteryPrice =
+                                      functions.removeCommaFromNumText(_model
+                                          .batteryInfomationFormComponentModel
+                                          .batteryPriceTextfieldTextController
+                                          .text)
+                                  ..batteryRepSumInsured =
+                                      functions.removeCommaFromNumText(_model
+                                          .batteryInfomationFormComponentModel
+                                          .batterySumInsuredTextfieldTextController
+                                          .text),
+                              );
+                              safeSetState(() {});
+                              context.safePop();
                             },
                             text: 'บันทึก',
                             options: FFButtonOptions(

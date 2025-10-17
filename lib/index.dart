@@ -228,3 +228,5 @@ export '/in_package_insurance/add_battery_page/add_battery_page_widget.dart'
     show AddBatteryPageWidget;
 export '/in_package_insurance/show_batterry_page/show_batterry_page_widget.dart'
     show ShowBatterryPageWidget;
+export '/in_package_insurance/add_motor_page/add_motor_page_widget.dart'
+    show AddMotorPageWidget;

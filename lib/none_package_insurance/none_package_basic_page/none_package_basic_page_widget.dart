@@ -309,6 +309,7 @@ class _NonePackageBasicPageWidgetState
       } else {
         _model.getBrandAPI = await TeleGetBrandAPICall.call(
           apiUrl: FFAppState().apiUrlInsuranceAppState,
+          vehicleGroup: FFAppState().fromMenuAppState,
         );
 
         if ((_model.getBrandAPI?.statusCode ?? 200) != 200) {

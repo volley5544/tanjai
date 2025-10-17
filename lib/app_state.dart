@@ -14426,6 +14426,43 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInEvBatteryData(int index, BatteryDataModelStruct value) {
     EvBatteryData.insert(index, value);
   }
+
+  String _InsuranceInfoPage2ChangeBatteryFlag = '';
+  String get InsuranceInfoPage2ChangeBatteryFlag =>
+      _InsuranceInfoPage2ChangeBatteryFlag;
+  set InsuranceInfoPage2ChangeBatteryFlag(String value) {
+    _InsuranceInfoPage2ChangeBatteryFlag = value;
+  }
+
+  List<String> _insuranceInfoPage2CarMotor = [];
+  List<String> get insuranceInfoPage2CarMotor => _insuranceInfoPage2CarMotor;
+  set insuranceInfoPage2CarMotor(List<String> value) {
+    _insuranceInfoPage2CarMotor = value;
+  }
+
+  void addToInsuranceInfoPage2CarMotor(String value) {
+    insuranceInfoPage2CarMotor.add(value);
+  }
+
+  void removeFromInsuranceInfoPage2CarMotor(String value) {
+    insuranceInfoPage2CarMotor.remove(value);
+  }
+
+  void removeAtIndexFromInsuranceInfoPage2CarMotor(int index) {
+    insuranceInfoPage2CarMotor.removeAt(index);
+  }
+
+  void updateInsuranceInfoPage2CarMotorAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    insuranceInfoPage2CarMotor[index] =
+        updateFn(_insuranceInfoPage2CarMotor[index]);
+  }
+
+  void insertAtIndexInInsuranceInfoPage2CarMotor(int index, String value) {
+    insuranceInfoPage2CarMotor.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {
