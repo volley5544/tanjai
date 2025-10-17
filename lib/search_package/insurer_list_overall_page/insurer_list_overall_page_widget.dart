@@ -102,9 +102,7 @@ class _InsurerListOverallPageWidgetState
         brandCode: widget!.brandCode,
         modelCode: widget!.modelCode,
         year: widget!.year,
-        vehicleUsage: FFAppState().fromMenuAppState != 'EV'
-            ? widget!.vehicleUsage
-            : 'E11',
+        vehicleUsage: widget!.vehicleUsage,
         coverTypeList: widget!.coverType,
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
         garageTypeList: widget!.garageType,

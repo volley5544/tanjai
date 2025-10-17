@@ -5159,6 +5159,24 @@ class _AddMotorPageWidgetState extends State<AddMotorPageWidget> {
                                 safeSetState(() {});
                                 while (
                                     _model.loopCount! < _model.motorAmount!) {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return WebViewAware(
+                                        child: AlertDialog(
+                                          content: Text(
+                                              _model.loopCount!.toString()),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
                                   FFAppState()
                                       .addToInsuranceInfoPage2CarMotor(() {
                                     if (_model.loopCount == 0) {
@@ -5209,7 +5227,7 @@ class _AddMotorPageWidgetState extends State<AddMotorPageWidget> {
                                     }
                                   }());
                                   safeSetState(() {});
-
+                                  _model.loopCount = _model.loopCount! + 1;
                                   safeSetState(() {});
                                 }
                                 context.safePop();

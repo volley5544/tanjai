@@ -5469,3 +5469,7 @@ List<String>? generateListNumber(String? maxNumber) {
 List<dynamic>? generateJsonList(dynamic jsonInput) {
   return [jsonInput!];
 }
+
+dynamic jsonListToJson(List<dynamic>? inputJsonList) {
+  return inputJsonList!;
+}

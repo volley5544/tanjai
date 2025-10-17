@@ -13331,11 +13331,11 @@ class IbsApplicationsSaveCall {
     final address = _serializeJson(addressJson);
     final appDriver = _serializeJson(appDriverJson, true);
     final appInsuredPerson = _serializeJson(appInsuredPersonJson, true);
-    final appBattery = _serializeJson(appBatteryJson, true);
+    final appBattery = _serializeJson(appBatteryJson);
     final ffApiRequestBody = '''
 {
-"app_battery":"${appBattery}",
-"image_application_2":"${imageApplication2}",
+  "app_battery": ${appBattery},
+  "image_application_2": "${imageApplication2}",
   "app_insured_person": ${appInsuredPerson},
   "sum_insure_house": "${sumInsureHouse}",
   "sum_insure_buildin": "${sumInsureBuildin}",

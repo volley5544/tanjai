@@ -11806,24 +11806,12 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     return WebViewAware(
                                                       child: AlertDialog(
                                                         content: Text(functions
-                                                            .generateJsonList(<String,
-                                                                dynamic>{
-                                                              'battery_id': '',
-                                                              'application_id':
-                                                                  '3155',
-                                                              'battery_no': '1',
-                                                              'battery_number':
-                                                                  '123781264871264',
-                                                              'battery_year':
-                                                                  '2',
-                                                              'battery_purchase_date':
-                                                                  '2025-10-17',
-                                                              'battery_price':
-                                                                  '12345.00',
-                                                              'battery_rep_sum_insured':
-                                                                  '5544.00',
-                                                            })!
-                                                            .firstOrNull!
+                                                            .jsonListToJson(
+                                                                FFAppState()
+                                                                    .EvBatteryData
+                                                                    .map((e) =>
+                                                                        e.toMap())
+                                                                    .toList())!
                                                             .toString()),
                                                         actions: [
                                                           TextButton(
@@ -12061,21 +12049,13 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                           : FFAppState()
                                                               .insuranceInfoHorsePower)
                                                       : '0',
-                                                  appBatteryJson: functions
-                                                      .generateJsonList(<String,
-                                                          dynamic>{
-                                                    'battery_id': '',
-                                                    'application_id': '3155',
-                                                    'battery_no': '1',
-                                                    'battery_number':
-                                                        '123781264871264',
-                                                    'battery_year': '2',
-                                                    'battery_purchase_date':
-                                                        '2025-10-17',
-                                                    'battery_price': '12345.00',
-                                                    'battery_rep_sum_insured':
-                                                        '5544.00',
-                                                  }),
+                                                  appBatteryJson:
+                                                      functions.jsonListToJson(
+                                                          FFAppState()
+                                                              .EvBatteryData
+                                                              .map((e) =>
+                                                                  e.toMap())
+                                                              .toList()),
                                                 );
 
                                                 _shouldSetState = true;
