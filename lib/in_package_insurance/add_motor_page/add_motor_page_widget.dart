@@ -4685,12 +4685,16 @@ class _AddMotorPageWidgetState extends State<AddMotorPageWidget> {
                                   return;
                                 }
                                 if (_model.motorAmount! >= 2) {
-                                  if (!(_model.motor2TextfieldTextController
+                                  if (_model.motor2TextfieldTextController
                                               .text !=
                                           null &&
                                       _model.motor2TextfieldTextController
                                               .text !=
-                                          '')) {
+                                          '') {
+                                    _model.motorAmount =
+                                        _model.motorAmount! + 1;
+                                    safeSetState(() {});
+                                  } else {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
@@ -4713,12 +4717,16 @@ class _AddMotorPageWidgetState extends State<AddMotorPageWidget> {
                                   }
                                 }
                                 if (_model.motorAmount! >= 3) {
-                                  if (!(_model.motor3TextfieldTextController
+                                  if (_model.motor3TextfieldTextController
                                               .text !=
                                           null &&
                                       _model.motor3TextfieldTextController
                                               .text !=
-                                          '')) {
+                                          '') {
+                                    _model.motorAmount =
+                                        _model.motorAmount! + 1;
+                                    safeSetState(() {});
+                                  } else {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
@@ -4741,12 +4749,16 @@ class _AddMotorPageWidgetState extends State<AddMotorPageWidget> {
                                   }
                                 }
                                 if (_model.motorAmount! >= 4) {
-                                  if (!(_model.motor4TextfieldTextController
+                                  if (_model.motor4TextfieldTextController
                                               .text !=
                                           null &&
                                       _model.motor4TextfieldTextController
                                               .text !=
-                                          '')) {
+                                          '') {
+                                    _model.motorAmount =
+                                        _model.motorAmount! + 1;
+                                    safeSetState(() {});
+                                  } else {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
@@ -4769,12 +4781,16 @@ class _AddMotorPageWidgetState extends State<AddMotorPageWidget> {
                                   }
                                 }
                                 if (_model.motorAmount! >= 5) {
-                                  if (!(_model.motor5TextfieldTextController
+                                  if (_model.motor5TextfieldTextController
                                               .text !=
                                           null &&
                                       _model.motor5TextfieldTextController
                                               .text !=
-                                          '')) {
+                                          '') {
+                                    _model.motorAmount =
+                                        _model.motorAmount! + 1;
+                                    safeSetState(() {});
+                                  } else {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
@@ -4797,12 +4813,16 @@ class _AddMotorPageWidgetState extends State<AddMotorPageWidget> {
                                   }
                                 }
                                 if (_model.motorAmount! >= 6) {
-                                  if (!(_model.motor6extfieldTextController
+                                  if (_model.motor6extfieldTextController
                                               .text !=
                                           null &&
                                       _model.motor6extfieldTextController
                                               .text !=
-                                          '')) {
+                                          '') {
+                                    _model.motorAmount =
+                                        _model.motorAmount! + 1;
+                                    safeSetState(() {});
+                                  } else {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
@@ -4825,12 +4845,16 @@ class _AddMotorPageWidgetState extends State<AddMotorPageWidget> {
                                   }
                                 }
                                 if (_model.motorAmount! >= 7) {
-                                  if (!(_model.motor7TextfieldTextController
+                                  if (_model.motor7TextfieldTextController
                                               .text !=
                                           null &&
                                       _model.motor7TextfieldTextController
                                               .text !=
-                                          '')) {
+                                          '') {
+                                    _model.motorAmount =
+                                        _model.motorAmount! + 1;
+                                    safeSetState(() {});
+                                  } else {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
@@ -4853,12 +4877,16 @@ class _AddMotorPageWidgetState extends State<AddMotorPageWidget> {
                                   }
                                 }
                                 if (_model.motorAmount! >= 8) {
-                                  if (!(_model.motor8TextfieldTextController
+                                  if (_model.motor8TextfieldTextController
                                               .text !=
                                           null &&
                                       _model.motor8TextfieldTextController
                                               .text !=
-                                          '')) {
+                                          '') {
+                                    _model.motorAmount =
+                                        _model.motorAmount! + 1;
+                                    safeSetState(() {});
+                                  } else {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
@@ -4881,12 +4909,16 @@ class _AddMotorPageWidgetState extends State<AddMotorPageWidget> {
                                   }
                                 }
                                 if (_model.motorAmount! >= 9) {
-                                  if (!(_model.motor9TextfieldTextController
+                                  if (_model.motor9TextfieldTextController
                                               .text !=
                                           null &&
                                       _model.motor9TextfieldTextController
                                               .text !=
-                                          '')) {
+                                          '') {
+                                    _model.motorAmount =
+                                        _model.motorAmount! + 1;
+                                    safeSetState(() {});
+                                  } else {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
@@ -4909,12 +4941,16 @@ class _AddMotorPageWidgetState extends State<AddMotorPageWidget> {
                                   }
                                 }
                                 if (_model.motorAmount! >= 10) {
-                                  if (!(_model.motor10TextfieldTextController
+                                  if (_model.motor10TextfieldTextController
                                               .text !=
                                           null &&
                                       _model.motor10TextfieldTextController
                                               .text !=
-                                          '')) {
+                                          '') {
+                                    _model.motorAmount =
+                                        _model.motorAmount! + 1;
+                                    safeSetState(() {});
+                                  } else {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
@@ -4937,12 +4973,16 @@ class _AddMotorPageWidgetState extends State<AddMotorPageWidget> {
                                   }
                                 }
                                 if (_model.motorAmount! >= 11) {
-                                  if (!(_model.motor11TextfieldTextController
+                                  if (_model.motor11TextfieldTextController
                                               .text !=
                                           null &&
                                       _model.motor11TextfieldTextController
                                               .text !=
-                                          '')) {
+                                          '') {
+                                    _model.motorAmount =
+                                        _model.motorAmount! + 1;
+                                    safeSetState(() {});
+                                  } else {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
@@ -4965,12 +5005,16 @@ class _AddMotorPageWidgetState extends State<AddMotorPageWidget> {
                                   }
                                 }
                                 if (_model.motorAmount! >= 12) {
-                                  if (!(_model.motor12TextfieldTextController
+                                  if (_model.motor12TextfieldTextController
                                               .text !=
                                           null &&
                                       _model.motor12TextfieldTextController
                                               .text !=
-                                          '')) {
+                                          '') {
+                                    _model.motorAmount =
+                                        _model.motorAmount! + 1;
+                                    safeSetState(() {});
+                                  } else {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
@@ -4993,12 +5037,16 @@ class _AddMotorPageWidgetState extends State<AddMotorPageWidget> {
                                   }
                                 }
                                 if (_model.motorAmount! >= 13) {
-                                  if (!(_model.motor13TextfieldTextController
+                                  if (_model.motor13TextfieldTextController
                                               .text !=
                                           null &&
                                       _model.motor13TextfieldTextController
                                               .text !=
-                                          '')) {
+                                          '') {
+                                    _model.motorAmount =
+                                        _model.motorAmount! + 1;
+                                    safeSetState(() {});
+                                  } else {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
@@ -5021,12 +5069,16 @@ class _AddMotorPageWidgetState extends State<AddMotorPageWidget> {
                                   }
                                 }
                                 if (_model.motorAmount! >= 14) {
-                                  if (!(_model.motor14TextfieldTextController
+                                  if (_model.motor14TextfieldTextController
                                               .text !=
                                           null &&
                                       _model.motor14TextfieldTextController
                                               .text !=
-                                          '')) {
+                                          '') {
+                                    _model.motorAmount =
+                                        _model.motorAmount! + 1;
+                                    safeSetState(() {});
+                                  } else {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
@@ -5049,12 +5101,16 @@ class _AddMotorPageWidgetState extends State<AddMotorPageWidget> {
                                   }
                                 }
                                 if (_model.motorAmount! >= 15) {
-                                  if (!(_model.motor15TextfieldTextController
+                                  if (_model.motor15TextfieldTextController
                                               .text !=
                                           null &&
                                       _model.motor15TextfieldTextController
                                               .text !=
-                                          '')) {
+                                          '') {
+                                    _model.motorAmount =
+                                        _model.motorAmount! + 1;
+                                    safeSetState(() {});
+                                  } else {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
