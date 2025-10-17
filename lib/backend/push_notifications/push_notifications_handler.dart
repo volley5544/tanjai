@@ -765,14 +765,7 @@ final parametersBuilderMap =
               data, 'firestoreDataConfigList', DataListRecord.fromSnapshot),
         },
       ),
-  'AddMotorPage': (data) async => ParameterData(
-        allParams: {
-          'firestoreDataConfigList': await getDocumentParameter<DataListRecord>(
-              data, 'firestoreDataConfigList', DataListRecord.fromSnapshot),
-          'index': getParameter<int>(data, 'index'),
-          'isEditing': getParameter<bool>(data, 'isEditing'),
-        },
-      ),
+  'AddMotorPage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

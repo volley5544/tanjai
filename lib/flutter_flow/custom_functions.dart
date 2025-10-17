@@ -5465,3 +5465,7 @@ List<String>? generateListNumber(String? maxNumber) {
 
   return outputList;
 }
+
+List<dynamic>? generateJsonList(dynamic jsonInput) {
+  return [jsonInput!];
+}

@@ -7942,23 +7942,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       context.pushNamed(
-                                                        ShowBatterryPageWidget
-                                                            .routeName,
-                                                        queryParameters: {
-                                                          'firestoreDataConfigList':
-                                                              serializeParam(
-                                                            widget!
-                                                                .masterDataFirebase,
-                                                            ParamType.Document,
-                                                          ),
-                                                        }.withoutNulls,
-                                                        extra: <String,
-                                                            dynamic>{
-                                                          'firestoreDataConfigList':
-                                                              widget!
-                                                                  .masterDataFirebase,
-                                                        },
-                                                      );
+                                                          AddMotorPageWidget
+                                                              .routeName);
                                                     },
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
@@ -7994,7 +7979,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                                   .spaceBetween,
                                                           children: [
                                                             Text(
-                                                              '${'${FFAppState().EvBatteryData.length == 1 ? ((FFAppState().EvBatteryData.length == 1) && (FFAppState().EvBatteryData.firstOrNull?.batteryNumber != '') ? FFAppState().EvBatteryData.length.toString() : '0') : FFAppState().EvBatteryData.length.toString()}/15'} ตัว',
+                                                              '${'${FFAppState().insuranceInfoPage2CarMotor.length.toString()}/15'} ตัว',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -8259,7 +8244,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                                         .check_circle,
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .tertiary,
+                                                                        .success,
                                                                     size: 24.0,
                                                                   );
                                                                 } else {
@@ -12041,10 +12026,21 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                           : FFAppState()
                                                               .insuranceInfoHorsePower)
                                                       : '0',
-                                                  appBatteryJson: FFAppState()
-                                                      .EvBatteryData
-                                                      .map((e) => e.toMap())
-                                                      .toList(),
+                                                  appBatteryJson: functions
+                                                      .generateJsonList(<String,
+                                                          dynamic>{
+                                                    'battery_id': '',
+                                                    'application_id': '3155',
+                                                    'battery_no': '1',
+                                                    'battery_number':
+                                                        '123781264871264',
+                                                    'battery_year': '2',
+                                                    'battery_purchase_date':
+                                                        '2025-10-17',
+                                                    'battery_price': '12345.00',
+                                                    'battery_rep_sum_insured':
+                                                        '5544.00',
+                                                  }),
                                                 );
 
                                                 _shouldSetState = true;

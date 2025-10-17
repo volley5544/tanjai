@@ -2584,24 +2584,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: AddMotorPageWidget.routeName,
               path: AddMotorPageWidget.routePath,
-              asyncParams: {
-                'firestoreDataConfigList':
-                    getDoc(['dataList'], DataListRecord.fromSnapshot),
-              },
-              builder: (context, params) => AddMotorPageWidget(
-                firestoreDataConfigList: params.getParam(
-                  'firestoreDataConfigList',
-                  ParamType.Document,
-                ),
-                index: params.getParam(
-                  'index',
-                  ParamType.int,
-                ),
-                isEditing: params.getParam(
-                  'isEditing',
-                  ParamType.bool,
-                ),
-              ),
+              builder: (context, params) => AddMotorPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
