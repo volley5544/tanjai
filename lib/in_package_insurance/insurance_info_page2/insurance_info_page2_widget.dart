@@ -11773,8 +11773,9 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                       (alertDialogContext) {
                                                     return WebViewAware(
                                                       child: AlertDialog(
+                                                        title: Text('Driver'),
                                                         content: Text((FFAppState()
-                                                                .EvBatteryData
+                                                                .DriverList
                                                                 .elementAtOrNull(
                                                                     0)!
                                                                 .toMap())
@@ -11797,6 +11798,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                       (alertDialogContext) {
                                                     return WebViewAware(
                                                       child: AlertDialog(
+                                                        title: Text('EV'),
                                                         content: Text((FFAppState()
                                                                 .EvBatteryData
                                                                 .elementAtOrNull(
