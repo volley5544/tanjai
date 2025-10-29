@@ -12049,13 +12049,17 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                           : FFAppState()
                                                               .insuranceInfoHorsePower)
                                                       : '0',
-                                                  appBatteryJson:
-                                                      functions.jsonListToJson(
-                                                          FFAppState()
-                                                              .EvBatteryData
-                                                              .map((e) =>
-                                                                  e.toMap())
-                                                              .toList()),
+                                                  appBatteryJson: FFAppState()
+                                                              .insuranceInfoEvFlag ==
+                                                          'Y'
+                                                      ? functions
+                                                          .jsonListToJson(
+                                                              FFAppState()
+                                                                  .EvBatteryData
+                                                                  .map((e) =>
+                                                                      e.toMap())
+                                                                  .toList())
+                                                      : null,
                                                 );
 
                                                 _shouldSetState = true;
