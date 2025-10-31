@@ -13327,13 +13327,18 @@ class IbsApplicationsSaveCall {
     dynamic? appInsuredPersonJson,
     String? imageApplication2 = '',
     dynamic? appBatteryJson,
+    String? changeBatteryFlag = '',
+    List<String>? carMotorList,
   }) async {
+    final carMotor = _serializeList(carMotorList);
     final address = _serializeJson(addressJson);
     final appDriver = _serializeJson(appDriverJson, true);
     final appInsuredPerson = _serializeJson(appInsuredPersonJson, true);
     final appBattery = _serializeJson(appBatteryJson);
     final ffApiRequestBody = '''
 {
+"change_battery_flag":"${changeBatteryFlag}",
+"car_motor":${carMotor},
   "app_battery": ${appBattery},
   "image_application_2": "${imageApplication2}",
   "app_insured_person": ${appInsuredPerson},
@@ -14897,6 +14902,11 @@ class IbsApplicationsDetailCall {
           .map((x) => BatteryDataModelStruct.maybeFromMap(x))
           .withoutNulls
           .toList();
+  static String? changebatteryflag(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.change_battery_flag''',
+      ));
 }
 
 class IbsApplicationsPaymentSaveCall {

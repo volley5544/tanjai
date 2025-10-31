@@ -12060,6 +12060,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                                       e.toMap())
                                                                   .toList())
                                                       : null,
+                                                  changeBatteryFlag: FFAppState()
+                                                      .InsuranceInfoPage2ChangeBatteryFlag,
+                                                  carMotorList: FFAppState()
+                                                      .insuranceInfoPage2CarMotor,
                                                 );
 
                                                 _shouldSetState = true;

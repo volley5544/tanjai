@@ -991,10 +991,31 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
               : '${IbsApplicationsDetailCall.driverBehaviorLead(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
                 )}';
-      FFAppState().insuranceInfoEvFlag =
-          '${IbsApplicationsDetailCall.evflagdata(
+      FFAppState()
+          .insuranceInfoEvFlag = '${IbsApplicationsDetailCall.evflagdata(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}' !=
+              ''
+          ? '${IbsApplicationsDetailCall.evflagdata(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}'
+          : '${IbsApplicationsDetailCall.evflaglead(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget!.leadDtailId))}';
+      FFAppState().insuranceInfoPage2CarMotor =
+          IbsApplicationsDetailCall.carmotor(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )}';
+      )!
+              .toList()
+              .cast<String>();
+      FFAppState().InsuranceInfoPage2ChangeBatteryFlag =
+          IbsApplicationsDetailCall.changebatteryflag(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )!;
       safeSetState(() {});
       if (FFAppState().insuranceInfoApplicationType != 'auto') {
         FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(

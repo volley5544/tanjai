@@ -14,9 +14,11 @@ import '/index.dart';
 import 'driver_infomation_form_component_widget.dart'
     show DriverInfomationFormComponentWidget;
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -37,7 +39,7 @@ class DriverInfomationFormComponentModel
   TextEditingController? address4LastnameTextfieldTextController;
   String? Function(BuildContext, String?)?
       address4LastnameTextfieldTextControllerValidator;
-  DateTime? datePicked;
+  DateTime? datePicked1;
   // State field(s) for ThaiIdTextfield widget.
   FocusNode? thaiIdTextfieldFocusNode;
   TextEditingController? thaiIdTextfieldTextController;
@@ -45,15 +47,22 @@ class DriverInfomationFormComponentModel
   String? Function(BuildContext, String?)?
       thaiIdTextfieldTextControllerValidator;
   // State field(s) for DriverLicenseTextfield widget.
-  FocusNode? driverLicenseTextfieldFocusNode1;
-  TextEditingController? driverLicenseTextfieldTextController1;
+  FocusNode? driverLicenseTextfieldFocusNode;
+  TextEditingController? driverLicenseTextfieldTextController;
   String? Function(BuildContext, String?)?
-      driverLicenseTextfieldTextController1Validator;
-  // State field(s) for DriverLicenseTextfield widget.
-  FocusNode? driverLicenseTextfieldFocusNode2;
-  TextEditingController? driverLicenseTextfieldTextController2;
+      driverLicenseTextfieldTextControllerValidator;
+  DateTime? datePicked2;
+  // State field(s) for EmailTextField widget.
+  FocusNode? emailTextFieldFocusNode;
+  TextEditingController? emailTextFieldTextController;
   String? Function(BuildContext, String?)?
-      driverLicenseTextfieldTextController2Validator;
+      emailTextFieldTextControllerValidator;
+  // State field(s) for CusPhoneTextField widget.
+  FocusNode? cusPhoneTextFieldFocusNode;
+  TextEditingController? cusPhoneTextFieldTextController;
+  late MaskTextInputFormatter cusPhoneTextFieldMask;
+  String? Function(BuildContext, String?)?
+      cusPhoneTextFieldTextControllerValidator;
   bool isDataUploading_driverUploadThaiIdImg = false;
   FFUploadedFile uploadedLocalFile_driverUploadThaiIdImg =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -78,10 +87,13 @@ class DriverInfomationFormComponentModel
     thaiIdTextfieldFocusNode?.dispose();
     thaiIdTextfieldTextController?.dispose();
 
-    driverLicenseTextfieldFocusNode1?.dispose();
-    driverLicenseTextfieldTextController1?.dispose();
+    driverLicenseTextfieldFocusNode?.dispose();
+    driverLicenseTextfieldTextController?.dispose();
 
-    driverLicenseTextfieldFocusNode2?.dispose();
-    driverLicenseTextfieldTextController2?.dispose();
+    emailTextFieldFocusNode?.dispose();
+    emailTextFieldTextController?.dispose();
+
+    cusPhoneTextFieldFocusNode?.dispose();
+    cusPhoneTextFieldTextController?.dispose();
   }
 }

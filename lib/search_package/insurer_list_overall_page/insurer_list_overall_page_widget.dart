@@ -503,22 +503,6 @@ class _InsurerListOverallPageWidgetState
         builder: (alertDialogContext) {
           return WebViewAware(
             child: AlertDialog(
-              content: Text(widget!.driverBehaviorScoreList!.length.toString()),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
               content: Text(functions.combineStringFromList(
                   widget!.driverBehaviorScoreList?.toList())!),
               actions: [

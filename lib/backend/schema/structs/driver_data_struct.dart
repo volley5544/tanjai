@@ -30,6 +30,12 @@ class DriverDataStruct extends FFFirebaseStruct {
     String? occupationSubcode,
     String? occupationSubname,
     String? driverBehavior,
+    String? email1,
+    String? mobile1,
+    String? driverConsent,
+    String? licenseExpiredate,
+    String? licenseIsLifeLong,
+    String? imageBehavior,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _driverId = driverId,
         _driverNo = driverNo,
@@ -51,6 +57,12 @@ class DriverDataStruct extends FFFirebaseStruct {
         _occupationSubcode = occupationSubcode,
         _occupationSubname = occupationSubname,
         _driverBehavior = driverBehavior,
+        _email1 = email1,
+        _mobile1 = mobile1,
+        _driverConsent = driverConsent,
+        _licenseExpiredate = licenseExpiredate,
+        _licenseIsLifeLong = licenseIsLifeLong,
+        _imageBehavior = imageBehavior,
         super(firestoreUtilData);
 
   // "driver_id" field.
@@ -193,6 +205,48 @@ class DriverDataStruct extends FFFirebaseStruct {
 
   bool hasDriverBehavior() => _driverBehavior != null;
 
+  // "email1" field.
+  String? _email1;
+  String get email1 => _email1 ?? '';
+  set email1(String? val) => _email1 = val;
+
+  bool hasEmail1() => _email1 != null;
+
+  // "mobile1" field.
+  String? _mobile1;
+  String get mobile1 => _mobile1 ?? '';
+  set mobile1(String? val) => _mobile1 = val;
+
+  bool hasMobile1() => _mobile1 != null;
+
+  // "driver_consent" field.
+  String? _driverConsent;
+  String get driverConsent => _driverConsent ?? '';
+  set driverConsent(String? val) => _driverConsent = val;
+
+  bool hasDriverConsent() => _driverConsent != null;
+
+  // "license_expiredate" field.
+  String? _licenseExpiredate;
+  String get licenseExpiredate => _licenseExpiredate ?? '';
+  set licenseExpiredate(String? val) => _licenseExpiredate = val;
+
+  bool hasLicenseExpiredate() => _licenseExpiredate != null;
+
+  // "license_is_life_long" field.
+  String? _licenseIsLifeLong;
+  String get licenseIsLifeLong => _licenseIsLifeLong ?? '';
+  set licenseIsLifeLong(String? val) => _licenseIsLifeLong = val;
+
+  bool hasLicenseIsLifeLong() => _licenseIsLifeLong != null;
+
+  // "image_behavior" field.
+  String? _imageBehavior;
+  String get imageBehavior => _imageBehavior ?? '';
+  set imageBehavior(String? val) => _imageBehavior = val;
+
+  bool hasImageBehavior() => _imageBehavior != null;
+
   static DriverDataStruct fromMap(Map<String, dynamic> data) =>
       DriverDataStruct(
         driverId: data['driver_id'] as String?,
@@ -215,6 +269,12 @@ class DriverDataStruct extends FFFirebaseStruct {
         occupationSubcode: data['occupation_subcode'] as String?,
         occupationSubname: data['occupation_subname'] as String?,
         driverBehavior: data['driver_behavior'] as String?,
+        email1: data['email1'] as String?,
+        mobile1: data['mobile1'] as String?,
+        driverConsent: data['driver_consent'] as String?,
+        licenseExpiredate: data['license_expiredate'] as String?,
+        licenseIsLifeLong: data['license_is_life_long'] as String?,
+        imageBehavior: data['image_behavior'] as String?,
       );
 
   static DriverDataStruct? maybeFromMap(dynamic data) => data is Map
@@ -242,6 +302,12 @@ class DriverDataStruct extends FFFirebaseStruct {
         'occupation_subcode': _occupationSubcode,
         'occupation_subname': _occupationSubname,
         'driver_behavior': _driverBehavior,
+        'email1': _email1,
+        'mobile1': _mobile1,
+        'driver_consent': _driverConsent,
+        'license_expiredate': _licenseExpiredate,
+        'license_is_life_long': _licenseIsLifeLong,
+        'image_behavior': _imageBehavior,
       }.withoutNulls;
 
   @override
@@ -324,6 +390,30 @@ class DriverDataStruct extends FFFirebaseStruct {
         ),
         'driver_behavior': serializeParam(
           _driverBehavior,
+          ParamType.String,
+        ),
+        'email1': serializeParam(
+          _email1,
+          ParamType.String,
+        ),
+        'mobile1': serializeParam(
+          _mobile1,
+          ParamType.String,
+        ),
+        'driver_consent': serializeParam(
+          _driverConsent,
+          ParamType.String,
+        ),
+        'license_expiredate': serializeParam(
+          _licenseExpiredate,
+          ParamType.String,
+        ),
+        'license_is_life_long': serializeParam(
+          _licenseIsLifeLong,
+          ParamType.String,
+        ),
+        'image_behavior': serializeParam(
+          _imageBehavior,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -430,6 +520,36 @@ class DriverDataStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        email1: deserializeParam(
+          data['email1'],
+          ParamType.String,
+          false,
+        ),
+        mobile1: deserializeParam(
+          data['mobile1'],
+          ParamType.String,
+          false,
+        ),
+        driverConsent: deserializeParam(
+          data['driver_consent'],
+          ParamType.String,
+          false,
+        ),
+        licenseExpiredate: deserializeParam(
+          data['license_expiredate'],
+          ParamType.String,
+          false,
+        ),
+        licenseIsLifeLong: deserializeParam(
+          data['license_is_life_long'],
+          ParamType.String,
+          false,
+        ),
+        imageBehavior: deserializeParam(
+          data['image_behavior'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -457,7 +577,13 @@ class DriverDataStruct extends FFFirebaseStruct {
         occupationName == other.occupationName &&
         occupationSubcode == other.occupationSubcode &&
         occupationSubname == other.occupationSubname &&
-        driverBehavior == other.driverBehavior;
+        driverBehavior == other.driverBehavior &&
+        email1 == other.email1 &&
+        mobile1 == other.mobile1 &&
+        driverConsent == other.driverConsent &&
+        licenseExpiredate == other.licenseExpiredate &&
+        licenseIsLifeLong == other.licenseIsLifeLong &&
+        imageBehavior == other.imageBehavior;
   }
 
   @override
@@ -481,7 +607,13 @@ class DriverDataStruct extends FFFirebaseStruct {
         occupationName,
         occupationSubcode,
         occupationSubname,
-        driverBehavior
+        driverBehavior,
+        email1,
+        mobile1,
+        driverConsent,
+        licenseExpiredate,
+        licenseIsLifeLong,
+        imageBehavior
       ]);
 }
 
@@ -506,6 +638,12 @@ DriverDataStruct createDriverDataStruct({
   String? occupationSubcode,
   String? occupationSubname,
   String? driverBehavior,
+  String? email1,
+  String? mobile1,
+  String? driverConsent,
+  String? licenseExpiredate,
+  String? licenseIsLifeLong,
+  String? imageBehavior,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -532,6 +670,12 @@ DriverDataStruct createDriverDataStruct({
       occupationSubcode: occupationSubcode,
       occupationSubname: occupationSubname,
       driverBehavior: driverBehavior,
+      email1: email1,
+      mobile1: mobile1,
+      driverConsent: driverConsent,
+      licenseExpiredate: licenseExpiredate,
+      licenseIsLifeLong: licenseIsLifeLong,
+      imageBehavior: imageBehavior,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,
