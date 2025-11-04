@@ -227,7 +227,13 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                                               .text !=
                                           '') &&
                                   (FFAppState().DriverList.elementAtOrNull(widget!.index!)?.imageIdcard != '') &&
-                                  (FFAppState().DriverList.elementAtOrNull(widget!.index!)?.imageLicenseNo != ''))) {
+                                  (FFAppState().DriverList.elementAtOrNull(widget!.index!)?.imageLicenseNo != '') &&
+                                  (FFAppState().DriverList.elementAtOrNull(widget!.index!)?.imageBehavior != '') &&
+                                  (_model.driverInfomationFormComponentModel.emailTextFieldTextController.text != null && _model.driverInfomationFormComponentModel.emailTextFieldTextController.text != '') &&
+                                  ((_model.driverInfomationFormComponentModel.cusPhoneTextFieldTextController.text != null && _model.driverInfomationFormComponentModel.cusPhoneTextFieldTextController.text != '') && functions.checkPhoneNumber10(functions.removeDatAndMakeUpperCase(_model.driverInfomationFormComponentModel.cusPhoneTextFieldTextController.text))!) &&
+                                  (FFAppState().DriverList.elementAtOrNull(widget!.index!)?.driverBehavior != '') &&
+                                  (FFAppState().DriverList.elementAtOrNull(widget!.index!)?.licenseIsLifeLong != 'Y' ? (FFAppState().DriverList.elementAtOrNull(widget!.index!)?.licenseExpiredate != '') : true) &&
+                                  (FFAppState().DriverList.elementAtOrNull(widget!.index!)?.driverConsent == 'Y'))) {
                                 await showDialog(
                                   context: context,
                                   builder: (alertDialogContext) {

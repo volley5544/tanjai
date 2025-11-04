@@ -117,12 +117,9 @@ class _DriverInfomationFormComponentWidgetState
         _model.emailTextFieldTextController?.text = FFAppState()
                     .DriverList
                     .elementAtOrNull(widget!.index!)
-                    ?.nationalThaiId !=
+                    ?.email1 !=
                 ''
-            ? FFAppState()
-                .DriverList
-                .elementAtOrNull(widget!.index!)!
-                .nationalThaiId
+            ? FFAppState().DriverList.elementAtOrNull(widget!.index!)!.email1
             : '';
       });
     });
@@ -179,20 +176,20 @@ class _DriverInfomationFormComponentWidgetState
     _model.driverLicenseTextfieldFocusNode ??= FocusNode();
 
     _model.emailTextFieldTextController ??= TextEditingController(
-        text: FFAppState()
-                    .DriverList
-                    .elementAtOrNull(widget!.index!)
-                    ?.nationalThaiId !=
+        text: FFAppState().DriverList.elementAtOrNull(widget!.index!)?.email1 !=
                 ''
-            ? FFAppState()
-                .DriverList
-                .elementAtOrNull(widget!.index!)
-                ?.nationalThaiId
+            ? FFAppState().DriverList.elementAtOrNull(widget!.index!)?.email1
             : '');
     _model.emailTextFieldFocusNode ??= FocusNode();
 
-    _model.cusPhoneTextFieldTextController ??=
-        TextEditingController(text: FFAppState().insuranceInfoPhonenumber);
+    _model.cusPhoneTextFieldTextController ??= TextEditingController(
+        text: FFAppState()
+                    .DriverList
+                    .elementAtOrNull(widget!.index!)
+                    ?.mobile1 !=
+                ''
+            ? FFAppState().DriverList.elementAtOrNull(widget!.index!)?.mobile1
+            : '');
     _model.cusPhoneTextFieldFocusNode ??= FocusNode();
 
     _model.cusPhoneTextFieldMask = MaskTextInputFormatter(mask: '###-###-####');
@@ -2111,7 +2108,7 @@ class _DriverInfomationFormComponentWidgetState
                                 FFAppState().updateDriverListAtIndex(
                                   widget!.index!,
                                   (e) => e
-                                    ..birthDay = functions
+                                    ..licenseExpiredate = functions
                                         .getDateFormat(_model.datePicked2),
                                 );
                                 safeSetState(() {});
@@ -2144,7 +2141,7 @@ class _DriverInfomationFormComponentWidgetState
                                                       .DriverList
                                                       .elementAtOrNull(
                                                           widget!.index!)
-                                                      ?.birthDay !=
+                                                      ?.licenseExpiredate !=
                                                   ''
                                               ? functions.showDateBE(functions
                                                   .parseStringToDatetime(
@@ -2152,9 +2149,9 @@ class _DriverInfomationFormComponentWidgetState
                                                           .DriverList
                                                           .elementAtOrNull(
                                                               widget!.index!)
-                                                          ?.birthDay)
+                                                          ?.licenseExpiredate)
                                                   ?.toString())
-                                              : 'กรุณาเลือกวันเดือนปีเกิด',
+                                              : 'กรุณาเลือกวันหมดอายุใบขับขี่',
                                           '-',
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -2441,6 +2438,36 @@ class _DriverInfomationFormComponentWidgetState
                                           .bodyMedium
                                           .fontStyle,
                                     ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  '(บังคับกรอก)',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: GoogleFonts.notoSansThai(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: Color(0xFFFB0606),
+                                        fontSize: 12.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                ),
                               ),
                             ],
                           ),
@@ -3509,10 +3536,509 @@ class _DriverInfomationFormComponentWidgetState
                     ),
                   ],
                 ),
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              12.0, 16.0, 12.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                'ภาพคะแนนพฤติกรรม',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.notoSansThai(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'บังคับถ่ายรูป',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: GoogleFonts.notoSansThai(
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: Color(0xFFFC0D0D),
+                                        fontSize: 13.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  12.0, 12.0, 12.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  FFButtonWidget(
+                                    onPressed: () async {
+                                      final selectedMedia =
+                                          await selectMediaWithSourceBottomSheet(
+                                        context: context,
+                                        imageQuality: 30,
+                                        allowPhoto: true,
+                                      );
+                                      if (selectedMedia != null &&
+                                          selectedMedia.every((m) =>
+                                              validateFileFormat(
+                                                  m.storagePath, context))) {
+                                        safeSetState(() => _model
+                                                .isDataUploading_driverUploadBehaviorImg =
+                                            true);
+                                        var selectedUploadedFiles =
+                                            <FFUploadedFile>[];
+
+                                        var downloadUrls = <String>[];
+                                        try {
+                                          selectedUploadedFiles = selectedMedia
+                                              .map((m) => FFUploadedFile(
+                                                    name: m.storagePath
+                                                        .split('/')
+                                                        .last,
+                                                    bytes: m.bytes,
+                                                    height:
+                                                        m.dimensions?.height,
+                                                    width: m.dimensions?.width,
+                                                    blurHash: m.blurHash,
+                                                  ))
+                                              .toList();
+
+                                          downloadUrls = (await Future.wait(
+                                            selectedMedia.map(
+                                              (m) async => await uploadData(
+                                                  m.storagePath, m.bytes),
+                                            ),
+                                          ))
+                                              .where((u) => u != null)
+                                              .map((u) => u!)
+                                              .toList();
+                                        } finally {
+                                          _model.isDataUploading_driverUploadBehaviorImg =
+                                              false;
+                                        }
+                                        if (selectedUploadedFiles.length ==
+                                                selectedMedia.length &&
+                                            downloadUrls.length ==
+                                                selectedMedia.length) {
+                                          safeSetState(() {
+                                            _model.uploadedLocalFile_driverUploadBehaviorImg =
+                                                selectedUploadedFiles.first;
+                                            _model.uploadedFileUrl_driverUploadBehaviorImg =
+                                                downloadUrls.first;
+                                          });
+                                        } else {
+                                          safeSetState(() {});
+                                          return;
+                                        }
+                                      }
+
+                                      if (!(_model.uploadedFileUrl_driverUploadBehaviorImg !=
+                                              null &&
+                                          _model.uploadedFileUrl_driverUploadBehaviorImg !=
+                                              '')) {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'อัพโหลดรูปภาพล้มเหลว กรุณาลองอีกครั้ง',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 3000),
+                                            backgroundColor: Color(0xB2000000),
+                                          ),
+                                        );
+                                        return;
+                                      }
+                                      FFAppState().updateDriverListAtIndex(
+                                        widget!.index!,
+                                        (e) => e
+                                          ..imageBehavior = _model
+                                              .uploadedFileUrl_driverUploadBehaviorImg,
+                                      );
+                                      safeSetState(() {});
+                                      ScaffoldMessenger.of(context)
+                                          .clearSnackBars();
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'อัพโหลดรูปภาพสำเร็จ',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 3000),
+                                          backgroundColor: Color(0xB2000000),
+                                        ),
+                                      );
+                                    },
+                                    text: 'ถ่ายรูป',
+                                    options: FFButtonOptions(
+                                      width: 125.0,
+                                      height: 45.0,
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 0.0, 24.0, 0.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color: Color(0xFFFCEFE4),
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            font: GoogleFonts.notoSansThai(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontStyle,
+                                            ),
+                                            color: Color(0xFFDB771A),
+                                            fontSize: 15.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontStyle,
+                                          ),
+                                      elevation: 3.0,
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          FFAppState()
+                                                          .DriverList
+                                                          .elementAtOrNull(
+                                                              widget!.index!)
+                                                          ?.imageBehavior !=
+                                                      null &&
+                                                  FFAppState()
+                                                          .DriverList
+                                                          .elementAtOrNull(
+                                                              widget!.index!)
+                                                          ?.imageBehavior !=
+                                                      ''
+                                              ? 'สถานะ : อัพโหลดแล้ว'
+                                              : 'สถานะ : ยังไม่อัพโหลด',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.notoSansThai(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ),
+                                      if (FFAppState()
+                                                  .DriverList
+                                                  .elementAtOrNull(
+                                                      widget!.index!)
+                                                  ?.imageBehavior !=
+                                              null &&
+                                          FFAppState()
+                                                  .DriverList
+                                                  .elementAtOrNull(
+                                                      widget!.index!)
+                                                  ?.imageBehavior !=
+                                              '')
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  4.0, 0.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                isDismissible: false,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          ShowImageComponentWidget(
+                                                        imageUrl: functions
+                                                            .stringToImgPath(FFAppState()
+                                                                .DriverList
+                                                                .elementAtOrNull(
+                                                                    widget!
+                                                                        .index!)
+                                                                ?.imageLicenseNo)!,
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: Icon(
+                                              Icons.image_search,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .tertiary,
+                                              size: 24.0,
+                                            ),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                  if (FFAppState()
+                                              .DriverList
+                                              .elementAtOrNull(widget!.index!)
+                                              ?.imageBehavior !=
+                                          null &&
+                                      FFAppState()
+                                              .DriverList
+                                              .elementAtOrNull(widget!.index!)
+                                              ?.imageBehavior !=
+                                          '')
+                                    Icon(
+                                      Icons.check,
+                                      color: Color(0xFF2EDD78),
+                                      size: 24.0,
+                                    ),
+                                  if (FFAppState()
+                                              .DriverList
+                                              .elementAtOrNull(widget!.index!)
+                                              ?.imageBehavior ==
+                                          null ||
+                                      FFAppState()
+                                              .DriverList
+                                              .elementAtOrNull(widget!.index!)
+                                              ?.imageBehavior ==
+                                          '')
+                                    Icon(
+                                      Icons.close,
+                                      color: Color(0xFFFC0A0A),
+                                      size: 24.0,
+                                    ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
                 Divider(
                   height: 40.0,
                   thickness: 1.0,
                   color: FlutterFlowTheme.of(context).accent4,
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 10.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      if (FFAppState()
+                              .DriverList
+                              .elementAtOrNull(widget!.index!)
+                              ?.driverConsent ==
+                          'Y') {
+                        FFAppState().updateDriverListAtIndex(
+                          widget!.index!,
+                          (e) => e..driverConsent = 'N',
+                        );
+                        safeSetState(() {});
+                      } else {
+                        FFAppState().updateDriverListAtIndex(
+                          widget!.index!,
+                          (e) => e..driverConsent = 'Y',
+                        );
+                        safeSetState(() {});
+                      }
+
+                      await actions.hideKeyboardAction(
+                        context,
+                      );
+                    },
+                    child: Container(
+                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      height: 60.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        borderRadius: BorderRadius.circular(8.0),
+                        border: Border.all(
+                          color: Color(0xFFB3B3B3),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: 100.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'ยินยอมหรือไม่?',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.notoSansThai(
+                                            fontWeight: FontWeight.w600,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: Color(0xFF003063),
+                                          fontSize: 15.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 10.0, 0.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Builder(
+                                      builder: (context) {
+                                        if (FFAppState()
+                                                .DriverList
+                                                .elementAtOrNull(widget!.index!)
+                                                ?.driverConsent ==
+                                            'Y') {
+                                          return Icon(
+                                            Icons.check_circle,
+                                            color: FlutterFlowTheme.of(context)
+                                                .success,
+                                            size: 24.0,
+                                          );
+                                        } else {
+                                          return Icon(
+                                            Icons.radio_button_off_outlined,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            size: 24.0,
+                                          );
+                                        }
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),

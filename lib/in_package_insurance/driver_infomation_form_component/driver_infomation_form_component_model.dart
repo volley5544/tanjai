@@ -73,6 +73,11 @@ class DriverInfomationFormComponentModel
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl_driverUploadLicenseNoImg = '';
 
+  bool isDataUploading_driverUploadBehaviorImg = false;
+  FFUploadedFile uploadedLocalFile_driverUploadBehaviorImg =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl_driverUploadBehaviorImg = '';
+
   @override
   void initState(BuildContext context) {}
 

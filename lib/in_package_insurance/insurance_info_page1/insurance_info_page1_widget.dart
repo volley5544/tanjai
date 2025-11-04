@@ -1094,6 +1094,13 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           occupationName: '',
           occupationSubcode: '',
           occupationSubname: '',
+          driverBehavior: '',
+          email1: '',
+          mobile1: '',
+          driverConsent: 'N',
+          licenseExpiredate: '',
+          licenseIsLifeLong: 'N',
+          imageBehavior: '',
         ));
         safeSetState(() {});
       }

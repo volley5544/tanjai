@@ -498,23 +498,6 @@ class _InsurerListOverallPageWidgetState
           FFAppState().sliderMaxSumInsuredPage2;
       safeSetState(() {});
       Navigator.pop(context);
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(functions.combineStringFromList(
-                  widget!.driverBehaviorScoreList?.toList())!),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
