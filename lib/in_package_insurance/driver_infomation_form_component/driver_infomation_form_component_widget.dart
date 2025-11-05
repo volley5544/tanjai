@@ -2337,6 +2337,10 @@ class _DriverInfomationFormComponentWidgetState
                                       'AddDriver',
                                       ParamType.String,
                                     ),
+                                    'index': serializeParam(
+                                      widget!.index,
+                                      ParamType.int,
+                                    ),
                                   }.withoutNulls,
                                 );
 
