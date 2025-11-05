@@ -17,27 +17,27 @@ class UploadImgPageModel extends FlutterFlowModel<UploadImgPageWidget> {
 
   bool isDataUploading_uploaded04 = false;
   FFUploadedFile uploadedLocalFile_uploaded04 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploaded041 = false;
   FFUploadedFile uploadedLocalFile_uploaded041 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploaded042 = false;
   FFUploadedFile uploadedLocalFile_uploaded042 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploaded043 = false;
   FFUploadedFile uploadedLocalFile_uploaded043 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploaded044 = false;
   FFUploadedFile uploadedLocalFile_uploaded044 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploaded045 = false;
   FFUploadedFile uploadedLocalFile_uploaded045 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_firebaseUploadedUrlList2 = false;
   List<FFUploadedFile> uploadedLocalFiles_firebaseUploadedUrlList2 = [];

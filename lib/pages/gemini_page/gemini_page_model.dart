@@ -19,7 +19,7 @@ class GeminiPageModel extends FlutterFlowModel<GeminiPageWidget> {
   String? Function(BuildContext, String?)? textControllerValidator;
   bool isDataUploading_uploadDataVkf = false;
   FFUploadedFile uploadedLocalFile_uploadDataVkf =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   // Stores action output result for [Gemini - Generate Text] action in Button widget.
   String? geminiAnswer;

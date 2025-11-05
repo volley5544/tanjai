@@ -241,6 +241,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                             ?.width,
                                                                         blurHash:
                                                                             m.blurHash,
+                                                                        originalFilename:
+                                                                            m.originalFilename,
                                                                       ))
                                                                   .toList();
                                                         } finally {
@@ -650,6 +652,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                               ?.width,
                                                                           blurHash:
                                                                               m.blurHash,
+                                                                          originalFilename:
+                                                                              m.originalFilename,
                                                                         ))
                                                                     .toList();
                                                           } finally {
@@ -1057,6 +1061,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                               ?.width,
                                                                           blurHash:
                                                                               m.blurHash,
+                                                                          originalFilename:
+                                                                              m.originalFilename,
                                                                         ))
                                                                     .toList();
                                                           } finally {
@@ -1464,6 +1470,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                               ?.width,
                                                                           blurHash:
                                                                               m.blurHash,
+                                                                          originalFilename:
+                                                                              m.originalFilename,
                                                                         ))
                                                                     .toList();
                                                           } finally {
@@ -1871,6 +1879,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                               ?.width,
                                                                           blurHash:
                                                                               m.blurHash,
+                                                                          originalFilename:
+                                                                              m.originalFilename,
                                                                         ))
                                                                     .toList();
                                                           } finally {
@@ -2279,6 +2289,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                               ?.width,
                                                                           blurHash:
                                                                               m.blurHash,
+                                                                          originalFilename:
+                                                                              m.originalFilename,
                                                                         ))
                                                                     .toList();
                                                           } finally {

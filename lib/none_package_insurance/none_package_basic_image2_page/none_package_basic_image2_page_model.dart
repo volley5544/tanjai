@@ -19,37 +19,37 @@ class NonePackageBasicImage2PageModel
 
   bool isDataUploading_blueBookUploadedAction1 = false;
   FFUploadedFile uploadedLocalFile_blueBookUploadedAction1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_blueBookUploadedAction1 = '';
 
   bool isDataUploading_normalIdCardUploadedAction1 = false;
   FFUploadedFile uploadedLocalFile_normalIdCardUploadedAction1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_normalIdCardUploadedAction1 = '';
 
   bool isDataUploading_imageOther1UploadedAction1 = false;
   FFUploadedFile uploadedLocalFile_imageOther1UploadedAction1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_imageOther1UploadedAction1 = '';
 
   bool isDataUploading_imageOther2UploadedAction1 = false;
   FFUploadedFile uploadedLocalFile_imageOther2UploadedAction1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_imageOther2UploadedAction1 = '';
 
   bool isDataUploading_imageOther3UploadedAction1 = false;
   FFUploadedFile uploadedLocalFile_imageOther3UploadedAction1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_imageOther3UploadedAction1 = '';
 
   bool isDataUploading_imageOther4UploadedAction1 = false;
   FFUploadedFile uploadedLocalFile_imageOther4UploadedAction1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_imageOther4UploadedAction1 = '';
 
   bool isDataUploading_imageOther5UploadedAction1 = false;
   FFUploadedFile uploadedLocalFile_imageOther5UploadedAction1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_imageOther5UploadedAction1 = '';
 
   // State field(s) for privacy_consent_1 widget.

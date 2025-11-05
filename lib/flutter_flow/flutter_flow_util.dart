@@ -587,7 +587,7 @@ String getCORSProxyUrl(String path) {
   }
   const proxyUrl =
       'https://us-central1-sawad-new-ibs.cloudfunctions.net/corsProxy?url=';
-  return '$proxyUrl$path';
+  return '$proxyUrl${Uri.encodeComponent(path)}';
 }
 
 // For iOS 16 and below, set the status bar color to match the app's theme.

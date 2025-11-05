@@ -25,27 +25,27 @@ class InsuranceInfoPage4Model
   late InfomationCustomerModel infomationCustomerModel;
   bool isDataUploading_uploaded41 = false;
   FFUploadedFile uploadedLocalFile_uploaded41 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploaded41 = '';
 
   bool isDataUploading_uploaded08 = false;
   FFUploadedFile uploadedLocalFile_uploaded08 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploaded08 = '';
 
   bool isDataUploading_uploadedCancel = false;
   FFUploadedFile uploadedLocalFile_uploadedCancel =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadedCancel = '';
 
   bool isDataUploading_uploadedAttoney = false;
   FFUploadedFile uploadedLocalFile_uploadedAttoney =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadedAttoney = '';
 
   bool isDataUploading_uploadedAttoneyIDcard = false;
   FFUploadedFile uploadedLocalFile_uploadedAttoneyIDcard =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadedAttoneyIDcard = '';
 
   @override

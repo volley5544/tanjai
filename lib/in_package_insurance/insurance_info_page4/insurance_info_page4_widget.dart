@@ -1220,6 +1220,7 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                                   height: m.dimensions?.height,
                                                                                                   width: m.dimensions?.width,
                                                                                                   blurHash: m.blurHash,
+                                                                                                  originalFilename: m.originalFilename,
                                                                                                 ))
                                                                                             .toList();
 
@@ -1802,6 +1803,7 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                                 height: m.dimensions?.height,
                                                                                                 width: m.dimensions?.width,
                                                                                                 blurHash: m.blurHash,
+                                                                                                originalFilename: m.originalFilename,
                                                                                               ))
                                                                                           .toList();
 
@@ -2383,6 +2385,7 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                                 height: m.dimensions?.height,
                                                                                                 width: m.dimensions?.width,
                                                                                                 blurHash: m.blurHash,
+                                                                                                originalFilename: m.originalFilename,
                                                                                               ))
                                                                                           .toList();
 
@@ -2971,6 +2974,7 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                                 height: m.dimensions?.height,
                                                                                                 width: m.dimensions?.width,
                                                                                                 blurHash: m.blurHash,
+                                                                                                originalFilename: m.originalFilename,
                                                                                               ))
                                                                                           .toList();
 
@@ -3481,6 +3485,7 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                                                 height: m.dimensions?.height,
                                                                                                 width: m.dimensions?.width,
                                                                                                 blurHash: m.blurHash,
+                                                                                                originalFilename: m.originalFilename,
                                                                                               ))
                                                                                           .toList();
 

@@ -19,11 +19,11 @@ class UploadImgFireInsurerPageModel
 
   bool isDataUploading_uploaded111 = false;
   FFUploadedFile uploadedLocalFile_uploaded111 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploaded112 = false;
   FFUploadedFile uploadedLocalFile_uploaded112 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_firebaseUploadedUrlList123 = false;
   List<FFUploadedFile> uploadedLocalFiles_firebaseUploadedUrlList123 = [];

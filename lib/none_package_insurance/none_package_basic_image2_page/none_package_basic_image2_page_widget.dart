@@ -301,6 +301,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                                     ?.width,
                                                                 blurHash:
                                                                     m.blurHash,
+                                                                originalFilename:
+                                                                    m.originalFilename,
                                                               ))
                                                           .toList();
 
@@ -640,6 +642,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                                             ?.width,
                                                                         blurHash:
                                                                             m.blurHash,
+                                                                        originalFilename:
+                                                                            m.originalFilename,
                                                                       ))
                                                                   .toList();
 
@@ -989,6 +993,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                                     ?.width,
                                                                 blurHash:
                                                                     m.blurHash,
+                                                                originalFilename:
+                                                                    m.originalFilename,
                                                               ))
                                                           .toList();
 
@@ -1243,6 +1249,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                                       ?.width,
                                                                   blurHash: m
                                                                       .blurHash,
+                                                                  originalFilename:
+                                                                      m.originalFilename,
                                                                 ))
                                                             .toList();
 
@@ -1498,6 +1506,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                                       ?.width,
                                                                   blurHash: m
                                                                       .blurHash,
+                                                                  originalFilename:
+                                                                      m.originalFilename,
                                                                 ))
                                                             .toList();
 
@@ -1753,6 +1763,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                                       ?.width,
                                                                   blurHash: m
                                                                       .blurHash,
+                                                                  originalFilename:
+                                                                      m.originalFilename,
                                                                 ))
                                                             .toList();
 
@@ -2008,6 +2020,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                                       ?.width,
                                                                   blurHash: m
                                                                       .blurHash,
+                                                                  originalFilename:
+                                                                      m.originalFilename,
                                                                 ))
                                                             .toList();
 

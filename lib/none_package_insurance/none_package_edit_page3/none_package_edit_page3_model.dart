@@ -26,52 +26,52 @@ class NonePackageEditPage3Model
 
   bool isDataUploading_oldVmiUploadedAction1 = false;
   FFUploadedFile uploadedLocalFile_oldVmiUploadedAction1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_oldVmiUploadedAction1 = '';
 
   bool isDataUploading_idCardUploadedAction1 = false;
   FFUploadedFile uploadedLocalFile_idCardUploadedAction1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_idCardUploadedAction1 = '';
 
   bool isDataUploading_companyBookUploadedAction1 = false;
   FFUploadedFile uploadedLocalFile_companyBookUploadedAction1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_companyBookUploadedAction1 = '';
 
   bool isDataUploading_blueBookUploadedAction = false;
   FFUploadedFile uploadedLocalFile_blueBookUploadedAction =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_blueBookUploadedAction = '';
 
   bool isDataUploading_normalIdCardUploadedAction = false;
   FFUploadedFile uploadedLocalFile_normalIdCardUploadedAction =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_normalIdCardUploadedAction = '';
 
   bool isDataUploading_imageOther1UploadedAction = false;
   FFUploadedFile uploadedLocalFile_imageOther1UploadedAction =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_imageOther1UploadedAction = '';
 
   bool isDataUploading_imageOther2UploadedAction = false;
   FFUploadedFile uploadedLocalFile_imageOther2UploadedAction =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_imageOther2UploadedAction = '';
 
   bool isDataUploading_imageOther3UploadedAction = false;
   FFUploadedFile uploadedLocalFile_imageOther3UploadedAction =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_imageOther3UploadedAction = '';
 
   bool isDataUploading_imageOther4UploadedAction = false;
   FFUploadedFile uploadedLocalFile_imageOther4UploadedAction =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_imageOther4UploadedAction = '';
 
   bool isDataUploading_imageOther5UploadedAction = false;
   FFUploadedFile uploadedLocalFile_imageOther5UploadedAction =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_imageOther5UploadedAction = '';
 
   // Stores action output result for [Backend Call - API (insuranceRequestEditAPI)] action in Button widget.

@@ -6746,6 +6746,8 @@ class _NonePackageBasicPageWidgetState
                                                                               ?.width,
                                                                           blurHash:
                                                                               m.blurHash,
+                                                                          originalFilename:
+                                                                              m.originalFilename,
                                                                         ))
                                                                     .toList();
 
@@ -7227,6 +7229,8 @@ class _NonePackageBasicPageWidgetState
                                                                               ?.width,
                                                                           blurHash:
                                                                               m.blurHash,
+                                                                          originalFilename:
+                                                                              m.originalFilename,
                                                                         ))
                                                                     .toList();
 
@@ -7659,6 +7663,8 @@ class _NonePackageBasicPageWidgetState
                                                                                 m.dimensions?.width,
                                                                             blurHash:
                                                                                 m.blurHash,
+                                                                            originalFilename:
+                                                                                m.originalFilename,
                                                                           ))
                                                                       .toList();
 

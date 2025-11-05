@@ -27,17 +27,17 @@ class FireInsuranceInfoPage4Model
       infomationCustomerFireInsuranceModel;
   bool isDataUploading_uploaded41Fire1 = false;
   FFUploadedFile uploadedLocalFile_uploaded41Fire1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploaded41Fire1 = '';
 
   bool isDataUploading_uploaded41Fire = false;
   FFUploadedFile uploadedLocalFile_uploaded41Fire =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploaded41Fire = '';
 
   bool isDataUploading_uploaded08Fire = false;
   FFUploadedFile uploadedLocalFile_uploaded08Fire =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploaded08Fire = '';
 
   @override

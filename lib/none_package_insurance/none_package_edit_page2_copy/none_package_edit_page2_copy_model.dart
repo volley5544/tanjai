@@ -18,39 +18,39 @@ class NonePackageEditPage2CopyModel
 
   bool isDataUploading_uploadPhoto13 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto13 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto235 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto235 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto335 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto335 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto435 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto435 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto535 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto535 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto6355 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto6355 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhotoShow35 = false;
   FFUploadedFile uploadedLocalFile_uploadPhotoShow35 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto835 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto835 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto935 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto935 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   @override
   void initState(BuildContext context) {}

@@ -463,6 +463,8 @@ class _NonePackageEditPage2CopyWidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {
@@ -627,6 +629,8 @@ class _NonePackageEditPage2CopyWidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {
@@ -791,6 +795,8 @@ class _NonePackageEditPage2CopyWidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {
@@ -955,6 +961,8 @@ class _NonePackageEditPage2CopyWidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {
@@ -1119,6 +1127,8 @@ class _NonePackageEditPage2CopyWidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {
@@ -1283,6 +1293,8 @@ class _NonePackageEditPage2CopyWidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {
@@ -1447,6 +1459,8 @@ class _NonePackageEditPage2CopyWidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {
@@ -1611,6 +1625,8 @@ class _NonePackageEditPage2CopyWidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {
@@ -1775,6 +1791,8 @@ class _NonePackageEditPage2CopyWidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {

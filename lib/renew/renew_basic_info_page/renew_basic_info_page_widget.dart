@@ -2001,6 +2001,8 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                                 m.dimensions?.width,
                                                                             blurHash:
                                                                                 m.blurHash,
+                                                                            originalFilename:
+                                                                                m.originalFilename,
                                                                           ))
                                                                       .toList();
 

@@ -14,7 +14,6 @@ import '/index.dart';
 import 'driver_infomation_form_component_widget.dart'
     show DriverInfomationFormComponentWidget;
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -65,17 +64,17 @@ class DriverInfomationFormComponentModel
       cusPhoneTextFieldTextControllerValidator;
   bool isDataUploading_driverUploadThaiIdImg = false;
   FFUploadedFile uploadedLocalFile_driverUploadThaiIdImg =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_driverUploadThaiIdImg = '';
 
   bool isDataUploading_driverUploadLicenseNoImg = false;
   FFUploadedFile uploadedLocalFile_driverUploadLicenseNoImg =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_driverUploadLicenseNoImg = '';
 
   bool isDataUploading_driverUploadBehaviorImg = false;
   FFUploadedFile uploadedLocalFile_driverUploadBehaviorImg =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_driverUploadBehaviorImg = '';
 
   @override

@@ -31,67 +31,67 @@ class InsuranceInfoPage3Model
   late InfomationCustomerActModel infomationCustomerActModel;
   bool isDataUploading_uploaded012 = false;
   FFUploadedFile uploadedLocalFile_uploaded012 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploaded012 = '';
 
   bool isDataUploading_uploaded022 = false;
   FFUploadedFile uploadedLocalFile_uploaded022 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploaded022 = '';
 
   bool isDataUploading_uploaded032 = false;
   FFUploadedFile uploadedLocalFile_uploaded032 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploaded032 = '';
 
   bool isDataUploading_uploaded032112 = false;
   FFUploadedFile uploadedLocalFile_uploaded032112 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploaded032112 = '';
 
   bool isDataUploading_upload01 = false;
   FFUploadedFile uploadedLocalFile_upload01 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_upload01 = '';
 
   bool isDataUploading_upload02 = false;
   FFUploadedFile uploadedLocalFile_upload02 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_upload02 = '';
 
   bool isDataUploading_upload03 = false;
   FFUploadedFile uploadedLocalFile_upload03 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_upload03 = '';
 
   bool isDataUploading_upload04 = false;
   FFUploadedFile uploadedLocalFile_upload04 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_upload04 = '';
 
   bool isDataUploading_uploadPhoto046 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto046 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto046 = '';
 
   bool isDataUploading_uploadPhoto06 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto06 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto06 = '';
 
   bool isDataUploading_uploadDataUzm6 = false;
   FFUploadedFile uploadedLocalFile_uploadDataUzm6 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadDataUzm6 = '';
 
   bool isDataUploading_uploadDataUzm5 = false;
   FFUploadedFile uploadedLocalFile_uploadDataUzm5 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadDataUzm5 = '';
 
   bool isDataUploading_uploadPhoto061 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto061 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto061 = '';
 
   // State field(s) for sensitive_consent widget.

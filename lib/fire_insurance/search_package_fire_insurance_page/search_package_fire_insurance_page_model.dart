@@ -57,7 +57,7 @@ class SearchPackageFireInsurancePageModel
   String? userUID;
   bool isDataUploading_uploadData00m = false;
   FFUploadedFile uploadedLocalFile_uploadData00m =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   // Stores action output result for [Custom Action - uploadFileFirebaseStorage] action in Text widget.
   String? uploadStorageOutput;

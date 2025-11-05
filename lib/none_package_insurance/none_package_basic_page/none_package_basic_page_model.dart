@@ -121,17 +121,17 @@ class NonePackageBasicPageModel
       remarkTextFieldTextControllerValidator;
   bool isDataUploading_oldVmiUploadedAction = false;
   FFUploadedFile uploadedLocalFile_oldVmiUploadedAction =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_oldVmiUploadedAction = '';
 
   bool isDataUploading_idCardUploadedAction = false;
   FFUploadedFile uploadedLocalFile_idCardUploadedAction =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_idCardUploadedAction = '';
 
   bool isDataUploading_companyBookUploadedAction = false;
   FFUploadedFile uploadedLocalFile_companyBookUploadedAction =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_companyBookUploadedAction = '';
 
   @override

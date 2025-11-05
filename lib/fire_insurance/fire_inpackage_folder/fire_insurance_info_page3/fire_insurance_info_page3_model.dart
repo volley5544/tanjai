@@ -31,22 +31,22 @@ class FireInsuranceInfoPage3Model
       infomationCustomerFireInsuranceModel;
   bool isDataUploading_uploaded012Fire = false;
   FFUploadedFile uploadedLocalFile_uploaded012Fire =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploaded012Fire = '';
 
   bool isDataUploading_uploaded022Fire = false;
   FFUploadedFile uploadedLocalFile_uploaded022Fire =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploaded022Fire = '';
 
   bool isDataUploading_uploaded0322 = false;
   FFUploadedFile uploadedLocalFile_uploaded0322 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploaded0322 = '';
 
   bool isDataUploading_uploadedAttoneyIDcardhouse = false;
   FFUploadedFile uploadedLocalFile_uploadedAttoneyIDcardhouse =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadedAttoneyIDcardhouse = '';
 
   // State field(s) for sensitive_consent widget.

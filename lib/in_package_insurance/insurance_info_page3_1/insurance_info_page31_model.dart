@@ -29,117 +29,117 @@ class InsuranceInfoPage31Model
   late InfomationCustomerModel infomationCustomerModel;
   bool isDataUploading_uploaded0122 = false;
   FFUploadedFile uploadedLocalFile_uploaded0122 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploaded0122 = '';
 
   bool isDataUploading_blueBookUploadedAction12 = false;
   FFUploadedFile uploadedLocalFile_blueBookUploadedAction12 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_blueBookUploadedAction12 = '';
 
   bool isDataUploading_normalIdCardUploadedAction1 = false;
   FFUploadedFile uploadedLocalFile_normalIdCardUploadedAction1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_normalIdCardUploadedAction1 = '';
 
   bool isDataUploading_quotationPdfUploadedAction1 = false;
   FFUploadedFile uploadedLocalFile_quotationPdfUploadedAction1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_quotationPdfUploadedAction1 = '';
 
   bool isDataUploading_oldVmiUploadedAction2 = false;
   FFUploadedFile uploadedLocalFile_oldVmiUploadedAction2 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_oldVmiUploadedAction2 = '';
 
   bool isDataUploading_companyBookUploadedAction2 = false;
   FFUploadedFile uploadedLocalFile_companyBookUploadedAction2 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_companyBookUploadedAction2 = '';
 
   bool isDataUploading_uploadPhoto1579 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto1579 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto1579 = '';
 
   bool isDataUploading_uploadPhoto2579 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto2579 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto2579 = '';
 
   bool isDataUploading_uploadPhoto3579 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto3579 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto3579 = '';
 
   bool isDataUploading_uploadPhoto4579 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto4579 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto4579 = '';
 
   bool isDataUploading_uploadPhoto5579 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto5579 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto5579 = '';
 
   bool isDataUploading_uploadPhoto6579 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto6579 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto6579 = '';
 
   bool isDataUploading_uploadPhotoShow579 = false;
   FFUploadedFile uploadedLocalFile_uploadPhotoShow579 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhotoShow579 = '';
 
   bool isDataUploading_uploadPhoto8579 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto8579 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto8579 = '';
 
   bool isDataUploading_uploadPhoto9579 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto9579 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto9579 = '';
 
   bool isDataUploading_uploadPhoto15179 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto15179 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto15179 = '';
 
   bool isDataUploading_uploadPhoto25179 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto25179 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto25179 = '';
 
   bool isDataUploading_uploadPhoto35179 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto35179 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto35179 = '';
 
   bool isDataUploading_uploadPhoto45179 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto45179 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto45179 = '';
 
   bool isDataUploading_uploadPhoto55179 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto55179 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto55179 = '';
 
   bool isDataUploading_uploadPhoto65179 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto65179 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto65179 = '';
 
   bool isDataUploading_uploadPhotoShow5179 = false;
   FFUploadedFile uploadedLocalFile_uploadPhotoShow5179 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhotoShow5179 = '';
 
   bool isDataUploading_uploadPhoto85179 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto85179 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto85179 = '';
 
   // State field(s) for sensitive_consent widget.

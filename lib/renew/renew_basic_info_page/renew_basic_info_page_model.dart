@@ -38,7 +38,7 @@ class RenewBasicInfoPageModel
   ApiCallResponse? profileImgOutputPage;
   bool isDataUploading_uploaded0321 = false;
   FFUploadedFile uploadedLocalFile_uploaded0321 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploaded0321 = '';
 
   // State field(s) for licenseCode widget.

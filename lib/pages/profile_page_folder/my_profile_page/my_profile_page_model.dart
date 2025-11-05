@@ -27,7 +27,7 @@ class MyProfilePageModel extends FlutterFlowModel<MyProfilePageWidget> {
 
   bool isDataUploading_uploadedProfileImage = false;
   FFUploadedFile uploadedLocalFile_uploadedProfileImage =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadedProfileImage = '';
 
   @override

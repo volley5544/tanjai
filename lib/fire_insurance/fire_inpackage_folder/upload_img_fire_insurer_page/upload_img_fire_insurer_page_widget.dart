@@ -243,6 +243,8 @@ class _UploadImgFireInsurerPageWidgetState
                                                                             ?.width,
                                                                         blurHash:
                                                                             m.blurHash,
+                                                                        originalFilename:
+                                                                            m.originalFilename,
                                                                       ))
                                                                   .toList();
                                                         } finally {
@@ -652,6 +654,8 @@ class _UploadImgFireInsurerPageWidgetState
                                                                               ?.width,
                                                                           blurHash:
                                                                               m.blurHash,
+                                                                          originalFilename:
+                                                                              m.originalFilename,
                                                                         ))
                                                                     .toList();
                                                           } finally {

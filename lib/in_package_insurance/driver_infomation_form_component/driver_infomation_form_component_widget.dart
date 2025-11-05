@@ -12,7 +12,6 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -2288,6 +2287,32 @@ class _DriverInfomationFormComponentWidgetState
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
+                                FFAppState().driverBehaviorData =
+                                    FFAppState().isProduction
+                                        ? DriverBehaviorDataModelStruct(
+                                            driverBehavior: widget!
+                                                .firestoreDataConfigList
+                                                ?.driverBehavior,
+                                            driverBehaviorName: widget!
+                                                .firestoreDataConfigList
+                                                ?.driverBehaviorName,
+                                            driverBehaviorFlag: widget!
+                                                .firestoreDataConfigList
+                                                ?.driverBehaviorFlag,
+                                          )
+                                        : DriverBehaviorDataModelStruct(
+                                            driverBehavior: widget!
+                                                .firestoreDataConfigList
+                                                ?.driverBehaviorUat,
+                                            driverBehaviorName: widget!
+                                                .firestoreDataConfigList
+                                                ?.driverBehaviorNameUat,
+                                            driverBehaviorFlag: widget!
+                                                .firestoreDataConfigList
+                                                ?.driverBehaviorFlagUat,
+                                          );
+                                safeSetState(() {});
+
                                 context.pushNamed(
                                   SearchableDriverBehaviorListPageWidget
                                       .routeName,
@@ -2679,11 +2704,6 @@ class _DriverInfomationFormComponentWidgetState
                                   controller:
                                       _model.cusPhoneTextFieldTextController,
                                   focusNode: _model.cusPhoneTextFieldFocusNode,
-                                  onChanged: (_) => EasyDebounce.debounce(
-                                    '_model.cusPhoneTextFieldTextController',
-                                    Duration(milliseconds: 500),
-                                    () => safeSetState(() {}),
-                                  ),
                                   autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
@@ -2766,11 +2786,13 @@ class _DriverInfomationFormComponentWidgetState
                                             .bodyMedium
                                             .fontStyle,
                                       ),
-                                  maxLength:
-                                      FFAppState().insuranceInfoPhonenumber ==
-                                              ''
-                                          ? 12
-                                          : 10,
+                                  maxLength: FFAppState()
+                                              .DriverList
+                                              .elementAtOrNull(widget!.index!)
+                                              ?.mobile1 ==
+                                          ''
+                                      ? 12
+                                      : 10,
                                   maxLengthEnforcement:
                                       MaxLengthEnforcement.enforced,
                                   buildCounter: (context,
@@ -2897,6 +2919,8 @@ class _DriverInfomationFormComponentWidgetState
                                                         m.dimensions?.height,
                                                     width: m.dimensions?.width,
                                                     blurHash: m.blurHash,
+                                                    originalFilename:
+                                                        m.originalFilename,
                                                   ))
                                               .toList();
 
@@ -3268,6 +3292,8 @@ class _DriverInfomationFormComponentWidgetState
                                                         m.dimensions?.height,
                                                     width: m.dimensions?.width,
                                                     blurHash: m.blurHash,
+                                                    originalFilename:
+                                                        m.originalFilename,
                                                   ))
                                               .toList();
 
@@ -3639,6 +3665,8 @@ class _DriverInfomationFormComponentWidgetState
                                                         m.dimensions?.height,
                                                     width: m.dimensions?.width,
                                                     blurHash: m.blurHash,
+                                                    originalFilename:
+                                                        m.originalFilename,
                                                   ))
                                               .toList();
 
