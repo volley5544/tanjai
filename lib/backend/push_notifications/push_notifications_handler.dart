@@ -749,6 +749,7 @@ final parametersBuilderMap =
           'multiSelect': getParameter<bool>(data, 'multiSelect'),
           'maxSelected': getParameter<int>(data, 'maxSelected'),
           'fromPage': getParameter<String>(data, 'fromPage'),
+          'index': getParameter<int>(data, 'index'),
         },
       ),
   'AddBatteryPage': (data) async => ParameterData(

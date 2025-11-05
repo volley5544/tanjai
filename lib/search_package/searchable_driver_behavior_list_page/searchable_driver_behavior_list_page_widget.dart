@@ -1,3 +1,4 @@
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -20,6 +21,7 @@ class SearchableDriverBehaviorListPageWidget extends StatefulWidget {
     bool? multiSelect,
     int? maxSelected,
     this.fromPage,
+    this.index,
   })  : this.titleText = titleText ?? 'เลือก...',
         this.multiSelect = multiSelect ?? false,
         this.maxSelected = maxSelected ?? 0;
@@ -29,6 +31,7 @@ class SearchableDriverBehaviorListPageWidget extends StatefulWidget {
   final bool multiSelect;
   final int maxSelected;
   final String? fromPage;
+  final int? index;
 
   static String routeName = 'SearchableDriverBehaviorListPage';
   static String routePath = 'SearchableDriverBehaviorListPage';
@@ -434,24 +437,40 @@ class _SearchableDriverBehaviorListPageWidgetState
                                                             dataListIndex)!;
                                                 safeSetState(() {});
                                               } else {
-                                                FFAppState()
-                                                        .insuranceBasicDriverBehaviorName =
-                                                    dataListItem;
-                                                FFAppState()
-                                                        .insuranceBasicDriverBehaviorCode =
-                                                    FFAppState()
-                                                        .driverBehaviorData
-                                                        .driverBehavior
-                                                        .elementAtOrNull(
-                                                            dataListIndex)!;
-                                                FFAppState()
-                                                        .insuranceBasicDriverBehaviorFlag =
-                                                    FFAppState()
-                                                        .driverBehaviorData
-                                                        .driverBehaviorFlag
-                                                        .elementAtOrNull(
-                                                            dataListIndex)!;
-                                                safeSetState(() {});
+                                                if ('${widget!.fromPage}' ==
+                                                    'AddDriver') {
+                                                  FFAppState()
+                                                      .updateDriverListAtIndex(
+                                                    widget!.index!,
+                                                    (e) => e
+                                                      ..driverBehavior =
+                                                          FFAppState()
+                                                              .driverBehaviorData
+                                                              .driverBehavior
+                                                              .elementAtOrNull(
+                                                                  dataListIndex),
+                                                  );
+                                                  safeSetState(() {});
+                                                } else {
+                                                  FFAppState()
+                                                          .insuranceBasicDriverBehaviorName =
+                                                      dataListItem;
+                                                  FFAppState()
+                                                          .insuranceBasicDriverBehaviorCode =
+                                                      FFAppState()
+                                                          .driverBehaviorData
+                                                          .driverBehavior
+                                                          .elementAtOrNull(
+                                                              dataListIndex)!;
+                                                  FFAppState()
+                                                          .insuranceBasicDriverBehaviorFlag =
+                                                      FFAppState()
+                                                          .driverBehaviorData
+                                                          .driverBehaviorFlag
+                                                          .elementAtOrNull(
+                                                              dataListIndex)!;
+                                                  safeSetState(() {});
+                                                }
                                               }
 
                                               if (FFAppState()

@@ -2543,6 +2543,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'fromPage',
                   ParamType.String,
                 ),
+                index: params.getParam(
+                  'index',
+                  ParamType.int,
+                ),
               ),
             ),
             FFRoute(

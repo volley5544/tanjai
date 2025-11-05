@@ -2333,6 +2333,10 @@ class _DriverInfomationFormComponentWidgetState
                                       0,
                                       ParamType.int,
                                     ),
+                                    'fromPage': serializeParam(
+                                      'AddDriver',
+                                      ParamType.String,
+                                    ),
                                   }.withoutNulls,
                                 );
 
