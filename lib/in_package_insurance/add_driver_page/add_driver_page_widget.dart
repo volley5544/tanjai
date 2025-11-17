@@ -312,7 +312,15 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                                   ..occupationSubname = FFAppState()
                                       .DriverList
                                       .elementAtOrNull(widget!.index!)
-                                      ?.occupationSubname,
+                                      ?.occupationSubname
+                                  ..email1 = _model
+                                      .driverInfomationFormComponentModel
+                                      .emailTextFieldTextController
+                                      .text
+                                  ..mobile1 = _model
+                                      .driverInfomationFormComponentModel
+                                      .cusPhoneTextFieldTextController
+                                      .text,
                               );
                               safeSetState(() {});
                               context.safePop();
