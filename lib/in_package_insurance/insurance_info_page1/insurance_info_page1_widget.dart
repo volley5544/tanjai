@@ -1006,6 +1006,16 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
               )).toList(), widget!.leadDtailId))}';
+      FFAppState().insuranceInfoPage2CarMotor =
+          IbsApplicationsDetailCall.carmotor(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )!
+              .toList()
+              .cast<String>();
+      FFAppState().InsuranceInfoPage2ChangeBatteryFlag =
+          IbsApplicationsDetailCall.changebatteryflag(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )!;
       safeSetState(() {});
       if (FFAppState().insuranceInfoApplicationType != 'auto') {
         FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
