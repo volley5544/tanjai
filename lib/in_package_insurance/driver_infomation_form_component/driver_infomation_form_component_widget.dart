@@ -2404,7 +2404,10 @@ class _DriverInfomationFormComponentWidgetState
                                                         .fontStyle,
                                               ),
                                               color: FFAppState()
-                                                          .insuranceBasicDriverBehaviorName ==
+                                                          .DriverList
+                                                          .elementAtOrNull(
+                                                              widget!.index!)
+                                                          ?.driverBehavior ==
                                                       ''
                                                   ? Color(0xFF9F9F9F)
                                                   : Colors.black,

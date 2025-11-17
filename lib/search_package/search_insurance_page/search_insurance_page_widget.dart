@@ -3554,7 +3554,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                 ),
                               ),
                             ),
-                          if (true)
+                          if (false)
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 5.0, 0.0, 0.0),
@@ -4354,117 +4354,6 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                               FFAppState().filterGarageTypeList = [];
                               FFAppState().filterCoverTypeList = [];
                               safeSetState(() {});
-                              if (FFAppState().searchPackageSubProduct !=
-                                  'MC') {
-                                if (!((FFAppState()
-                                            .insuranceBasicDriverBehaviorName !=
-                                        '') &&
-                                    (FFAppState()
-                                            .insuranceBasicDriverBehaviorCode !=
-                                        ''))) {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return WebViewAware(
-                                        child: AlertDialog(
-                                          content: Text(
-                                              'บังคับเลือกพฤติกรรมผู้ขับขี่'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  );
-                                  return;
-                                }
-
-                                context.pushNamed(
-                                  InsurerListOverallPageWidget.routeName,
-                                  queryParameters: {
-                                    'brandCode': serializeParam(
-                                      FFAppState().insuranceBasicBrandId,
-                                      ParamType.String,
-                                    ),
-                                    'modelCode': serializeParam(
-                                      FFAppState().insuranceBasicModelId,
-                                      ParamType.String,
-                                    ),
-                                    'year': serializeParam(
-                                      (int.parse(FFAppState()
-                                                  .insuranceBasicYear) -
-                                              543)
-                                          .toString(),
-                                      ParamType.String,
-                                    ),
-                                    'province': serializeParam(
-                                      FFAppState()
-                                          .insuranceInfoRegistrationProvinceSelect,
-                                      ParamType.String,
-                                    ),
-                                    'vehicleUsage': serializeParam(
-                                      FFAppState()
-                                          .insuranceBasicVehicleUsedTypeCode,
-                                      ParamType.String,
-                                    ),
-                                    'coverType': serializeParam(
-                                      FFAppState()
-                                          .insuranceBasicCoverTypeCodeOutputList,
-                                      ParamType.String,
-                                      isList: true,
-                                    ),
-                                    'garageType': serializeParam(
-                                      functions.createGarageTypeCodeList(
-                                          FFAppState()
-                                              .insuranceBasicGarageTypeInPackage
-                                              .toList()),
-                                      ParamType.String,
-                                      isList: true,
-                                    ),
-                                    'brandName': serializeParam(
-                                      FFAppState().insuranceBasicBrandName,
-                                      ParamType.String,
-                                    ),
-                                    'modelName': serializeParam(
-                                      FFAppState().insuranceBasicModelName,
-                                      ParamType.String,
-                                    ),
-                                    'carTypeDetail': serializeParam(
-                                      '',
-                                      ParamType.String,
-                                    ),
-                                    'oldVmiExpDate': serializeParam(
-                                      _model.datePicked != null
-                                          ? functions
-                                              .getDateFormat(_model.datePicked)
-                                          : '',
-                                      ParamType.String,
-                                    ),
-                                    'provinceCode': serializeParam(
-                                      FFAppState()
-                                          .insuranceInfoRegistrationCodeSelect,
-                                      ParamType.String,
-                                    ),
-                                    'driverBehaviorScoreList': serializeParam(
-                                      functions.filledDataInListByLength(
-                                          FFAppState()
-                                              .insuranceBasicDriverBehaviorCode,
-                                          FFAppState()
-                                              .driverBehaviorData
-                                              .driverBehavior
-                                              .length),
-                                      ParamType.String,
-                                      isList: true,
-                                    ),
-                                  }.withoutNulls,
-                                );
-
-                                return;
-                              }
 
                               context.pushNamed(
                                 InsurerListPageWidget.routeName,

@@ -7830,7 +7830,9 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                       ),
                                     ),
                                   ),
-                                  if (FFAppState().insuranceInfoEvFlag == 'Y')
+                                  if ((FFAppState().insuranceInfoEvFlag ==
+                                          'Y') &&
+                                      false)
                                     Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -8930,22 +8932,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                         focusColor: Colors.transparent,
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          context.pushNamed(
-                                            ShowDriverPageWidget.routeName,
-                                            queryParameters: {
-                                              'firestoreDataConfigList':
-                                                  serializeParam(
-                                                widget!.masterDataFirebase,
-                                                ParamType.Document,
-                                              ),
-                                            }.withoutNulls,
-                                            extra: <String, dynamic>{
-                                              'firestoreDataConfigList':
-                                                  widget!.masterDataFirebase,
-                                            },
-                                          );
-                                        },
+                                        onTap: () async {},
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
@@ -11749,82 +11736,6 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                         .sizeTextFieldTextController
                                                         .text;
                                                 safeSetState(() {});
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                      child: AlertDialog(
-                                                        title: Text('Driver'),
-                                                        content: Text((FFAppState()
-                                                                .DriverList
-                                                                .elementAtOrNull(
-                                                                    0)!
-                                                                .toMap())
-                                                            .toString()),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    );
-                                                  },
-                                                );
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                      child: AlertDialog(
-                                                        title: Text('EV'),
-                                                        content: Text((FFAppState()
-                                                                .EvBatteryData
-                                                                .elementAtOrNull(
-                                                                    0)!
-                                                                .toMap())
-                                                            .toString()),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    );
-                                                  },
-                                                );
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                      child: AlertDialog(
-                                                        content: Text(functions
-                                                            .jsonListToJson(
-                                                                FFAppState()
-                                                                    .EvBatteryData
-                                                                    .map((e) =>
-                                                                        e.toMap())
-                                                                    .toList())!
-                                                            .toString()),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    );
-                                                  },
-                                                );
                                                 _model.ibsAppAPIOutput =
                                                     await IbsApplicationsSaveCall
                                                         .call(

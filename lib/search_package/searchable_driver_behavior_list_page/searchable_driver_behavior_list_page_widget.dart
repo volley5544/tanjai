@@ -512,6 +512,29 @@ class _SearchableDriverBehaviorListPageWidgetState
                                                 }
                                               }
 
+                                              await showDialog(
+                                                context: context,
+                                                builder: (alertDialogContext) {
+                                                  return WebViewAware(
+                                                    child: AlertDialog(
+                                                      content: Text(FFAppState()
+                                                          .driverBehaviorData
+                                                          .driverBehaviorFlag
+                                                          .elementAtOrNull(
+                                                              dataListIndex)!
+                                                          .toString()),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                },
+                                              );
                                               if (FFAppState()
                                                       .driverBehaviorData
                                                       .driverBehaviorFlag
