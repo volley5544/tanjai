@@ -107,27 +107,9 @@ class _InsurerListOverallPageWidgetState
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
         garageTypeList: widget!.garageType,
         province: widget!.province,
+        driverBehaviorList: widget!.driverBehaviorScoreList,
       );
 
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(TelePackageSearchAPICall.statusLayer1(
-                (_model.packageAPIOutput?.jsonBody ?? ''),
-              )!
-                  .toString()),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       if ((_model.packageAPIOutput?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
