@@ -571,6 +571,7 @@ final parametersBuilderMap =
           'carTypeDetail': getParameter<String>(data, 'carTypeDetail'),
           'oldVmiExpDate': getParameter<String>(data, 'oldVmiExpDate'),
           'provinceCode': getParameter<String>(data, 'provinceCode'),
+          'driverFlag': getParameter<String>(data, 'driverFlag'),
         },
       ),
   'SearchableHouseList': (data) async => ParameterData(

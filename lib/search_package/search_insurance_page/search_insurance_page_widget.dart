@@ -4549,6 +4549,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                       ParamType.String,
                                       isList: true,
                                     ),
+                                    'driverFlag': serializeParam(
+                                      _model.driverFlag ? '1' : '0',
+                                      ParamType.String,
+                                    ),
                                   }.withoutNulls,
                                 );
 

@@ -1992,6 +1992,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                   isList: true,
                 ),
+                driverFlag: params.getParam(
+                  'driverFlag',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(

@@ -38,6 +38,7 @@ class InsurerListOverallPageWidget extends StatefulWidget {
     required this.oldVmiExpDate,
     required this.provinceCode,
     required this.driverBehaviorScoreList,
+    required this.driverFlag,
   });
 
   final String? brandCode;
@@ -53,6 +54,7 @@ class InsurerListOverallPageWidget extends StatefulWidget {
   final String? oldVmiExpDate;
   final String? provinceCode;
   final List<String>? driverBehaviorScoreList;
+  final String? driverFlag;
 
   static String routeName = 'insurerListOverallPage';
   static String routePath = 'insurerListOverallPage';
@@ -108,6 +110,7 @@ class _InsurerListOverallPageWidgetState
         garageTypeList: widget!.garageType,
         province: widget!.province,
         driverBehaviorList: widget!.driverBehaviorScoreList,
+        driver: widget!.driverFlag,
       );
 
       if ((_model.packageAPIOutput?.statusCode ?? 200) != 200) {
