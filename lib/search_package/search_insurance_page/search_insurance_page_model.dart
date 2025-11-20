@@ -32,6 +32,8 @@ class SearchInsurancePageModel
 
   DataListRecord? masterDataDoc;
 
+  bool driverFlag = false;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Custom Action - getBuildVersion1] action in SearchInsurancePage widget.

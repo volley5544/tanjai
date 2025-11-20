@@ -14463,6 +14463,12 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInInsuranceInfoPage2CarMotor(int index, String value) {
     insuranceInfoPage2CarMotor.insert(index, value);
   }
+
+  String _insuranceInfoPage2DriverType = '';
+  String get insuranceInfoPage2DriverType => _insuranceInfoPage2DriverType;
+  set insuranceInfoPage2DriverType(String value) {
+    _insuranceInfoPage2DriverType = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

@@ -8931,6 +8931,12 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
+                                          if (FFAppState()
+                                                  .insuranceInfoPage2DriverType !=
+                                              '1') {
+                                            return;
+                                          }
+
                                           context.pushNamed(
                                             ShowDriverPageWidget.routeName,
                                             queryParameters: {
@@ -8973,45 +8979,46 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                             .fromSTEB(10.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      (FFAppState().DriverList.length ==
-                                                                  0
-                                                              ? false
-                                                              : ((FFAppState()
+                                                      FFAppState().insuranceInfoPage2DriverType ==
+                                                              '1'
+                                                          ? ((FFAppState()
                                                                           .DriverList
-                                                                          .firstOrNull
-                                                                          ?.firstNameTh !=
-                                                                      '') &&
-                                                                  (FFAppState()
-                                                                          .DriverList
-                                                                          .firstOrNull
-                                                                          ?.lastNameTh !=
-                                                                      '') &&
-                                                                  (FFAppState()
-                                                                          .DriverList
-                                                                          .firstOrNull
-                                                                          ?.birthDay !=
-                                                                      '') &&
-                                                                  (FFAppState()
-                                                                          .DriverList
-                                                                          .firstOrNull
-                                                                          ?.nationalThaiId !=
-                                                                      '') &&
-                                                                  (FFAppState()
-                                                                          .DriverList
-                                                                          .firstOrNull
-                                                                          ?.licenseNo !=
-                                                                      '') &&
-                                                                  (FFAppState()
-                                                                          .DriverList
-                                                                          .firstOrNull
-                                                                          ?.imageIdcard !=
-                                                                      '') &&
-                                                                  (FFAppState()
-                                                                          .DriverList
-                                                                          .firstOrNull
-                                                                          ?.imageLicenseNo !=
-                                                                      '')))
-                                                          ? 'ระบุผู้ขับขี่'
+                                                                          .length ==
+                                                                      0
+                                                                  ? false
+                                                                  : ((FFAppState().DriverList.firstOrNull?.firstNameTh != '') &&
+                                                                      (FFAppState()
+                                                                              .DriverList
+                                                                              .firstOrNull
+                                                                              ?.lastNameTh !=
+                                                                          '') &&
+                                                                      (FFAppState()
+                                                                              .DriverList
+                                                                              .firstOrNull
+                                                                              ?.birthDay !=
+                                                                          '') &&
+                                                                      (FFAppState()
+                                                                              .DriverList
+                                                                              .firstOrNull
+                                                                              ?.nationalThaiId !=
+                                                                          '') &&
+                                                                      (FFAppState()
+                                                                              .DriverList
+                                                                              .firstOrNull
+                                                                              ?.licenseNo !=
+                                                                          '') &&
+                                                                      (FFAppState()
+                                                                              .DriverList
+                                                                              .firstOrNull
+                                                                              ?.imageIdcard !=
+                                                                          '') &&
+                                                                      (FFAppState()
+                                                                              .DriverList
+                                                                              .firstOrNull
+                                                                              ?.imageLicenseNo !=
+                                                                          '')))
+                                                              ? 'ระบุผู้ขับขี่'
+                                                              : 'ไม่ระบุผู้ขับขี่')
                                                           : 'ไม่ระบุผู้ขับขี่',
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -9041,9 +9048,12 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                           ),
                                                     ),
                                                   ),
-                                                  if (FFAppState()
-                                                          .insuranceinfoActType !=
-                                                      'MC')
+                                                  if ((FFAppState()
+                                                              .insuranceinfoActType !=
+                                                          'MC') &&
+                                                      (FFAppState()
+                                                              .insuranceInfoPage2DriverType ==
+                                                          '1'))
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -10677,83 +10687,88 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                         safeSetState(() {});
                                                       return;
                                                     }
-                                                    if (!() {
-                                                      if (FFAppState()
-                                                              .DriverList
-                                                              .length ==
-                                                          0) {
-                                                        return false;
-                                                      } else if (FFAppState()
-                                                              .DriverList
-                                                              .length ==
-                                                          1) {
-                                                        return ((FFAppState()
-                                                                    .DriverList
-                                                                    .length ==
-                                                                1) &&
-                                                            ((FFAppState()
-                                                                        .DriverList
-                                                                        .firstOrNull
-                                                                        ?.firstNameTh !=
-                                                                    '') &&
-                                                                (FFAppState()
-                                                                        .DriverList
-                                                                        .firstOrNull
-                                                                        ?.lastNameTh !=
-                                                                    '') &&
-                                                                (FFAppState()
-                                                                        .DriverList
-                                                                        .firstOrNull
-                                                                        ?.birthDay !=
-                                                                    '') &&
-                                                                (FFAppState()
-                                                                        .DriverList
-                                                                        .firstOrNull
-                                                                        ?.nationalThaiId !=
-                                                                    '') &&
-                                                                (FFAppState()
-                                                                        .DriverList
-                                                                        .firstOrNull
-                                                                        ?.licenseNo !=
-                                                                    '') &&
-                                                                (FFAppState()
-                                                                        .DriverList
-                                                                        .firstOrNull
-                                                                        ?.imageIdcard !=
-                                                                    '') &&
-                                                                (FFAppState()
-                                                                        .DriverList
-                                                                        .firstOrNull
-                                                                        ?.imageLicenseNo !=
-                                                                    '')));
-                                                      } else {
-                                                        return true;
+                                                    if (FFAppState()
+                                                            .insuranceInfoPage2DriverType !=
+                                                        '0') {
+                                                      if (!() {
+                                                        if (FFAppState()
+                                                                .DriverList
+                                                                .length ==
+                                                            0) {
+                                                          return false;
+                                                        } else if (FFAppState()
+                                                                .DriverList
+                                                                .length ==
+                                                            1) {
+                                                          return ((FFAppState()
+                                                                      .DriverList
+                                                                      .length ==
+                                                                  1) &&
+                                                              ((FFAppState()
+                                                                          .DriverList
+                                                                          .firstOrNull
+                                                                          ?.firstNameTh !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .DriverList
+                                                                          .firstOrNull
+                                                                          ?.lastNameTh !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .DriverList
+                                                                          .firstOrNull
+                                                                          ?.birthDay !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .DriverList
+                                                                          .firstOrNull
+                                                                          ?.nationalThaiId !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .DriverList
+                                                                          .firstOrNull
+                                                                          ?.licenseNo !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .DriverList
+                                                                          .firstOrNull
+                                                                          ?.imageIdcard !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .DriverList
+                                                                          .firstOrNull
+                                                                          ?.imageLicenseNo !=
+                                                                      '')));
+                                                        } else {
+                                                          return true;
+                                                        }
+                                                      }()) {
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (alertDialogContext) {
+                                                            return WebViewAware(
+                                                              child:
+                                                                  AlertDialog(
+                                                                content: Text(
+                                                                    'กรุณาระบุผู้ขับขี่อย่างน้อย 1 คน'),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Ok'),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            );
+                                                          },
+                                                        );
+                                                        if (_shouldSetState)
+                                                          safeSetState(() {});
+                                                        return;
                                                       }
-                                                    }()) {
-                                                      await showDialog(
-                                                        context: context,
-                                                        builder:
-                                                            (alertDialogContext) {
-                                                          return WebViewAware(
-                                                            child: AlertDialog(
-                                                              content: Text(
-                                                                  'กรุณาระบุผู้ขับขี่อย่างน้อย 1 คน'),
-                                                              actions: [
-                                                                TextButton(
-                                                                  onPressed: () =>
-                                                                      Navigator.pop(
-                                                                          alertDialogContext),
-                                                                  child: Text(
-                                                                      'Ok'),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          );
-                                                        },
-                                                      );
-                                                      if (_shouldSetState)
-                                                        safeSetState(() {});
-                                                      return;
                                                     }
                                                     if (FFAppState()
                                                             .insuranceInfoEvFlag ==
@@ -11868,7 +11883,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                               .insuranceInfoSizeCar),
                                                   weight: FFAppState()
                                                       .insuranceInfoWeightCar,
-                                                  driverType: '0',
+                                                  driverType: FFAppState()
+                                                      .insuranceInfoPage2DriverType,
                                                   accessoryFlg: (FFAppState()
                                                                   .insuranceinfoActType ==
                                                               'CMI') ||

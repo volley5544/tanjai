@@ -1016,6 +1016,17 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           IbsApplicationsDetailCall.changebatteryflag(
         (_model.detailAPIOutput?.jsonBody ?? ''),
       )!;
+      FFAppState().insuranceInfoPage2DriverType =
+          IbsApplicationsDetailCall.driverType(
+                    (_model.detailAPIOutput?.jsonBody ?? ''),
+                  ) !=
+                  ''
+              ? IbsApplicationsDetailCall.driverType(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                )!
+              : IbsApplicationsDetailCall.driverTypeLeads(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                )!;
       safeSetState(() {});
       if (FFAppState().insuranceInfoApplicationType != 'auto') {
         FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(

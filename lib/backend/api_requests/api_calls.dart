@@ -14907,6 +14907,16 @@ class IbsApplicationsDetailCall {
         response,
         r'''$.results.data.change_battery_flag''',
       ));
+  static String? driverType(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.driver_type''',
+      ));
+  static String? driverTypeLeads(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.leads[0].driver_type''',
+      ));
 }
 
 class IbsApplicationsPaymentSaveCall {
