@@ -2080,13 +2080,9 @@ class _DriverInfomationFormComponentWidgetState
                               onTap: () async {
                                 final _datePicked2Date = await showDatePicker(
                                   context: context,
-                                  initialDate: (functions.currentDate18YearsAgo(
-                                          getCurrentTimestamp) ??
-                                      DateTime.now()),
+                                  initialDate: getCurrentTimestamp,
                                   firstDate: DateTime(1900),
-                                  lastDate: (functions.currentDate18YearsAgo(
-                                          getCurrentTimestamp) ??
-                                      DateTime.now()),
+                                  lastDate: DateTime(2050),
                                 );
 
                                 if (_datePicked2Date != null) {
@@ -2099,9 +2095,7 @@ class _DriverInfomationFormComponentWidgetState
                                   });
                                 } else if (_model.datePicked2 != null) {
                                   safeSetState(() {
-                                    _model.datePicked2 =
-                                        functions.currentDate18YearsAgo(
-                                            getCurrentTimestamp);
+                                    _model.datePicked2 = getCurrentTimestamp;
                                   });
                                 }
                                 FFAppState().updateDriverListAtIndex(
