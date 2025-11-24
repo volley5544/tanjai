@@ -22,9 +22,11 @@ class NonePackageInsurerPageWidget extends StatefulWidget {
   const NonePackageInsurerPageWidget({
     super.key,
     required this.workType,
+    required this.driverFlag,
   });
 
   final String? workType;
+  final bool? driverFlag;
 
   static String routeName = 'NonePackageInsurerPage';
   static String routePath = 'NonePackageInsurerPage';
@@ -1055,7 +1057,8 @@ class _NonePackageInsurerPageWidgetState
                                                         .nonePackageCusPhone)!
                                             ? ''
                                             : FFAppState().nonePackageCusPhone,
-                                        driverType: '',
+                                        driverType:
+                                            widget!.driverFlag! ? '1' : '0',
                                         carProvinceCode:
                                             FFAppState().nonePackageProvinceId,
                                         carProvinceName:
@@ -1268,6 +1271,13 @@ class _NonePackageInsurerPageWidgetState
                                             FFAppState().nonePackageImageOther4,
                                         imageOther5:
                                             FFAppState().nonePackageImageOther5,
+                                        driverBehaviorList:
+                                            functions.filledDataInListByLength(
+                                                widget!.driverFlag!
+                                                    ? FFAppState()
+                                                        .nonePackageDriverBehaviorCode
+                                                    : '0',
+                                                5),
                                       );
 
                                       _shouldSetState = true;
@@ -1700,7 +1710,8 @@ class _NonePackageInsurerPageWidgetState
                                                         .nonePackageCusPhone)!
                                             ? ''
                                             : FFAppState().nonePackageCusPhone,
-                                        driverType: '',
+                                        driverType:
+                                            widget!.driverFlag! ? '1' : '0',
                                         carProvinceCode:
                                             FFAppState().nonePackageProvinceId,
                                         carProvinceName:
@@ -1961,6 +1972,13 @@ class _NonePackageInsurerPageWidgetState
                                             widget!.workType == 'transfer'
                                                 ? '1'
                                                 : '0',
+                                        driverBehaviorList:
+                                            functions.filledDataInListByLength(
+                                                widget!.driverFlag!
+                                                    ? FFAppState()
+                                                        .nonePackageDriverBehaviorCode
+                                                    : '0',
+                                                5),
                                       );
 
                                       _shouldSetState = true;

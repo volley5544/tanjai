@@ -9532,6 +9532,7 @@ class InsuranceRequestSendEmailAPICall {
     String? ownerName = '',
     String? carTypeDetail = '',
     String? oldVMIFlg = '',
+    List<String>? driverBehaviorList,
   }) async {
     final insurerCode = _serializeList(insurerCodeList);
     final insurerId = _serializeList(insurerIdList);
@@ -9543,6 +9544,7 @@ class InsuranceRequestSendEmailAPICall {
     final garageTypeId = _serializeList(garageTypeIdList);
     final garageTypeName = _serializeList(garageTypeNameList);
     final garageTypeCode = _serializeList(garageTypeCodeList);
+    final driverBehavior = _serializeList(driverBehaviorList);
 
     return ApiManager.instance.makeApiCall(
       callName: 'insuranceRequestSendEmailAPI',
@@ -9634,6 +9636,7 @@ class InsuranceRequestSendEmailAPICall {
         'owner_name': ownerName,
         'car_type_detail': carTypeDetail,
         'old_VMI_flg': oldVMIFlg,
+        'driver_behavior': driverBehavior,
       },
       bodyType: BodyType.MULTIPART,
       returnBody: true,

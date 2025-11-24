@@ -17,9 +17,11 @@ class NonePackageBasicImage2PageWidget extends StatefulWidget {
   const NonePackageBasicImage2PageWidget({
     super.key,
     required this.workType,
+    required this.driverFlag,
   });
 
   final String? workType;
+  final bool? driverFlag;
 
   static String routeName = 'NonePackageBasicImage2Page';
   static String routePath = 'NonePackageBasicImage2Page';
@@ -2780,6 +2782,10 @@ class _NonePackageBasicImage2PageWidgetState
                                     'workType': serializeParam(
                                       widget!.workType,
                                       ParamType.String,
+                                    ),
+                                    'driverFlag': serializeParam(
+                                      widget!.driverFlag,
+                                      ParamType.bool,
                                     ),
                                   }.withoutNulls,
                                 );

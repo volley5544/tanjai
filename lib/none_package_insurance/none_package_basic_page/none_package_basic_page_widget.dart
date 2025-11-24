@@ -5624,7 +5624,87 @@ class _NonePackageBasicPageWidgetState
                       ),
                     ),
                   ),
-                  if (true)
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 0.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        _model.driverFlag = !_model.driverFlag;
+                        safeSetState(() {});
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 60.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(8.0),
+                          border: Border.all(
+                            color: Color(0xFFB3B3B3),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 0.0, 20.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'ระบุผู้ขับขี่หรือไม่?',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.notoSansThai(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                              ),
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Builder(
+                                  builder: (context) {
+                                    if (_model.driverFlag) {
+                                      return Icon(
+                                        Icons.check_circle,
+                                        color: FlutterFlowTheme.of(context)
+                                            .success,
+                                        size: 24.0,
+                                      );
+                                    } else {
+                                      return Icon(
+                                        Icons.radio_button_off_outlined,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        size: 24.0,
+                                      );
+                                    }
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  if (_model.driverFlag)
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
@@ -5698,7 +5778,7 @@ class _NonePackageBasicPageWidgetState
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 5.0, 16.0, 0.0),
+                                  20.0, 5.0, 20.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -5724,6 +5804,10 @@ class _NonePackageBasicPageWidgetState
                                       'maxSelected': serializeParam(
                                         0,
                                         ParamType.int,
+                                      ),
+                                      'fromPage': serializeParam(
+                                        'NonePackage',
+                                        ParamType.String,
                                       ),
                                     }.withoutNulls,
                                   );
@@ -8586,31 +8670,34 @@ class _NonePackageBasicPageWidgetState
                                       }
                                     }
                                   }
-                                  if (!((FFAppState()
-                                              .nonePackageDriverBehaviorName !=
-                                          '') &&
-                                      (FFAppState()
-                                              .nonePackageDriverBehaviorCode !=
-                                          ''))) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'บังคับเลือกพฤติกรรมผู้ขับขี่'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    return;
+                                  if (_model.driverFlag) {
+                                    if (!((FFAppState()
+                                                .nonePackageDriverBehaviorName !=
+                                            '') &&
+                                        (FFAppState()
+                                                .nonePackageDriverBehaviorCode !=
+                                            ''))) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'บังคับเลือกพฤติกรรมผู้ขับขี่'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      return;
+                                    }
                                   }
                                   FFAppState().nonePackageModelName =
                                       functions.toUpperCase(
@@ -8733,6 +8820,10 @@ class _NonePackageBasicPageWidgetState
                                           widget!.workType,
                                           ParamType.String,
                                         ),
+                                        'driverFlag': serializeParam(
+                                          _model.driverFlag,
+                                          ParamType.bool,
+                                        ),
                                       }.withoutNulls,
                                     );
                                   } else {
@@ -8743,6 +8834,10 @@ class _NonePackageBasicPageWidgetState
                                         'workType': serializeParam(
                                           widget!.workType,
                                           ParamType.String,
+                                        ),
+                                        'driverFlag': serializeParam(
+                                          _model.driverFlag,
+                                          ParamType.bool,
                                         ),
                                       }.withoutNulls,
                                     );

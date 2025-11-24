@@ -34,6 +34,8 @@ class NonePackageBasicPageModel
 
   DataListRecord? masterDataDoc;
 
+  bool driverFlag = false;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - API (teleGetProvinceAPI)] action in NonePackageBasicPage widget.

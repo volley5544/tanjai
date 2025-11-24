@@ -412,6 +412,7 @@ final parametersBuilderMap =
   'NonePackageInsurerPage': (data) async => ParameterData(
         allParams: {
           'workType': getParameter<String>(data, 'workType'),
+          'driverFlag': getParameter<bool>(data, 'driverFlag'),
         },
       ),
   'insuranceInfoPage5Cancel': (data) async => ParameterData(
@@ -446,11 +447,13 @@ final parametersBuilderMap =
   'NonePackageBasicImage1Page': (data) async => ParameterData(
         allParams: {
           'workType': getParameter<String>(data, 'workType'),
+          'driverFlag': getParameter<bool>(data, 'driverFlag'),
         },
       ),
   'NonePackageBasicImage2Page': (data) async => ParameterData(
         allParams: {
           'workType': getParameter<String>(data, 'workType'),
+          'driverFlag': getParameter<bool>(data, 'driverFlag'),
         },
       ),
   'insuranceInfoPage3_1': ParameterData.none(),

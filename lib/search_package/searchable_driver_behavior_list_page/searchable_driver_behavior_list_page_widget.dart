@@ -512,29 +512,6 @@ class _SearchableDriverBehaviorListPageWidgetState
                                                 }
                                               }
 
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                    child: AlertDialog(
-                                                      content: Text(FFAppState()
-                                                          .driverBehaviorData
-                                                          .driverBehaviorFlag
-                                                          .elementAtOrNull(
-                                                              dataListIndex)!
-                                                          .toString()),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  );
-                                                },
-                                              );
                                               if (FFAppState()
                                                       .driverBehaviorData
                                                       .driverBehaviorFlag
@@ -544,25 +521,6 @@ class _SearchableDriverBehaviorListPageWidgetState
                                                       'NonePackage') ||
                                                   ('${widget!.fromPage}' ==
                                                       'AddDriver')) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                      child: AlertDialog(
-                                                        content: Text('3'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    );
-                                                  },
-                                                );
                                                 context.safePop();
                                               } else {
                                                 context.goNamed(

@@ -1494,6 +1494,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'workType',
                   ParamType.String,
                 ),
+                driverFlag: params.getParam(
+                  'driverFlag',
+                  ParamType.bool,
+                ),
               ),
             ),
             FFRoute(
@@ -1589,6 +1593,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'workType',
                   ParamType.String,
                 ),
+                driverFlag: params.getParam(
+                  'driverFlag',
+                  ParamType.bool,
+                ),
               ),
             ),
             FFRoute(
@@ -1598,6 +1606,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 workType: params.getParam(
                   'workType',
                   ParamType.String,
+                ),
+                driverFlag: params.getParam(
+                  'driverFlag',
+                  ParamType.bool,
                 ),
               ),
             ),
