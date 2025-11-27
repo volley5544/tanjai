@@ -1007,26 +1007,28 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                 true,
               )).toList(), widget!.leadDtailId))}';
       FFAppState().insuranceInfoPage2CarMotor =
-          IbsApplicationsDetailCall.carmotor(
-        (_model.detailAPIOutput?.jsonBody ?? ''),
-      )!
-              .toList()
-              .cast<String>();
-      FFAppState().InsuranceInfoPage2ChangeBatteryFlag =
-          IbsApplicationsDetailCall.changebatteryflag(
-        (_model.detailAPIOutput?.jsonBody ?? ''),
-      )!;
-      FFAppState().insuranceInfoPage2DriverType =
-          IbsApplicationsDetailCall.driverType(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ) !=
-                  ''
-              ? IbsApplicationsDetailCall.driverType(
+          (FFAppState().insuranceInfoEvFlag != '') &&
+                  (FFAppState().insuranceInfoEvFlag != 'null') &&
+                  (FFAppState().insuranceInfoEvFlag == 'Y')
+              ? IbsApplicationsDetailCall.carmotor(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
                 )!
-              : IbsApplicationsDetailCall.driverTypeLeads(
+              : ([]).toList().cast<String>();
+      FFAppState().InsuranceInfoPage2ChangeBatteryFlag =
+          '${IbsApplicationsDetailCall.changebatteryflag(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage2DriverType =
+          '${IbsApplicationsDetailCall.driverType(
+                    (_model.detailAPIOutput?.jsonBody ?? ''),
+                  )}' !=
+                  ''
+              ? '${IbsApplicationsDetailCall.driverType(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
-                )!;
+                )}'
+              : '${IbsApplicationsDetailCall.driverTypeLeads(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                )}';
       safeSetState(() {});
       if (FFAppState().insuranceInfoApplicationType != 'auto') {
         FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
