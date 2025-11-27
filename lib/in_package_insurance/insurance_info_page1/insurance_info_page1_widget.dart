@@ -990,7 +990,11 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                 )}'
               : '${IbsApplicationsDetailCall.driverBehaviorLead(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
-                )}';
+                )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                    (_model.detailAPIOutput?.jsonBody ?? ''),
+                    r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                    true,
+                  )).toList(), widget!.leadDtailId))}';
       FFAppState()
           .insuranceInfoEvFlag = '${IbsApplicationsDetailCall.evflagdata(
                 (_model.detailAPIOutput?.jsonBody ?? ''),

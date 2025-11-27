@@ -14877,11 +14877,15 @@ class IbsApplicationsDetailCall {
         response,
         r'''$.results.data.app_detail[:].driver_behavior''',
       ));
-  static String? driverBehaviorLead(dynamic response) =>
-      castToType<String>(getJsonField(
+  static List<String>? driverBehaviorLead(dynamic response) => (getJsonField(
         response,
         r'''$.results.data.leads_detail[:].driver_behavior''',
-      ));
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
   static List<String>? carmotor(dynamic response) => (getJsonField(
         response,
         r'''$.results.data.car_motor''',
