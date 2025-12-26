@@ -1541,6 +1541,10 @@ class _FireInsurerListAllWidgetState extends State<FireInsurerListAllWidget>
                                                                                                   widget!.carTypeDetail,
                                                                                                   ParamType.String,
                                                                                                 ),
+                                                                                                'driver': serializeParam(
+                                                                                                  '0',
+                                                                                                  ParamType.String,
+                                                                                                ),
                                                                                               }.withoutNulls,
                                                                                             );
                                                                                           },

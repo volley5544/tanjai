@@ -559,6 +559,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'provinceCode',
                   ParamType.String,
                 ),
+                driver: params.getParam(
+                  'driver',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(

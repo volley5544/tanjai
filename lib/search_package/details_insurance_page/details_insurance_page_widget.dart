@@ -1833,7 +1833,7 @@ class _DetailsInsurancePageWidgetState
                                               ParamType.String,
                                             ),
                                             'driverType': serializeParam(
-                                              '0',
+                                              widget!.driverType,
                                               ParamType.String,
                                             ),
                                             'carRegistrationYear':
@@ -2284,7 +2284,7 @@ class _DetailsInsurancePageWidgetState
                                               ParamType.String,
                                             ),
                                             'driverType': serializeParam(
-                                              '0',
+                                              widget!.driverType,
                                               ParamType.String,
                                             ),
                                             'carRegistrationYear':

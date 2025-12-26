@@ -3006,94 +3006,88 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                      InkWell(
-                                                                        splashColor:
-                                                                            Colors.transparent,
-                                                                        focusColor:
-                                                                            Colors.transparent,
-                                                                        hoverColor:
-                                                                            Colors.transparent,
-                                                                        highlightColor:
-                                                                            Colors.transparent,
-                                                                        onTap:
-                                                                            () async {
-                                                                          FFAppState().insuranceRequestIsLoadedData =
-                                                                              false;
-                                                                          FFAppState().insuranceRequestIsLoadDataMc =
-                                                                              false;
-                                                                          safeSetState(
-                                                                              () {});
+                                                                      if (false)
+                                                                        InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            FFAppState().insuranceRequestIsLoadedData =
+                                                                                false;
+                                                                            FFAppState().insuranceRequestIsLoadDataMc =
+                                                                                false;
+                                                                            safeSetState(() {});
 
-                                                                          context
-                                                                              .pushNamed(
-                                                                            SearchInsurancePageWidget.routeName,
-                                                                            queryParameters:
-                                                                                {
-                                                                              'fromIcon': serializeParam(
-                                                                                'EV',
-                                                                                ParamType.String,
-                                                                              ),
-                                                                            }.withoutNulls,
-                                                                          );
-                                                                        },
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              MediaQuery.sizeOf(context).width * 0.28,
-                                                                          height:
-                                                                              100.0,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            color:
-                                                                                Colors.white,
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(15.0),
-                                                                          ),
-                                                                          child:
-                                                                              Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.0, 0.0),
-                                                                            child:
-                                                                                Column(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              mainAxisAlignment: MainAxisAlignment.center,
-                                                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                                                              children: [
-                                                                                Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
-                                                                                  child: Icon(
-                                                                                    Icons.electric_car,
-                                                                                    color: Color(0xFFDB771A),
-                                                                                    size: 30.0,
-                                                                                  ),
+                                                                            context.pushNamed(
+                                                                              SearchInsurancePageWidget.routeName,
+                                                                              queryParameters: {
+                                                                                'fromIcon': serializeParam(
+                                                                                  'EV',
+                                                                                  ParamType.String,
                                                                                 ),
-                                                                                Container(
-                                                                                  width: 100.0,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
-                                                                                    child: Text(
-                                                                                      'ค้นหาประกัน\nรถ EV',
-                                                                                      textAlign: TextAlign.center,
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            font: GoogleFonts.notoSansThai(
+                                                                              }.withoutNulls,
+                                                                            );
+                                                                          },
+                                                                          child:
+                                                                              Container(
+                                                                            width:
+                                                                                MediaQuery.sizeOf(context).width * 0.28,
+                                                                            height:
+                                                                                100.0,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: Colors.white,
+                                                                              borderRadius: BorderRadius.circular(15.0),
+                                                                            ),
+                                                                            child:
+                                                                                Align(
+                                                                              alignment: AlignmentDirectional(0.0, 0.0),
+                                                                              child: Column(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                children: [
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
+                                                                                    child: Icon(
+                                                                                      Icons.electric_car,
+                                                                                      color: Color(0xFFDB771A),
+                                                                                      size: 30.0,
+                                                                                    ),
+                                                                                  ),
+                                                                                  Container(
+                                                                                    width: 100.0,
+                                                                                    decoration: BoxDecoration(),
+                                                                                    child: Padding(
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
+                                                                                      child: Text(
+                                                                                        'ค้นหาประกัน\nรถ EV',
+                                                                                        textAlign: TextAlign.center,
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              font: GoogleFonts.notoSansThai(
+                                                                                                fontWeight: FontWeight.w600,
+                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                              ),
+                                                                                              color: Colors.black,
+                                                                                              fontSize: 14.0,
+                                                                                              letterSpacing: 0.0,
                                                                                               fontWeight: FontWeight.w600,
                                                                                               fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                             ),
-                                                                                            color: Colors.black,
-                                                                                            fontSize: 14.0,
-                                                                                            letterSpacing: 0.0,
-                                                                                            fontWeight: FontWeight.w600,
-                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                          ),
+                                                                                      ),
                                                                                     ),
                                                                                   ),
-                                                                                ),
-                                                                              ],
+                                                                                ],
+                                                                              ),
                                                                             ),
                                                                           ),
                                                                         ),
-                                                                      ),
                                                                       if (false)
                                                                         InkWell(
                                                                           splashColor:

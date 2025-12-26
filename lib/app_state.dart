@@ -14469,6 +14469,14 @@ class FFAppState extends ChangeNotifier {
   set insuranceInfoPage2DriverType(String value) {
     _insuranceInfoPage2DriverType = value;
   }
+
+  DocumentReference? _isShowDriverBehaviorDocRef =
+      FirebaseFirestore.instance.doc('/hideInAppContent/n8gUlTDuKYCA5311Cg1p');
+  DocumentReference? get isShowDriverBehaviorDocRef =>
+      _isShowDriverBehaviorDocRef;
+  set isShowDriverBehaviorDocRef(DocumentReference? value) {
+    _isShowDriverBehaviorDocRef = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

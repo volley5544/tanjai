@@ -2290,8 +2290,8 @@ class _CompareInsurancePageWidgetState
                                                             ),
                                                             'driverType':
                                                                 serializeParam(
-                                                              FFAppState()
-                                                                  .insuranceVehicleTypeDropDown,
+                                                              widget!
+                                                                  .driverType,
                                                               ParamType.String,
                                                             ),
                                                             'carRegistrationYear':
@@ -2868,8 +2868,7 @@ class _CompareInsurancePageWidgetState
                                                       ),
                                                       'driverType':
                                                           serializeParam(
-                                                        FFAppState()
-                                                            .insuranceVehicleTypeDropDown,
+                                                        widget!.driverType,
                                                         ParamType.String,
                                                       ),
                                                       'carRegistrationYear':

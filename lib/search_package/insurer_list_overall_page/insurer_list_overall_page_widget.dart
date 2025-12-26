@@ -1553,6 +1553,10 @@ class _InsurerListOverallPageWidgetState
                                                                                                   widget!.carTypeDetail,
                                                                                                   ParamType.String,
                                                                                                 ),
+                                                                                                'driver': serializeParam(
+                                                                                                  widget!.driverFlag,
+                                                                                                  ParamType.String,
+                                                                                                ),
                                                                                               }.withoutNulls,
                                                                                             );
                                                                                           },

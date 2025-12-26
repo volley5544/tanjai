@@ -2234,6 +2234,10 @@ class _SearchInsurancePageCopyWidgetState
                                         .insuranceInfoRegistrationCodeSelect,
                                     ParamType.String,
                                   ),
+                                  'driver': serializeParam(
+                                    '0',
+                                    ParamType.String,
+                                  ),
                                 }.withoutNulls,
                               );
                             },

@@ -38,6 +38,7 @@ class InsurerListPageWidget extends StatefulWidget {
     this.carTypeDetail,
     required this.oldVmiExpDate,
     required this.provinceCode,
+    required this.driver,
   });
 
   final String? brandCode;
@@ -52,6 +53,7 @@ class InsurerListPageWidget extends StatefulWidget {
   final String? carTypeDetail;
   final String? oldVmiExpDate;
   final String? provinceCode;
+  final String? driver;
 
   static String routeName = 'insurerListPage';
   static String routePath = 'insurerListPage';
@@ -2120,7 +2122,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'driverType': serializeParam(
-                                                                                                '-',
+                                                                                                widget!.driver,
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'grossTotal': serializeParam(
@@ -2544,7 +2546,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                     ),
                                                     'driverType':
                                                         serializeParam(
-                                                      '-',
+                                                      widget!.driver,
                                                       ParamType.String,
                                                     ),
                                                     'grossTotal':
