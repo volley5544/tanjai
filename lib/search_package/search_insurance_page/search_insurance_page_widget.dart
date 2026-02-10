@@ -137,12 +137,6 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
         ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);
-      _model.queryConfigDriverBehavior =
-          await HideInAppContentRecord.getDocumentOnce(
-              FFAppState().isShowDriverBehaviorDocRef!);
-      _model.isShowDriverBehavior =
-          _model.queryConfigDriverBehavior!.isShowContent;
-      safeSetState(() {});
       if (isAndroid) {
         if (!((_model.buildVersionQuery!.buildNumberAndroid <=
                 _model.deviceBuildNumber!) ||
@@ -2214,7 +2208,8 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                           ),
                                           'dataList': serializeParam(
                                             functions.reverseList(functions
-                                                .ganerateYearList(2500, 2568)
+                                                .ganerateYearList(2500,
+                                                    FFAppState().currentYearBE)
                                                 ?.toList()),
                                             ParamType.String,
                                             isList: true,
@@ -3560,10 +3555,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                 ),
                               ),
                             ),
-                          if (_model.isShowDriverBehavior)
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              if (false)
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 5.0, 16.0, 0.0),
@@ -3662,78 +3657,60 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                     ),
                                   ),
                                 ),
-                                if (_model.driverFlag)
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 5.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      decoration: BoxDecoration(),
-                                      child: Column(
+                            ],
+                          ),
+                          if (_model.driverFlag)
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                decoration: BoxDecoration(),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 0.0, 20.0, 0.0),
+                                      child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
+                                          Text(
+                                            'พฤติกรรมผู้ขับขี่',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  font:
+                                                      GoogleFonts.notoSansThai(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
+                                                  fontSize: 15.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                          ),
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    20.0, 0.0, 20.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  'พฤติกรรมผู้ขับขี่',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
+                                                    10.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              '(บังคับเลือก)',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
                                                         font: GoogleFonts
                                                             .notoSansThai(
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    '(บังคับเลือก)',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .notoSansThai(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          color:
-                                                              Color(0xFFFB0606),
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -3745,153 +3722,148 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                                   .bodyMedium
                                                                   .fontStyle,
                                                         ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 5.0, 16.0, 0.0),
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                context.pushNamed(
-                                                  SearchableDriverBehaviorListPageWidget
-                                                      .routeName,
-                                                  queryParameters: {
-                                                    'titleText': serializeParam(
-                                                      'เลือกพฤติกรรมผู้ขับขี่',
-                                                      ParamType.String,
-                                                    ),
-                                                    'searchLabel':
-                                                        serializeParam(
-                                                      'เลือกพฤติกรรมผู้ขับขี่',
-                                                      ParamType.String,
-                                                    ),
-                                                    'multiSelect':
-                                                        serializeParam(
-                                                      false,
-                                                      ParamType.bool,
-                                                    ),
-                                                    'maxSelected':
-                                                        serializeParam(
-                                                      0,
-                                                      ParamType.int,
-                                                    ),
-                                                  }.withoutNulls,
-                                                );
-
-                                                await actions
-                                                    .hideKeyboardAction(
-                                                  context,
-                                                );
-                                              },
-                                              child: Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        1.0,
-                                                height: 60.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  border: Border.all(
-                                                    color: Color(0xFFB3B3B3),
-                                                  ),
-                                                ),
-                                                child: Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(4.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Material(
-                                                      color: Colors.transparent,
-                                                      child: ListTile(
-                                                        title: Text(
-                                                          FFAppState().insuranceBasicDriverBehaviorName !=
-                                                                  ''
-                                                              ? FFAppState()
-                                                                  .insuranceBasicDriverBehaviorName
-                                                              : 'กรุณาเลือกพฤติกรรมผู้ขับขี่',
-                                                          textAlign:
-                                                              TextAlign.start,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleLarge
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .notoSansThai(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleLarge
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FFAppState()
-                                                                            .insuranceBasicDriverBehaviorName ==
-                                                                        ''
-                                                                    ? Color(
-                                                                        0xFF9F9F9F)
-                                                                    : Colors
-                                                                        .black,
-                                                                fontSize: 15.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleLarge
-                                                                    .fontStyle,
-                                                              ),
-                                                        ),
-                                                        trailing: Icon(
-                                                          Icons
-                                                              .arrow_forward_ios,
-                                                          color:
-                                                              Color(0xFF474747),
-                                                          size: 20.0,
-                                                        ),
-                                                        tileColor: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        dense: false,
-                                                        shape:
-                                                            RoundedRectangleBorder(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10.0),
-                                                        ),
+                                                        color:
+                                                            Color(0xFFFB0606),
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
                                             ),
                                           ),
                                         ],
                                       ),
                                     ),
-                                  ),
-                              ],
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 5.0, 16.0, 0.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed(
+                                            SearchableDriverBehaviorListPageWidget
+                                                .routeName,
+                                            queryParameters: {
+                                              'titleText': serializeParam(
+                                                'เลือกพฤติกรรมผู้ขับขี่',
+                                                ParamType.String,
+                                              ),
+                                              'searchLabel': serializeParam(
+                                                'เลือกพฤติกรรมผู้ขับขี่',
+                                                ParamType.String,
+                                              ),
+                                              'multiSelect': serializeParam(
+                                                false,
+                                                ParamType.bool,
+                                              ),
+                                              'maxSelected': serializeParam(
+                                                0,
+                                                ParamType.int,
+                                              ),
+                                            }.withoutNulls,
+                                          );
+
+                                          await actions.hideKeyboardAction(
+                                            context,
+                                          );
+                                        },
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 60.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            border: Border.all(
+                                              color: Color(0xFFB3B3B3),
+                                            ),
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                              child: Material(
+                                                color: Colors.transparent,
+                                                child: ListTile(
+                                                  title: Text(
+                                                    FFAppState().insuranceBasicDriverBehaviorName !=
+                                                            ''
+                                                        ? FFAppState()
+                                                            .insuranceBasicDriverBehaviorName
+                                                        : 'กรุณาเลือกพฤติกรรมผู้ขับขี่',
+                                                    textAlign: TextAlign.start,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleLarge
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .notoSansThai(
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleLarge
+                                                                    .fontStyle,
+                                                          ),
+                                                          color: FFAppState()
+                                                                      .insuranceBasicDriverBehaviorName ==
+                                                                  ''
+                                                              ? Color(
+                                                                  0xFF9F9F9F)
+                                                              : Colors.black,
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleLarge
+                                                                  .fontStyle,
+                                                        ),
+                                                  ),
+                                                  trailing: Icon(
+                                                    Icons.arrow_forward_ios,
+                                                    color: Color(0xFF474747),
+                                                    size: 20.0,
+                                                  ),
+                                                  tileColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
+                                                  dense: false,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10.0),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ),
                           Container(
                             width: double.infinity,

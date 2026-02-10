@@ -1410,7 +1410,8 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                           ),
                                           'dataList': serializeParam(
                                             functions.reverseList(functions
-                                                .ganerateYearList(2500, 2567)
+                                                .ganerateYearList(2500,
+                                                    FFAppState().currentYearBE)
                                                 ?.toList()),
                                             ParamType.String,
                                             isList: true,

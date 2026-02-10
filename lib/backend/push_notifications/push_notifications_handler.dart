@@ -772,6 +772,38 @@ final parametersBuilderMap =
         },
       ),
   'AddMotorPage': ParameterData.none(),
+  'RenewBasicInfoPage2': (data) async => ParameterData(
+        allParams: {
+          'quotationId': getParameter<String>(data, 'quotationId'),
+          'leadDetailId': getParameter<int>(data, 'leadDetailId'),
+        },
+      ),
+  'renewDetailPage2': (data) async => ParameterData(
+        allParams: {
+          'refRenewId': getParameter<String>(data, 'refRenewId'),
+        },
+      ),
+  'renewHistory2': (data) async => ParameterData(
+        allParams: {
+          'refRenewId': getParameter<String>(data, 'refRenewId'),
+        },
+      ),
+  'renewSaveHistory2': (data) async => ParameterData(
+        allParams: {
+          'title': getParameter<String>(data, 'title'),
+          'name': getParameter<String>(data, 'name'),
+          'lastname': getParameter<String>(data, 'lastname'),
+          'brand': getParameter<String>(data, 'brand'),
+          'model': getParameter<String>(data, 'model'),
+          'covertype': getParameter<String>(data, 'covertype'),
+          'garagetype': getParameter<String>(data, 'garagetype'),
+          'expDate': getParameter<String>(data, 'expDate'),
+          'status': getParameter<String>(data, 'status'),
+          'refRenewId': getParameter<String>(data, 'refRenewId'),
+          'carregis': getParameter<String>(data, 'carregis'),
+        },
+      ),
+  'renewSearchAllPoolPage2': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

@@ -230,3 +230,13 @@ export '/in_package_insurance/show_batterry_page/show_batterry_page_widget.dart'
     show ShowBatterryPageWidget;
 export '/in_package_insurance/add_motor_page/add_motor_page_widget.dart'
     show AddMotorPageWidget;
+export '/scan_and_go/renew_basic_info_page2/renew_basic_info_page2_widget.dart'
+    show RenewBasicInfoPage2Widget;
+export '/scan_and_go/renew_detail_page2/renew_detail_page2_widget.dart'
+    show RenewDetailPage2Widget;
+export '/scan_and_go/renew_history2/renew_history2_widget.dart'
+    show RenewHistory2Widget;
+export '/scan_and_go/renew_save_history2/renew_save_history2_widget.dart'
+    show RenewSaveHistory2Widget;
+export '/scan_and_go/renew_search_all_pool_page2/renew_search_all_pool_page2_widget.dart'
+    show RenewSearchAllPoolPage2Widget;

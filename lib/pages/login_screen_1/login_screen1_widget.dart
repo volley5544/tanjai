@@ -562,12 +562,12 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                     focusedErrorBorder:
                                                         InputBorder.none,
                                                     suffixIcon: InkWell(
-                                                      onTap: () => safeSetState(
-                                                        () => _model
+                                                      onTap: () async {
+                                                        safeSetState(() => _model
                                                                 .passwordVisibility =
                                                             !_model
-                                                                .passwordVisibility,
-                                                      ),
+                                                                .passwordVisibility);
+                                                      },
                                                       focusNode: FocusNode(
                                                           skipTraversal: true),
                                                       child: Icon(
@@ -808,12 +808,12 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                   focusedErrorBorder:
                                                       InputBorder.none,
                                                   suffixIcon: InkWell(
-                                                    onTap: () => safeSetState(
-                                                      () => _model
+                                                    onTap: () async {
+                                                      safeSetState(() => _model
                                                               .confirmpasswordVisibility =
                                                           !_model
-                                                              .confirmpasswordVisibility,
-                                                    ),
+                                                              .confirmpasswordVisibility);
+                                                    },
                                                     focusNode: FocusNode(
                                                         skipTraversal: true),
                                                     child: Icon(

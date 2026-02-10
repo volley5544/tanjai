@@ -2609,6 +2609,95 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: AddMotorPageWidget.routeName,
               path: AddMotorPageWidget.routePath,
               builder: (context, params) => AddMotorPageWidget(),
+            ),
+            FFRoute(
+              name: RenewBasicInfoPage2Widget.routeName,
+              path: RenewBasicInfoPage2Widget.routePath,
+              builder: (context, params) => RenewBasicInfoPage2Widget(
+                quotationId: params.getParam(
+                  'quotationId',
+                  ParamType.String,
+                ),
+                leadDetailId: params.getParam(
+                  'leadDetailId',
+                  ParamType.int,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: RenewDetailPage2Widget.routeName,
+              path: RenewDetailPage2Widget.routePath,
+              builder: (context, params) => RenewDetailPage2Widget(
+                refRenewId: params.getParam(
+                  'refRenewId',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: RenewHistory2Widget.routeName,
+              path: RenewHistory2Widget.routePath,
+              builder: (context, params) => RenewHistory2Widget(
+                refRenewId: params.getParam(
+                  'refRenewId',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: RenewSaveHistory2Widget.routeName,
+              path: RenewSaveHistory2Widget.routePath,
+              builder: (context, params) => RenewSaveHistory2Widget(
+                title: params.getParam(
+                  'title',
+                  ParamType.String,
+                ),
+                name: params.getParam(
+                  'name',
+                  ParamType.String,
+                ),
+                lastname: params.getParam(
+                  'lastname',
+                  ParamType.String,
+                ),
+                brand: params.getParam(
+                  'brand',
+                  ParamType.String,
+                ),
+                model: params.getParam(
+                  'model',
+                  ParamType.String,
+                ),
+                covertype: params.getParam(
+                  'covertype',
+                  ParamType.String,
+                ),
+                garagetype: params.getParam(
+                  'garagetype',
+                  ParamType.String,
+                ),
+                expDate: params.getParam(
+                  'expDate',
+                  ParamType.String,
+                ),
+                status: params.getParam(
+                  'status',
+                  ParamType.String,
+                ),
+                refRenewId: params.getParam(
+                  'refRenewId',
+                  ParamType.String,
+                ),
+                carregis: params.getParam(
+                  'carregis',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: RenewSearchAllPoolPage2Widget.routeName,
+              path: RenewSearchAllPoolPage2Widget.routePath,
+              builder: (context, params) => RenewSearchAllPoolPage2Widget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

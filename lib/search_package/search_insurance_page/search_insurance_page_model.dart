@@ -34,8 +34,6 @@ class SearchInsurancePageModel
 
   bool driverFlag = false;
 
-  bool isShowDriverBehavior = false;
-
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Custom Action - getBuildVersion1] action in SearchInsurancePage widget.
@@ -46,8 +44,6 @@ class SearchInsurancePageModel
   BuildVersionRecord? buildVersionQuery;
   // Stores action output result for [Firestore Query - Query a collection] action in SearchInsurancePage widget.
   AuthorizationRecord? adminVersionQuery;
-  // Stores action output result for [Backend Call - Read Document] action in SearchInsurancePage widget.
-  HideInAppContentRecord? queryConfigDriverBehavior;
   // Stores action output result for [Backend Call - API (teleGetBrandMCAPI)] action in SearchInsurancePage widget.
   ApiCallResponse? getBrandMCAPI;
   // Stores action output result for [Backend Call - API (teleGetModelMCAPI )] action in SearchInsurancePage widget.
