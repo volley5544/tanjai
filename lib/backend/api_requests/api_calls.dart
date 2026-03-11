@@ -14925,6 +14925,16 @@ class IbsApplicationsDetailCall {
         response,
         r'''$.results.data.leads[0].driver_type''',
       ));
+  static String? incentiveBranchcodeH(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.app_detail_house[:].branch_code''',
+      ));
+  static String? incentiveBranchnameH(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.app_detail_house[:].branch_name''',
+      ));
 }
 
 class IbsApplicationsPaymentSaveCall {

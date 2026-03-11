@@ -1564,19 +1564,36 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           (_model.detailAPIOutput?.jsonBody ?? ''),
         )}';
       safeSetState(() {});
-      FFAppState().insuranceInfoBranchCode =
-          '${IbsApplicationsDetailCall.incentiveBranchCode(
+      if (FFAppState().insuranceinfoActType == 'House') {
+        FFAppState().insuranceInfoBranchCode =
+            '${IbsApplicationsDetailCall.incentiveBranchcodeH(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? '' : IbsApplicationsDetailCall.incentiveBranchcodeH(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) == '' ? '' : IbsApplicationsDetailCall.incentiveBranchCode(
-              (_model.detailAPIOutput?.jsonBody ?? ''),
-            )}';
-      FFAppState().insuranceInfoBranchNameOutput =
-          '${IbsApplicationsDetailCall.incentiveBranchName(
+              )}';
+        FFAppState().insuranceInfoBranchNameOutput =
+            '${IbsApplicationsDetailCall.incentiveBranchnameH(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? '' : IbsApplicationsDetailCall.incentiveBranchnameH(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) == '' ? '' : IbsApplicationsDetailCall.incentiveBranchName(
-              (_model.detailAPIOutput?.jsonBody ?? ''),
-            )}';
-      safeSetState(() {});
+              )}';
+        safeSetState(() {});
+      } else {
+        FFAppState().insuranceInfoBranchCode =
+            '${IbsApplicationsDetailCall.incentiveBranchCode(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? '' : IbsApplicationsDetailCall.incentiveBranchCode(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
+        FFAppState().insuranceInfoBranchNameOutput =
+            '${IbsApplicationsDetailCall.incentiveBranchName(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? '' : IbsApplicationsDetailCall.incentiveBranchName(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
+        safeSetState(() {});
+      }
+
       if (FFAppState().insuranceinfoActType == 'House') {
         if ('${getJsonField(
               (_model.detailAPIOutput?.jsonBody ?? ''),
