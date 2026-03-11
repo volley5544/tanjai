@@ -904,6 +904,224 @@ class _FireInsuranceInfoPage2WidgetState
                                     ),
                                   ),
                                 ),
+                                if (!functions.checkIsStringLengthInLength(
+                                    FFAppState().branchCode, 2)!)
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 5.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      decoration: BoxDecoration(),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 12.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'เลือกสาขาที่จะลงผลงาน',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        font: GoogleFonts
+                                                            .notoSansThai(
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    '(บังคับเลือก)',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .notoSansThai(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          color:
+                                                              Color(0xFFFB0606),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 5.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                  SearchBranchPageWidget
+                                                      .routeName,
+                                                  queryParameters: {
+                                                    'fromPage': serializeParam(
+                                                      'Step2',
+                                                      ParamType.String,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+
+                                                await actions
+                                                    .hideKeyboardAction(
+                                                  context,
+                                                );
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 60.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color: Color(0xFFB3B3B3),
+                                                  ),
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(4.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Material(
+                                                      color: Colors.transparent,
+                                                      child: ListTile(
+                                                        title: Text(
+                                                          (FFAppState().insuranceInfoBranchCode !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .insuranceInfoBranchNameOutput !=
+                                                                      '')
+                                                              ? '(${FFAppState().insuranceInfoBranchCode}) ${FFAppState().insuranceInfoBranchNameOutput}'
+                                                              : 'กรุณาเลือกสาขาที่จะลงผลงาน',
+                                                          textAlign:
+                                                              TextAlign.start,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .titleLarge
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .notoSansThai(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleLarge
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: (FFAppState().insuranceInfoBranchCode !=
+                                                                            '') &&
+                                                                        (FFAppState().insuranceInfoBranchNameOutput !=
+                                                                            '')
+                                                                    ? Colors
+                                                                        .black
+                                                                    : Color(
+                                                                        0xFF9F9F9F),
+                                                                fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleLarge
+                                                                    .fontStyle,
+                                                              ),
+                                                        ),
+                                                        trailing: Icon(
+                                                          Icons
+                                                              .arrow_forward_ios,
+                                                          color:
+                                                              Color(0xFF474747),
+                                                          size: 20.0,
+                                                        ),
+                                                        tileColor: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        dense: false,
+                                                        shape:
+                                                            RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      10.0),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 5.0, 0.0, 0.0),
@@ -6631,6 +6849,41 @@ class _FireInsuranceInfoPage2WidgetState
                                           FFButtonWidget(
                                             onPressed: () async {
                                               var _shouldSetState = false;
+                                              if (!functions
+                                                  .checkIsStringLengthInLength(
+                                                      FFAppState().branchCode,
+                                                      2)!) {
+                                                if (!((FFAppState()
+                                                            .insuranceInfoBranchCode !=
+                                                        '') &&
+                                                    (FFAppState()
+                                                            .insuranceInfoBranchNameOutput !=
+                                                        ''))) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'กรุณาเลือกสาขาที่จะลงผลงาน'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
+                                              }
                                               if ('${FFAppState().leadsHouse.firstOrNull?.wall}' ==
                                                   '') {
                                                 await showDialog(
