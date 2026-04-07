@@ -125,10 +125,10 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                               borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(25.0),
-                                bottomRight: Radius.circular(25.0),
                                 topLeft: Radius.circular(25.0),
                                 topRight: Radius.circular(25.0),
+                                bottomLeft: Radius.circular(25.0),
+                                bottomRight: Radius.circular(25.0),
                               ),
                               border: Border.all(
                                 color: Color(0xFFB3B3B3),
@@ -393,10 +393,10 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                               borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(25.0),
-                                bottomRight: Radius.circular(25.0),
                                 topLeft: Radius.circular(25.0),
                                 topRight: Radius.circular(25.0),
+                                bottomLeft: Radius.circular(25.0),
+                                bottomRight: Radius.circular(25.0),
                               ),
                               border: Border.all(
                                 color: Color(0xFFB3B3B3),
@@ -644,10 +644,10 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                               borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(25.0),
-                                bottomRight: Radius.circular(25.0),
                                 topLeft: Radius.circular(25.0),
                                 topRight: Radius.circular(25.0),
+                                bottomLeft: Radius.circular(25.0),
+                                bottomRight: Radius.circular(25.0),
                               ),
                               border: Border.all(
                                 color: Color(0xFFB3B3B3),

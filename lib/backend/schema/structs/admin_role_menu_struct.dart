@@ -212,7 +212,7 @@ Map<String, dynamic> getAdminRoleMenuFirestoreData(
   final firestoreData = mapToFirestore(adminRoleMenu.toMap());
 
   // Add any Firestore field values
-  adminRoleMenu.firestoreUtilData.fieldValues
+  mapToFirestore(adminRoleMenu.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

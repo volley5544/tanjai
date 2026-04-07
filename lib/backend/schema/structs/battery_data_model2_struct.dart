@@ -327,7 +327,7 @@ Map<String, dynamic> getBatteryDataModel2FirestoreData(
   final firestoreData = mapToFirestore(batteryDataModel2.toMap());
 
   // Add any Firestore field values
-  batteryDataModel2.firestoreUtilData.fieldValues
+  mapToFirestore(batteryDataModel2.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

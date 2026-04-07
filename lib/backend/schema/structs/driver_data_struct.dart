@@ -732,7 +732,7 @@ Map<String, dynamic> getDriverDataFirestoreData(
   final firestoreData = mapToFirestore(driverData.toMap());
 
   // Add any Firestore field values
-  driverData.firestoreUtilData.fieldValues
+  mapToFirestore(driverData.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

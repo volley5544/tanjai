@@ -688,7 +688,7 @@ Map<String, dynamic> getLeadsHouseFirestoreData(
   final firestoreData = mapToFirestore(leadsHouse.toMap());
 
   // Add any Firestore field values
-  leadsHouse.firestoreUtilData.fieldValues
+  mapToFirestore(leadsHouse.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

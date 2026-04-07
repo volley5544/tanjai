@@ -14475,6 +14475,26 @@ class FFAppState extends ChangeNotifier {
   set currentYearBE(int value) {
     _currentYearBE = value;
   }
+
+  DocumentReference? _tunjaiWebUatDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/0PGc54cpYIpIH299xWL3');
+  DocumentReference? get tunjaiWebUatDocRef => _tunjaiWebUatDocRef;
+  set tunjaiWebUatDocRef(DocumentReference? value) {
+    _tunjaiWebUatDocRef = value;
+  }
+
+  DocumentReference? _tunjaiWebDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/QygmD0scLuIIMcjf20Qq');
+  DocumentReference? get tunjaiWebDocRef => _tunjaiWebDocRef;
+  set tunjaiWebDocRef(DocumentReference? value) {
+    _tunjaiWebDocRef = value;
+  }
+
+  String _tunjaiWebUrlAppState = '';
+  String get tunjaiWebUrlAppState => _tunjaiWebUrlAppState;
+  set tunjaiWebUrlAppState(String value) {
+    _tunjaiWebUrlAppState = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

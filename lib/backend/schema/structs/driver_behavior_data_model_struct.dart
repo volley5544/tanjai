@@ -192,7 +192,7 @@ Map<String, dynamic> getDriverBehaviorDataModelFirestoreData(
   final firestoreData = mapToFirestore(driverBehaviorDataModel.toMap());
 
   // Add any Firestore field values
-  driverBehaviorDataModel.firestoreUtilData.fieldValues
+  mapToFirestore(driverBehaviorDataModel.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

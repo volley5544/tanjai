@@ -1243,7 +1243,7 @@ Map<String, dynamic> getLeadsDetailHouseFirestoreData(
   final firestoreData = mapToFirestore(leadsDetailHouse.toMap());
 
   // Add any Firestore field values
-  leadsDetailHouse.firestoreUtilData.fieldValues
+  mapToFirestore(leadsDetailHouse.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

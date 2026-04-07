@@ -211,7 +211,7 @@ Map<String, dynamic> getHouseCalEstimatedModelFirestoreData(
   final firestoreData = mapToFirestore(houseCalEstimatedModel.toMap());
 
   // Add any Firestore field values
-  houseCalEstimatedModel.firestoreUtilData.fieldValues
+  mapToFirestore(houseCalEstimatedModel.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

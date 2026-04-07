@@ -342,7 +342,15 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                     .toUpperCase(),
                                                 widget!.dataList
                                                     ?.elementAtOrNull(
-                                                        dataListIndex))!,
+                                                        dataListIndex))! ||
+                                            functions
+                                                .containWordinStringUrl(
+                                                    _model.textController.text
+                                                        .toUpperCase(),
+                                                    functions.removeDash(widget!
+                                                        .dataList
+                                                        ?.elementAtOrNull(
+                                                            dataListIndex)))!,
                                         child: InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,

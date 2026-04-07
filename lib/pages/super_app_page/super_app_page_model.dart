@@ -78,6 +78,10 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   UrlLinkStorageRecord? webViewUrlProd;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
   UrlLinkStorageRecord? webViewUrlDev;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  UrlLinkStorageRecord? tunjaiWebUrlProd;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  UrlLinkStorageRecord? tunjaiWebUrlDev;
   // Stores action output result for [Alert Dialog - Custom Dialog] action in Container widget.
   bool? selectedInsuranceTypeVmiCollapse;
   // Stores action output result for [Alert Dialog - Custom Dialog] action in Container widget.

@@ -5473,3 +5473,9 @@ List<dynamic>? generateJsonList(dynamic jsonInput) {
 dynamic jsonListToJson(List<dynamic>? inputJsonList) {
   return inputJsonList!;
 }
+
+String? removeDash(String? input) {
+  String output = input!.replaceAll('-', '');
+
+  return output;
+}

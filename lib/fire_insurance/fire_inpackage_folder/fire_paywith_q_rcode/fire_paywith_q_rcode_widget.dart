@@ -322,17 +322,11 @@ class _FirePaywithQRcodeWidgetState extends State<FirePaywithQRcodeWidget> {
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .only(
-                                                                    bottomLeft:
-                                                                        Radius.circular(
-                                                                            0.0),
-                                                                    bottomRight:
-                                                                        Radius.circular(
-                                                                            35.0),
-                                                                    topLeft: Radius
-                                                                        .circular(
-                                                                            0.0),
                                                                     topRight: Radius
                                                                         .circular(
+                                                                            35.0),
+                                                                    bottomRight:
+                                                                        Radius.circular(
                                                                             35.0),
                                                                   ),
                                                                 ),

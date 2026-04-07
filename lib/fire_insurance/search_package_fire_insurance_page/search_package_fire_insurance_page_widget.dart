@@ -787,10 +787,10 @@ class _SearchPackageFireInsurancePageWidgetState
                                     height: 60.0,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(10.0),
-                                        bottomRight: Radius.circular(10.0),
                                         topLeft: Radius.circular(10.0),
                                         topRight: Radius.circular(10.0),
+                                        bottomLeft: Radius.circular(10.0),
+                                        bottomRight: Radius.circular(10.0),
                                       ),
                                       border: Border.all(
                                         color: Color(0xFF8A8989),
@@ -2383,10 +2383,10 @@ class _SearchPackageFireInsurancePageWidgetState
                                     height: 60.0,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(10.0),
-                                        bottomRight: Radius.circular(10.0),
                                         topLeft: Radius.circular(10.0),
                                         topRight: Radius.circular(10.0),
+                                        bottomLeft: Radius.circular(10.0),
+                                        bottomRight: Radius.circular(10.0),
                                       ),
                                       border: Border.all(
                                         color: Color(0xFF8A8989),
@@ -2550,10 +2550,10 @@ class _SearchPackageFireInsurancePageWidgetState
                                   decoration: BoxDecoration(
                                     color: Color(0xFFEAEAEA),
                                     borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(10.0),
-                                      bottomRight: Radius.circular(10.0),
                                       topLeft: Radius.circular(10.0),
                                       topRight: Radius.circular(10.0),
+                                      bottomLeft: Radius.circular(10.0),
+                                      bottomRight: Radius.circular(10.0),
                                     ),
                                     border: Border.all(
                                       color: Color(0xFF8A8989),
@@ -2717,10 +2717,10 @@ class _SearchPackageFireInsurancePageWidgetState
                                   height: 60.0,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(10.0),
-                                      bottomRight: Radius.circular(10.0),
                                       topLeft: Radius.circular(10.0),
                                       topRight: Radius.circular(10.0),
+                                      bottomLeft: Radius.circular(10.0),
+                                      bottomRight: Radius.circular(10.0),
                                     ),
                                     border: Border.all(
                                       color: Color(0xFF8A8989),

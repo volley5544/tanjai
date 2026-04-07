@@ -446,7 +446,7 @@ Map<String, dynamic> getBenefitorModelFirestoreData(
   final firestoreData = mapToFirestore(benefitorModel.toMap());
 
   // Add any Firestore field values
-  benefitorModel.firestoreUtilData.fieldValues
+  mapToFirestore(benefitorModel.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

@@ -206,18 +206,12 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .only(
-                                                                    bottomLeft:
-                                                                        Radius.circular(
-                                                                            35.0),
-                                                                    bottomRight:
-                                                                        Radius.circular(
-                                                                            0.0),
                                                                     topLeft: Radius
                                                                         .circular(
                                                                             35.0),
-                                                                    topRight: Radius
-                                                                        .circular(
-                                                                            0.0),
+                                                                    bottomLeft:
+                                                                        Radius.circular(
+                                                                            35.0),
                                                                   ),
                                                                 ),
                                                                 child: Align(

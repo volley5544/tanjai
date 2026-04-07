@@ -159,7 +159,7 @@ Map<String, dynamic> getBannerDataFirestoreData(
   final firestoreData = mapToFirestore(bannerData.toMap());
 
   // Add any Firestore field values
-  bannerData.firestoreUtilData.fieldValues
+  mapToFirestore(bannerData.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

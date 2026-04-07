@@ -165,7 +165,7 @@ Map<String, dynamic> getInstallmentDataTypeFirestoreData(
   final firestoreData = mapToFirestore(installmentDataType.toMap());
 
   // Add any Firestore field values
-  installmentDataType.firestoreUtilData.fieldValues
+  mapToFirestore(installmentDataType.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

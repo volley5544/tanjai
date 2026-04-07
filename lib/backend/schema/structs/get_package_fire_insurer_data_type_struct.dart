@@ -814,7 +814,7 @@ Map<String, dynamic> getGetPackageFireInsurerDataTypeFirestoreData(
   final firestoreData = mapToFirestore(getPackageFireInsurerDataType.toMap());
 
   // Add any Firestore field values
-  getPackageFireInsurerDataType.firestoreUtilData.fieldValues
+  mapToFirestore(getPackageFireInsurerDataType.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

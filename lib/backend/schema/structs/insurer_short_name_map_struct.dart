@@ -243,7 +243,7 @@ Map<String, dynamic> getInsurerShortNameMapFirestoreData(
   final firestoreData = mapToFirestore(insurerShortNameMap.toMap());
 
   // Add any Firestore field values
-  insurerShortNameMap.firestoreUtilData.fieldValues
+  mapToFirestore(insurerShortNameMap.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

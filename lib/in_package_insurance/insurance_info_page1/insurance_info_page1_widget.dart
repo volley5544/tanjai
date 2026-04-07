@@ -7535,10 +7535,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(8.0),
-                                              bottomRight: Radius.circular(0.0),
                                               topLeft: Radius.circular(8.0),
-                                              topRight: Radius.circular(0.0),
+                                              bottomLeft: Radius.circular(8.0),
                                             ),
                                           ),
                                           child: Row(

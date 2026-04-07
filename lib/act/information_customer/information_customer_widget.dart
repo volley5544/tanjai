@@ -2552,10 +2552,10 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                           decoration: BoxDecoration(
                             color: Color(0xFFC7F7D7),
                             borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(12.0),
-                              bottomRight: Radius.circular(12.0),
                               topLeft: Radius.circular(12.0),
                               topRight: Radius.circular(12.0),
+                              bottomLeft: Radius.circular(12.0),
+                              bottomRight: Radius.circular(12.0),
                             ),
                           ),
                           child: Row(

@@ -524,8 +524,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                             borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(30.0),
                               bottomRight: Radius.circular(30.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
                             ),
                           ),
                           child: Padding(
@@ -3478,6 +3476,90 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             ),
                                                                           ),
                                                                         ),
+                                                                      InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          _model.tunjaiWebUrlProd =
+                                                                              await UrlLinkStorageRecord.getDocumentOnce(FFAppState().tunjaiWebDocRef!);
+                                                                          _model.tunjaiWebUrlDev =
+                                                                              await UrlLinkStorageRecord.getDocumentOnce(FFAppState().tunjaiWebUatDocRef!);
+                                                                          FFAppState().tunjaiWebUrlAppState = FFAppState().isProduction
+                                                                              ? _model.tunjaiWebUrlProd!.urlLink
+                                                                              : _model.tunjaiWebUrlDev!.urlLink;
+                                                                          safeSetState(
+                                                                              () {});
+                                                                          await launchURL(
+                                                                              '${FFAppState().tunjaiWebUrlAppState}agentCode=${FFAppState().employeeID}&branchCode=${FFAppState().branchCode}&branchName=${FFAppState().profileUnitCodeName}');
+
+                                                                          safeSetState(
+                                                                              () {});
+                                                                        },
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              MediaQuery.sizeOf(context).width * 0.28,
+                                                                          height:
+                                                                              100.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                Colors.white,
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(15.0),
+                                                                          ),
+                                                                          child:
+                                                                              Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                                                              children: [
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
+                                                                                  child: FaIcon(
+                                                                                    FontAwesomeIcons.car,
+                                                                                    color: Color(0xFFDB771A),
+                                                                                    size: 30.0,
+                                                                                  ),
+                                                                                ),
+                                                                                Container(
+                                                                                  width: 100.0,
+                                                                                  decoration: BoxDecoration(),
+                                                                                  child: Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      'ประกันทันใจ',
+                                                                                      textAlign: TextAlign.center,
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            font: GoogleFonts.notoSansThai(
+                                                                                              fontWeight: FontWeight.w600,
+                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                            ),
+                                                                                            color: Colors.black,
+                                                                                            fontSize: 14.0,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.w600,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
                                                                     ],
                                                                   );
                                                                 },
