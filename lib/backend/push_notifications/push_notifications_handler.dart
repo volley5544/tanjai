@@ -194,6 +194,7 @@ final parametersBuilderMap =
           'oldVmiExpDate': getParameter<String>(data, 'oldVmiExpDate'),
           'provinceCode': getParameter<String>(data, 'provinceCode'),
           'driver': getParameter<String>(data, 'driver'),
+          'idCard': getParameter<String>(data, 'idCard'),
         },
       ),
   'detailsInsurancePage': (data) async => ParameterData(

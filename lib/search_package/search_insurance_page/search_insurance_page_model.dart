@@ -23,6 +23,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 
@@ -83,6 +84,11 @@ class SearchInsurancePageModel
   // Stores action output result for [Backend Call - API (GetOccupation)] action in Container widget.
   ApiCallResponse? getOccuAPIOutput;
   DateTime? datePicked;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  late MaskTextInputFormatter textFieldMask;
+  String? Function(BuildContext, String?)? textControllerValidator;
   // State field(s) for Slider widget.
   double? sliderValue;
 
@@ -90,5 +96,8 @@ class SearchInsurancePageModel
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {}
+  void dispose() {
+    textFieldFocusNode?.dispose();
+    textController?.dispose();
+  }
 }

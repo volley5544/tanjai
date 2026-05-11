@@ -563,6 +563,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'driver',
                   ParamType.String,
                 ),
+                idCard: params.getParam(
+                  'idCard',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(

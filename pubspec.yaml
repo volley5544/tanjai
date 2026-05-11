@@ -50,7 +50,11 @@ dependencies:
   data_table_2: 2.5.10
   device_info_plus: 11.5.0
   device_info_plus_platform_interface: 7.0.3
-  dropdown_button2: 2.3.9
+  dropdown_button2: 
+    git:
+      url: https://github.com/FlutterFlow/dropdown_button2.git
+      ref: 514178337dfbea442f617daed39c704b57593fc9
+      path: packages/dropdown_button2
   easy_debounce: 2.0.1
   enough_mail: ^2.1.1
   equatable: 2.0.7

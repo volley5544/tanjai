@@ -39,6 +39,7 @@ class InsurerListPageWidget extends StatefulWidget {
     required this.oldVmiExpDate,
     required this.provinceCode,
     required this.driver,
+    this.idCard,
   });
 
   final String? brandCode;
@@ -54,6 +55,7 @@ class InsurerListPageWidget extends StatefulWidget {
   final String? oldVmiExpDate;
   final String? provinceCode;
   final String? driver;
+  final String? idCard;
 
   static String routeName = 'insurerListPage';
   static String routePath = 'insurerListPage';
