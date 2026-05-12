@@ -2137,7 +2137,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                       decoration: BoxDecoration(),
                                                                                       child: Builder(
                                                                                         builder: (context) {
-                                                                                          if (FFAppState().searchDiscountflg.elementAtOrNull(listinsuranceIndex) == '1') {
+                                                                                          if (FFAppState().searchDiscountflg.elementAtOrNull(listinsuranceIndex) != '1') {
                                                                                             return Row(
                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                               children: [

@@ -4751,7 +4751,7 @@ dynamic sendJsonData(
       'driver_behavior': driverBehavior![i],
       'inspection_except': inspectionExcept![i],
       'discount_other': discountother![i],
-      'discount_percent': discountpercent![i]
+      'discount_percent': discountpercent![i],
     };
     jsonList.add(jsonObject);
   }
