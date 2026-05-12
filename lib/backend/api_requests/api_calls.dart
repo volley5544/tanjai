@@ -5555,6 +5555,23 @@ class TelePackageSearchAPICall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List? grosstotaldiscount(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data[*][*].package[:].gross_total_discount''',
+        true,
+      ) as List?;
+  static dynamic grosstotalnet(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data[*][*].package[:].gross_total_net''',
+      );
+  static dynamic discountother(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data[*][*].package[:].discount_other''',
+      );
+  static dynamic discountpercent(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data[*][*].package[:].discount_percent''',
+      );
 }
 
 class TelePackageSearchMCAPICall {
@@ -9533,6 +9550,7 @@ class InsuranceRequestSendEmailAPICall {
     String? carTypeDetail = '',
     String? oldVMIFlg = '',
     List<String>? driverBehaviorList,
+    String? nationalThaiId = '',
   }) async {
     final insurerCode = _serializeList(insurerCodeList);
     final insurerId = _serializeList(insurerIdList);
@@ -9637,6 +9655,7 @@ class InsuranceRequestSendEmailAPICall {
         'car_type_detail': carTypeDetail,
         'old_VMI_flg': oldVMIFlg,
         'driver_behavior': driverBehavior,
+        'national_thai_id': nationalThaiId,
       },
       bodyType: BodyType.MULTIPART,
       returnBody: true,

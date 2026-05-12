@@ -3684,7 +3684,7 @@ class FFAppState extends ChangeNotifier {
     welfareKpiStatusTextColorList.insert(index, value);
   }
 
-  bool _isProduction = true;
+  bool _isProduction = false;
   bool get isProduction => _isProduction;
   set isProduction(bool value) {
     _isProduction = value;
@@ -14494,6 +14494,129 @@ class FFAppState extends ChangeNotifier {
   String get tunjaiWebUrlAppState => _tunjaiWebUrlAppState;
   set tunjaiWebUrlAppState(String value) {
     _tunjaiWebUrlAppState = value;
+  }
+
+  List<String> _searchGrosstotaldiscount = [];
+  List<String> get searchGrosstotaldiscount => _searchGrosstotaldiscount;
+  set searchGrosstotaldiscount(List<String> value) {
+    _searchGrosstotaldiscount = value;
+  }
+
+  void addToSearchGrosstotaldiscount(String value) {
+    searchGrosstotaldiscount.add(value);
+  }
+
+  void removeFromSearchGrosstotaldiscount(String value) {
+    searchGrosstotaldiscount.remove(value);
+  }
+
+  void removeAtIndexFromSearchGrosstotaldiscount(int index) {
+    searchGrosstotaldiscount.removeAt(index);
+  }
+
+  void updateSearchGrosstotaldiscountAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchGrosstotaldiscount[index] =
+        updateFn(_searchGrosstotaldiscount[index]);
+  }
+
+  void insertAtIndexInSearchGrosstotaldiscount(int index, String value) {
+    searchGrosstotaldiscount.insert(index, value);
+  }
+
+  List<String> _searchDiscountother = [];
+  List<String> get searchDiscountother => _searchDiscountother;
+  set searchDiscountother(List<String> value) {
+    _searchDiscountother = value;
+  }
+
+  void addToSearchDiscountother(String value) {
+    searchDiscountother.add(value);
+  }
+
+  void removeFromSearchDiscountother(String value) {
+    searchDiscountother.remove(value);
+  }
+
+  void removeAtIndexFromSearchDiscountother(int index) {
+    searchDiscountother.removeAt(index);
+  }
+
+  void updateSearchDiscountotherAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchDiscountother[index] = updateFn(_searchDiscountother[index]);
+  }
+
+  void insertAtIndexInSearchDiscountother(int index, String value) {
+    searchDiscountother.insert(index, value);
+  }
+
+  List<String> _searchDiscountpercent = [];
+  List<String> get searchDiscountpercent => _searchDiscountpercent;
+  set searchDiscountpercent(List<String> value) {
+    _searchDiscountpercent = value;
+  }
+
+  void addToSearchDiscountpercent(String value) {
+    searchDiscountpercent.add(value);
+  }
+
+  void removeFromSearchDiscountpercent(String value) {
+    searchDiscountpercent.remove(value);
+  }
+
+  void removeAtIndexFromSearchDiscountpercent(int index) {
+    searchDiscountpercent.removeAt(index);
+  }
+
+  void updateSearchDiscountpercentAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchDiscountpercent[index] = updateFn(_searchDiscountpercent[index]);
+  }
+
+  void insertAtIndexInSearchDiscountpercent(int index, String value) {
+    searchDiscountpercent.insert(index, value);
+  }
+
+  List<String> _searchGrosstotalnet = [];
+  List<String> get searchGrosstotalnet => _searchGrosstotalnet;
+  set searchGrosstotalnet(List<String> value) {
+    _searchGrosstotalnet = value;
+  }
+
+  void addToSearchGrosstotalnet(String value) {
+    searchGrosstotalnet.add(value);
+  }
+
+  void removeFromSearchGrosstotalnet(String value) {
+    searchGrosstotalnet.remove(value);
+  }
+
+  void removeAtIndexFromSearchGrosstotalnet(int index) {
+    searchGrosstotalnet.removeAt(index);
+  }
+
+  void updateSearchGrosstotalnetAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchGrosstotalnet[index] = updateFn(_searchGrosstotalnet[index]);
+  }
+
+  void insertAtIndexInSearchGrosstotalnet(int index, String value) {
+    searchGrosstotalnet.insert(index, value);
+  }
+
+  String _nonePackageThaiId = '';
+  String get nonePackageThaiId => _nonePackageThaiId;
+  set nonePackageThaiId(String value) {
+    _nonePackageThaiId = value;
   }
 }
 

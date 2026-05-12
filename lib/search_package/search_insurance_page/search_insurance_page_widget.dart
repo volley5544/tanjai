@@ -4803,6 +4803,11 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                       _model.driverFlag ? '1' : '0',
                                       ParamType.String,
                                     ),
+                                    'idCard': serializeParam(
+                                      functions.removeDash(
+                                          _model.textController.text),
+                                      ParamType.String,
+                                    ),
                                   }.withoutNulls,
                                 );
 

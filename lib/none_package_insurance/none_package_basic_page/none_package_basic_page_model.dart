@@ -106,6 +106,14 @@ class NonePackageBasicPageModel
   late MaskTextInputFormatter plateAdditionalTextFieldMask;
   String? Function(BuildContext, String?)?
       plateAdditionalTextFieldTextControllerValidator;
+  // State field(s) for IdCardTextField widget.
+  FocusNode? idCardTextFieldFocusNode;
+  TextEditingController? idCardTextFieldTextController;
+  late MaskTextInputFormatter idCardTextFieldMask;
+  String? Function(BuildContext, String?)?
+      idCardTextFieldTextControllerValidator;
+  // Stores action output result for [Backend Call - API (checkBlackList)] action in Container widget.
+  ApiCallResponse? checkBlackListOutput;
   // State field(s) for SumInsuredTextField widget.
   FocusNode? sumInsuredTextFieldFocusNode;
   TextEditingController? sumInsuredTextFieldTextController;
@@ -168,6 +176,9 @@ class NonePackageBasicPageModel
 
     plateAdditionalTextFieldFocusNode?.dispose();
     plateAdditionalTextFieldTextController?.dispose();
+
+    idCardTextFieldFocusNode?.dispose();
+    idCardTextFieldTextController?.dispose();
 
     sumInsuredTextFieldFocusNode?.dispose();
     sumInsuredTextFieldTextController?.dispose();

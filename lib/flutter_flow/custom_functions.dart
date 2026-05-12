@@ -4707,6 +4707,8 @@ dynamic sendJsonData(
   List<String>? motorAddOn,
   List<String>? driverBehavior,
   List<String>? inspectionExcept,
+  List<String>? discountother,
+  List<String>? discountpercent,
 ) {
   List<Map<String, String>> jsonList = [];
 
@@ -4748,6 +4750,8 @@ dynamic sendJsonData(
       'motor_add_on': motorAddOn![i],
       'driver_behavior': driverBehavior![i],
       'inspection_except': inspectionExcept![i],
+      'discount_other': discountother![i],
+      'discount_percent': discountpercent![i]
     };
     jsonList.add(jsonObject);
   }

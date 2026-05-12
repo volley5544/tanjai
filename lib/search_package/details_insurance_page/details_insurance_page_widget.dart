@@ -66,6 +66,10 @@ class DetailsInsurancePageWidget extends StatefulWidget {
     required this.motorAddOn,
     required this.driverBehavior,
     this.inspectionExcept,
+    this.grossTotalDiscount,
+    this.discountOther,
+    this.discountPercent,
+    this.grossTotalNet,
   })  : this.insurerFullName = insurerFullName ?? '-',
         this.currentDate = currentDate ?? '-',
         this.brandId = brandId ?? '-',
@@ -141,6 +145,10 @@ class DetailsInsurancePageWidget extends StatefulWidget {
   final String? motorAddOn;
   final String? driverBehavior;
   final String? inspectionExcept;
+  final String? grossTotalDiscount;
+  final String? discountOther;
+  final String? discountPercent;
+  final String? grossTotalNet;
 
   static String routeName = 'detailsInsurancePage';
   static String routePath = 'detailsInsurancePage';
@@ -1461,6 +1469,198 @@ class _DetailsInsurancePageWidgetState
                         thickness: 1.0,
                         color: Color(0xFFCBD8D8),
                       ),
+                      if (widget!.discountPercent != null &&
+                          widget!.discountPercent != '')
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 10.0, 20.0, 10.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'เปอร์เซ็นต์ส่วนลด',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.notoSansThai(
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: Color(0xFF646464),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                  Text(
+                                    '${widget!.discountPercent} %',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.notoSansThai(
+                                            fontWeight: FontWeight.bold,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: Color(0xFF222424),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Divider(
+                              thickness: 1.0,
+                              color: Color(0xFFCBD8D8),
+                            ),
+                          ],
+                        ),
+                      if (widget!.discountPercent != null &&
+                          widget!.discountPercent != '')
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 10.0, 20.0, 10.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'ราคาส่วนลด',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.notoSansThai(
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: Color(0xFF646464),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                  Text(
+                                    '${functions.showNumberWithComma(widget!.discountOther)} บาท',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.notoSansThai(
+                                            fontWeight: FontWeight.bold,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: Color(0xFF222424),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Divider(
+                              thickness: 1.0,
+                              color: Color(0xFFCBD8D8),
+                            ),
+                          ],
+                        ),
+                      if (widget!.discountPercent != null &&
+                          widget!.discountPercent != '')
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 10.0, 20.0, 10.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'ค่าเบี้ยรวมส่วนลด',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.notoSansThai(
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: Color(0xFF646464),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                  Text(
+                                    '${functions.showNumberWithComma(widget!.grossTotalDiscount)} บาท',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.notoSansThai(
+                                            fontWeight: FontWeight.bold,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: Color(0xFF222424),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Divider(
+                              thickness: 1.0,
+                              color: Color(0xFFCBD8D8),
+                            ),
+                          ],
+                        ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -1492,12 +1692,7 @@ class _DetailsInsurancePageWidgetState
                                       ),
                                 ),
                                 Text(
-                                  (widget!.grossTotal == '-') ||
-                                          (widget!.grossAct == '-') ||
-                                          (widget!.grossTotal == '') ||
-                                          (widget!.grossAct == '')
-                                      ? '-'
-                                      : '${functions.showNumberWithComma(functions.getGrossAct(widget!.grossTotal, widget!.grossAct))} บาท',
+                                  '${functions.showNumberWithComma(widget!.grossTotalNet)} บาท',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(

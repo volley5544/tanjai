@@ -249,6 +249,11 @@ final parametersBuilderMap =
           'motorAddOn': getParameter<String>(data, 'motorAddOn'),
           'driverBehavior': getParameter<String>(data, 'driverBehavior'),
           'inspectionExcept': getParameter<String>(data, 'inspectionExcept'),
+          'grossTotalDiscount':
+              getParameter<String>(data, 'grossTotalDiscount'),
+          'discountOther': getParameter<String>(data, 'discountOther'),
+          'discountPercent': getParameter<String>(data, 'discountPercent'),
+          'grossTotalNet': getParameter<String>(data, 'grossTotalNet'),
         },
       ),
   'NonePackageEditPage1': ParameterData.none(),
@@ -577,6 +582,7 @@ final parametersBuilderMap =
           'oldVmiExpDate': getParameter<String>(data, 'oldVmiExpDate'),
           'provinceCode': getParameter<String>(data, 'provinceCode'),
           'driverFlag': getParameter<String>(data, 'driverFlag'),
+          'idCard': getParameter<String>(data, 'idCard'),
         },
       ),
   'SearchableHouseList': (data) async => ParameterData(

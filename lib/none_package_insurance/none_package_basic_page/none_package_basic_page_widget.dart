@@ -663,6 +663,11 @@ class _NonePackageBasicPageWidgetState
 
     _model.plateAdditionalTextFieldMask =
         MaskTextInputFormatter(mask: '######');
+    _model.idCardTextFieldTextController ??= TextEditingController();
+    _model.idCardTextFieldFocusNode ??= FocusNode();
+
+    _model.idCardTextFieldMask =
+        MaskTextInputFormatter(mask: '#-####-#####-##-#');
     _model.sumInsuredTextFieldTextController ??=
         TextEditingController(text: widget!.sumInsured);
     _model.sumInsuredTextFieldFocusNode ??= FocusNode();
@@ -5897,6 +5902,543 @@ class _NonePackageBasicPageWidgetState
                         ),
                       ),
                     ),
+                  if (((FFAppState().insuranceInfoCardType == 'บัตรประชาชน') ||
+                              (FFAppState().insuranceInfoCardType == '1')) &&
+                          !FFAppState().isCorporate
+                      ? true
+                      : false)
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                      child: Container(
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        decoration: BoxDecoration(),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'กรอกเลขบัตรลูกค้าเพื่อรับส่วนลดสูงสุด 10 %',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: GoogleFonts.notoSansThai(
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        fontSize: 15.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Expanded(
+                                    flex: 5,
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.55,
+                                      height: 60.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: Color(0xFFB3B3B3),
+                                        ),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          Expanded(
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 8.0, 0.0),
+                                                child: TextFormField(
+                                                  controller: _model
+                                                      .idCardTextFieldTextController,
+                                                  focusNode: _model
+                                                      .idCardTextFieldFocusNode,
+                                                  autofocus: false,
+                                                  textCapitalization:
+                                                      TextCapitalization.none,
+                                                  obscureText: false,
+                                                  decoration: InputDecoration(
+                                                    labelStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .labelMedium
+                                                            .override(
+                                                              font: GoogleFonts
+                                                                  .notoSansThai(
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                              fontSize: 15.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .fontWeight,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .fontStyle,
+                                                            ),
+                                                    hintText:
+                                                        'กรุณากรอกเลขบัตร',
+                                                    hintStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .labelMedium
+                                                            .override(
+                                                              font: GoogleFonts
+                                                                  .notoSansThai(
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryText,
+                                                              fontSize: 15.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .fontWeight,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .fontStyle,
+                                                            ),
+                                                    enabledBorder:
+                                                        InputBorder.none,
+                                                    focusedBorder:
+                                                        InputBorder.none,
+                                                    errorBorder:
+                                                        InputBorder.none,
+                                                    focusedErrorBorder:
+                                                        InputBorder.none,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        font: GoogleFonts
+                                                            .notoSansThai(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                  maxLength: FFAppState()
+                                                              .insuranceInfoIdCard ==
+                                                          ''
+                                                      ? 17
+                                                      : 13,
+                                                  maxLengthEnforcement:
+                                                      MaxLengthEnforcement
+                                                          .enforced,
+                                                  buildCounter: (context,
+                                                          {required currentLength,
+                                                          required isFocused,
+                                                          maxLength}) =>
+                                                      null,
+                                                  keyboardType:
+                                                      TextInputType.phone,
+                                                  validator: _model
+                                                      .idCardTextFieldTextControllerValidator
+                                                      .asValidator(context),
+                                                  inputFormatters: [
+                                                    _model.idCardTextFieldMask
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          if (((_model.checkBlackListOutput
+                                                          ?.statusCode ??
+                                                      200) !=
+                                                  200) &&
+                                              (CheckBlackListCall.statuslayer1(
+                                                    (_model.checkBlackListOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ) !=
+                                                  200) &&
+                                              (CheckBlackListCall.blacklistflag(
+                                                    (_model.checkBlackListOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ) ==
+                                                  'N'))
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
+                                              child: Icon(
+                                                Icons.error_outline,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                size: 24.0,
+                                              ),
+                                            ),
+                                          if (((_model.checkBlackListOutput
+                                                          ?.statusCode ??
+                                                      200) ==
+                                                  200) &&
+                                              (CheckBlackListCall.statuslayer1(
+                                                    (_model.checkBlackListOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ) ==
+                                                  200) &&
+                                              (CheckBlackListCall.blacklistflag(
+                                                    (_model.checkBlackListOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ) ==
+                                                  'N'))
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
+                                              child: Icon(
+                                                Icons.check,
+                                                color: Color(0xFF00B505),
+                                                size: 24.0,
+                                              ),
+                                            ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    flex: 3,
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          5.0, 0.0, 0.0, 0.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          var _shouldSetState = false;
+                                          if (!functions.checkIdCardInput(functions
+                                              .removeCommaFromNumText(_model
+                                                  .idCardTextFieldTextController
+                                                  .text))) {
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        'กรุณากรอกเลขบัตร 13 หลัก'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
+                                          if (!functions.checkIdCard(functions
+                                              .removeCommaFromNumText(_model
+                                                  .idCardTextFieldTextController
+                                                  .text))!) {
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        'กรุณากรอกเลขบัตรให้ถูกต้อง'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
+                                          await actions.hideKeyboardAction(
+                                            context,
+                                          );
+                                          showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            enableDrag: false,
+                                            context: context,
+                                            builder: (context) {
+                                              return WebViewAware(
+                                                child: GestureDetector(
+                                                  onTap: () {
+                                                    FocusScope.of(context)
+                                                        .unfocus();
+                                                    FocusManager
+                                                        .instance.primaryFocus
+                                                        ?.unfocus();
+                                                  },
+                                                  child: Padding(
+                                                    padding:
+                                                        MediaQuery.viewInsetsOf(
+                                                            context),
+                                                    child: LoadingSceneWidget(),
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
+
+                                          _model.checkBlackListOutput =
+                                              await CheckBlackListCall.call(
+                                            nationalThaiId: functions
+                                                .removeCommaFromNumText(_model
+                                                    .idCardTextFieldTextController
+                                                    .text),
+                                            insuranceUrl: FFAppState()
+                                                .apiUrlInsuranceAppState,
+                                            idTypeId: FFAppState()
+                                                        .insuranceInfoCardType ==
+                                                    'บัตรประชาชน'
+                                                ? '1'
+                                                : '2',
+                                            quotationId: FFAppState()
+                                                .insuranceInfoQuotationId,
+                                            token: FFAppState().accessToken,
+                                          );
+
+                                          _shouldSetState = true;
+                                          if ((_model.checkBlackListOutput
+                                                      ?.statusCode ??
+                                                  200) !=
+                                              200) {
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        'พบข้อผิดพลาด (${(_model.checkBlackListOutput?.statusCode ?? 200).toString()})'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                            Navigator.pop(context);
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
+                                          if (CheckBlackListCall.statuslayer1(
+                                                (_model.checkBlackListOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ) !=
+                                              200) {
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        CheckBlackListCall
+                                                            .messageLayer1(
+                                                      (_model.checkBlackListOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )!),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                            Navigator.pop(context);
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
+                                          Navigator.pop(context);
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                        },
+                                        child: Container(
+                                          width: 130.0,
+                                          height: 60.0,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFFCEFE4),
+                                            borderRadius:
+                                                BorderRadius.circular(16.0),
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(-1.0, 0.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 0.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Icon(
+                                                    Icons.list,
+                                                    color: Color(0xFFD9761A),
+                                                    size: 20.0,
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(4.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      'เช็คโปรโมชั่น',
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .notoSansThai(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: Color(
+                                                                    0xFFD9761A),
+                                                                fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 5.0),
@@ -8781,6 +9323,18 @@ class _NonePackageBasicPageWidgetState
                                           .text);
                                   FFAppState().nonePackageRemark =
                                       _model.remarkTextFieldTextController.text;
+                                  safeSetState(() {});
+                                  FFAppState().nonePackageThaiId = _model
+                                                  .idCardTextFieldTextController
+                                                  .text !=
+                                              null &&
+                                          _model.idCardTextFieldTextController
+                                                  .text !=
+                                              ''
+                                      ? functions.removeDatAndMakeUpperCase(
+                                          _model.idCardTextFieldTextController
+                                              .text)!
+                                      : '';
                                   safeSetState(() {});
                                   if (FFAppState().nonePackageFlagRenew) {
                                     FFAppState().nonePackageOldVmiExpDate =

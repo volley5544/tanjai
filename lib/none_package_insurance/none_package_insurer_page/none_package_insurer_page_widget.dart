@@ -1278,6 +1278,8 @@ class _NonePackageInsurerPageWidgetState
                                                         .nonePackageDriverBehaviorCode
                                                     : '0',
                                                 5),
+                                        nationalThaiId:
+                                            FFAppState().nonePackageThaiId,
                                       );
 
                                       _shouldSetState = true;
@@ -1979,6 +1981,8 @@ class _NonePackageInsurerPageWidgetState
                                                         .nonePackageDriverBehaviorCode
                                                     : '0',
                                                 5),
+                                        nationalThaiId:
+                                            FFAppState().nonePackageThaiId,
                                       );
 
                                       _shouldSetState = true;

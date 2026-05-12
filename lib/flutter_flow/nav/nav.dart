@@ -456,6 +456,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                           ParamType.String,
                           isList: true,
                         ),
+                        grossTotalDiscount: params.getParam<String>(
+                          'grossTotalDiscount',
+                          ParamType.String,
+                          isList: true,
+                        ),
+                        discountOther: params.getParam<String>(
+                          'discountOther',
+                          ParamType.String,
+                          isList: true,
+                        ),
+                        discountPercent: params.getParam<String>(
+                          'discountPercent',
+                          ParamType.String,
+                          isList: true,
+                        ),
+                        grossTotalNet: params.getParam<String>(
+                          'grossTotalNet',
+                          ParamType.String,
+                          isList: true,
+                        ),
                       ),
                     )),
             FFRoute(
@@ -769,6 +789,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                         ),
                         inspectionExcept: params.getParam(
                           'inspectionExcept',
+                          ParamType.String,
+                        ),
+                        grossTotalDiscount: params.getParam(
+                          'grossTotalDiscount',
+                          ParamType.String,
+                        ),
+                        discountOther: params.getParam(
+                          'discountOther',
+                          ParamType.String,
+                        ),
+                        discountPercent: params.getParam(
+                          'discountPercent',
+                          ParamType.String,
+                        ),
+                        grossTotalNet: params.getParam(
+                          'grossTotalNet',
                           ParamType.String,
                         ),
                       ),
@@ -1434,6 +1470,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                   isList: true,
                 ),
+                grossTotalDiscount: params.getParam<String>(
+                  'grossTotalDiscount',
+                  ParamType.String,
+                  isList: true,
+                ),
+                discountOther: params.getParam<String>(
+                  'discountOther',
+                  ParamType.String,
+                  isList: true,
+                ),
+                discountPercent: params.getParam<String>(
+                  'discountPercent',
+                  ParamType.String,
+                  isList: true,
+                ),
+                grossTotalNet: params.getParam<String>(
+                  'grossTotalNet',
+                  ParamType.String,
+                  isList: true,
+                ),
               ),
             ),
             FFRoute(
@@ -2014,6 +2070,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ),
                 driverFlag: params.getParam(
                   'driverFlag',
+                  ParamType.String,
+                ),
+                idCard: params.getParam(
+                  'idCard',
                   ParamType.String,
                 ),
               ),

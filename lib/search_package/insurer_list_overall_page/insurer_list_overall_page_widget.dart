@@ -39,6 +39,7 @@ class InsurerListOverallPageWidget extends StatefulWidget {
     required this.provinceCode,
     required this.driverBehaviorScoreList,
     required this.driverFlag,
+    this.idCard,
   });
 
   final String? brandCode;
@@ -55,6 +56,7 @@ class InsurerListOverallPageWidget extends StatefulWidget {
   final String? provinceCode;
   final List<String>? driverBehaviorScoreList;
   final String? driverFlag;
+  final String? idCard;
 
   static String routeName = 'insurerListOverallPage';
   static String routePath = 'insurerListOverallPage';
@@ -317,6 +319,46 @@ class _InsurerListOverallPageWidgetState
       )!
               .toList()
               .cast<String>();
+      FFAppState().searchGrosstotaldiscount = (getJsonField(
+        (_model.packageAPIOutput?.jsonBody ?? ''),
+        r'''$.results.data[*][*].package[:].gross_total_discount''',
+        true,
+      ) as List?)!
+          .map<String>((e) => e.toString())
+          .toList()
+          .cast<String>()
+          .toList()
+          .cast<String>();
+      FFAppState().searchDiscountother = (getJsonField(
+        (_model.packageAPIOutput?.jsonBody ?? ''),
+        r'''$.results.data[*][*].package[:].discount_other''',
+        true,
+      ) as List?)!
+          .map<String>((e) => e.toString())
+          .toList()
+          .cast<String>()
+          .toList()
+          .cast<String>();
+      FFAppState().searchDiscountpercent = (getJsonField(
+        (_model.packageAPIOutput?.jsonBody ?? ''),
+        r'''$.results.data[*][*].package[:].discount_percent''',
+        true,
+      ) as List?)!
+          .map<String>((e) => e.toString())
+          .toList()
+          .cast<String>()
+          .toList()
+          .cast<String>();
+      FFAppState().searchGrosstotalnet = (getJsonField(
+        (_model.packageAPIOutput?.jsonBody ?? ''),
+        r'''$.results.data[*][*].package[:].gross_total_net''',
+        true,
+      ) as List?)!
+          .map<String>((e) => e.toString())
+          .toList()
+          .cast<String>()
+          .toList()
+          .cast<String>();
       safeSetState(() {});
       FFAppState().effectiveDate = TelePackageSearchAPICall.effectiveDate(
         (_model.packageAPIOutput?.jsonBody ?? ''),
