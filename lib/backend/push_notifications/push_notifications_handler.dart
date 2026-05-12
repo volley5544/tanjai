@@ -254,6 +254,7 @@ final parametersBuilderMap =
           'discountOther': getParameter<String>(data, 'discountOther'),
           'discountPercent': getParameter<String>(data, 'discountPercent'),
           'grossTotalNet': getParameter<String>(data, 'grossTotalNet'),
+          'discountFlg': getParameter<String>(data, 'discountFlg'),
         },
       ),
   'NonePackageEditPage1': ParameterData.none(),

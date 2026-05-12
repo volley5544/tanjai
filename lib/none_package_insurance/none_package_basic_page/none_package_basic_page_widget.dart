@@ -9245,6 +9245,38 @@ class _NonePackageBasicPageWidgetState
                                       return;
                                     }
                                   }
+                                  if (_model.idCardTextFieldTextController
+                                              .text !=
+                                          null &&
+                                      _model.idCardTextFieldTextController
+                                              .text !=
+                                          '') {
+                                    if (!functions.checkIdCard(functions
+                                        .removeDatAndMakeUpperCase(_model
+                                            .idCardTextFieldTextController
+                                            .text))!) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณากรอกเลขบัตรลูกค้าให้ถูกต้อง'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      return;
+                                    }
+                                  }
                                   FFAppState().nonePackageModelName =
                                       functions.toUpperCase(
                                           _model.modelNameTextController.text)!;

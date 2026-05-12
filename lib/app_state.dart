@@ -14618,6 +14618,35 @@ class FFAppState extends ChangeNotifier {
   set nonePackageThaiId(String value) {
     _nonePackageThaiId = value;
   }
+
+  List<String> _searchDiscountflg = [];
+  List<String> get searchDiscountflg => _searchDiscountflg;
+  set searchDiscountflg(List<String> value) {
+    _searchDiscountflg = value;
+  }
+
+  void addToSearchDiscountflg(String value) {
+    searchDiscountflg.add(value);
+  }
+
+  void removeFromSearchDiscountflg(String value) {
+    searchDiscountflg.remove(value);
+  }
+
+  void removeAtIndexFromSearchDiscountflg(int index) {
+    searchDiscountflg.removeAt(index);
+  }
+
+  void updateSearchDiscountflgAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchDiscountflg[index] = updateFn(_searchDiscountflg[index]);
+  }
+
+  void insertAtIndexInSearchDiscountflg(int index, String value) {
+    searchDiscountflg.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

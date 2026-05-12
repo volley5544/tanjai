@@ -2041,11 +2041,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 ],
                                                                                               ),
                                                                                             ),
-                                                                                          if (valueOrDefault<String>(
-                                                                                                FFAppState().searchDiscountpercent.elementAtOrNull(listinsuranceIndex),
-                                                                                                '-',
-                                                                                              ) !=
-                                                                                              '')
+                                                                                          if (FFAppState().searchDiscountflg.elementAtOrNull(listinsuranceIndex) == '1')
                                                                                             Padding(
                                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
                                                                                               child: Row(
@@ -2086,7 +2082,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 ],
                                                                                               ),
                                                                                             ),
-                                                                                          if (FFAppState().searchDeductible.elementAtOrNull(listinsuranceIndex) != '0')
+                                                                                          if (FFAppState().searchDiscountflg.elementAtOrNull(listinsuranceIndex) == '1')
                                                                                             Padding(
                                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
                                                                                               child: Row(
@@ -2139,84 +2135,96 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                   children: [
                                                                                     Container(
                                                                                       decoration: BoxDecoration(),
-                                                                                      child: Row(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        children: [
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                                                                                            child: Column(
+                                                                                      child: Builder(
+                                                                                        builder: (context) {
+                                                                                          if (FFAppState().searchDiscountflg.elementAtOrNull(listinsuranceIndex) == '1') {
+                                                                                            return Row(
                                                                                               mainAxisSize: MainAxisSize.max,
-                                                                                              mainAxisAlignment: MainAxisAlignment.start,
-                                                                                              crossAxisAlignment: CrossAxisAlignment.start,
                                                                                               children: [
-                                                                                                Text(
-                                                                                                  'ราคาเบี้ย',
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        font: GoogleFonts.notoSansThai(
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                        fontSize: 10.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                Padding(
+                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                                                                                                  child: Column(
+                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                    mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                    children: [
+                                                                                                      Text(
+                                                                                                        'ราคาเบี้ย',
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                              font: GoogleFonts.notoSansThai(
+                                                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                              ),
+                                                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                              fontSize: 10.0,
+                                                                                                              letterSpacing: 0.0,
+                                                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                            ),
                                                                                                       ),
-                                                                                                ),
-                                                                                                Text(
-                                                                                                  '${functions.showNumberWithComma(FFAppState().searchGrossTotal.elementAtOrNull(listinsuranceIndex))} บาท',
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        font: GoogleFonts.notoSansThai(
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        fontSize: 11.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                      Text(
+                                                                                                        '${functions.showNumberWithComma(FFAppState().searchGrossTotal.elementAtOrNull(listinsuranceIndex))} บาท',
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                              font: GoogleFonts.notoSansThai(
+                                                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                              ),
+                                                                                                              fontSize: 11.0,
+                                                                                                              letterSpacing: 0.0,
+                                                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                            ),
                                                                                                       ),
+                                                                                                    ],
+                                                                                                  ),
                                                                                                 ),
                                                                                               ],
-                                                                                            ),
-                                                                                          ),
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                                                                                            child: Column(
+                                                                                            );
+                                                                                          } else {
+                                                                                            return Row(
                                                                                               mainAxisSize: MainAxisSize.max,
-                                                                                              mainAxisAlignment: MainAxisAlignment.start,
-                                                                                              crossAxisAlignment: CrossAxisAlignment.start,
                                                                                               children: [
-                                                                                                Text(
-                                                                                                  'ราคาเบี้ยร่วมส่วนลด',
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        font: GoogleFonts.notoSansThai(
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                        fontSize: 10.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                Padding(
+                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                                                                                                  child: Column(
+                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                    mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                    children: [
+                                                                                                      Text(
+                                                                                                        'ราคาเบี้ยร่วมส่วนลด',
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                              font: GoogleFonts.notoSansThai(
+                                                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                              ),
+                                                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                              fontSize: 10.0,
+                                                                                                              letterSpacing: 0.0,
+                                                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                            ),
                                                                                                       ),
-                                                                                                ),
-                                                                                                Text(
-                                                                                                  '${functions.showNumberWithComma(FFAppState().searchGrosstotaldiscount.elementAtOrNull(listinsuranceIndex))} บาท',
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        font: GoogleFonts.notoSansThai(
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        fontSize: 11.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                      Text(
+                                                                                                        '${functions.showNumberWithComma(FFAppState().searchGrosstotaldiscount.elementAtOrNull(listinsuranceIndex))} บาท',
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                              font: GoogleFonts.notoSansThai(
+                                                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                              ),
+                                                                                                              fontSize: 11.0,
+                                                                                                              letterSpacing: 0.0,
+                                                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                            ),
                                                                                                       ),
+                                                                                                    ],
+                                                                                                  ),
                                                                                                 ),
                                                                                               ],
-                                                                                            ),
-                                                                                          ),
-                                                                                        ],
+                                                                                            );
+                                                                                          }
+                                                                                        },
                                                                                       ),
                                                                                     ),
                                                                                     Padding(
@@ -2432,6 +2440,10 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                               ),
                                                                                               'grossTotalNet': serializeParam(
                                                                                                 FFAppState().searchGrosstotalnet.elementAtOrNull(listinsuranceIndex),
+                                                                                                ParamType.String,
+                                                                                              ),
+                                                                                              'discountFlg': serializeParam(
+                                                                                                FFAppState().searchDiscountflg.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                             }.withoutNulls,
@@ -3266,6 +3278,19 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                       functions.returnMappedListFromBoolList(
                                                           FFAppState()
                                                               .searchGrosstotalnet
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .selectInsurerList
+                                                              .toList(),
+                                                          true),
+                                                      ParamType.String,
+                                                      isList: true,
+                                                    ),
+                                                    'discountFlg':
+                                                        serializeParam(
+                                                      functions.returnMappedListFromBoolList(
+                                                          FFAppState()
+                                                              .searchDiscountflg
                                                               .toList(),
                                                           FFAppState()
                                                               .selectInsurerList

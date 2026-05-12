@@ -4673,7 +4673,8 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
                                         child: AlertDialog(
-                                          content: Text('เลขบัตรไม่ถูกต้อง'),
+                                          content: Text(
+                                              'กรุณากรอกเลขบัตรลูกค้าให้ถูกต้อง'),
                                           actions: [
                                             TextButton(
                                               onPressed: () => Navigator.pop(

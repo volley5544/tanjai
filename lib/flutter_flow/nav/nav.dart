@@ -476,6 +476,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                           ParamType.String,
                           isList: true,
                         ),
+                        discountFlg: params.getParam<String>(
+                          'discountFlg',
+                          ParamType.String,
+                          isList: true,
+                        ),
                       ),
                     )),
             FFRoute(
@@ -805,6 +810,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                         ),
                         grossTotalNet: params.getParam(
                           'grossTotalNet',
+                          ParamType.String,
+                        ),
+                        discountFlg: params.getParam(
+                          'discountFlg',
                           ParamType.String,
                         ),
                       ),

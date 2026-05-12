@@ -113,6 +113,7 @@ class _InsurerListOverallPageWidgetState
         province: widget!.province,
         driverBehaviorList: widget!.driverBehaviorScoreList,
         driver: widget!.driverFlag,
+        nationalThaiId: widget!.idCard,
       );
 
       if ((_model.packageAPIOutput?.statusCode ?? 200) != 200) {
@@ -352,6 +353,16 @@ class _InsurerListOverallPageWidgetState
       FFAppState().searchGrosstotalnet = (getJsonField(
         (_model.packageAPIOutput?.jsonBody ?? ''),
         r'''$.results.data[*][*].package[:].gross_total_net''',
+        true,
+      ) as List?)!
+          .map<String>((e) => e.toString())
+          .toList()
+          .cast<String>()
+          .toList()
+          .cast<String>();
+      FFAppState().searchDiscountflg = (getJsonField(
+        (_model.packageAPIOutput?.jsonBody ?? ''),
+        r'''$.results.data[*][*].package[:].discount_flg''',
         true,
       ) as List?)!
           .map<String>((e) => e.toString())

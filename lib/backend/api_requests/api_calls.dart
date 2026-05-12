@@ -5010,6 +5010,7 @@ class TelePackageSearchAPICall {
     int? maxSumInsured,
     int? minSumInsured,
     List<String>? driverBehaviorList,
+    String? nationalThaiId = '',
   }) async {
     final companyId = _serializeList(companyIdList);
     final coverType = _serializeList(coverTypeList);

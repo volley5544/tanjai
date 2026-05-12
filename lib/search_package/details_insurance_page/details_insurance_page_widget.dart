@@ -70,6 +70,7 @@ class DetailsInsurancePageWidget extends StatefulWidget {
     this.discountOther,
     this.discountPercent,
     this.grossTotalNet,
+    this.discountFlg,
   })  : this.insurerFullName = insurerFullName ?? '-',
         this.currentDate = currentDate ?? '-',
         this.brandId = brandId ?? '-',
@@ -149,6 +150,7 @@ class DetailsInsurancePageWidget extends StatefulWidget {
   final String? discountOther;
   final String? discountPercent;
   final String? grossTotalNet;
+  final String? discountFlg;
 
   static String routeName = 'detailsInsurancePage';
   static String routePath = 'detailsInsurancePage';
@@ -1469,8 +1471,7 @@ class _DetailsInsurancePageWidgetState
                         thickness: 1.0,
                         color: Color(0xFFCBD8D8),
                       ),
-                      if (widget!.discountPercent != null &&
-                          widget!.discountPercent != '')
+                      if (widget!.discountFlg == '1')
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -1533,8 +1534,7 @@ class _DetailsInsurancePageWidgetState
                             ),
                           ],
                         ),
-                      if (widget!.discountPercent != null &&
-                          widget!.discountPercent != '')
+                      if (widget!.discountFlg == '1')
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -1597,8 +1597,7 @@ class _DetailsInsurancePageWidgetState
                             ),
                           ],
                         ),
-                      if (widget!.discountPercent != null &&
-                          widget!.discountPercent != '')
+                      if (widget!.discountFlg == '1')
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
