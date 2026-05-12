@@ -13066,10 +13066,12 @@ class IbsQuotationsSaveCall {
     String? carProvinceCode = '',
     String? subProduct = '',
     String? evFlag = '',
+    String? nationalThaiId = '',
   }) async {
     final insurerPackage = _serializeJson(insurerPackageJson);
     final ffApiRequestBody = '''
 {
+"national_thai_id":"${nationalThaiId}",
 "ev_flag":"${evFlag}",
 "sub_product":"${subProduct}",
 "car_province_name":"${carProvinceName}",

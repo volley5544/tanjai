@@ -71,6 +71,7 @@ class DetailsInsurancePageWidget extends StatefulWidget {
     this.discountPercent,
     this.grossTotalNet,
     this.discountFlg,
+    this.idCard,
   })  : this.insurerFullName = insurerFullName ?? '-',
         this.currentDate = currentDate ?? '-',
         this.brandId = brandId ?? '-',
@@ -151,6 +152,7 @@ class DetailsInsurancePageWidget extends StatefulWidget {
   final String? discountPercent;
   final String? grossTotalNet;
   final String? discountFlg;
+  final String? idCard;
 
   static String routeName = 'detailsInsurancePage';
   static String routePath = 'detailsInsurancePage';
@@ -2149,6 +2151,10 @@ class _DetailsInsurancePageWidgetState
                                               ParamType.String,
                                               isList: true,
                                             ),
+                                            'idCard': serializeParam(
+                                              widget!.idCard,
+                                              ParamType.String,
+                                            ),
                                           }.withoutNulls,
                                         );
                                       },
@@ -2624,6 +2630,10 @@ class _DetailsInsurancePageWidgetState
                                                   widget!.grossTotalNet),
                                               ParamType.String,
                                               isList: true,
+                                            ),
+                                            'idCard': serializeParam(
+                                              widget!.idCard,
+                                              ParamType.String,
                                             ),
                                           }.withoutNulls,
                                         );

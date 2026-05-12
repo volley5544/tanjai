@@ -2446,6 +2446,10 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 FFAppState().searchDiscountflg.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
+                                                                                              'idCard': serializeParam(
+                                                                                                widget!.idCard,
+                                                                                                ParamType.String,
+                                                                                              ),
                                                                                             }.withoutNulls,
                                                                                             extra: <String, dynamic>{
                                                                                               'insurerConfig': columnInsurerConfig2Record,
@@ -3298,6 +3302,10 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                           true),
                                                       ParamType.String,
                                                       isList: true,
+                                                    ),
+                                                    'idCard': serializeParam(
+                                                      widget!.idCard,
+                                                      ParamType.String,
                                                     ),
                                                   }.withoutNulls,
                                                   extra: <String, dynamic>{

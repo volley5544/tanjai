@@ -71,6 +71,7 @@ class CompareInsurancePageWidget extends StatefulWidget {
     this.discountPercent,
     this.grossTotalNet,
     this.discountFlg,
+    this.idCard,
   })  : this.currentDate = currentDate ?? '-',
         this.brandId = brandId ?? '-',
         this.brandName = brandName ?? '-',
@@ -130,6 +131,7 @@ class CompareInsurancePageWidget extends StatefulWidget {
   final List<String>? discountPercent;
   final List<String>? grossTotalNet;
   final List<String>? discountFlg;
+  final String? idCard;
 
   static String routeName = 'compareInsurancePage';
   static String routePath = 'compareInsurancePage';
@@ -2640,6 +2642,11 @@ class _CompareInsurancePageWidgetState
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
+                                                            'idCard':
+                                                                serializeParam(
+                                                              widget!.idCard,
+                                                              ParamType.String,
+                                                            ),
                                                           }.withoutNulls,
                                                         );
                                                       },
@@ -3235,6 +3242,10 @@ class _CompareInsurancePageWidgetState
                                                         widget!.grossTotalNet,
                                                         ParamType.String,
                                                         isList: true,
+                                                      ),
+                                                      'idCard': serializeParam(
+                                                        widget!.idCard,
+                                                        ParamType.String,
                                                       ),
                                                     }.withoutNulls,
                                                   );

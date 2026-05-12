@@ -162,6 +162,7 @@ final parametersBuilderMap =
           'yearProduct': getParameter<String>(data, 'yearProduct'),
           'insurerConfig2': await getDocumentParameter<InsurerConfig2Record>(
               data, 'insurerConfig2', InsurerConfig2Record.fromSnapshot),
+          'idCard': getParameter<String>(data, 'idCard'),
         },
       ),
   'insuranceListPage': (data) async => ParameterData(
@@ -255,6 +256,7 @@ final parametersBuilderMap =
           'discountPercent': getParameter<String>(data, 'discountPercent'),
           'grossTotalNet': getParameter<String>(data, 'grossTotalNet'),
           'discountFlg': getParameter<String>(data, 'discountFlg'),
+          'idCard': getParameter<String>(data, 'idCard'),
         },
       ),
   'NonePackageEditPage1': ParameterData.none(),
@@ -399,6 +401,7 @@ final parametersBuilderMap =
           'fromBtn': getParameter<String>(data, 'fromBtn'),
           'indexPage': getParameter<int>(data, 'indexPage'),
           'oldVMIExpDate': getParameter<String>(data, 'oldVMIExpDate'),
+          'idCard': getParameter<String>(data, 'idCard'),
         },
       ),
   'NonePackageSelectedInsurerPage': (data) async => ParameterData(

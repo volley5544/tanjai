@@ -481,6 +481,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                           ParamType.String,
                           isList: true,
                         ),
+                        idCard: params.getParam(
+                          'idCard',
+                          ParamType.String,
+                        ),
                       ),
                     )),
             FFRoute(
@@ -814,6 +818,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                         ),
                         discountFlg: params.getParam(
                           'discountFlg',
+                          ParamType.String,
+                        ),
+                        idCard: params.getParam(
+                          'idCard',
                           ParamType.String,
                         ),
                       ),
@@ -1498,6 +1506,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'grossTotalNet',
                   ParamType.String,
                   isList: true,
+                ),
+                idCard: params.getParam(
+                  'idCard',
+                  ParamType.String,
                 ),
               ),
             ),

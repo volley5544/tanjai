@@ -78,6 +78,7 @@ class AddCustomerNameWidget extends StatefulWidget {
     this.discountOther,
     this.discountPercent,
     this.grossTotalNet,
+    this.idCard,
   }) : this.driverType = driverType ?? '0';
 
   final List<String>? insurerId;
@@ -134,6 +135,7 @@ class AddCustomerNameWidget extends StatefulWidget {
   final List<String>? discountOther;
   final List<String>? discountPercent;
   final List<String>? grossTotalNet;
+  final String? idCard;
 
   static String routeName = 'AddCustomerName';
   static String routePath = 'AddCustomerName';
@@ -1402,23 +1404,6 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                   },
                                 ).then((value) => safeSetState(() {}));
 
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                      child: AlertDialog(
-                                        content: Text('1'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
                                 _model.aPIQuotationSaveOutput =
                                     await IbsQuotationsSaveCall.call(
                                   firstName:
@@ -1505,6 +1490,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                   subProduct:
                                       FFAppState().searchPackageSubProduct,
                                   evFlag: FFAppState().searchPackageEvFlag,
+                                  nationalThaiId: widget!.idCard,
                                 );
 
                                 _shouldSetState = true;

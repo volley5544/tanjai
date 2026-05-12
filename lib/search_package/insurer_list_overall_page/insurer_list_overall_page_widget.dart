@@ -1610,6 +1610,10 @@ class _InsurerListOverallPageWidgetState
                                                                                                   widget!.driverFlag,
                                                                                                   ParamType.String,
                                                                                                 ),
+                                                                                                'idCard': serializeParam(
+                                                                                                  widget!.idCard,
+                                                                                                  ParamType.String,
+                                                                                                ),
                                                                                               }.withoutNulls,
                                                                                             );
                                                                                           },
