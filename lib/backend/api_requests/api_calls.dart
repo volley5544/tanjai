@@ -14957,6 +14957,38 @@ class IbsApplicationsDetailCall {
         response,
         r'''$.results.data.app_detail_house[:].branch_name''',
       ));
+  static List<String>? discountother(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data.leads_detail[:].discount_other''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? discountflg(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data.leads_detail[:].discount_flg''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? discountpercent(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data.leads_detail[:].discount_percent''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? idnumberLead(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.leads[:].id_number''',
+      ));
 }
 
 class IbsApplicationsPaymentSaveCall {

@@ -405,8 +405,14 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
       )}';
       FFAppState().insuranceInfoIdCard =
           '${IbsApplicationsDetailCall.nationalthaiid(
-        (_model.detailAPIOutput?.jsonBody ?? ''),
-      )}';
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) != null && IbsApplicationsDetailCall.nationalthaiid(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) != '' ? IbsApplicationsDetailCall.nationalthaiid(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.idnumberLead(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
       FFAppState().insuranceInfoFirstName =
           '${IbsApplicationsDetailCall.quotationtype(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -1033,6 +1039,30 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
               : '${IbsApplicationsDetailCall.driverTypeLeads(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
                 )}';
+      FFAppState().updateAppDetailNewStruct(
+        (e) => e
+          ..discountOther = '${IbsApplicationsDetailCall.discountother(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+          )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget!.leadDtailId))}'
+          ..discountFlg = '${IbsApplicationsDetailCall.discountflg(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+          )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget!.leadDtailId))}'
+          ..discountPercent = '${IbsApplicationsDetailCall.discountpercent(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+          )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget!.leadDtailId))}',
+      );
       safeSetState(() {});
       if (FFAppState().insuranceInfoApplicationType != 'auto') {
         FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
@@ -2979,6 +3009,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           textCapitalization:
                                                               TextCapitalization
                                                                   .none,
+                                                          readOnly: FFAppState()
+                                                                  .appDetailNew
+                                                                  .discountFlg ==
+                                                              '1',
                                                           obscureText: false,
                                                           decoration:
                                                               InputDecoration(

@@ -359,6 +359,42 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
           '${IbsApplicationsDetailCall.worktype(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
       )}';
+      FFAppState().updateAppDetailNewStruct(
+        (e) => e
+          ..discountOther = IbsApplicationsDetailCall.discountother(
+            (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+          )?.elementAtOrNull(functions.getIndexOfIntList(
+              functions
+                  .convertDynamicListToIntList(getJsonField(
+                    (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                    r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                    true,
+                  ))
+                  .toList(),
+              widget!.leadDetailId))
+          ..discountFlg = IbsApplicationsDetailCall.discountflg(
+            (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+          )?.elementAtOrNull(functions.getIndexOfIntList(
+              functions
+                  .convertDynamicListToIntList(getJsonField(
+                    (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                    r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                    true,
+                  ))
+                  .toList(),
+              widget!.leadDetailId))
+          ..discountPercent = IbsApplicationsDetailCall.covertypecode(
+            (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+          )?.elementAtOrNull(functions.getIndexOfIntList(
+              functions
+                  .convertDynamicListToIntList(getJsonField(
+                    (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                    r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                    true,
+                  ))
+                  .toList(),
+              widget!.leadDetailId)),
+      );
       safeSetState(() {});
       if (FFAppState().insuranceinfoActType == 'House') {
         FFAppState().leadsHouse = IbsApplicationsDetailCall.apphouse(

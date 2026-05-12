@@ -14647,6 +14647,17 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInSearchDiscountflg(int index, String value) {
     searchDiscountflg.insert(index, value);
   }
+
+  AppDetailNewDataModelStruct _appDetailNew = AppDetailNewDataModelStruct();
+  AppDetailNewDataModelStruct get appDetailNew => _appDetailNew;
+  set appDetailNew(AppDetailNewDataModelStruct value) {
+    _appDetailNew = value;
+  }
+
+  void updateAppDetailNewStruct(
+      Function(AppDetailNewDataModelStruct) updateFn) {
+    updateFn(_appDetailNew);
+  }
 }
 
 void _safeInit(Function() initializeField) {

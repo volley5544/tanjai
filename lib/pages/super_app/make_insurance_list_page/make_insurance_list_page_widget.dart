@@ -2132,11 +2132,11 @@ class _MakeInsuranceListPageWidgetState
                                                                       '' !=
                                                                               getJsonField(
                                                                                 widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.net_premium_total''',
+                                                                                r'''$.gross_total_net''',
                                                                               ).toString()
                                                                           ? getJsonField(
                                                                               widget!.list!.elementAtOrNull(leadListItemIndex),
-                                                                              r'''$.net_premium_total''',
+                                                                              r'''$.gross_total_net''',
                                                                             ).toString()
                                                                           : '-',
                                                                       style: FlutterFlowTheme.of(
