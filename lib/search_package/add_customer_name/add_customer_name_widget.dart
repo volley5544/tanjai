@@ -1566,23 +1566,6 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                   if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                      child: AlertDialog(
-                                        content: Text('2'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
                                 FFAppState().AddCustomerPageFirstname =
                                     _model.firstnameTextController.text;
                                 FFAppState().AddCustomerPageLastname =

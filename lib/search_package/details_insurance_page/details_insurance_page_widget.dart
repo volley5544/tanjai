@@ -2124,6 +2124,31 @@ class _DetailsInsurancePageWidgetState
                                               ParamType.String,
                                               isList: true,
                                             ),
+                                            'grossTotalDiscount':
+                                                serializeParam(
+                                              functions.makeStringToList1(
+                                                  widget!.grossTotalDiscount),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                            'discountOther': serializeParam(
+                                              functions.makeStringToList1(
+                                                  widget!.discountOther),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                            'discountPercent': serializeParam(
+                                              functions.makeStringToList1(
+                                                  widget!.discountPercent),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                            'grossTotalNet': serializeParam(
+                                              functions.makeStringToList1(
+                                                  widget!.grossTotalNet),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
                                           }.withoutNulls,
                                         );
                                       },
@@ -2572,6 +2597,31 @@ class _DetailsInsurancePageWidgetState
                                             'inspectionExcept': serializeParam(
                                               functions.makeStringToList1(
                                                   widget!.inspectionExcept),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                            'grossTotalDiscount':
+                                                serializeParam(
+                                              functions.makeStringToList1(
+                                                  widget!.grossTotalDiscount),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                            'discountOther': serializeParam(
+                                              functions.makeStringToList1(
+                                                  widget!.discountOther),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                            'discountPercent': serializeParam(
+                                              functions.makeStringToList1(
+                                                  widget!.discountPercent),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                            'grossTotalNet': serializeParam(
+                                              functions.makeStringToList1(
+                                                  widget!.grossTotalNet),
                                               ParamType.String,
                                               isList: true,
                                             ),
