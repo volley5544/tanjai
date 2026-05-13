@@ -3019,10 +3019,16 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           textCapitalization:
                                                               TextCapitalization
                                                                   .none,
-                                                          readOnly: FFAppState()
-                                                                  .appDetailNew
-                                                                  .discountFlg ==
-                                                              '1',
+                                                          readOnly: (FFAppState()
+                                                                      .appDetailNew
+                                                                      .discountFlg ==
+                                                                  '1') &&
+                                                              (FFAppState()
+                                                                          .insuranceInfoIdCard !=
+                                                                      null &&
+                                                                  FFAppState()
+                                                                          .insuranceInfoIdCard !=
+                                                                      ''),
                                                           obscureText: false,
                                                           decoration:
                                                               InputDecoration(
