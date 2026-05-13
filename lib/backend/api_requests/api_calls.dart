@@ -11499,9 +11499,13 @@ class SaveInsurerAPICall {
     String? type = '',
     String? flgAct = '',
     String? sumInsured = '',
+    String? discountFlg = '',
+    String? discountPercent = '',
   }) async {
     final ffApiRequestBody = '''
 {
+"discount_flg":"${discountFlg}",
+"discount_percent":"${discountPercent}",
 "sum_insured":"${sumInsured}",
   "flg_act": "${flgAct}",
   "insurer_short_name": "${insurerShortName}",

@@ -1554,6 +1554,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'masterActAmount',
                   ParamType.String,
                 ),
+                discountflg: params.getParam(
+                  'discountflg',
+                  ParamType.String,
+                ),
+                discountpercent: params.getParam(
+                  'discountpercent',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(

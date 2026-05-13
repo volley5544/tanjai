@@ -415,6 +415,8 @@ final parametersBuilderMap =
           'leadDtlId': getParameter<int>(data, 'leadDtlId'),
           'actFlag': getParameter<bool>(data, 'actFlag'),
           'masterActAmount': getParameter<String>(data, 'masterActAmount'),
+          'discountflg': getParameter<String>(data, 'discountflg'),
+          'discountpercent': getParameter<String>(data, 'discountpercent'),
         },
       ),
   'PaywithBarcode': ParameterData.none(),

@@ -2779,6 +2779,22 @@ class _MakeInsuranceListPageWidgetState
                                                                                     ).toString()}',
                                                                               ParamType.String,
                                                                             ),
+                                                                            'discountflg':
+                                                                                serializeParam(
+                                                                              getJsonField(
+                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                r'''$.discount_flg''',
+                                                                              ).toString(),
+                                                                              ParamType.String,
+                                                                            ),
+                                                                            'discountpercent':
+                                                                                serializeParam(
+                                                                              getJsonField(
+                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                r'''$.discount_percent''',
+                                                                              ).toString(),
+                                                                              ParamType.String,
+                                                                            ),
                                                                           }.withoutNulls,
                                                                         );
                                                                       }

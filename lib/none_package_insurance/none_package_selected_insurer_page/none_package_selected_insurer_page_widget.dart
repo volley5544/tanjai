@@ -35,6 +35,8 @@ class NonePackageSelectedInsurerPageWidget extends StatefulWidget {
     required this.leadDtlId,
     required this.actFlag,
     required this.masterActAmount,
+    this.discountflg,
+    this.discountpercent,
   });
 
   final String? leadID;
@@ -46,6 +48,8 @@ class NonePackageSelectedInsurerPageWidget extends StatefulWidget {
   final int? leadDtlId;
   final bool? actFlag;
   final String? masterActAmount;
+  final String? discountflg;
+  final String? discountpercent;
 
   static String routeName = 'NonePackageSelectedInsurerPage';
   static String routePath = 'NonePackageSelectedInsurerPage';
@@ -2236,6 +2240,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                       flgAct: _model.flagActStateVariable
                                           ? '1'
                                           : '0',
+                                      discountFlg: widget!.discountflg,
+                                      discountPercent: widget!.discountpercent,
                                     );
 
                                     _shouldSetState = true;
