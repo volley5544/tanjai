@@ -4081,11 +4081,11 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 5.0, 16.0, 0.0),
+                                          16.0, 5.0, 5.0, 0.0),
                                       child: Container(
                                         width:
                                             MediaQuery.sizeOf(context).width *
-                                                0.6,
+                                                0.55,
                                         height: 60.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
