@@ -789,7 +789,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                 ),
                               ],
                             ),
-                          if (FFAppState().insuranceInfoActFlag == '1')
+                          if (FFAppState().appDetailNew.discountFlg == '1')
                             Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -891,7 +891,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                 ),
                               ],
                             ),
-                          if (FFAppState().insuranceInfoActFlag == '1')
+                          if (FFAppState().appDetailNew.discountFlg == '1')
                             Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [

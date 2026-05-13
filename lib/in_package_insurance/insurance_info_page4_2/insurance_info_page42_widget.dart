@@ -383,7 +383,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                   ))
                   .toList(),
               widget!.leadDetailId))
-          ..discountPercent = IbsApplicationsDetailCall.covertypecode(
+          ..discountPercent = IbsApplicationsDetailCall.discountpercent(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           )?.elementAtOrNull(functions.getIndexOfIntList(
               functions

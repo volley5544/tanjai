@@ -862,8 +862,18 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
       )}';
       FFAppState().insuranceInfoGrosstotalNet =
           '${IbsApplicationsDetailCall.grosstotalnet(
-        (_model.detailAPIOutput?.jsonBody ?? ''),
-      )}';
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) != null && IbsApplicationsDetailCall.grosstotalnet(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) != '' ? IbsApplicationsDetailCall.grosstotalnet(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : (IbsApplicationsDetailCall.grosstotalnetLeadDetail(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget!.leadDtailId)))}';
       FFAppState().insuranceInfoEffectiveDateAct =
           '${IbsApplicationsDetailCall.effectiveDateAct(
                 (_model.detailAPIOutput?.jsonBody ?? ''),

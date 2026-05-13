@@ -14989,6 +14989,16 @@ class IbsApplicationsDetailCall {
         response,
         r'''$.results.data.leads[:].id_number''',
       ));
+  static List<String>? grosstotalnetLeadDetail(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.data.leads_detail[:].gross_total_net''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class IbsApplicationsPaymentSaveCall {
