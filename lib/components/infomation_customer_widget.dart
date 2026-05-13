@@ -866,7 +866,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                         .secondaryBackground,
                                   ),
                                   child: Text(
-                                    '${FFAppState().appDetailNew.discountPercent} %',
+                                    '${functions.showNumberWithComma(FFAppState().appDetailNew.discountPercent)} %',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(

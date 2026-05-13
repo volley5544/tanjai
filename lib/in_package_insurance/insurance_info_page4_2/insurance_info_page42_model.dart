@@ -66,6 +66,10 @@ class InsuranceInfoPage42Model
   TextEditingController? netPremiumTotalTextController;
   String? Function(BuildContext, String?)?
       netPremiumTotalTextControllerValidator;
+  // State field(s) for discountOther widget.
+  FocusNode? discountOtherFocusNode;
+  TextEditingController? discountOtherTextController;
+  String? Function(BuildContext, String?)? discountOtherTextControllerValidator;
   // State field(s) for ActTotal widget.
   FocusNode? actTotalFocusNode;
   TextEditingController? actTotalTextController;
@@ -112,6 +116,9 @@ class InsuranceInfoPage42Model
 
     netPremiumTotalFocusNode?.dispose();
     netPremiumTotalTextController?.dispose();
+
+    discountOtherFocusNode?.dispose();
+    discountOtherTextController?.dispose();
 
     actTotalFocusNode?.dispose();
     actTotalTextController?.dispose();
