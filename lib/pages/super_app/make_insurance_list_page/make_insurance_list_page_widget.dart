@@ -2129,16 +2129,20 @@ class _MakeInsuranceListPageWidgetState
                                                                           ),
                                                                     ),
                                                                     Text(
-                                                                      '' !=
-                                                                              getJsonField(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        '' !=
+                                                                                getJsonField(
+                                                                                  widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                  r'''$.gross_total_net''',
+                                                                                ).toString()
+                                                                            ? functions.showNumberWithComma(getJsonField(
                                                                                 widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                 r'''$.gross_total_net''',
-                                                                              ).toString()
-                                                                          ? getJsonField(
-                                                                              widget!.list!.elementAtOrNull(leadListItemIndex),
-                                                                              r'''$.gross_total_net''',
-                                                                            ).toString()
-                                                                          : '-',
+                                                                              ).toString())
+                                                                            : '-',
+                                                                        '-',
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium

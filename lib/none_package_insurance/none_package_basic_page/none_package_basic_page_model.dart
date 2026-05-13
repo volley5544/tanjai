@@ -36,6 +36,8 @@ class NonePackageBasicPageModel
 
   bool driverFlag = false;
 
+  bool checkDiscountFlg = false;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - API (teleGetProvinceAPI)] action in NonePackageBasicPage widget.
@@ -112,8 +114,8 @@ class NonePackageBasicPageModel
   late MaskTextInputFormatter idCardTextFieldMask;
   String? Function(BuildContext, String?)?
       idCardTextFieldTextControllerValidator;
-  // Stores action output result for [Backend Call - API (checkBlackList)] action in Container widget.
-  ApiCallResponse? checkBlackListOutput;
+  // Stores action output result for [Backend Call - API (checkBlackList Copy)] action in Container widget.
+  ApiCallResponse? checkdiscountOutput;
   // State field(s) for SumInsuredTextField widget.
   FocusNode? sumInsuredTextFieldFocusNode;
   TextEditingController? sumInsuredTextFieldTextController;

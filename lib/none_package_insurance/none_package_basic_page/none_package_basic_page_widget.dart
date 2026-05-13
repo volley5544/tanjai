@@ -5982,6 +5982,17 @@ class _NonePackageBasicPageWidgetState
                                                       .idCardTextFieldTextController,
                                                   focusNode: _model
                                                       .idCardTextFieldFocusNode,
+                                                  onChanged: (_) =>
+                                                      EasyDebounce.debounce(
+                                                    '_model.idCardTextFieldTextController',
+                                                    Duration(
+                                                        milliseconds: 2000),
+                                                    () async {
+                                                      _model.checkDiscountFlg =
+                                                          false;
+                                                      safeSetState(() {});
+                                                    },
+                                                  ),
                                                   autofocus: false,
                                                   textCapitalization:
                                                       TextCapitalization.none,
@@ -6095,19 +6106,6 @@ class _NonePackageBasicPageWidgetState
                                                                 .bodyMedium
                                                                 .fontStyle,
                                                       ),
-                                                  maxLength: FFAppState()
-                                                              .insuranceInfoIdCard ==
-                                                          ''
-                                                      ? 17
-                                                      : 13,
-                                                  maxLengthEnforcement:
-                                                      MaxLengthEnforcement
-                                                          .enforced,
-                                                  buildCounter: (context,
-                                                          {required currentLength,
-                                                          required isFocused,
-                                                          maxLength}) =>
-                                                      null,
                                                   keyboardType:
                                                       TextInputType.phone,
                                                   validator: _model
@@ -6120,18 +6118,20 @@ class _NonePackageBasicPageWidgetState
                                               ),
                                             ),
                                           ),
-                                          if (((_model.checkBlackListOutput
+                                          if (((_model.checkdiscountOutput
                                                           ?.statusCode ??
                                                       200) !=
                                                   200) &&
-                                              (CheckBlackListCall.statuslayer1(
-                                                    (_model.checkBlackListOutput
+                                              (CheckBlackListCopyCall
+                                                      .statuslayer1(
+                                                    (_model.checkdiscountOutput
                                                             ?.jsonBody ??
                                                         ''),
                                                   ) !=
                                                   200) &&
-                                              (CheckBlackListCall.blacklistflag(
-                                                    (_model.checkBlackListOutput
+                                              (CheckBlackListCopyCall
+                                                      .blacklistflag(
+                                                    (_model.checkdiscountOutput
                                                             ?.jsonBody ??
                                                         ''),
                                                   ) ==
@@ -6148,18 +6148,20 @@ class _NonePackageBasicPageWidgetState
                                                 size: 24.0,
                                               ),
                                             ),
-                                          if (((_model.checkBlackListOutput
+                                          if (((_model.checkdiscountOutput
                                                           ?.statusCode ??
                                                       200) ==
                                                   200) &&
-                                              (CheckBlackListCall.statuslayer1(
-                                                    (_model.checkBlackListOutput
+                                              (CheckBlackListCopyCall
+                                                      .statuslayer1(
+                                                    (_model.checkdiscountOutput
                                                             ?.jsonBody ??
                                                         ''),
                                                   ) ==
                                                   200) &&
-                                              (CheckBlackListCall.blacklistflag(
-                                                    (_model.checkBlackListOutput
+                                              (CheckBlackListCopyCall
+                                                      .blacklistflag(
+                                                    (_model.checkdiscountOutput
                                                             ?.jsonBody ??
                                                         ''),
                                                   ) ==
@@ -6274,26 +6276,19 @@ class _NonePackageBasicPageWidgetState
                                           ).then(
                                               (value) => safeSetState(() {}));
 
-                                          _model.checkBlackListOutput =
-                                              await CheckBlackListCall.call(
-                                            nationalThaiId: functions
-                                                .removeCommaFromNumText(_model
-                                                    .idCardTextFieldTextController
-                                                    .text),
+                                          _model.checkdiscountOutput =
+                                              await CheckBlackListCopyCall.call(
+                                            nationalThaiId: _model
+                                                .idCardTextFieldTextController
+                                                .text,
+                                            idTypeId: '1',
                                             insuranceUrl: FFAppState()
                                                 .apiUrlInsuranceAppState,
-                                            idTypeId: FFAppState()
-                                                        .insuranceInfoCardType ==
-                                                    'บัตรประชาชน'
-                                                ? '1'
-                                                : '2',
-                                            quotationId: FFAppState()
-                                                .insuranceInfoQuotationId,
                                             token: FFAppState().accessToken,
                                           );
 
                                           _shouldSetState = true;
-                                          if ((_model.checkBlackListOutput
+                                          if ((_model.checkdiscountOutput
                                                       ?.statusCode ??
                                                   200) !=
                                               200) {
@@ -6303,7 +6298,7 @@ class _NonePackageBasicPageWidgetState
                                                 return WebViewAware(
                                                   child: AlertDialog(
                                                     content: Text(
-                                                        'พบข้อผิดพลาด (${(_model.checkBlackListOutput?.statusCode ?? 200).toString()})'),
+                                                        'พบข้อผิดพลาด (${(_model.checkdiscountOutput?.statusCode ?? 200).toString()})'),
                                                     actions: [
                                                       TextButton(
                                                         onPressed: () =>
@@ -6321,8 +6316,9 @@ class _NonePackageBasicPageWidgetState
                                               safeSetState(() {});
                                             return;
                                           }
-                                          if (CheckBlackListCall.statuslayer1(
-                                                (_model.checkBlackListOutput
+                                          if (CheckBlackListCopyCall
+                                                  .statuslayer1(
+                                                (_model.checkdiscountOutput
                                                         ?.jsonBody ??
                                                     ''),
                                               ) !=
@@ -6333,9 +6329,9 @@ class _NonePackageBasicPageWidgetState
                                                 return WebViewAware(
                                                   child: AlertDialog(
                                                     content: Text(
-                                                        CheckBlackListCall
+                                                        CheckBlackListCopyCall
                                                             .messageLayer1(
-                                                      (_model.checkBlackListOutput
+                                                      (_model.checkdiscountOutput
                                                               ?.jsonBody ??
                                                           ''),
                                                     )!),
@@ -6356,6 +6352,8 @@ class _NonePackageBasicPageWidgetState
                                               safeSetState(() {});
                                             return;
                                           }
+                                          _model.checkDiscountFlg = true;
+                                          safeSetState(() {});
                                           Navigator.pop(context);
                                           if (_shouldSetState)
                                             safeSetState(() {});
@@ -9262,6 +9260,60 @@ class _NonePackageBasicPageWidgetState
                                             child: AlertDialog(
                                               content: Text(
                                                   'กรุณากรอกเลขบัตรลูกค้าให้ถูกต้อง'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      return;
+                                    }
+                                    if (!_model.checkDiscountFlg) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณากดปุ่มเช็คโปรโมชั่น'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      return;
+                                    }
+                                    if (CheckBlackListCopyCall.blacklistflag(
+                                          (_model.checkdiscountOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        ) !=
+                                        'N') {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  CheckBlackListCopyCall
+                                                      .messageLayer1(
+                                                (_model.checkdiscountOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )!),
                                               actions: [
                                                 TextButton(
                                                   onPressed: () =>

@@ -18,6 +18,7 @@ import '/index.dart';
 import 'search_insurance_page_widget.dart' show SearchInsurancePageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -34,6 +35,8 @@ class SearchInsurancePageModel
   DataListRecord? masterDataDoc;
 
   bool driverFlag = false;
+
+  bool checkDiscountFlg = false;
 
   ///  State fields for stateful widgets in this page.
 
@@ -89,6 +92,8 @@ class SearchInsurancePageModel
   TextEditingController? textController;
   late MaskTextInputFormatter textFieldMask;
   String? Function(BuildContext, String?)? textControllerValidator;
+  // Stores action output result for [Backend Call - API (checkBlackList Copy)] action in Container widget.
+  ApiCallResponse? checkdiscountOutput;
   // State field(s) for Slider widget.
   double? sliderValue;
 

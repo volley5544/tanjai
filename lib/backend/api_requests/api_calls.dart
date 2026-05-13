@@ -15134,6 +15134,59 @@ class CheckBlackListCall {
       ));
 }
 
+class CheckBlackListCopyCall {
+  static Future<ApiCallResponse> call({
+    String? nationalThaiId = '',
+    String? insuranceUrl = '',
+    String? idTypeId = '',
+    String? token = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "id_type_id": "${idTypeId}",
+  "national_thai_id": "${nationalThaiId}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'checkBlackList Copy',
+      apiUrl: '${insuranceUrl}/api/contract/check/id-promotion',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statuslayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  static String? blacklistflag(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.blacklist_flag''',
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static String? discountflg(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.discount_flg''',
+      ));
+}
+
 class IbsPaymentSaveCall {
   static Future<ApiCallResponse> call({
     String? insuranceUrl = '',
