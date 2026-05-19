@@ -6487,9 +6487,11 @@ class TeleGetBrandAPICall {
 class TeleGetBrandMCAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
+    String? flagGet = '',
   }) async {
     final ffApiRequestBody = '''
 {
+"flag_get":"${flagGet}",
   "api_url": "${apiUrl}"
 
 }''';

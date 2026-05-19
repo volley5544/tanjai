@@ -5573,11 +5573,9 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                if (!((FFAppState().flagRenew ==
-                                                        '1') &&
-                                                    (FFAppState()
-                                                            .insuranceInfoRegisYear ==
-                                                        ''))) {
+                                                if (FFAppState()
+                                                        .insuranceInfoRegisYear !=
+                                                    '') {
                                                   return;
                                                 }
 

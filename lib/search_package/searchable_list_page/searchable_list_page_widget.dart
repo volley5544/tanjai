@@ -831,17 +831,16 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                     .toList(),
                                                                 true)))!;
                                                     safeSetState(() {});
-                                                    FFAppState().nonePackageYearChrist = functions
-                                                        .reverseList(functions
-                                                            .ganerateYearList(
-                                                                1957, 2024)
-                                                            ?.toList())
-                                                        .elementAtOrNull(functions
-                                                            .getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true))!;
+                                                    FFAppState()
+                                                        .nonePackageYearChrist = (int.parse(((widget!
+                                                                .dataList!
+                                                                .elementAtOrNull(functions.getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true)))!)) -
+                                                            543)
+                                                        .toString();
                                                     safeSetState(() {});
                                                     FFAppState()
                                                         .updateSearchPackageCheckFilledAtIndex(
@@ -887,18 +886,16 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                               true)))!;
                                                   safeSetState(() {});
                                                   FFAppState()
-                                                          .nonePackageYearChrist =
-                                                      functions
-                                                          .reverseList(functions
-                                                              .ganerateYearList(
-                                                                  1957, 2024)
-                                                              ?.toList())
-                                                          .elementAtOrNull(functions
-                                                              .getIndexOfBoolList(
-                                                                  FFAppState()
-                                                                      .searchableListComponentSelectedList
-                                                                      .toList(),
-                                                                  true))!;
+                                                      .nonePackageYearChrist = (int.parse(((widget!
+                                                              .dataList!
+                                                              .elementAtOrNull(functions
+                                                                  .getIndexOfBoolList(
+                                                                      FFAppState()
+                                                                          .searchableListComponentSelectedList
+                                                                          .toList(),
+                                                                      true)))!)) -
+                                                          543)
+                                                      .toString();
                                                   safeSetState(() {});
                                                   context.safePop();
                                                   return;
