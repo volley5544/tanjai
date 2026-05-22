@@ -196,6 +196,7 @@ final parametersBuilderMap =
           'provinceCode': getParameter<String>(data, 'provinceCode'),
           'driver': getParameter<String>(data, 'driver'),
           'idCard': getParameter<String>(data, 'idCard'),
+          'customerType': getParameter<String>(data, 'customerType'),
         },
       ),
   'detailsInsurancePage': (data) async => ParameterData(
@@ -589,6 +590,7 @@ final parametersBuilderMap =
           'provinceCode': getParameter<String>(data, 'provinceCode'),
           'driverFlag': getParameter<String>(data, 'driverFlag'),
           'idCard': getParameter<String>(data, 'idCard'),
+          'customerType': getParameter<String>(data, 'customerType'),
         },
       ),
   'SearchableHouseList': (data) async => ParameterData(

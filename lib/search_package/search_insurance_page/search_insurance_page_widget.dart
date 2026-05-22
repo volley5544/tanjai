@@ -5147,6 +5147,22 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                           _model.textController.text),
                                       ParamType.String,
                                     ),
+                                    'customerType': serializeParam(
+                                      '${getJsonField(
+                                                (_model.checkdiscountOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                                r'''$.code''',
+                                              ).toString()}' ==
+                                              '200'
+                                          ? CheckBlackListCopyCall.customertype(
+                                              (_model.checkdiscountOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )
+                                          : '',
+                                      ParamType.String,
+                                    ),
                                   }.withoutNulls,
                                 );
 
@@ -5226,6 +5242,22 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                   'idCard': serializeParam(
                                     functions
                                         .removeDash(_model.textController.text),
+                                    ParamType.String,
+                                  ),
+                                  'customerType': serializeParam(
+                                    '${getJsonField(
+                                              (_model.checkdiscountOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                              r'''$.code''',
+                                            ).toString()}' ==
+                                            '200'
+                                        ? CheckBlackListCopyCall.customertype(
+                                            (_model.checkdiscountOutput
+                                                    ?.jsonBody ??
+                                                ''),
+                                          )
+                                        : '',
                                     ParamType.String,
                                   ),
                                 }.withoutNulls,

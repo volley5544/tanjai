@@ -40,6 +40,7 @@ class InsurerListOverallPageWidget extends StatefulWidget {
     required this.driverBehaviorScoreList,
     required this.driverFlag,
     this.idCard,
+    this.customerType,
   });
 
   final String? brandCode;
@@ -57,6 +58,7 @@ class InsurerListOverallPageWidget extends StatefulWidget {
   final List<String>? driverBehaviorScoreList;
   final String? driverFlag;
   final String? idCard;
+  final String? customerType;
 
   static String routeName = 'insurerListOverallPage';
   static String routePath = 'insurerListOverallPage';
@@ -114,6 +116,7 @@ class _InsurerListOverallPageWidgetState
         driverBehaviorList: widget!.driverBehaviorScoreList,
         driver: widget!.driverFlag,
         nationalThaiId: widget!.idCard,
+        customerType: widget!.customerType,
       );
 
       if ((_model.packageAPIOutput?.statusCode ?? 200) != 200) {

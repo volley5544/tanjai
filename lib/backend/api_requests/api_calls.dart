@@ -5011,6 +5011,7 @@ class TelePackageSearchAPICall {
     int? minSumInsured,
     List<String>? driverBehaviorList,
     String? nationalThaiId = '',
+    String? customerType = '',
   }) async {
     final companyId = _serializeList(companyIdList);
     final coverType = _serializeList(coverTypeList);
@@ -5019,7 +5020,7 @@ class TelePackageSearchAPICall {
 
     final ffApiRequestBody = '''
 {
-"driver":"${driver}",
+  "driver": "${driver}",
   "brand_code": "${brandCode}",
   "model_code": "${modelCode}",
   "year": "${year}",
@@ -5031,7 +5032,8 @@ class TelePackageSearchAPICall {
   "max_sum_insured": ${maxSumInsured},
   "min_gross_total": ${minGrossTotal},
   "max_gross_total": ${maxGrossTotal},
-  "driver_behavior": ${driverBehavior}
+  "driver_behavior": ${driverBehavior},
+  "customer_type": "${customerType}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'telePackageSearchAPI',
@@ -5589,6 +5591,8 @@ class TelePackageSearchMCAPICall {
     String? apiUrl = '',
     String? insuranceUrl = '',
     List<String>? garageTypeList,
+    String? customerType = '',
+    String? nationalThaiId = '',
   }) async {
     final companyId = _serializeList(companyIdList);
     final coverType = _serializeList(coverTypeList);
@@ -5602,7 +5606,9 @@ class TelePackageSearchMCAPICall {
   "vehicle_usage": "${vehicleUsage}",
   "cover_type": ${coverType},
   "garage_type": ${garageType},
-  "province": "${province}"
+  "province": "${province}",
+  "national_thai_id": "${nationalThaiId}",
+  "customer_type": "${customerType}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'telePackageSearchMCAPI',
@@ -15190,6 +15196,11 @@ class CheckBlackListCopyCall {
       castToType<String>(getJsonField(
         response,
         r'''$.results.data.discount_flg''',
+      ));
+  static String? customertype(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.customer_type''',
       ));
 }
 

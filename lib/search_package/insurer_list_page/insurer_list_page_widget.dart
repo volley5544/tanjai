@@ -40,6 +40,7 @@ class InsurerListPageWidget extends StatefulWidget {
     required this.provinceCode,
     required this.driver,
     this.idCard,
+    this.customerType,
   });
 
   final String? brandCode;
@@ -56,6 +57,7 @@ class InsurerListPageWidget extends StatefulWidget {
   final String? provinceCode;
   final String? driver;
   final String? idCard;
+  final String? customerType;
 
   static String routeName = 'insurerListPage';
   static String routePath = 'insurerListPage';
@@ -113,6 +115,8 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
           insuranceUrl: FFAppState().apiUrlInsuranceAppState,
           coverTypeList: widget!.coverType,
           garageTypeList: widget!.garageType,
+          nationalThaiId: widget!.idCard,
+          customerType: widget!.customerType,
         );
 
         if ((_model.packageAPIMCOutput?.statusCode ?? 200) != 200) {

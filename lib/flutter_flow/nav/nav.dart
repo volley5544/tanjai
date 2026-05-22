@@ -596,6 +596,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'idCard',
                   ParamType.String,
                 ),
+                customerType: params.getParam(
+                  'customerType',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -2103,6 +2107,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ),
                 idCard: params.getParam(
                   'idCard',
+                  ParamType.String,
+                ),
+                customerType: params.getParam(
+                  'customerType',
                   ParamType.String,
                 ),
               ),
