@@ -5033,7 +5033,8 @@ class TelePackageSearchAPICall {
   "min_gross_total": ${minGrossTotal},
   "max_gross_total": ${maxGrossTotal},
   "driver_behavior": ${driverBehavior},
-  "customer_type": "${customerType}"
+  "customer_type": "${customerType}",
+"national_thai_id":"${nationalThaiId}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'telePackageSearchAPI',
