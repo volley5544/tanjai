@@ -4368,7 +4368,8 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                 await CheckBlackListCopyCall
                                                     .call(
                                               nationalThaiId:
-                                                  _model.textController.text,
+                                                  functions.removeDash(_model
+                                                      .textController.text),
                                               idTypeId: '1',
                                               insuranceUrl: FFAppState()
                                                   .apiUrlInsuranceAppState,

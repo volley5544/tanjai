@@ -1908,7 +1908,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                         ],
                                                       ),
                                                     if (FFAppState()
-                                                            .insuranceInfoActFlag ==
+                                                            .appDetailNew
+                                                            .discountFlg ==
                                                         '1')
                                                       Row(
                                                         mainAxisSize:
