@@ -6266,9 +6266,10 @@ class _NonePackageBasicPageWidgetState
 
                                         _model.checkdiscountOutput =
                                             await CheckBlackListCopyCall.call(
-                                          nationalThaiId: _model
-                                              .idCardTextFieldTextController
-                                              .text,
+                                          nationalThaiId: functions.removeDash(
+                                              _model
+                                                  .idCardTextFieldTextController
+                                                  .text),
                                           idTypeId: '1',
                                           insuranceUrl: FFAppState()
                                               .apiUrlInsuranceAppState,

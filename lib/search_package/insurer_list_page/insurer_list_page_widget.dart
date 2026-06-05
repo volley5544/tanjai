@@ -398,6 +398,57 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
         )!
                 .toList()
                 .cast<String>();
+        FFAppState().searchGrosstotaldiscount = (getJsonField(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          r'''$.results.data.*.gross_total_discount''',
+          true,
+        ) as List?)!
+            .map<String>((e) => e.toString())
+            .toList()
+            .cast<String>()
+            .toList()
+            .cast<String>();
+        FFAppState().searchDiscountother = (getJsonField(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          r'''$.results.data.*.discount_other''',
+          true,
+        ) as List?)!
+            .map<String>((e) => e.toString())
+            .toList()
+            .cast<String>()
+            .toList()
+            .cast<String>();
+        FFAppState().searchDiscountpercent = (getJsonField(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          r'''$.results.data.*.discount_percent''',
+          true,
+        ) as List?)!
+            .map<String>((e) => e.toString())
+            .toList()
+            .cast<String>()
+            .toList()
+            .cast<String>();
+        FFAppState().searchGrosstotalnet = (getJsonField(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          r'''$.results.data.*.gross_total_net''',
+          true,
+        ) as List?)!
+            .map<String>((e) => e.toString())
+            .toList()
+            .cast<String>()
+            .toList()
+            .cast<String>();
+        FFAppState().nonePackageThaiId = widget!.idCard!;
+        FFAppState().searchDiscountflg = (getJsonField(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          r'''$.results.data.*.discount_flg''',
+          true,
+        ) as List?)!
+            .map<String>((e) => e.toString())
+            .toList()
+            .cast<String>()
+            .toList()
+            .cast<String>();
         safeSetState(() {});
         FFAppState().selectInsurerList = functions
             .createFalseListByItemNumber(
