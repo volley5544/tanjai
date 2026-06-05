@@ -4103,8 +4103,8 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
                                           children: [
-                                            Container(
-                                              width: 160.0,
+                                            Expanded(
+                                              flex: 4,
                                               child: TextFormField(
                                                 controller:
                                                     _model.textController,
@@ -4297,12 +4297,15 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                             ?.statusCode ??
                                                         200) ==
                                                     200))
-                                              Icon(
-                                                Icons.error_outline,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                size: 24.0,
+                                              Expanded(
+                                                flex: 1,
+                                                child: Icon(
+                                                  Icons.error_outline,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  size: 24.0,
+                                                ),
                                               ),
                                             if (CheckBlackListCopyCall
                                                     .blacklistflag(
@@ -4311,12 +4314,15 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                       ''),
                                                 ) ==
                                                 'N')
-                                              Icon(
-                                                Icons.check,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .success,
-                                                size: 24.0,
+                                              Expanded(
+                                                flex: 1,
+                                                child: Icon(
+                                                  Icons.check,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .success,
+                                                  size: 24.0,
+                                                ),
                                               ),
                                           ],
                                         ),
