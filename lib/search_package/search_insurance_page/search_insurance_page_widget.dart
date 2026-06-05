@@ -4052,7 +4052,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                         CrossAxisAlignment.center,
                                     children: [
                                       Text(
-                                        'กรอกเลขบัตรประชาชนเพื่อรับส่วนลดสูงสุด 10%',
+                                        'กรอกเลขบัตรประชาชนเพื่อรับส่วนลด',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -4085,7 +4085,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                       child: Container(
                                         width:
                                             MediaQuery.sizeOf(context).width *
-                                                0.55,
+                                                0.6,
                                         height: 60.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
@@ -4098,58 +4098,66 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                         ),
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),
-                                        child: Container(
-                                          width: double.infinity,
-                                          child: TextFormField(
-                                            controller: _model.textController,
-                                            focusNode:
-                                                _model.textFieldFocusNode,
-                                            onChanged: (_) =>
-                                                EasyDebounce.debounce(
-                                              '_model.textController',
-                                              Duration(milliseconds: 2000),
-                                              () async {
-                                                _model.checkDiscountFlg = false;
-                                                safeSetState(() {});
-                                              },
-                                            ),
-                                            autofocus: false,
-                                            enabled: true,
-                                            obscureText: false,
-                                            decoration: InputDecoration(
-                                              isDense: true,
-                                              labelStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        font: GoogleFonts
-                                                            .notoSansThai(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .fontStyle,
-                                                      ),
-                                              hintText: 'กรุณากรอกเลขบัตร',
-                                              hintStyle:
-                                                  FlutterFlowTheme.of(context)
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Container(
+                                              width: 200.0,
+                                              child: TextFormField(
+                                                controller:
+                                                    _model.textController,
+                                                focusNode:
+                                                    _model.textFieldFocusNode,
+                                                onChanged: (_) =>
+                                                    EasyDebounce.debounce(
+                                                  '_model.textController',
+                                                  Duration(milliseconds: 2000),
+                                                  () async {
+                                                    _model.checkDiscountFlg =
+                                                        false;
+                                                    safeSetState(() {});
+                                                  },
+                                                ),
+                                                autofocus: false,
+                                                enabled: true,
+                                                obscureText: false,
+                                                decoration: InputDecoration(
+                                                  isDense: true,
+                                                  labelStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .override(
+                                                            font: GoogleFonts
+                                                                .notoSansThai(
+                                                              fontWeight:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .fontWeight,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .fontStyle,
+                                                            ),
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                  hintText: 'กรุณากรอกเลขบัตร',
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
                                                       .labelMedium
                                                       .override(
                                                         font: GoogleFonts
@@ -4182,88 +4190,131 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                                 .labelMedium
                                                                 .fontStyle,
                                                       ),
-                                              enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: Color(0x00000000),
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: Color(0x00000000),
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              focusedErrorBorder:
-                                                  OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              filled: true,
-                                              fillColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  font:
-                                                      GoogleFonts.notoSansThai(
-                                                    fontWeight:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontWeight,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontStyle,
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: Color(0x00000000),
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
                                                   ),
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: Color(0x00000000),
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  errorBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .error,
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  focusedErrorBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .error,
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  filled: true,
+                                                  fillColor:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .bodyMedium
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
+                                                          .secondaryBackground,
                                                 ),
-                                            keyboardType: TextInputType.number,
-                                            cursorColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryText,
-                                            enableInteractiveSelection: true,
-                                            validator: _model
-                                                .textControllerValidator
-                                                .asValidator(context),
-                                            inputFormatters: [
-                                              _model.textFieldMask
-                                            ],
-                                          ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .notoSansThai(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                keyboardType:
+                                                    TextInputType.number,
+                                                cursorColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                enableInteractiveSelection:
+                                                    true,
+                                                validator: _model
+                                                    .textControllerValidator
+                                                    .asValidator(context),
+                                                inputFormatters: [
+                                                  _model.textFieldMask
+                                                ],
+                                              ),
+                                            ),
+                                            if (CheckBlackListCopyCall
+                                                    .blacklistflag(
+                                                  (_model.checkdiscountOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ) !=
+                                                'N')
+                                              Icon(
+                                                Icons.error_outline,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                size: 24.0,
+                                              ),
+                                            if (CheckBlackListCopyCall
+                                                    .blacklistflag(
+                                                  (_model.checkdiscountOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ) ==
+                                                'N')
+                                              Icon(
+                                                Icons.check,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .success,
+                                                size: 24.0,
+                                              ),
+                                          ],
                                         ),
                                       ),
                                     ),
@@ -4448,6 +4499,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                               safeSetState(() {});
                                           },
                                           child: Container(
+                                            width: double.infinity,
                                             height: 60.0,
                                             decoration: BoxDecoration(
                                               color: Color(0xFFFCEFE4),
@@ -4464,6 +4516,8 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
                                                   children: [
                                                     Icon(
                                                       Icons.list,
