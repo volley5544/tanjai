@@ -4104,7 +4104,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                               MainAxisAlignment.spaceAround,
                                           children: [
                                             Container(
-                                              width: 200.0,
+                                              width: 160.0,
                                               child: TextFormField(
                                                 controller:
                                                     _model.textController,
@@ -4286,13 +4286,17 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                 ],
                                               ),
                                             ),
-                                            if (CheckBlackListCopyCall
-                                                    .blacklistflag(
-                                                  (_model.checkdiscountOutput
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                ) !=
-                                                'N')
+                                            if ((CheckBlackListCopyCall
+                                                        .blacklistflag(
+                                                      (_model.checkdiscountOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    ) !=
+                                                    'N') &&
+                                                ((_model.checkdiscountOutput
+                                                            ?.statusCode ??
+                                                        200) ==
+                                                    200))
                                               Icon(
                                                 Icons.error_outline,
                                                 color:
