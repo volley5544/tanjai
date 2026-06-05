@@ -4113,7 +4113,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.textController',
-                                                  Duration(milliseconds: 2000),
+                                                  Duration(milliseconds: 100),
                                                   () async {
                                                     _model.checkDiscountFlg =
                                                         false;
@@ -4307,13 +4307,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                   size: 24.0,
                                                 ),
                                               ),
-                                            if (CheckBlackListCopyCall
-                                                    .blacklistflag(
-                                                  (_model.checkdiscountOutput
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                ) ==
-                                                'N')
+                                            if (_model.checkDiscountFlg)
                                               Expanded(
                                                 flex: 1,
                                                 child: Icon(
