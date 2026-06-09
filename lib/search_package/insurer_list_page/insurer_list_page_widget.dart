@@ -102,10 +102,72 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
         },
       ).then((value) => safeSetState(() {}));
 
-      FFAppState().filterCoverTypeList = [];
-      FFAppState().filterGarageTypeList = [];
-      safeSetState(() {});
       if (FFAppState().searchPackageSubProduct == 'MC') {
+        FFAppState().searchSerialName = [];
+        FFAppState().searchSumInsured = [];
+        FFAppState().searchCoverType = [];
+        FFAppState().searchGrossTotal = [];
+        FFAppState().searchExpDate = [];
+        FFAppState().tpbiAccident = [];
+        FFAppState().tpbiPerson = [];
+        FFAppState().teleModelName = [];
+        FFAppState().teleBrandName = [];
+        FFAppState().searchGarageType = [];
+        FFAppState().searchRegisYearList = [];
+        FFAppState().searchFullName = [];
+        FFAppState().searchTppd = [];
+        FFAppState().searchPa = [];
+        FFAppState().companyId = [];
+        FFAppState().teleBrandID = [];
+        FFAppState().teleModelCode = [];
+        FFAppState().searchActAmount = [];
+        FFAppState().searchShortName = [];
+        FFAppState().searchLogo = [];
+        FFAppState().searchAccessoryList = [];
+        FFAppState().searchInsurerCondition = [];
+        safeSetState(() {});
+        FFAppState().effectiveDate = [];
+        FFAppState().searchId = [];
+        FFAppState().searchPackageId = [];
+        FFAppState().serachPackageName = [];
+        FFAppState().searchStamp = [];
+        FFAppState().searchVat = [];
+        FFAppState().searchNetPremium = [];
+        FFAppState().searchSeat = [];
+        FFAppState().searchRoadsideAssistance = [];
+        FFAppState().searchbb = [];
+        FFAppState().searchme = [];
+        FFAppState().searchFlood = [];
+        FFAppState().searchDeductible = [];
+        FFAppState().searchContractProcessstate = [];
+        FFAppState().searchcc = [];
+        FFAppState().searchCarlost = [];
+        FFAppState().searchMotoraddon = [];
+        FFAppState().searchDriverbehavior = [];
+        FFAppState().searchInspectionExcept = [];
+        FFAppState().searchGrosstotaldiscount = [];
+        FFAppState().searchDiscountother = [];
+        FFAppState().searchDiscountpercent = [];
+        FFAppState().searchGrosstotalnet = [];
+        FFAppState().nonePackageThaiId = '';
+        FFAppState().searchDiscountflg = [];
+        safeSetState(() {});
+        FFAppState().selectInsurerList = [];
+        FFAppState().addCustomerQuotationSaveSuccess = false;
+        safeSetState(() {});
+        FFAppState().sliderMinGrossPage3 = '1000';
+        FFAppState().sliderMaxGrossPage3 = '10000';
+        FFAppState().sliderMinSumInsuredPage3 = '0';
+        FFAppState().sliderMaxSumInsuredPage3 = '1000000';
+        safeSetState(() {});
+        FFAppState().sliderCurrentMinGrossPage3 = '1000';
+        FFAppState().sliderCurrentMaxGrossPage3 = '10000';
+        FFAppState().sliderCurrentMinSumInsuredPage3 = '0';
+        FFAppState().sliderCurrentMaxSumInsuredPage3 = '1000000';
+        safeSetState(() {});
+        FFAppState().filterCoverTypeList = [];
+        FFAppState().filterGarageTypeList = [];
+        safeSetState(() {});
         _model.packageAPIMCOutput = await TelePackageSearchMCAPICall.call(
           brandCode: widget!.brandCode,
           year: widget!.year,
