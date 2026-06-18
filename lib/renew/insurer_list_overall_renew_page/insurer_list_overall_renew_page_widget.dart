@@ -212,20 +212,26 @@ class _InsurerListOverallRenewPageWidgetState
         );
         return;
       }
-      if ('${TelePackageSearchAPIRENEWCall.statusLayer1(
+      if ('${getJsonField(
             (_model.packageRENEWAPIOutput?.jsonBody ?? ''),
-          )?.toString()}' ==
+            r'''$.code''',
+          ).toString()}' ==
           '200') {
         await showDialog(
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
               child: AlertDialog(
-                content: Text((TelePackageSearchAPIRENEWCall.dataAll(
+                content: Text((getJsonField(
                   (_model.packageRENEWAPIOutput?.jsonBody ?? ''),
-                )!
-                        .firstOrNull!
-                        .toMap())
+                  r'''$.results.data[*][*]''',
+                )
+                        .toList()
+                        .map<PackageDataModelStruct?>(
+                            PackageDataModelStruct.maybeFromMap)
+                        .toList() as Iterable<PackageDataModelStruct?>)
+                    .withoutNulls
+                    .length
                     .toString()),
                 actions: [
                   TextButton(
@@ -263,9 +269,10 @@ class _InsurerListOverallRenewPageWidgetState
           builder: (alertDialogContext) {
             return WebViewAware(
               child: AlertDialog(
-                content: Text(TelePackageSearchAPIRENEWCall.messageLayer1(
+                content: Text('${'${getJsonField(
                   (_model.packageRENEWAPIOutput?.jsonBody ?? ''),
-                )!),
+                  r'''$.message''',
+                ).toString()}'}'),
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(alertDialogContext),
