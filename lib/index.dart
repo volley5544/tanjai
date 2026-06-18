@@ -240,3 +240,7 @@ export '/scan_and_go/renew_save_history2/renew_save_history2_widget.dart'
     show RenewSaveHistory2Widget;
 export '/scan_and_go/renew_search_all_pool_page2/renew_search_all_pool_page2_widget.dart'
     show RenewSearchAllPoolPage2Widget;
+export '/renew/insurer_list_overall_renew_page/insurer_list_overall_renew_page_widget.dart'
+    show InsurerListOverallRenewPageWidget;
+export '/renew/insurer_list_renew_page/insurer_list_renew_page_widget.dart'
+    show InsurerListRenewPageWidget;

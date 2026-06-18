@@ -1,5 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -18,6 +20,22 @@ import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 
 class RenewDetailPageModel extends FlutterFlowModel<RenewDetailPageWidget> {
+  ///  Local state fields for this page.
+
+  int? indexSelected = 0;
+
+  List<PackageStruct> packageDataPage = [];
+  void addToPackageDataPage(PackageStruct item) => packageDataPage.add(item);
+  void removeFromPackageDataPage(PackageStruct item) =>
+      packageDataPage.remove(item);
+  void removeAtIndexFromPackageDataPage(int index) =>
+      packageDataPage.removeAt(index);
+  void insertAtIndexInPackageDataPage(int index, PackageStruct item) =>
+      packageDataPage.insert(index, item);
+  void updatePackageDataPageAtIndex(
+          int index, Function(PackageStruct) updateFn) =>
+      packageDataPage[index] = updateFn(packageDataPage[index]);
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - API (getDataRenew)] action in renewDetailPage widget.

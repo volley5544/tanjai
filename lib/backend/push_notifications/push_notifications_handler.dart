@@ -819,6 +819,16 @@ final parametersBuilderMap =
         },
       ),
   'renewSearchAllPoolPage2': ParameterData.none(),
+  'insurerListOverallRenewPage': (data) async => ParameterData(
+        allParams: {
+          'refRenewId': getParameter<String>(data, 'refRenewId'),
+        },
+      ),
+  'insurerListRenewPage': (data) async => ParameterData(
+        allParams: {
+          'refRenewId': getParameter<String>(data, 'refRenewId'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

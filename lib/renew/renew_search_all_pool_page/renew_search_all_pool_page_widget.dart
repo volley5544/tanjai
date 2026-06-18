@@ -2877,8 +2877,12 @@ class _RenewSearchAllPoolPageWidgetState
                                                                             onPressed:
                                                                                 () async {
                                                                               context.pushNamed(
-                                                                                RenewDetailPageWidget.routeName,
+                                                                                InsurerListOverallRenewPageWidget.routeName,
                                                                                 queryParameters: {
+                                                                                  'dataRenew': serializeParam(
+                                                                                    listItemItem,
+                                                                                    ParamType.JSON,
+                                                                                  ),
                                                                                   'refRenewId': serializeParam(
                                                                                     getJsonField(
                                                                                       listItemItem,
@@ -4603,10 +4607,15 @@ class _RenewSearchAllPoolPageWidgetState
                                                                         () async {
                                                                       context
                                                                           .pushNamed(
-                                                                        RenewDetailPageWidget
+                                                                        InsurerListOverallRenewPageWidget
                                                                             .routeName,
                                                                         queryParameters:
                                                                             {
+                                                                          'dataRenew':
+                                                                              serializeParam(
+                                                                            poolListItem,
+                                                                            ParamType.JSON,
+                                                                          ),
                                                                           'refRenewId':
                                                                               serializeParam(
                                                                             RenewCheckRenewCall.refrenewid(

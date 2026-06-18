@@ -1871,6 +1871,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'refRenewId',
                   ParamType.String,
                 ),
+                packageRenew: params.getParam<PackageStruct>(
+                  'packageRenew',
+                  ParamType.DataStruct,
+                  isList: true,
+                  structBuilder: PackageStruct.fromSerializableMap,
+                ),
               ),
             ),
             FFRoute(
@@ -2799,6 +2805,36 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: RenewSearchAllPoolPage2Widget.routeName,
               path: RenewSearchAllPoolPage2Widget.routePath,
               builder: (context, params) => RenewSearchAllPoolPage2Widget(),
+            ),
+            FFRoute(
+              name: InsurerListOverallRenewPageWidget.routeName,
+              path: InsurerListOverallRenewPageWidget.routePath,
+              builder: (context, params) => InsurerListOverallRenewPageWidget(
+                dataRenew: params.getParam(
+                  'dataRenew',
+                  ParamType.JSON,
+                ),
+                refRenewId: params.getParam(
+                  'refRenewId',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: InsurerListRenewPageWidget.routeName,
+              path: InsurerListRenewPageWidget.routePath,
+              builder: (context, params) => InsurerListRenewPageWidget(
+                dataPackage: params.getParam(
+                  'dataPackage',
+                  ParamType.DataStruct,
+                  isList: false,
+                  structBuilder: PackageDataModelStruct.fromSerializableMap,
+                ),
+                refRenewId: params.getParam(
+                  'refRenewId',
+                  ParamType.String,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
