@@ -17827,7 +17827,7 @@ class RenewSaveCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'renewSave',
-      apiUrl: '${insuranceUrl}/api/renew/save',
+      apiUrl: '${insuranceUrl}/api/renew/save/step1',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
