@@ -263,9 +263,20 @@ class _InsurerListOverallRenewPageWidgetState
             return WebViewAware(
               child: AlertDialog(
                 content: Text('${'${getJsonField(
-                  (_model.packageRENEWAPIOutput?.jsonBody ?? ''),
-                  r'''$.message''',
-                ).toString()}'}'),
+                              (_model.packageRENEWAPIOutput?.jsonBody ?? ''),
+                              r'''$.message''',
+                            ).toString()}'}' !=
+                            null &&
+                        '${'${getJsonField(
+                              (_model.packageRENEWAPIOutput?.jsonBody ?? ''),
+                              r'''$.message''',
+                            ).toString()}'}' !=
+                            ''
+                    ? '${'${getJsonField(
+                        (_model.packageRENEWAPIOutput?.jsonBody ?? ''),
+                        r'''$.message''',
+                      ).toString()}'}'
+                    : 'ไม่พบข้อมูล'),
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(alertDialogContext),
