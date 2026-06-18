@@ -78,6 +78,22 @@ class _InsurerListOverallRenewPageWidgetState
         },
       ).then((value) => safeSetState(() {}));
 
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(widget!.dataRenew!.toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       _model.packageRENEWAPIOutput = await TelePackageSearchAPIRENEWCall.call(
         brandCode: getJsonField(
           widget!.dataRenew,
