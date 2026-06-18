@@ -222,17 +222,10 @@ class _InsurerListOverallRenewPageWidgetState
           builder: (alertDialogContext) {
             return WebViewAware(
               child: AlertDialog(
-                content: Text((getJsonField(
+                content: Text(getJsonField(
                   (_model.packageRENEWAPIOutput?.jsonBody ?? ''),
                   r'''$.results.data[*][*]''',
-                )
-                        .toList()
-                        .map<PackageDataModelStruct?>(
-                            PackageDataModelStruct.maybeFromMap)
-                        .toList() as Iterable<PackageDataModelStruct?>)
-                    .withoutNulls
-                    .length
-                    .toString()),
+                ).toString()),
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(alertDialogContext),
@@ -248,10 +241,15 @@ class _InsurerListOverallRenewPageWidgetState
           builder: (alertDialogContext) {
             return WebViewAware(
               child: AlertDialog(
-                content: Text(TelePackageSearchAPIRENEWCall.dataAll(
+                content: Text(((getJsonField(
                   (_model.packageRENEWAPIOutput?.jsonBody ?? ''),
-                )!
-                    .length
+                  r'''$.results.data[*][*]''',
+                  true,
+                ) as List?)!
+                        .map<String>((e) => e.toString())
+                        .toList()
+                        .cast<String>()
+                        .length)
                     .toString()),
                 actions: [
                   TextButton(
