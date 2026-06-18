@@ -62,6 +62,7 @@ class PackageStruct extends FFFirebaseStruct {
     String? discountOther,
     String? discountPercent,
     String? grossTotalNet,
+    String? insurerLogo,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _id = id,
         _companyId = companyId,
@@ -115,6 +116,7 @@ class PackageStruct extends FFFirebaseStruct {
         _discountOther = discountOther,
         _discountPercent = discountPercent,
         _grossTotalNet = grossTotalNet,
+        _insurerLogo = insurerLogo,
         super(firestoreUtilData);
 
   // "id" field.
@@ -483,6 +485,13 @@ class PackageStruct extends FFFirebaseStruct {
 
   bool hasGrossTotalNet() => _grossTotalNet != null;
 
+  // "insurer_logo" field.
+  String? _insurerLogo;
+  String get insurerLogo => _insurerLogo ?? '';
+  set insurerLogo(String? val) => _insurerLogo = val;
+
+  bool hasInsurerLogo() => _insurerLogo != null;
+
   static PackageStruct fromMap(Map<String, dynamic> data) => PackageStruct(
         id: castToType<int>(data['id']),
         companyId: data['company_id'] as String?,
@@ -536,6 +545,7 @@ class PackageStruct extends FFFirebaseStruct {
         discountOther: data['discount_other'] as String?,
         discountPercent: data['discount_percent'] as String?,
         grossTotalNet: data['gross_total_net'] as String?,
+        insurerLogo: data['insurer_logo'] as String?,
       );
 
   static PackageStruct? maybeFromMap(dynamic data) =>
@@ -594,6 +604,7 @@ class PackageStruct extends FFFirebaseStruct {
         'discount_other': _discountOther,
         'discount_percent': _discountPercent,
         'gross_total_net': _grossTotalNet,
+        'insurer_logo': _insurerLogo,
       }.withoutNulls;
 
   @override
@@ -804,6 +815,10 @@ class PackageStruct extends FFFirebaseStruct {
         ),
         'gross_total_net': serializeParam(
           _grossTotalNet,
+          ParamType.String,
+        ),
+        'insurer_logo': serializeParam(
+          _insurerLogo,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -1070,6 +1085,11 @@ class PackageStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        insurerLogo: deserializeParam(
+          data['insurer_logo'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -1129,7 +1149,8 @@ class PackageStruct extends FFFirebaseStruct {
         discountFlg == other.discountFlg &&
         discountOther == other.discountOther &&
         discountPercent == other.discountPercent &&
-        grossTotalNet == other.grossTotalNet;
+        grossTotalNet == other.grossTotalNet &&
+        insurerLogo == other.insurerLogo;
   }
 
   @override
@@ -1185,7 +1206,8 @@ class PackageStruct extends FFFirebaseStruct {
         discountFlg,
         discountOther,
         discountPercent,
-        grossTotalNet
+        grossTotalNet,
+        insurerLogo
       ]);
 }
 
@@ -1242,6 +1264,7 @@ PackageStruct createPackageStruct({
   String? discountOther,
   String? discountPercent,
   String? grossTotalNet,
+  String? insurerLogo,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -1300,6 +1323,7 @@ PackageStruct createPackageStruct({
       discountOther: discountOther,
       discountPercent: discountPercent,
       grossTotalNet: grossTotalNet,
+      insurerLogo: insurerLogo,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

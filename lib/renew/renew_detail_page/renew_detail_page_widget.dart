@@ -261,7 +261,10 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                     getCORSProxyUrl(
                                       valueOrDefault<String>(
                                         functions.stringToImgPath(
-                                            insurerListItemItem.logo),
+                                            insurerListItemIndex == 0
+                                                ? insurerListItemItem
+                                                    .insurerLogo
+                                                : insurerListItemItem.logo),
                                         'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                       ),
                                     ),
