@@ -133,47 +133,47 @@ class _InsurerListOverallRenewPageWidgetState
         },
       );
       _model.packageRENEWAPIOutput = await TelePackageSearchAPIRENEWCall.call(
-        brandCode: getJsonField(
+        brandCode: '${getJsonField(
           widget!.dataRenew,
           r'''$.brand_id''',
-        ).toString(),
-        modelCode: getJsonField(
+        ).toString()}',
+        modelCode: '${getJsonField(
           widget!.dataRenew,
           r'''$.model_id''',
-        ).toString(),
-        year: getJsonField(
+        ).toString()}',
+        year: '${getJsonField(
           widget!.dataRenew,
           r'''$.year''',
-        ).toString(),
-        province: getJsonField(
+        ).toString()}',
+        province: '${getJsonField(
           widget!.dataRenew,
           r'''$.registration_province''',
-        ).toString(),
-        carRegistration: getJsonField(
+        ).toString()}',
+        carRegistration: '${getJsonField(
           widget!.dataRenew,
           r'''$.car_registration''',
-        ).toString(),
-        driver: getJsonField(
+        ).toString()}',
+        driver: '${getJsonField(
           widget!.dataRenew,
           r'''$.driver_type''',
-        ).toString(),
-        vehicleUsage: getJsonField(
+        ).toString()}',
+        vehicleUsage: '${getJsonField(
           widget!.dataRenew,
           r'''$.vehicle_code''',
-        ).toString(),
+        ).toString()}',
         coverTypeList: (String var1) {
           return [var1];
-        }(getJsonField(
+        }('${getJsonField(
           widget!.dataRenew,
           r'''$.cover_type_code''',
-        ).toString()),
+        ).toString()}'),
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
         garageTypeList: ["COMPANY", "DEALER"],
         driverBehaviorList: ["0", "0", "0", "0", "0"],
-        grossTotal: getJsonField(
+        grossTotal: '${getJsonField(
           widget!.dataRenew,
           r'''$.gross_total''',
-        ).toString(),
+        ).toString()}',
       );
 
       if ((_model.packageRENEWAPIOutput?.statusCode ?? 200) != 200) {
