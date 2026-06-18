@@ -94,6 +94,44 @@ class _InsurerListOverallRenewPageWidgetState
           );
         },
       );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(getJsonField(
+                widget!.dataRenew,
+                r'''$.brand_id''',
+              ).toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(getJsonField(
+                widget!.dataRenew,
+                r'''$.model_id''',
+              ).toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       _model.packageRENEWAPIOutput = await TelePackageSearchAPIRENEWCall.call(
         brandCode: getJsonField(
           widget!.dataRenew,
@@ -130,12 +168,7 @@ class _InsurerListOverallRenewPageWidgetState
           r'''$.cover_type_code''',
         ).toString()),
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
-        garageTypeList: (String var1) {
-          return ["COMPANY", "DEALER"];
-        }(functions.garageTypeToEng(getJsonField(
-          widget!.dataRenew,
-          r'''$.garage_type_name''',
-        ).toString())),
+        garageTypeList: ["COMPANY", "DEALER"],
         driverBehaviorList: ["0", "0", "0", "0", "0"],
         grossTotal: getJsonField(
           widget!.dataRenew,
@@ -163,10 +196,31 @@ class _InsurerListOverallRenewPageWidgetState
         );
         return;
       }
-      if (TelePackageSearchAPIRENEWCall.statusLayer1(
+      if ('${TelePackageSearchAPIRENEWCall.statusLayer1(
             (_model.packageRENEWAPIOutput?.jsonBody ?? ''),
-          ) !=
-          200) {
+          )?.toString()}' ==
+          '200') {
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
+                content: Text(TelePackageSearchAPIRENEWCall.dataAll(
+                  (_model.packageRENEWAPIOutput?.jsonBody ?? ''),
+                )!
+                    .length
+                    .toString()),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      } else {
         await showDialog(
           context: context,
           builder: (alertDialogContext) {
@@ -187,11 +241,29 @@ class _InsurerListOverallRenewPageWidgetState
         );
         return;
       }
+
       if (TelePackageSearchAPIRENEWCall.dataAll(
             (_model.packageRENEWAPIOutput?.jsonBody ?? ''),
           )!
-              .length <=
+              .length >
           0) {
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
+                content: Text('1'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      } else {
         await showDialog(
           context: context,
           builder: (alertDialogContext) {
@@ -211,12 +283,29 @@ class _InsurerListOverallRenewPageWidgetState
         Navigator.pop(context);
         return;
       }
+
       _model.dataRenewPage = TelePackageSearchAPIRENEWCall.dataAll(
         (_model.packageRENEWAPIOutput?.jsonBody ?? ''),
       )!
           .toList()
           .cast<PackageDataModelStruct>();
       safeSetState(() {});
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('2'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       Navigator.pop(context);
     });
 
