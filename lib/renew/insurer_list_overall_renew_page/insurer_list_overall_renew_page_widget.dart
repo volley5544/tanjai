@@ -177,12 +177,7 @@ class _InsurerListOverallRenewPageWidgetState
           widget!.dataRenew,
           r'''$.vehicle_code''',
         ).toString()}',
-        coverTypeList: (String var1) {
-          return [var1];
-        }('${getJsonField(
-          widget!.dataRenew,
-          r'''$.cover_type_code''',
-        ).toString()}'),
+        coverTypeList: ["VMI1", "VMI2", "VMI2+", "VMI3", "VMI3+"],
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
         garageTypeList: ["COMPANY", "DEALER"],
         driverBehaviorList: ["0", "0", "0", "0", "0"],
