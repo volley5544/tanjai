@@ -221,6 +221,27 @@ class _InsurerListOverallRenewPageWidgetState
           builder: (alertDialogContext) {
             return WebViewAware(
               child: AlertDialog(
+                content: Text((TelePackageSearchAPIRENEWCall.dataAll(
+                  (_model.packageRENEWAPIOutput?.jsonBody ?? ''),
+                )!
+                        .firstOrNull!
+                        .toMap())
+                    .toString()),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
                 content: Text(TelePackageSearchAPIRENEWCall.dataAll(
                   (_model.packageRENEWAPIOutput?.jsonBody ?? ''),
                 )!
