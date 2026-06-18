@@ -97,11 +97,11 @@ class _InsurerListOverallRenewPageWidgetState
       _model.packageRENEWAPIOutput = await TelePackageSearchAPIRENEWCall.call(
         brandCode: getJsonField(
           widget!.dataRenew,
-          r'''$.brand_code''',
+          r'''$.brand_id''',
         ).toString(),
         modelCode: getJsonField(
           widget!.dataRenew,
-          r'''$.model_code''',
+          r'''$.model_id''',
         ).toString(),
         year: getJsonField(
           widget!.dataRenew,
@@ -109,30 +109,33 @@ class _InsurerListOverallRenewPageWidgetState
         ).toString(),
         province: getJsonField(
           widget!.dataRenew,
-          r'''$.province''',
+          r'''$.registration_province''',
         ).toString(),
         carRegistration: getJsonField(
           widget!.dataRenew,
           r'''$.car_registration''',
         ).toString(),
-        driver: '1',
+        driver: getJsonField(
+          widget!.dataRenew,
+          r'''$.driver_type''',
+        ).toString(),
         vehicleUsage: getJsonField(
           widget!.dataRenew,
-          r'''$.vehicle_usage''',
+          r'''$.vehicle_code''',
         ).toString(),
         coverTypeList: (String var1) {
           return [var1];
         }(getJsonField(
           widget!.dataRenew,
-          r'''$.cover_type''',
+          r'''$.cover_type_code''',
         ).toString()),
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
         garageTypeList: (String var1) {
-          return [var1];
-        }(getJsonField(
+          return ["COMPANY", "DEALER"];
+        }(functions.garageTypeToEng(getJsonField(
           widget!.dataRenew,
-          r'''$.garage_type''',
-        ).toString()),
+          r'''$.garage_type_name''',
+        ).toString())),
         driverBehaviorList: ["0", "0", "0", "0", "0"],
         grossTotal: getJsonField(
           widget!.dataRenew,
