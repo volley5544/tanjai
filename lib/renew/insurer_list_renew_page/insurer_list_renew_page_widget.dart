@@ -1660,15 +1660,11 @@ class _InsurerListRenewPageWidgetState extends State<InsurerListRenewPageWidget>
                                             ),
                                           ),
                                         ),
-                                        if ((FFAppState()
-                                                    .searchInsurerInsurershortname
-                                                    .length >
-                                                0) &&
-                                            (functions.countTrueInBoolList(
-                                                    FFAppState()
-                                                        .selectInsurerList
-                                                        .toList())! >=
-                                                1))
+                                        if (functions.countTrueInBoolList(
+                                                FFAppState()
+                                                    .selectInsurerList
+                                                    .toList())! >=
+                                            1)
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(

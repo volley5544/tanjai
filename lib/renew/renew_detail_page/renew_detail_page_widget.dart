@@ -1857,6 +1857,10 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                               FFAppState().profileUnitCodeName,
                                           empBranchCode:
                                               FFAppState().profileBranch,
+                                          insurerPackageJson: widget!
+                                              .packageRenew
+                                              ?.map((e) => e.toMap())
+                                              .toList(),
                                         );
 
                                         _shouldSetState = true;
@@ -1935,11 +1939,12 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                               ParamType.String,
                                             ),
                                             'leadDtailId': serializeParam(
-                                              RenewSaveCall.leaddtlid(
+                                              RenewSaveCall.leaddtlidRenew(
                                                 (_model.renewSaveAPIOutput
                                                         ?.jsonBody ??
                                                     ''),
-                                              ),
+                                              )?.elementAtOrNull(
+                                                  _model.indexSelected!),
                                               ParamType.int,
                                             ),
                                           }.withoutNulls,

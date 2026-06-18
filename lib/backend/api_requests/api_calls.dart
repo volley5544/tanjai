@@ -17713,10 +17713,13 @@ class RenewSaveCall {
     dynamic? dataJson,
     String? empBranchName = '',
     String? empBranchCode = '',
+    dynamic? insurerPackageJson,
   }) async {
     final data = _serializeJson(dataJson);
+    final insurerPackage = _serializeJson(insurerPackageJson, true);
     final ffApiRequestBody = '''
 {
+"insurer_package":${insurerPackage},
 "emp_branch_code":"${empBranchCode}",
   "emp_branch_name": "${empBranchName}",
   "data": ${data},
@@ -17869,6 +17872,11 @@ class RenewSaveCall {
         response,
         r'''$.results.data.leads_detail[:].pdf_quotation''',
       ));
+  static List? leaddtlidRenew(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data.leads_detail[:].lead_dtl_id''',
+        true,
+      ) as List?;
 }
 
 class GetDataRenewCall {
