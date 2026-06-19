@@ -1631,12 +1631,14 @@ class _RenewDetailPage2WidgetState extends State<RenewDetailPage2Widget> {
                                       if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
-                                    FFAppState().addToInsurarerQuotationPdf(
+                                    FFAppState().insurarerQuotationPdf =
                                         RenewSaveCall.pdfquotation(
                                       (_model.renewSaveAPIQuotationBtn
                                               ?.jsonBody ??
                                           ''),
-                                    )!);
+                                    )!
+                                            .toList()
+                                            .cast<String>();
                                     safeSetState(() {});
                                     if (Navigator.of(context).canPop()) {
                                       context.pop();

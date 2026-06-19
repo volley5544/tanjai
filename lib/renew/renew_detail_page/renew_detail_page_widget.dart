@@ -1643,6 +1643,10 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                               FFAppState().profileUnitCodeName,
                                           empBranchCode:
                                               FFAppState().profileBranch,
+                                          insurerPackageJson: widget!
+                                              .packageRenew
+                                              ?.map((e) => e.toMap())
+                                              .toList(),
                                         );
 
                                         _shouldSetState = true;
@@ -1708,12 +1712,14 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                             safeSetState(() {});
                                           return;
                                         }
-                                        FFAppState().addToInsurarerQuotationPdf(
+                                        FFAppState().insurarerQuotationPdf =
                                             RenewSaveCall.pdfquotation(
                                           (_model.renewSaveAPIQuotationBtn
                                                   ?.jsonBody ??
                                               ''),
-                                        )!);
+                                        )!
+                                                .toList()
+                                                .cast<String>();
                                         safeSetState(() {});
                                         if (Navigator.of(context).canPop()) {
                                           context.pop();

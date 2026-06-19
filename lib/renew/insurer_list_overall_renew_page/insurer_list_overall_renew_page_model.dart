@@ -40,6 +40,15 @@ class InsurerListOverallRenewPageModel
           int index, Function(PackageDataModelStruct) updateFn) =>
       dataRenewPage[index] = updateFn(dataRenewPage[index]);
 
+  List<PackageStruct> packageEmpty = [];
+  void addToPackageEmpty(PackageStruct item) => packageEmpty.add(item);
+  void removeFromPackageEmpty(PackageStruct item) => packageEmpty.remove(item);
+  void removeAtIndexFromPackageEmpty(int index) => packageEmpty.removeAt(index);
+  void insertAtIndexInPackageEmpty(int index, PackageStruct item) =>
+      packageEmpty.insert(index, item);
+  void updatePackageEmptyAtIndex(int index, Function(PackageStruct) updateFn) =>
+      packageEmpty[index] = updateFn(packageEmpty[index]);
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - API (telePackageSearchAPI RENEW)] action in insurerListOverallRenewPage widget.

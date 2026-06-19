@@ -17867,11 +17867,15 @@ class RenewSaveCall {
         response,
         r'''$.results.data.leads_detail[:].lead_dtl_id''',
       ));
-  static String? pdfquotation(dynamic response) =>
-      castToType<String>(getJsonField(
+  static List<String>? pdfquotation(dynamic response) => (getJsonField(
         response,
         r'''$.results.data.leads_detail[:].pdf_quotation''',
-      ));
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
   static List? leaddtlidRenew(dynamic response) => getJsonField(
         response,
         r'''$.results.data.leads_detail[:].lead_dtl_id''',
