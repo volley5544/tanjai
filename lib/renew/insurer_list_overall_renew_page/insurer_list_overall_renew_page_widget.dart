@@ -78,76 +78,6 @@ class _InsurerListOverallRenewPageWidgetState
         },
       ).then((value) => safeSetState(() {}));
 
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(widget!.dataRenew!.toString()),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(getJsonField(
-                widget!.dataRenew,
-                r'''$.brand_id''',
-              ).toString()),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(getJsonField(
-                widget!.dataRenew,
-                r'''$.model_id''',
-              ).toString()),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(FFAppState().apiUrlInsuranceAppState),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       _model.packageRENEWAPIOutput = await TelePackageSearchAPIRENEWCall.call(
         brandCode: '${getJsonField(
           widget!.dataRenew,
@@ -212,50 +142,6 @@ class _InsurerListOverallRenewPageWidgetState
             r'''$.code''',
           ).toString()}' ==
           '200') {
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return WebViewAware(
-              child: AlertDialog(
-                content: Text(getJsonField(
-                  (_model.packageRENEWAPIOutput?.jsonBody ?? ''),
-                  r'''$.results.data[*][*]''',
-                ).toString()),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ),
-            );
-          },
-        );
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return WebViewAware(
-              child: AlertDialog(
-                content: Text(((getJsonField(
-                  (_model.packageRENEWAPIOutput?.jsonBody ?? ''),
-                  r'''$.results.data[*][*]''',
-                  true,
-                ) as List?)!
-                        .map<String>((e) => e.toString())
-                        .toList()
-                        .cast<String>()
-                        .length)
-                    .toString()),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ),
-            );
-          },
-        );
       } else {
         await showDialog(
           context: context,
@@ -297,22 +183,6 @@ class _InsurerListOverallRenewPageWidgetState
           )!
               .length >
           0) {
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return WebViewAware(
-              child: AlertDialog(
-                content: Text('1'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ),
-            );
-          },
-        );
       } else {
         await showDialog(
           context: context,
@@ -340,22 +210,6 @@ class _InsurerListOverallRenewPageWidgetState
           .toList()
           .cast<PackageDataModelStruct>();
       safeSetState(() {});
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text('2'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       Navigator.pop(context);
     });
 

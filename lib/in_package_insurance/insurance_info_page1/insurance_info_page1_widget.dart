@@ -6340,11 +6340,17 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                   color: Colors.transparent,
                                                   child: ListTile(
                                                     title: Text(
-                                                      FFAppState().insuranceInfoSelectOccupationName !=
-                                                                  null &&
-                                                              FFAppState()
-                                                                      .insuranceInfoSelectOccupationName !=
-                                                                  ''
+                                                      (FFAppState().insuranceInfoSelectOccupationName !=
+                                                                      null &&
+                                                                  FFAppState()
+                                                                          .insuranceInfoSelectOccupationName !=
+                                                                      '') &&
+                                                              (FFAppState()
+                                                                          .insuranceInfoSelectOccupationCode !=
+                                                                      null &&
+                                                                  FFAppState()
+                                                                          .insuranceInfoSelectOccupationCode !=
+                                                                      '')
                                                           ? FFAppState()
                                                               .insuranceInfoSelectOccupationName
                                                           : 'กรุณาเลือกกลุ่มอาชีพ',
