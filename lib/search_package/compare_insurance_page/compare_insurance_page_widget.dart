@@ -1867,9 +1867,10 @@ class _CompareInsurancePageWidgetState
                               thickness: 1.0,
                               color: Color(0xFFB9B9B9),
                             ),
-                            if ((widget!.discountFlg?.elementAtOrNull(
-                                    _model.indexDataCompare!)) ==
-                                '1')
+                            if (((widget!.discountFlg?.elementAtOrNull(
+                                        _model.indexDataCompare!)) ==
+                                    '1') &&
+                                false)
                               Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [

@@ -829,6 +829,11 @@ final parametersBuilderMap =
           'refRenewId': getParameter<String>(data, 'refRenewId'),
         },
       ),
+  'PackageFilterPageRenew': (data) async => ParameterData(
+        allParams: {
+          'fromPage': getParameter<String>(data, 'fromPage'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

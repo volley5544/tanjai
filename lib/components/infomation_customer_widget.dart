@@ -789,7 +789,8 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                 ),
                               ],
                             ),
-                          if (FFAppState().appDetailNew.discountFlg == '1')
+                          if ((FFAppState().appDetailNew.discountFlg == '1') &&
+                              false)
                             Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [

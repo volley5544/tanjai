@@ -2835,6 +2835,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                 ),
               ),
+            ),
+            FFRoute(
+              name: PackageFilterPageRenewWidget.routeName,
+              path: PackageFilterPageRenewWidget.routePath,
+              builder: (context, params) => PackageFilterPageRenewWidget(
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+                package: params.getParam<PackageStruct>(
+                  'package',
+                  ParamType.DataStruct,
+                  isList: true,
+                  structBuilder: PackageStruct.fromSerializableMap,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

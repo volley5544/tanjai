@@ -1473,7 +1473,7 @@ class _DetailsInsurancePageWidgetState
                         thickness: 1.0,
                         color: Color(0xFFCBD8D8),
                       ),
-                      if (widget!.discountFlg == '1')
+                      if ((widget!.discountFlg == '1') && false)
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [

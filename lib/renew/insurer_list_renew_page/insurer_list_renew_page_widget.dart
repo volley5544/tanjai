@@ -16,6 +16,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'insurer_list_renew_page_model.dart';
 export 'insurer_list_renew_page_model.dart';
 
@@ -58,6 +59,21 @@ class _InsurerListRenewPageWidgetState extends State<InsurerListRenewPageWidget>
           .toList()
           .cast<bool>();
       FFAppState().addCustomerQuotationSaveSuccess = false;
+      safeSetState(() {});
+      FFAppState().sliderCurrentMinGrossPage3 =
+          widget!.dataPackage!.minGrossTotal;
+      FFAppState().sliderCurrentMaxGrossPage3 =
+          widget!.dataPackage!.maxGrossTotal;
+      FFAppState().sliderCurrentMinSumInsuredPage3 =
+          widget!.dataPackage!.minSumInsured;
+      FFAppState().sliderCurrentMaxSumInsuredPage3 =
+          widget!.dataPackage!.maxSumInsured;
+      FFAppState().sliderMinGrossPage3 = widget!.dataPackage!.minGrossTotal;
+      FFAppState().sliderMaxGrossPage3 = widget!.dataPackage!.maxGrossTotal;
+      FFAppState().sliderMinSumInsuredPage3 =
+          widget!.dataPackage!.minSumInsured;
+      FFAppState().sliderMaxSumInsuredPage3 =
+          widget!.dataPackage!.maxSumInsured;
       safeSetState(() {});
     });
 
@@ -331,7 +347,58 @@ class _InsurerListRenewPageWidgetState extends State<InsurerListRenewPageWidget>
                                                           Colors.transparent,
                                                       highlightColor:
                                                           Colors.transparent,
-                                                      onTap: () async {},
+                                                      onTap: () async {
+                                                        if (widget!
+                                                                .dataPackage
+                                                                ?.package
+                                                                ?.length ==
+                                                            0) {
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return WebViewAware(
+                                                                child:
+                                                                    AlertDialog(
+                                                                  content: Text(
+                                                                      'ไม่พบข้อมูลรายการประกัน'),
+                                                                  actions: [
+                                                                    TextButton(
+                                                                      onPressed:
+                                                                          () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                      child: Text(
+                                                                          'Ok'),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              );
+                                                            },
+                                                          );
+                                                          return;
+                                                        }
+
+                                                        context.pushNamed(
+                                                          PackageFilterPageRenewWidget
+                                                              .routeName,
+                                                          queryParameters: {
+                                                            'fromPage':
+                                                                serializeParam(
+                                                              'SearchPackage3',
+                                                              ParamType.String,
+                                                            ),
+                                                            'package':
+                                                                serializeParam(
+                                                              widget!
+                                                                  .dataPackage
+                                                                  ?.package,
+                                                              ParamType
+                                                                  .DataStruct,
+                                                              isList: true,
+                                                            ),
+                                                          }.withoutNulls,
+                                                        );
+                                                      },
                                                       child: Container(
                                                         width: double.infinity,
                                                         height: 40.0,
@@ -781,330 +848,323 @@ class _InsurerListRenewPageWidgetState extends State<InsurerListRenewPageWidget>
                                                             final listinsuranceItem =
                                                                 listinsurance[
                                                                     listinsuranceIndex];
-                                                            return Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          20.0,
-                                                                          0.0,
-                                                                          20.0,
-                                                                          8.0),
-                                                              child: Container(
-                                                                width: double
-                                                                    .infinity,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBtnText,
-                                                                  boxShadow: [
-                                                                    BoxShadow(
-                                                                      blurRadius:
-                                                                          4.0,
-                                                                      color: Color(
-                                                                          0x33000000),
-                                                                      offset:
-                                                                          Offset(
-                                                                        0.0,
-                                                                        2.0,
-                                                                      ),
-                                                                    )
-                                                                  ],
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              16.0),
-                                                                ),
-                                                                child: Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    Expanded(
-                                                                      flex: 1,
-                                                                      child:
-                                                                          InkWell(
-                                                                        splashColor:
-                                                                            Colors.transparent,
-                                                                        focusColor:
-                                                                            Colors.transparent,
-                                                                        hoverColor:
-                                                                            Colors.transparent,
-                                                                        highlightColor:
-                                                                            Colors.transparent,
-                                                                        onTap:
-                                                                            () async {
-                                                                          if (functions.countTrueInBoolList(FFAppState().selectInsurerList.toList())! >
-                                                                              1) {
-                                                                            if (!FFAppState().selectInsurerList.elementAtOrNull(listinsuranceIndex)!) {
-                                                                              return;
-                                                                            }
-                                                                          }
-                                                                          HapticFeedback
-                                                                              .mediumImpact();
+                                                            return Visibility(
+                                                              visible: ((FFAppState().filterInsurerList.length > 0) || (FFAppState().filterCoverTypeList.length > 0) || (FFAppState().filterGarageTypeList.length > 0)
+                                                                      ? ((FFAppState().filterInsurerList.length > 0 ? FFAppState().filterInsurerList.contains(listinsuranceItem.serialName) : true) &&
+                                                                          (FFAppState().filterCoverTypeList.length > 0
+                                                                              ? FFAppState().filterCoverTypeList.contains(listinsuranceItem
+                                                                                  .coverType)
+                                                                              : true) &&
+                                                                          (FFAppState().filterGarageTypeList.length > 0
+                                                                              ? FFAppState().filterGarageTypeList.contains(listinsuranceItem
+                                                                                  .garageType)
+                                                                              : true))
+                                                                      : true) &&
+                                                                  (functions.checkPackageInRangePage3(
+                                                                          listinsuranceItem
+                                                                              .grossTotal,
                                                                           FFAppState()
-                                                                              .updateSelectInsurerListAtIndex(
-                                                                            listinsuranceIndex,
-                                                                            (_) => FFAppState().selectInsurerList.elementAtOrNull(listinsuranceIndex) == true
-                                                                                ? false
-                                                                                : true,
-                                                                          );
-                                                                          safeSetState(
-                                                                              () {});
-                                                                        },
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              100.0,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            color:
-                                                                                Colors.white,
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(16.0),
-                                                                          ),
-                                                                          child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.spaceAround,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.center,
-                                                                            children: [
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                child: Container(
-                                                                                  width: 15.0,
-                                                                                  height: 15.0,
-                                                                                  decoration: BoxDecoration(
-                                                                                    color: FlutterFlowTheme.of(context).primaryBtnText,
-                                                                                    border: Border.all(
-                                                                                      color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    ),
-                                                                                  ),
-                                                                                  child: Visibility(
-                                                                                    visible: FFAppState().selectInsurerList.elementAtOrNull(listinsuranceIndex) ?? true,
-                                                                                    child: Icon(
-                                                                                      Icons.check,
-                                                                                      color: FlutterFlowTheme.of(context).success,
-                                                                                      size: 12.0,
-                                                                                    ),
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Expanded(
-                                                                      flex: 9,
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            6.0,
+                                                                              .sliderCurrentMinGrossPage3,
+                                                                          FFAppState()
+                                                                              .sliderCurrentMaxGrossPage3)! &&
+                                                                      functions.checkPackageInRangePage3(
+                                                                          listinsuranceItem.sumInsured,
+                                                                          FFAppState().sliderCurrentMinSumInsuredPage3,
+                                                                          FFAppState().sliderCurrentMaxSumInsuredPage3)!),
+                                                              child: Padding(
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        20.0,
+                                                                        0.0,
+                                                                        20.0,
+                                                                        8.0),
+                                                                child:
+                                                                    Container(
+                                                                  width: double
+                                                                      .infinity,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryBtnText,
+                                                                    boxShadow: [
+                                                                      BoxShadow(
+                                                                        blurRadius:
                                                                             4.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                        color: Color(
+                                                                            0x33000000),
+                                                                        offset:
+                                                                            Offset(
+                                                                          0.0,
+                                                                          2.0,
+                                                                        ),
+                                                                      )
+                                                                    ],
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            16.0),
+                                                                  ),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Expanded(
+                                                                        flex: 1,
                                                                         child:
-                                                                            Container(
-                                                                          width:
-                                                                              100.0,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(16.0),
-                                                                          ),
+                                                                            InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            if (functions.countTrueInBoolList(FFAppState().selectInsurerList.toList())! >
+                                                                                1) {
+                                                                              if (!FFAppState().selectInsurerList.elementAtOrNull(listinsuranceIndex)!) {
+                                                                                return;
+                                                                              }
+                                                                            }
+                                                                            HapticFeedback.mediumImpact();
+                                                                            FFAppState().updateSelectInsurerListAtIndex(
+                                                                              listinsuranceIndex,
+                                                                              (_) => FFAppState().selectInsurerList.elementAtOrNull(listinsuranceIndex) == true ? false : true,
+                                                                            );
+                                                                            safeSetState(() {});
+                                                                          },
                                                                           child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.start,
-                                                                            children: [
-                                                                              Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.start,
-                                                                                crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                children: [
-                                                                                  Expanded(
-                                                                                    flex: 1,
-                                                                                    child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 15.0, 30.0),
-                                                                                      child: Column(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        children: [
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
-                                                                                            child: Container(
-                                                                                              width: 40.0,
-                                                                                              height: 40.0,
-                                                                                              decoration: BoxDecoration(
-                                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                borderRadius: BorderRadius.circular(0.0),
-                                                                                                shape: BoxShape.rectangle,
-                                                                                              ),
-                                                                                              child: ClipRRect(
-                                                                                                borderRadius: BorderRadius.circular(0.0),
-                                                                                                child: Image.network(
-                                                                                                  getCORSProxyUrl(
-                                                                                                    valueOrDefault<String>(
-                                                                                                      functions.stringToImgPath(listinsuranceItem.logo),
-                                                                                                      'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                  width: 150.0,
-                                                                                                  height: 150.0,
-                                                                                                  fit: BoxFit.contain,
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ],
+                                                                              Container(
+                                                                            width:
+                                                                                100.0,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: Colors.white,
+                                                                              borderRadius: BorderRadius.circular(16.0),
+                                                                            ),
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                                                              children: [
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                  child: Container(
+                                                                                    width: 15.0,
+                                                                                    height: 15.0,
+                                                                                    decoration: BoxDecoration(
+                                                                                      color: FlutterFlowTheme.of(context).primaryBtnText,
+                                                                                      border: Border.all(
+                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                      ),
+                                                                                    ),
+                                                                                    child: Visibility(
+                                                                                      visible: FFAppState().selectInsurerList.elementAtOrNull(listinsuranceIndex) ?? true,
+                                                                                      child: Icon(
+                                                                                        Icons.check,
+                                                                                        color: FlutterFlowTheme.of(context).success,
+                                                                                        size: 12.0,
                                                                                       ),
                                                                                     ),
                                                                                   ),
-                                                                                  Expanded(
-                                                                                    flex: 3,
-                                                                                    child: Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                      children: [
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
-                                                                                          child: Row(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                            children: [
-                                                                                              Container(
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                      Expanded(
+                                                                        flex: 9,
+                                                                        child:
+                                                                            Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              6.0,
+                                                                              4.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Container(
+                                                                            width:
+                                                                                100.0,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                              borderRadius: BorderRadius.circular(16.0),
+                                                                            ),
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                                              children: [
+                                                                                Row(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.start,
+                                                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                  children: [
+                                                                                    Expanded(
+                                                                                      flex: 1,
+                                                                                      child: Padding(
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 15.0, 30.0),
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          children: [
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                              child: Container(
+                                                                                                width: 40.0,
+                                                                                                height: 40.0,
                                                                                                 decoration: BoxDecoration(
                                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                  borderRadius: BorderRadius.circular(0.0),
+                                                                                                  shape: BoxShape.rectangle,
                                                                                                 ),
-                                                                                                child: Text(
-                                                                                                  listinsuranceItem.serialName,
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        font: GoogleFonts.notoSansThai(
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        fontSize: 11.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                child: ClipRRect(
+                                                                                                  borderRadius: BorderRadius.circular(0.0),
+                                                                                                  child: Image.network(
+                                                                                                    getCORSProxyUrl(
+                                                                                                      valueOrDefault<String>(
+                                                                                                        functions.stringToImgPath(listinsuranceItem.logo),
+                                                                                                        'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                                                       ),
+                                                                                                    ),
+                                                                                                    width: 150.0,
+                                                                                                    height: 150.0,
+                                                                                                    fit: BoxFit.contain,
+                                                                                                  ),
                                                                                                 ),
                                                                                               ),
-                                                                                            ],
-                                                                                          ),
+                                                                                            ),
+                                                                                          ],
                                                                                         ),
-                                                                                        if (false)
+                                                                                      ),
+                                                                                    ),
+                                                                                    Expanded(
+                                                                                      flex: 3,
+                                                                                      child: Column(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                        children: [
                                                                                           Padding(
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
                                                                                             child: Row(
                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                               children: [
-                                                                                                Expanded(
-                                                                                                  child: Align(
-                                                                                                    alignment: AlignmentDirectional(0.0, 0.0),
-                                                                                                    child: Container(
-                                                                                                      width: double.infinity,
-                                                                                                      decoration: BoxDecoration(
-                                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                      ),
-                                                                                                      child: Text(
-                                                                                                        listinsuranceItem.packageName,
-                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                              font: GoogleFonts.notoSansThai(
+                                                                                                Container(
+                                                                                                  decoration: BoxDecoration(
+                                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                  ),
+                                                                                                  child: Text(
+                                                                                                    listinsuranceItem.serialName,
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          font: GoogleFonts.notoSansThai(
+                                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                          ),
+                                                                                                          fontSize: 11.0,
+                                                                                                          letterSpacing: 0.0,
+                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                        ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          ),
+                                                                                          if (false)
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
+                                                                                              child: Row(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                children: [
+                                                                                                  Expanded(
+                                                                                                    child: Align(
+                                                                                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                                      child: Container(
+                                                                                                        width: double.infinity,
+                                                                                                        decoration: BoxDecoration(
+                                                                                                          color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                        ),
+                                                                                                        child: Text(
+                                                                                                          listinsuranceItem.packageName,
+                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                font: GoogleFonts.notoSansThai(
+                                                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                                ),
+                                                                                                                fontSize: 12.0,
+                                                                                                                letterSpacing: 0.0,
                                                                                                                 fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                                                                                                                 fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                               ),
-                                                                                                              fontSize: 12.0,
-                                                                                                              letterSpacing: 0.0,
-                                                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                            ),
+                                                                                                        ),
                                                                                                       ),
                                                                                                     ),
                                                                                                   ),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          ),
-                                                                                        if (FFAppState().searchInspectionExcept.elementAtOrNull(listinsuranceIndex) == 'Y')
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
-                                                                                            child: Row(
-                                                                                              mainAxisSize: MainAxisSize.max,
-                                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                              children: [
-                                                                                                Text(
-                                                                                                  'ไม่ต้องถ่ายรูปรถ',
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        font: GoogleFonts.notoSansThai(
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        color: FlutterFlowTheme.of(context).alternate,
-                                                                                                        fontSize: 12.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          ),
-                                                                                        if (columnInsurerConfig2Record?.insurerInstallment?.contains(FFAppState().searchShortName.elementAtOrNull(listinsuranceIndex)) ?? true)
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
-                                                                                            child: Row(
-                                                                                              mainAxisSize: MainAxisSize.max,
-                                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                              children: [
-                                                                                                Text(
-                                                                                                  'ชำระเต็มจำนวนเท่านั้น',
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        font: GoogleFonts.notoSansThai(
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        color: FlutterFlowTheme.of(context).alternate,
-                                                                                                        fontSize: 12.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          ),
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
-                                                                                          child: Row(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                            children: [
-                                                                                              Text(
-                                                                                                'ประเภทประกัน',
-                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                      font: GoogleFonts.notoSansThai(
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                      ),
-                                                                                                      fontSize: 11.0,
-                                                                                                      letterSpacing: 0.0,
-                                                                                                      fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                    ),
+                                                                                                ],
                                                                                               ),
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
-                                                                                                child: Text(
-                                                                                                  functions.showCoverTypeThai(listinsuranceItem.coverType),
+                                                                                            ),
+                                                                                          if (FFAppState().searchInspectionExcept.elementAtOrNull(listinsuranceIndex) == 'Y')
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
+                                                                                              child: Row(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                children: [
+                                                                                                  Text(
+                                                                                                    'ไม่ต้องถ่ายรูปรถ',
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          font: GoogleFonts.notoSansThai(
+                                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                          ),
+                                                                                                          color: FlutterFlowTheme.of(context).alternate,
+                                                                                                          fontSize: 12.0,
+                                                                                                          letterSpacing: 0.0,
+                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                        ),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            ),
+                                                                                          if (columnInsurerConfig2Record?.insurerInstallment?.contains(FFAppState().searchShortName.elementAtOrNull(listinsuranceIndex)) ?? true)
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
+                                                                                              child: Row(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                children: [
+                                                                                                  Text(
+                                                                                                    'ชำระเต็มจำนวนเท่านั้น',
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          font: GoogleFonts.notoSansThai(
+                                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                          ),
+                                                                                                          color: FlutterFlowTheme.of(context).alternate,
+                                                                                                          fontSize: 12.0,
+                                                                                                          letterSpacing: 0.0,
+                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                        ),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            ),
+                                                                                          Padding(
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
+                                                                                            child: Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                              children: [
+                                                                                                Text(
+                                                                                                  'ประเภทประกัน',
                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         font: GoogleFonts.notoSansThai(
                                                                                                           fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
@@ -1116,94 +1176,25 @@ class _InsurerListRenewPageWidgetState extends State<InsurerListRenewPageWidget>
                                                                                                         fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                       ),
                                                                                                 ),
-                                                                                              ),
-                                                                                            ],
-                                                                                          ),
-                                                                                        ),
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
-                                                                                          child: Row(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                            children: [
-                                                                                              Text(
-                                                                                                'ทุนประกัน',
-                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                      font: GoogleFonts.notoSansThai(
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                      ),
-                                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                      fontSize: 10.0,
-                                                                                                      letterSpacing: 0.0,
-                                                                                                      fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                    ),
-                                                                                              ),
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
-                                                                                                child: Text(
-                                                                                                  valueOrDefault<String>(
-                                                                                                    functions.showNumberWithComma(listinsuranceItem.sumInsured),
-                                                                                                    '0',
+                                                                                                Padding(
+                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                                                                                                  child: Text(
+                                                                                                    functions.showCoverTypeThai(listinsuranceItem.coverType),
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          font: GoogleFonts.notoSansThai(
+                                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                          ),
+                                                                                                          fontSize: 11.0,
+                                                                                                          letterSpacing: 0.0,
+                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                        ),
                                                                                                   ),
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        font: GoogleFonts.notoSansThai(
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                        fontSize: 10.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                      ),
                                                                                                 ),
-                                                                                              ),
-                                                                                            ],
+                                                                                              ],
+                                                                                            ),
                                                                                           ),
-                                                                                        ),
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
-                                                                                          child: Row(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                            children: [
-                                                                                              Text(
-                                                                                                'ประเภทซ่อม',
-                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                      font: GoogleFonts.notoSansThai(
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                      ),
-                                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                      fontSize: 10.0,
-                                                                                                      letterSpacing: 0.0,
-                                                                                                      fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                    ),
-                                                                                              ),
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
-                                                                                                child: Text(
-                                                                                                  functions.showGarageType(listinsuranceItem.garageType),
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        font: GoogleFonts.notoSansThai(
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                        fontSize: 10.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ],
-                                                                                          ),
-                                                                                        ),
-                                                                                        if (FFAppState().searchSumInsured.elementAtOrNull(listinsuranceIndex) != '')
                                                                                           Padding(
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
                                                                                             child: Row(
@@ -1211,7 +1202,7 @@ class _InsurerListRenewPageWidgetState extends State<InsurerListRenewPageWidget>
                                                                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                               children: [
                                                                                                 Text(
-                                                                                                  'สูญหายไฟไหม้',
+                                                                                                  'ทุนประกัน',
                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         font: GoogleFonts.notoSansThai(
                                                                                                           fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
@@ -1228,7 +1219,7 @@ class _InsurerListRenewPageWidgetState extends State<InsurerListRenewPageWidget>
                                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                                                                                                   child: Text(
                                                                                                     valueOrDefault<String>(
-                                                                                                      functions.showNumberWithComma(listinsuranceItem.carLost),
+                                                                                                      functions.showNumberWithComma(listinsuranceItem.sumInsured),
                                                                                                       '0',
                                                                                                     ),
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1247,7 +1238,6 @@ class _InsurerListRenewPageWidgetState extends State<InsurerListRenewPageWidget>
                                                                                               ],
                                                                                             ),
                                                                                           ),
-                                                                                        if (listinsuranceItem.motorAddOn != '')
                                                                                           Padding(
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
                                                                                             child: Row(
@@ -1255,45 +1245,13 @@ class _InsurerListRenewPageWidgetState extends State<InsurerListRenewPageWidget>
                                                                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                               children: [
                                                                                                 Text(
-                                                                                                  'ประกันภัยเสริมรถยนต์ Motor Add-on',
+                                                                                                  'ประเภทซ่อม',
                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         font: GoogleFonts.notoSansThai(
                                                                                                           fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                                                                                                           fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                         ),
-                                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                                        fontSize: 10.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                                Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
-                                                                                                  child: Icon(
-                                                                                                    Icons.check_circle,
-                                                                                                    color: FlutterFlowTheme.of(context).secondary,
-                                                                                                    size: 16.0,
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          ),
-                                                                                        if (FFAppState().searchDeductible.elementAtOrNull(listinsuranceIndex) != '0')
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
-                                                                                            child: Row(
-                                                                                              mainAxisSize: MainAxisSize.max,
-                                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                              children: [
-                                                                                                Text(
-                                                                                                  'ค่าเสียหายส่วนเเรก',
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        font: GoogleFonts.notoSansThai(
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        color: FlutterFlowTheme.of(context).error,
+                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                         fontSize: 10.0,
                                                                                                         letterSpacing: 0.0,
                                                                                                         fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
@@ -1303,16 +1261,13 @@ class _InsurerListRenewPageWidgetState extends State<InsurerListRenewPageWidget>
                                                                                                 Padding(
                                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                                                                                                   child: Text(
-                                                                                                    valueOrDefault<String>(
-                                                                                                      functions.showNumberWithComma(listinsuranceItem.deductible),
-                                                                                                      '0',
-                                                                                                    ),
+                                                                                                    functions.showGarageType(listinsuranceItem.garageType),
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                           font: GoogleFonts.notoSansThai(
                                                                                                             fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                                                                                                             fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                           ),
-                                                                                                          color: FlutterFlowTheme.of(context).error,
+                                                                                                          color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                           fontSize: 10.0,
                                                                                                           letterSpacing: 0.0,
                                                                                                           fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
@@ -1323,115 +1278,34 @@ class _InsurerListRenewPageWidgetState extends State<InsurerListRenewPageWidget>
                                                                                               ],
                                                                                             ),
                                                                                           ),
-                                                                                        if ((FFAppState().searchDiscountflg.elementAtOrNull(listinsuranceIndex) == '1') && false)
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
-                                                                                            child: Row(
-                                                                                              mainAxisSize: MainAxisSize.max,
-                                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                              children: [
-                                                                                                Text(
-                                                                                                  'เปอร์เซ็นต์ส่วนลด',
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        font: GoogleFonts.notoSansThai(
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        color: FlutterFlowTheme.of(context).error,
-                                                                                                        fontSize: 10.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                                Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
-                                                                                                  child: Text(
-                                                                                                    '${FFAppState().searchDiscountpercent.elementAtOrNull(listinsuranceIndex)} %',
+                                                                                          if (FFAppState().searchSumInsured.elementAtOrNull(listinsuranceIndex) != '')
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
+                                                                                              child: Row(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                children: [
+                                                                                                  Text(
+                                                                                                    'สูญหายไฟไหม้',
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                           font: GoogleFonts.notoSansThai(
                                                                                                             fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                                                                                                             fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                           ),
-                                                                                                          color: FlutterFlowTheme.of(context).error,
+                                                                                                          color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                           fontSize: 10.0,
                                                                                                           letterSpacing: 0.0,
                                                                                                           fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                                                                                                           fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                         ),
                                                                                                   ),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          ),
-                                                                                        if ((FFAppState().searchDiscountflg.elementAtOrNull(listinsuranceIndex) == '1') && false)
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
-                                                                                            child: Row(
-                                                                                              mainAxisSize: MainAxisSize.max,
-                                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                              children: [
-                                                                                                Text(
-                                                                                                  'ราคาส่วนลด',
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        font: GoogleFonts.notoSansThai(
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        color: FlutterFlowTheme.of(context).error,
-                                                                                                        fontSize: 10.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                  Padding(
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                                                                                                    child: Text(
+                                                                                                      valueOrDefault<String>(
+                                                                                                        functions.showNumberWithComma(listinsuranceItem.carLost),
+                                                                                                        '0',
                                                                                                       ),
-                                                                                                ),
-                                                                                                Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
-                                                                                                  child: Text(
-                                                                                                    '${functions.showNumberWithComma(FFAppState().searchDiscountother.elementAtOrNull(listinsuranceIndex))} บาท',
-                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                          font: GoogleFonts.notoSansThai(
-                                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                          ),
-                                                                                                          color: FlutterFlowTheme.of(context).error,
-                                                                                                          fontSize: 10.0,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  ),
-                                                                                ],
-                                                                              ),
-                                                                              Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                children: [
-                                                                                  Container(
-                                                                                    decoration: BoxDecoration(),
-                                                                                    child: Builder(
-                                                                                      builder: (context) {
-                                                                                        if ((FFAppState().searchDiscountflg.elementAtOrNull(listinsuranceIndex) != '1') || true) {
-                                                                                          return Row(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            children: [
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                                                                                                child: Column(
-                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                  children: [
-                                                                                                    Text(
-                                                                                                      'ราคาเบี้ย',
                                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                             font: GoogleFonts.notoSansThai(
                                                                                                               fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
@@ -1444,127 +1318,329 @@ class _InsurerListRenewPageWidgetState extends State<InsurerListRenewPageWidget>
                                                                                                             fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                           ),
                                                                                                     ),
-                                                                                                    Text(
-                                                                                                      '${functions.showNumberWithComma(listinsuranceItem.grossTotalNet)} บาท',
-                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                            font: GoogleFonts.notoSansThai(
-                                                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                            ),
-                                                                                                            fontSize: 11.0,
-                                                                                                            letterSpacing: 0.0,
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            ),
+                                                                                          if (listinsuranceItem.motorAddOn != '')
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
+                                                                                              child: Row(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                children: [
+                                                                                                  Text(
+                                                                                                    'ประกันภัยเสริมรถยนต์ Motor Add-on',
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          font: GoogleFonts.notoSansThai(
                                                                                                             fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                                                                                                             fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                           ),
+                                                                                                          color: FlutterFlowTheme.of(context).primary,
+                                                                                                          fontSize: 10.0,
+                                                                                                          letterSpacing: 0.0,
+                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                        ),
+                                                                                                  ),
+                                                                                                  Padding(
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                                                                                                    child: Icon(
+                                                                                                      Icons.check_circle,
+                                                                                                      color: FlutterFlowTheme.of(context).secondary,
+                                                                                                      size: 16.0,
                                                                                                     ),
-                                                                                                  ],
-                                                                                                ),
+                                                                                                  ),
+                                                                                                ],
                                                                                               ),
-                                                                                            ],
-                                                                                          );
-                                                                                        } else {
-                                                                                          return Row(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            children: [
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                                                                                                child: Column(
-                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                  children: [
-                                                                                                    Text(
-                                                                                                      'ราคาเบี้ยร่วมส่วนลด',
+                                                                                            ),
+                                                                                          if (FFAppState().searchDeductible.elementAtOrNull(listinsuranceIndex) != '0')
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
+                                                                                              child: Row(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                children: [
+                                                                                                  Text(
+                                                                                                    'ค่าเสียหายส่วนเเรก',
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          font: GoogleFonts.notoSansThai(
+                                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                          ),
+                                                                                                          color: FlutterFlowTheme.of(context).error,
+                                                                                                          fontSize: 10.0,
+                                                                                                          letterSpacing: 0.0,
+                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                        ),
+                                                                                                  ),
+                                                                                                  Padding(
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                                                                                                    child: Text(
+                                                                                                      valueOrDefault<String>(
+                                                                                                        functions.showNumberWithComma(listinsuranceItem.deductible),
+                                                                                                        '0',
+                                                                                                      ),
                                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                             font: GoogleFonts.notoSansThai(
                                                                                                               fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                                                                                                               fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                             ),
-                                                                                                            color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                            color: FlutterFlowTheme.of(context).error,
                                                                                                             fontSize: 10.0,
                                                                                                             letterSpacing: 0.0,
                                                                                                             fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                                                                                                             fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                           ),
                                                                                                     ),
-                                                                                                    Text(
-                                                                                                      '${functions.showNumberWithComma(FFAppState().searchGrosstotaldiscount.elementAtOrNull(listinsuranceIndex))} บาท',
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            ),
+                                                                                          if ((FFAppState().searchDiscountflg.elementAtOrNull(listinsuranceIndex) == '1') && false)
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
+                                                                                              child: Row(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                children: [
+                                                                                                  Text(
+                                                                                                    'เปอร์เซ็นต์ส่วนลด',
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          font: GoogleFonts.notoSansThai(
+                                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                          ),
+                                                                                                          color: FlutterFlowTheme.of(context).error,
+                                                                                                          fontSize: 10.0,
+                                                                                                          letterSpacing: 0.0,
+                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                        ),
+                                                                                                  ),
+                                                                                                  Padding(
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                                                                                                    child: Text(
+                                                                                                      '${FFAppState().searchDiscountpercent.elementAtOrNull(listinsuranceIndex)} %',
                                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                             font: GoogleFonts.notoSansThai(
                                                                                                               fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                                                                                                               fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                             ),
-                                                                                                            fontSize: 11.0,
+                                                                                                            color: FlutterFlowTheme.of(context).error,
+                                                                                                            fontSize: 10.0,
                                                                                                             letterSpacing: 0.0,
                                                                                                             fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                                                                                                             fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                           ),
                                                                                                     ),
-                                                                                                  ],
-                                                                                                ),
+                                                                                                  ),
+                                                                                                ],
                                                                                               ),
-                                                                                            ],
-                                                                                          );
-                                                                                        }
-                                                                                      },
+                                                                                            ),
+                                                                                          if ((FFAppState().searchDiscountflg.elementAtOrNull(listinsuranceIndex) == '1') && false)
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
+                                                                                              child: Row(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                children: [
+                                                                                                  Text(
+                                                                                                    'ราคาส่วนลด',
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          font: GoogleFonts.notoSansThai(
+                                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                          ),
+                                                                                                          color: FlutterFlowTheme.of(context).error,
+                                                                                                          fontSize: 10.0,
+                                                                                                          letterSpacing: 0.0,
+                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                        ),
+                                                                                                  ),
+                                                                                                  Padding(
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                                                                                                    child: Text(
+                                                                                                      '${functions.showNumberWithComma(FFAppState().searchDiscountother.elementAtOrNull(listinsuranceIndex))} บาท',
+                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                            font: GoogleFonts.notoSansThai(
+                                                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                            ),
+                                                                                                            color: FlutterFlowTheme.of(context).error,
+                                                                                                            fontSize: 10.0,
+                                                                                                            letterSpacing: 0.0,
+                                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                          ),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            ),
+                                                                                        ],
+                                                                                      ),
                                                                                     ),
-                                                                                  ),
-                                                                                  Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 10.0),
-                                                                                    child: FFButtonWidget(
-                                                                                      onPressed: () async {
-                                                                                        context.pushNamed(
-                                                                                          RenewDetailPageWidget.routeName,
-                                                                                          queryParameters: {
-                                                                                            'refRenewId': serializeParam(
-                                                                                              widget!.refRenewId,
-                                                                                              ParamType.String,
-                                                                                            ),
-                                                                                            'packageRenew': serializeParam(
-                                                                                              functions.createListofOne(listinsuranceItem),
-                                                                                              ParamType.DataStruct,
-                                                                                              isList: true,
-                                                                                            ),
-                                                                                          }.withoutNulls,
-                                                                                        );
+                                                                                  ],
+                                                                                ),
+                                                                                Row(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                  children: [
+                                                                                    Container(
+                                                                                      decoration: BoxDecoration(),
+                                                                                      child: Builder(
+                                                                                        builder: (context) {
+                                                                                          if ((FFAppState().searchDiscountflg.elementAtOrNull(listinsuranceIndex) != '1') || true) {
+                                                                                            return Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              children: [
+                                                                                                Padding(
+                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                                                                                                  child: Column(
+                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                    mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                    children: [
+                                                                                                      Text(
+                                                                                                        'ราคาเบี้ย',
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                              font: GoogleFonts.notoSansThai(
+                                                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                              ),
+                                                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                              fontSize: 10.0,
+                                                                                                              letterSpacing: 0.0,
+                                                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                            ),
+                                                                                                      ),
+                                                                                                      Text(
+                                                                                                        '${functions.showNumberWithComma(listinsuranceItem.grossTotalNet)} บาท',
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                              font: GoogleFonts.notoSansThai(
+                                                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                              ),
+                                                                                                              fontSize: 11.0,
+                                                                                                              letterSpacing: 0.0,
+                                                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                            ),
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ],
+                                                                                            );
+                                                                                          } else {
+                                                                                            return Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              children: [
+                                                                                                Padding(
+                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                                                                                                  child: Column(
+                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                    mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                    children: [
+                                                                                                      Text(
+                                                                                                        'ราคาเบี้ยร่วมส่วนลด',
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                              font: GoogleFonts.notoSansThai(
+                                                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                              ),
+                                                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                              fontSize: 10.0,
+                                                                                                              letterSpacing: 0.0,
+                                                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                            ),
+                                                                                                      ),
+                                                                                                      Text(
+                                                                                                        '${functions.showNumberWithComma(FFAppState().searchGrosstotaldiscount.elementAtOrNull(listinsuranceIndex))} บาท',
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                              font: GoogleFonts.notoSansThai(
+                                                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                              ),
+                                                                                                              fontSize: 11.0,
+                                                                                                              letterSpacing: 0.0,
+                                                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                            ),
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ],
+                                                                                            );
+                                                                                          }
+                                                                                        },
+                                                                                      ),
+                                                                                    ),
+                                                                                    Padding(
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 10.0),
+                                                                                      child: FFButtonWidget(
+                                                                                        onPressed: () async {
+                                                                                          context.pushNamed(
+                                                                                            RenewDetailPageWidget.routeName,
+                                                                                            queryParameters: {
+                                                                                              'refRenewId': serializeParam(
+                                                                                                widget!.refRenewId,
+                                                                                                ParamType.String,
+                                                                                              ),
+                                                                                              'packageRenew': serializeParam(
+                                                                                                functions.createListofOne(listinsuranceItem),
+                                                                                                ParamType.DataStruct,
+                                                                                                isList: true,
+                                                                                              ),
+                                                                                            }.withoutNulls,
+                                                                                          );
 
-                                                                                        FFAppState().addCustomerQuotationSaveSuccess = false;
-                                                                                        safeSetState(() {});
-                                                                                      },
-                                                                                      text: 'รายละเอียด',
-                                                                                      options: FFButtonOptions(
-                                                                                        height: 30.0,
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                        color: Color(0x9EFF6500),
-                                                                                        textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                              font: GoogleFonts.notoSansThai(
+                                                                                          FFAppState().addCustomerQuotationSaveSuccess = false;
+                                                                                          safeSetState(() {});
+                                                                                        },
+                                                                                        text: 'รายละเอียด',
+                                                                                        options: FFButtonOptions(
+                                                                                          height: 30.0,
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                          iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                          color: Color(0x9EFF6500),
+                                                                                          textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                font: GoogleFonts.notoSansThai(
+                                                                                                  fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                                                                                                  fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                                                                                                ),
+                                                                                                color: Colors.white,
+                                                                                                fontSize: 12.0,
+                                                                                                letterSpacing: 0.0,
                                                                                                 fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
                                                                                                 fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
                                                                                               ),
-                                                                                              color: Colors.white,
-                                                                                              fontSize: 12.0,
-                                                                                              letterSpacing: 0.0,
-                                                                                              fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
-                                                                                              fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
-                                                                                            ),
-                                                                                        elevation: 3.0,
-                                                                                        borderSide: BorderSide(
-                                                                                          color: Colors.transparent,
-                                                                                          width: 1.0,
+                                                                                          elevation: 3.0,
+                                                                                          borderSide: BorderSide(
+                                                                                            color: Colors.transparent,
+                                                                                            width: 1.0,
+                                                                                          ),
+                                                                                          borderRadius: BorderRadius.circular(10.0),
                                                                                         ),
-                                                                                        borderRadius: BorderRadius.circular(10.0),
                                                                                       ),
                                                                                     ),
-                                                                                  ),
-                                                                                ],
-                                                                              ),
-                                                                            ],
+                                                                                  ],
+                                                                                ),
+                                                                              ],
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ),
-                                                                  ],
+                                                                    ],
+                                                                  ),
                                                                 ),
                                                               ),
                                                             );

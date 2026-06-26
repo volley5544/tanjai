@@ -2158,7 +2158,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 ],
                                                                                               ),
                                                                                             ),
-                                                                                          if (FFAppState().searchDiscountflg.elementAtOrNull(listinsuranceIndex) == '1')
+                                                                                          if ((FFAppState().searchDiscountflg.elementAtOrNull(listinsuranceIndex) == '1') && false)
                                                                                             Padding(
                                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
                                                                                               child: Row(

@@ -244,3 +244,5 @@ export '/renew/insurer_list_overall_renew_page/insurer_list_overall_renew_page_w
     show InsurerListOverallRenewPageWidget;
 export '/renew/insurer_list_renew_page/insurer_list_renew_page_widget.dart'
     show InsurerListRenewPageWidget;
+export '/renew/package_filter_page_renew/package_filter_page_renew_widget.dart'
+    show PackageFilterPageRenewWidget;
