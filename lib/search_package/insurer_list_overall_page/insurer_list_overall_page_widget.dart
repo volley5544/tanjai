@@ -139,18 +139,20 @@ class _InsurerListOverallPageWidgetState
         );
         return;
       }
-      if (TelePackageSearchAPICall.statusLayer1(
+      if ('${getJsonField(
             (_model.packageAPIOutput?.jsonBody ?? ''),
-          ) !=
-          200) {
+            r'''$.code''',
+          ).toString()}' !=
+          '200') {
         await showDialog(
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
               child: AlertDialog(
-                content: Text(TelePackageSearchAPICall.messageLayer1(
+                content: Text('${getJsonField(
                   (_model.packageAPIOutput?.jsonBody ?? ''),
-                )!),
+                  r'''$.message''',
+                ).toString()}'),
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(alertDialogContext),
