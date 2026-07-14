@@ -3561,10 +3561,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                 ),
                               ),
                             ),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              if (false)
+                          if (false)
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 5.0, 16.0, 0.0),
@@ -3663,9 +3663,9 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                     ),
                                   ),
                                 ),
-                            ],
-                          ),
-                          if (_model.driverFlag)
+                              ],
+                            ),
+                          if (_model.driverFlag && false)
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 5.0, 0.0, 0.0),
@@ -5092,35 +5092,6 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                               safeSetState(() {});
                               if (FFAppState().searchPackageSubProduct !=
                                   'MC') {
-                                if (!(_model.driverFlag
-                                    ? ((FFAppState()
-                                                .insuranceBasicDriverBehaviorName !=
-                                            '') &&
-                                        (FFAppState()
-                                                .insuranceBasicDriverBehaviorCode !=
-                                            ''))
-                                    : true)) {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return WebViewAware(
-                                        child: AlertDialog(
-                                          content: Text(
-                                              'บังคับเลือกพฤติกรรมผู้ขับขี่'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  );
-                                  return;
-                                }
-
                                 context.pushNamed(
                                   InsurerListOverallPageWidget.routeName,
                                   queryParameters: {
