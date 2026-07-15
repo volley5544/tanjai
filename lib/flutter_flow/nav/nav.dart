@@ -874,6 +874,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                           'leadDtlId',
                           ParamType.int,
                         ),
+                        fromPage: params.getParam(
+                          'fromPage',
+                          ParamType.String,
+                        ),
                       ),
                     )),
             FFRoute(

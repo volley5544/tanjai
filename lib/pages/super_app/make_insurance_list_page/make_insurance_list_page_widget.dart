@@ -2579,6 +2579,11 @@ class _MakeInsuranceListPageWidgetState
                                                                               ),
                                                                               ParamType.int,
                                                                             ),
+                                                                            'fromPage':
+                                                                                serializeParam(
+                                                                              widget!.fromPage,
+                                                                              ParamType.String,
+                                                                            ),
                                                                           }.withoutNulls,
                                                                         );
 

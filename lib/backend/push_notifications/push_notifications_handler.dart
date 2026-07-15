@@ -270,6 +270,7 @@ final parametersBuilderMap =
         allParams: {
           'quotationId': getParameter<String>(data, 'quotationId'),
           'leadDtlId': getParameter<int>(data, 'leadDtlId'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
         },
       ),
   'SuccessPage': ParameterData.none(),

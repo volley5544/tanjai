@@ -35,10 +35,12 @@ class InsuranceInfoPage5Widget extends StatefulWidget {
     super.key,
     required this.quotationId,
     required this.leadDtlId,
+    this.fromPage,
   });
 
   final String? quotationId;
   final int? leadDtlId;
+  final String? fromPage;
 
   static String routeName = 'insuranceInfoPage5';
   static String routePath = 'insuranceInfoPage5';
@@ -562,7 +564,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
               backgroundColor: Colors.white,
               automaticallyImplyLeading: false,
               leading: Visibility(
-                visible: false,
+                visible: widget!.fromPage == 'FollowUpPage',
                 child: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
                   borderRadius: 30.0,
