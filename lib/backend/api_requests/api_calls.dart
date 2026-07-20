@@ -12877,14 +12877,20 @@ class InsuranceRequestGetVehicleAPICall {
 class InsuranceRequestGetInsurerAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
+    String? vehicleGroup = '',
   }) async {
+    final ffApiRequestBody = '''
+{
+  "vehicle_group": "${vehicleGroup}"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'insuranceRequestGetInsurerAPI',
       apiUrl: '${apiUrl}/api/insurance/master/get_insurers_all',
       callType: ApiCallType.POST,
       headers: {},
       params: {},
-      bodyType: BodyType.NONE,
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,

@@ -77,6 +77,10 @@ class _NonePackageInsurerPageWidgetState
 
       _model.getInsurer = await InsuranceRequestGetInsurerAPICall.call(
         apiUrl: FFAppState().apiUrlInsuranceAppState,
+        vehicleGroup: (FFAppState().searchPackageSubProduct == 'Motor') &&
+                (FFAppState().searchPackageEvFlag == 'Y')
+            ? 'EV'
+            : 'Motor',
       );
 
       if ((_model.getInsurer?.statusCode ?? 200) != 200) {
