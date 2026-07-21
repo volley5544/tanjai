@@ -301,7 +301,7 @@ class _NonePackageBasicPageWidgetState
           return;
         }
 
-        FFAppState().nonePackageIsLoadedData = true;
+        FFAppState().nonePackageIsLoadedData = false;
         safeSetState(() {});
       }
       if (FFAppState().insuranceRequestIsLoadedData &&
@@ -543,7 +543,7 @@ class _NonePackageBasicPageWidgetState
           return;
         }
 
-        FFAppState().insuranceRequestIsLoadedData = true;
+        FFAppState().insuranceRequestIsLoadedData = false;
         safeSetState(() {});
       }
 

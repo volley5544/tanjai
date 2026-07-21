@@ -80,7 +80,7 @@ class _NonePackageInsurerPageWidgetState
         vehicleGroup: (FFAppState().searchPackageSubProduct == 'Motor') &&
                 (FFAppState().searchPackageEvFlag == 'Y')
             ? 'EV'
-            : 'Motor',
+            : 'ICE',
       );
 
       if ((_model.getInsurer?.statusCode ?? 200) != 200) {
