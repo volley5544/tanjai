@@ -390,6 +390,7 @@ class _NonePackageBasicPageWidgetState
 
         _model.getModelAPI = await TeleGetModelAPICall.call(
           apiUrl: FFAppState().apiUrlInsuranceAppState,
+          vehicleGroup: FFAppState().fromMenuAppState,
         );
 
         if ((_model.getModelAPI?.statusCode ?? 200) != 200) {
