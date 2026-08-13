@@ -1,4 +1,3 @@
-import '/backend/gemini/gemini.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -244,16 +243,6 @@ class _GeminiPageWidgetState extends State<GeminiPageWidget> {
                               return;
                             }
                           }
-
-                          await geminiGenerateText(
-                            context,
-                            'kjklj',
-                          ).then((generatedText) {
-                            safeSetState(
-                                () => _model.geminiAnswer = generatedText);
-                          });
-
-                          safeSetState(() {});
                         },
                         text: 'Button',
                         options: FFButtonOptions(
@@ -295,10 +284,7 @@ class _GeminiPageWidgetState extends State<GeminiPageWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: Text(
-                        valueOrDefault<String>(
-                          _model.geminiAnswer,
-                          '-',
-                        ),
+                        'Hello World',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               font: GoogleFonts.notoSansThai(
                                 fontWeight: FlutterFlowTheme.of(context)

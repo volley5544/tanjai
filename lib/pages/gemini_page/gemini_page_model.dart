@@ -1,4 +1,3 @@
-import '/backend/gemini/gemini.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -20,9 +19,6 @@ class GeminiPageModel extends FlutterFlowModel<GeminiPageWidget> {
   bool isDataUploading_uploadDataVkf = false;
   FFUploadedFile uploadedLocalFile_uploadDataVkf =
       FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
-
-  // Stores action output result for [Gemini - Generate Text] action in Button widget.
-  String? geminiAnswer;
 
   @override
   void initState(BuildContext context) {}

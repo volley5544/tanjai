@@ -1258,7 +1258,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                   functions.showNumberWithComma(_model
                                       .packageDataPage
                                       .elementAtOrNull(_model.indexSelected!)
-                                      ?.netPremium),
+                                      ?.netPremiumTotal),
                                   '-',
                                 )} บาท',
                                 style: FlutterFlowTheme.of(context)
