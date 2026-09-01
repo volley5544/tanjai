@@ -79,6 +79,8 @@ class AddCustomerNameWidget extends StatefulWidget {
     this.discountPercent,
     this.grossTotalNet,
     this.idCard,
+    this.inspectionExceptPolicyFile,
+    this.inspectionExceptQuotationType,
   }) : this.driverType = driverType ?? '0';
 
   final List<String>? insurerId;
@@ -136,6 +138,8 @@ class AddCustomerNameWidget extends StatefulWidget {
   final List<String>? discountPercent;
   final List<String>? grossTotalNet;
   final String? idCard;
+  final List<String>? inspectionExceptPolicyFile;
+  final List<String>? inspectionExceptQuotationType;
 
   static String routeName = 'AddCustomerName';
   static String routePath = 'AddCustomerName';
@@ -1472,7 +1476,11 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                         widget!.driverBehavior?.toList(),
                                         widget!.inspectionExcept?.toList(),
                                         widget!.discountOther?.toList(),
-                                        widget!.discountPercent?.toList()),
+                                        widget!.discountPercent?.toList(),
+                                        widget!.inspectionExceptPolicyFile
+                                            ?.toList(),
+                                        widget!.inspectionExceptQuotationType
+                                            ?.toList()),
                                     r'''$''',
                                   ),
                                   insuranceUrl:

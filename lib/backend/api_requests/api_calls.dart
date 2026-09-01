@@ -15636,6 +15636,26 @@ class IbsApplicationsDetailCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List<String>? inspectionexceptpolicyfile(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.data.leads_detail[:].inspection_except_policy_file''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? inspectionexceptquotationtype(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.data.leads_detail[:].inspection_except_quotation_type''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class IbsApplicationsPaymentSaveCall {

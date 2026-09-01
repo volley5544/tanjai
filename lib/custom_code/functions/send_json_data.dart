@@ -52,6 +52,8 @@ dynamic sendJsonData(
   List<String>? inspectionExcept,
   List<String>? discountother,
   List<String>? discountpercent,
+  List<String>? inspectionexceptpolicyfile,
+  List<String>? inspectionexceptquotationtype,
 ) {
   List<Map<String, String>> jsonList = [];
 
@@ -95,6 +97,8 @@ dynamic sendJsonData(
       'inspection_except': inspectionExcept![i],
       'discount_other': discountother![i],
       'discount_percent': discountpercent![i],
+      'inspection_except_policy_file': inspectionexceptpolicyfile![i],
+      'inspection_except_quotation_type': inspectionexceptquotationtype![i],
     };
     jsonList.add(jsonObject);
   }

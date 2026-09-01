@@ -72,6 +72,8 @@ class DetailsInsurancePageWidget extends StatefulWidget {
     this.grossTotalNet,
     this.discountFlg,
     this.idCard,
+    this.inspectionExceptPolicyFile,
+    this.inspectionExceptQuotationType,
   })  : this.insurerFullName = insurerFullName ?? '-',
         this.currentDate = currentDate ?? '-',
         this.brandId = brandId ?? '-',
@@ -153,6 +155,8 @@ class DetailsInsurancePageWidget extends StatefulWidget {
   final String? grossTotalNet;
   final String? discountFlg;
   final String? idCard;
+  final String? inspectionExceptPolicyFile;
+  final String? inspectionExceptQuotationType;
 
   static String routeName = 'detailsInsurancePage';
   static String routePath = 'detailsInsurancePage';
@@ -1045,67 +1049,72 @@ class _DetailsInsurancePageWidgetState
                         thickness: 1.0,
                         color: Color(0xFFCBD8D8),
                       ),
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 10.0, 20.0, 10.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'ราคาเบี้ย',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        font: GoogleFonts.notoSansThai(
+                      if (false)
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 10.0, 20.0, 10.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'ราคาเบี้ย',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.notoSansThai(
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: Color(0xFF646464),
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodyMedium
                                                   .fontStyle,
                                         ),
-                                        color: Color(0xFF646464),
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
-                                      ),
-                                ),
-                                Text(
-                                  widget!.grossTotal == '-'
-                                      ? '-'
-                                      : '${functions.showNumberWithComma(widget!.grossTotal)} บาท',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        font: GoogleFonts.notoSansThai(
+                                  ),
+                                  Text(
+                                    widget!.grossTotal == '-'
+                                        ? '-'
+                                        : '${functions.showNumberWithComma(widget!.grossTotal)} บาท',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.notoSansThai(
+                                            fontWeight: FontWeight.bold,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: Color(0xFF222424),
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodyMedium
                                                   .fontStyle,
                                         ),
-                                        color: Color(0xFF222424),
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
-                                      ),
-                                ),
-                              ],
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1.0,
-                        color: Color(0xFFCBD8D8),
-                      ),
+                          ],
+                        ),
+                      if (false)
+                        Divider(
+                          thickness: 1.0,
+                          color: Color(0xFFCBD8D8),
+                        ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -2155,6 +2164,20 @@ class _DetailsInsurancePageWidgetState
                                               widget!.idCard,
                                               ParamType.String,
                                             ),
+                                            'inspectionExceptPolicyFile':
+                                                serializeParam(
+                                              functions.makeStringToList1(widget!
+                                                  .inspectionExceptPolicyFile),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                            'inspectionExceptQuotationType':
+                                                serializeParam(
+                                              functions.makeStringToList1(widget!
+                                                  .inspectionExceptQuotationType),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
                                           }.withoutNulls,
                                         );
                                       },
@@ -2634,6 +2657,20 @@ class _DetailsInsurancePageWidgetState
                                             'idCard': serializeParam(
                                               widget!.idCard,
                                               ParamType.String,
+                                            ),
+                                            'inspectionExceptPolicyFile':
+                                                serializeParam(
+                                              functions.makeStringToList1(widget!
+                                                  .inspectionExceptPolicyFile),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                            'inspectionExceptQuotationType':
+                                                serializeParam(
+                                              functions.makeStringToList1(widget!
+                                                  .inspectionExceptQuotationType),
+                                              ParamType.String,
+                                              isList: true,
                                             ),
                                           }.withoutNulls,
                                         );

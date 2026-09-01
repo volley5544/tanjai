@@ -2316,7 +2316,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                 ),
                               ),
                             ),
-                            if (FFAppState().insuranceInfoInspectionExcept ==
+                            if (FFAppState()
+                                    .appDetailNew
+                                    .inspectionExceptPolicyFile ==
                                 'Y')
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(

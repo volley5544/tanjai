@@ -2567,6 +2567,14 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 widget!.idCard,
                                                                                                 ParamType.String,
                                                                                               ),
+                                                                                              'inspectionExceptPolicyFile': serializeParam(
+                                                                                                FFAppState().searchinspectionexceptpolicyfile.elementAtOrNull(listinsuranceIndex),
+                                                                                                ParamType.String,
+                                                                                              ),
+                                                                                              'inspectionExceptQuotationType': serializeParam(
+                                                                                                FFAppState().searchinspectionexceptquotationtype.elementAtOrNull(listinsuranceIndex),
+                                                                                                ParamType.String,
+                                                                                              ),
                                                                                             }.withoutNulls,
                                                                                             extra: <String, dynamic>{
                                                                                               'insurerConfig': columnInsurerConfig2Record,
@@ -3423,6 +3431,32 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                     'idCard': serializeParam(
                                                       widget!.idCard,
                                                       ParamType.String,
+                                                    ),
+                                                    'inspectionExceptPolicyFile':
+                                                        serializeParam(
+                                                      functions.returnMappedListFromBoolList(
+                                                          FFAppState()
+                                                              .searchinspectionexceptpolicyfile
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .selectInsurerList
+                                                              .toList(),
+                                                          true),
+                                                      ParamType.String,
+                                                      isList: true,
+                                                    ),
+                                                    'inspectionExceptQuotationType':
+                                                        serializeParam(
+                                                      functions.returnMappedListFromBoolList(
+                                                          FFAppState()
+                                                              .searchinspectionexceptquotationtype
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .selectInsurerList
+                                                              .toList(),
+                                                          true),
+                                                      ParamType.String,
+                                                      isList: true,
                                                     ),
                                                   }.withoutNulls,
                                                   extra: <String, dynamic>{

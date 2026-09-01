@@ -258,6 +258,10 @@ final parametersBuilderMap =
           'grossTotalNet': getParameter<String>(data, 'grossTotalNet'),
           'discountFlg': getParameter<String>(data, 'discountFlg'),
           'idCard': getParameter<String>(data, 'idCard'),
+          'inspectionExceptPolicyFile':
+              getParameter<String>(data, 'inspectionExceptPolicyFile'),
+          'inspectionExceptQuotationType':
+              getParameter<String>(data, 'inspectionExceptQuotationType'),
         },
       ),
   'NonePackageEditPage1': ParameterData.none(),

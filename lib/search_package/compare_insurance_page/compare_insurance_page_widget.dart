@@ -72,6 +72,8 @@ class CompareInsurancePageWidget extends StatefulWidget {
     this.grossTotalNet,
     this.discountFlg,
     this.idCard,
+    this.inspectionExceptPolicyFile,
+    this.inspectionExceptQuotationType,
   })  : this.currentDate = currentDate ?? '-',
         this.brandId = brandId ?? '-',
         this.brandName = brandName ?? '-',
@@ -132,6 +134,8 @@ class CompareInsurancePageWidget extends StatefulWidget {
   final List<String>? grossTotalNet;
   final List<String>? discountFlg;
   final String? idCard;
+  final List<String>? inspectionExceptPolicyFile;
+  final List<String>? inspectionExceptQuotationType;
 
   static String routeName = 'compareInsurancePage';
   static String routePath = 'compareInsurancePage';
@@ -1315,86 +1319,90 @@ class _CompareInsurancePageWidgetState
                               thickness: 1.0,
                               color: Color(0xFFB9B9B9),
                             ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      20.0, 10.0, 20.0, 10.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        'ราคาเบี้ย',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              font: GoogleFonts.notoSansThai(
+                            if (false)
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        20.0, 10.0, 20.0, 10.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'ราคาเบี้ย',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.notoSansThai(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Color(0xFF646464),
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                                 fontStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .fontStyle,
                                               ),
-                                              color: Color(0xFF646464),
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w500,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                      Text(
-                                        functions.checkNullValueAndReturn(
-                                                    valueOrDefault<String>(
-                                                  widget!.grossTotal
-                                                      ?.elementAtOrNull(_model
-                                                          .indexDataCompare!),
+                                        ),
+                                        Text(
+                                          functions.checkNullValueAndReturn(
+                                                      valueOrDefault<String>(
+                                                    widget!.grossTotal
+                                                        ?.elementAtOrNull(_model
+                                                            .indexDataCompare!),
+                                                    '-',
+                                                  )) ==
+                                                  '-'
+                                              ? '-'
+                                              : valueOrDefault<String>(
+                                                  functions.showNumberWithComma(
+                                                      valueOrDefault<String>(
+                                                    widget!.grossTotal
+                                                        ?.elementAtOrNull(_model
+                                                            .indexDataCompare!),
+                                                    '-',
+                                                  )),
                                                   '-',
-                                                )) ==
-                                                '-'
-                                            ? '-'
-                                            : valueOrDefault<String>(
-                                                functions.showNumberWithComma(
-                                                    valueOrDefault<String>(
-                                                  widget!.grossTotal
-                                                      ?.elementAtOrNull(_model
-                                                          .indexDataCompare!),
-                                                  '-',
-                                                )),
-                                                '-',
-                                              ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              font: GoogleFonts.notoSansThai(
+                                                ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.notoSansThai(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Color(0xFF222424),
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.bold,
                                                 fontStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .fontStyle,
                                               ),
-                                              color: Color(0xFF222424),
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                    ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            Divider(
-                              thickness: 1.0,
-                              color: Color(0xFFB9B9B9),
-                            ),
+                                ],
+                              ),
+                            if (false)
+                              Divider(
+                                thickness: 1.0,
+                                color: Color(0xFFB9B9B9),
+                              ),
                             Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -2648,6 +2656,20 @@ class _CompareInsurancePageWidgetState
                                                               widget!.idCard,
                                                               ParamType.String,
                                                             ),
+                                                            'inspectionExceptPolicyFile':
+                                                                serializeParam(
+                                                              widget!
+                                                                  .inspectionExceptPolicyFile,
+                                                              ParamType.String,
+                                                              isList: true,
+                                                            ),
+                                                            'inspectionExceptQuotationType':
+                                                                serializeParam(
+                                                              widget!
+                                                                  .inspectionExceptQuotationType,
+                                                              ParamType.String,
+                                                              isList: true,
+                                                            ),
                                                           }.withoutNulls,
                                                         );
                                                       },
@@ -3247,6 +3269,20 @@ class _CompareInsurancePageWidgetState
                                                       'idCard': serializeParam(
                                                         widget!.idCard,
                                                         ParamType.String,
+                                                      ),
+                                                      'inspectionExceptPolicyFile':
+                                                          serializeParam(
+                                                        widget!
+                                                            .inspectionExceptPolicyFile,
+                                                        ParamType.String,
+                                                        isList: true,
+                                                      ),
+                                                      'inspectionExceptQuotationType':
+                                                          serializeParam(
+                                                        widget!
+                                                            .inspectionExceptQuotationType,
+                                                        ParamType.String,
+                                                        isList: true,
                                                       ),
                                                     }.withoutNulls,
                                                   );

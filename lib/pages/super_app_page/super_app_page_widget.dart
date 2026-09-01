@@ -5846,14 +5846,24 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                   child:
                                                       FlutterFlowExpandedImageView(
                                                     image: OctoImage(
-                                                      placeholderBuilder: (_) =>
-                                                          SizedBox.expand(
-                                                        child: Image(
-                                                          image: BlurHashImage(
-                                                              'LFN^_6}Qz.#9HqbbnPoJ4Tobninh'),
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
+                                                      placeholderBuilder: (_) {
+                                                        final blurHash =
+                                                            'LFN^_6}Qz.#9HqbbnPoJ4Tobninh';
+
+                                                        if (!validateBlurhash(
+                                                            blurHash)) {
+                                                          return const SizedBox
+                                                              .shrink();
+                                                        }
+                                                        return SizedBox.expand(
+                                                          child: Image(
+                                                            image:
+                                                                BlurHashImage(
+                                                                    blurHash),
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        );
+                                                      },
                                                       image: NetworkImage(
                                                         getCORSProxyUrl(
                                                           functions.stringToImgPath(
@@ -5881,14 +5891,23 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                 borderRadius:
                                                     BorderRadius.circular(20.0),
                                                 child: OctoImage(
-                                                  placeholderBuilder: (_) =>
-                                                      SizedBox.expand(
-                                                    child: Image(
-                                                      image: BlurHashImage(
-                                                          'LFN^_6}Qz.#9HqbbnPoJ4Tobninh'),
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
+                                                  placeholderBuilder: (_) {
+                                                    final blurHash =
+                                                        'LFN^_6}Qz.#9HqbbnPoJ4Tobninh';
+
+                                                    if (!validateBlurhash(
+                                                        blurHash)) {
+                                                      return const SizedBox
+                                                          .shrink();
+                                                    }
+                                                    return SizedBox.expand(
+                                                      child: Image(
+                                                        image: BlurHashImage(
+                                                            blurHash),
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    );
+                                                  },
                                                   image: NetworkImage(
                                                     getCORSProxyUrl(
                                                       functions.stringToImgPath(
@@ -7024,20 +7043,32 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                 .circular(8.0),
                                                         child: OctoImage(
                                                           placeholderBuilder:
-                                                              (_) => SizedBox
-                                                                  .expand(
-                                                            child: Image(
-                                                              image: BlurHashImage(pageViewTanjaiBannerRecord!
-                                                                  .blurHash
-                                                                  .elementAtOrNull(functions.getIndexOfIntList(
-                                                                      pageViewTanjaiBannerRecord
-                                                                          ?.order
-                                                                          ?.toList(),
-                                                                      imageListItemIndex +
-                                                                          1))!),
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
+                                                              (_) {
+                                                            final blurHash = pageViewTanjaiBannerRecord!
+                                                                .blurHash
+                                                                .elementAtOrNull(functions.getIndexOfIntList(
+                                                                    pageViewTanjaiBannerRecord
+                                                                        ?.order
+                                                                        ?.toList(),
+                                                                    imageListItemIndex +
+                                                                        1))!;
+
+                                                            if (!validateBlurhash(
+                                                                blurHash)) {
+                                                              return const SizedBox
+                                                                  .shrink();
+                                                            }
+                                                            return SizedBox
+                                                                .expand(
+                                                              child: Image(
+                                                                image:
+                                                                    BlurHashImage(
+                                                                        blurHash),
+                                                                fit: BoxFit
+                                                                    .cover,
+                                                              ),
+                                                            );
+                                                          },
                                                           image: NetworkImage(
                                                             getCORSProxyUrl(
                                                               pageViewTanjaiBannerRecord!

@@ -485,6 +485,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                           'idCard',
                           ParamType.String,
                         ),
+                        inspectionExceptPolicyFile: params.getParam<String>(
+                          'inspectionExceptPolicyFile',
+                          ParamType.String,
+                          isList: true,
+                        ),
+                        inspectionExceptQuotationType: params.getParam<String>(
+                          'inspectionExceptQuotationType',
+                          ParamType.String,
+                          isList: true,
+                        ),
                       ),
                     )),
             FFRoute(
@@ -826,6 +836,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                         ),
                         idCard: params.getParam(
                           'idCard',
+                          ParamType.String,
+                        ),
+                        inspectionExceptPolicyFile: params.getParam(
+                          'inspectionExceptPolicyFile',
+                          ParamType.String,
+                        ),
+                        inspectionExceptQuotationType: params.getParam(
+                          'inspectionExceptQuotationType',
                           ParamType.String,
                         ),
                       ),
@@ -1518,6 +1536,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 idCard: params.getParam(
                   'idCard',
                   ParamType.String,
+                ),
+                inspectionExceptPolicyFile: params.getParam<String>(
+                  'inspectionExceptPolicyFile',
+                  ParamType.String,
+                  isList: true,
+                ),
+                inspectionExceptQuotationType: params.getParam<String>(
+                  'inspectionExceptQuotationType',
+                  ParamType.String,
+                  isList: true,
                 ),
               ),
             ),

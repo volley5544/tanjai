@@ -14658,6 +14658,70 @@ class FFAppState extends ChangeNotifier {
       Function(AppDetailNewDataModelStruct) updateFn) {
     updateFn(_appDetailNew);
   }
+
+  List<String> _searchinspectionexceptpolicyfile = [];
+  List<String> get searchinspectionexceptpolicyfile =>
+      _searchinspectionexceptpolicyfile;
+  set searchinspectionexceptpolicyfile(List<String> value) {
+    _searchinspectionexceptpolicyfile = value;
+  }
+
+  void addToSearchinspectionexceptpolicyfile(String value) {
+    searchinspectionexceptpolicyfile.add(value);
+  }
+
+  void removeFromSearchinspectionexceptpolicyfile(String value) {
+    searchinspectionexceptpolicyfile.remove(value);
+  }
+
+  void removeAtIndexFromSearchinspectionexceptpolicyfile(int index) {
+    searchinspectionexceptpolicyfile.removeAt(index);
+  }
+
+  void updateSearchinspectionexceptpolicyfileAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchinspectionexceptpolicyfile[index] =
+        updateFn(_searchinspectionexceptpolicyfile[index]);
+  }
+
+  void insertAtIndexInSearchinspectionexceptpolicyfile(
+      int index, String value) {
+    searchinspectionexceptpolicyfile.insert(index, value);
+  }
+
+  List<String> _searchinspectionexceptquotationtype = [];
+  List<String> get searchinspectionexceptquotationtype =>
+      _searchinspectionexceptquotationtype;
+  set searchinspectionexceptquotationtype(List<String> value) {
+    _searchinspectionexceptquotationtype = value;
+  }
+
+  void addToSearchinspectionexceptquotationtype(String value) {
+    searchinspectionexceptquotationtype.add(value);
+  }
+
+  void removeFromSearchinspectionexceptquotationtype(String value) {
+    searchinspectionexceptquotationtype.remove(value);
+  }
+
+  void removeAtIndexFromSearchinspectionexceptquotationtype(int index) {
+    searchinspectionexceptquotationtype.removeAt(index);
+  }
+
+  void updateSearchinspectionexceptquotationtypeAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchinspectionexceptquotationtype[index] =
+        updateFn(_searchinspectionexceptquotationtype[index]);
+  }
+
+  void insertAtIndexInSearchinspectionexceptquotationtype(
+      int index, String value) {
+    searchinspectionexceptquotationtype.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

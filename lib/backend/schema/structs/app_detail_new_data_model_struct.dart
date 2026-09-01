@@ -13,10 +13,14 @@ class AppDetailNewDataModelStruct extends FFFirebaseStruct {
     String? discountOther,
     String? discountFlg,
     String? discountPercent,
+    String? inspectionExceptPolicyFile,
+    String? inspectionExceptQuotationType,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _discountOther = discountOther,
         _discountFlg = discountFlg,
         _discountPercent = discountPercent,
+        _inspectionExceptPolicyFile = inspectionExceptPolicyFile,
+        _inspectionExceptQuotationType = inspectionExceptQuotationType,
         super(firestoreUtilData);
 
   // "discount_other" field.
@@ -40,11 +44,33 @@ class AppDetailNewDataModelStruct extends FFFirebaseStruct {
 
   bool hasDiscountPercent() => _discountPercent != null;
 
+  // "inspection_except_policy_file" field.
+  String? _inspectionExceptPolicyFile;
+  String get inspectionExceptPolicyFile => _inspectionExceptPolicyFile ?? '';
+  set inspectionExceptPolicyFile(String? val) =>
+      _inspectionExceptPolicyFile = val;
+
+  bool hasInspectionExceptPolicyFile() => _inspectionExceptPolicyFile != null;
+
+  // "inspection_except_quotation_type" field.
+  String? _inspectionExceptQuotationType;
+  String get inspectionExceptQuotationType =>
+      _inspectionExceptQuotationType ?? '';
+  set inspectionExceptQuotationType(String? val) =>
+      _inspectionExceptQuotationType = val;
+
+  bool hasInspectionExceptQuotationType() =>
+      _inspectionExceptQuotationType != null;
+
   static AppDetailNewDataModelStruct fromMap(Map<String, dynamic> data) =>
       AppDetailNewDataModelStruct(
         discountOther: data['discount_other'] as String?,
         discountFlg: data['discount_flg'] as String?,
         discountPercent: data['discount_percent'] as String?,
+        inspectionExceptPolicyFile:
+            data['inspection_except_policy_file'] as String?,
+        inspectionExceptQuotationType:
+            data['inspection_except_quotation_type'] as String?,
       );
 
   static AppDetailNewDataModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -55,6 +81,8 @@ class AppDetailNewDataModelStruct extends FFFirebaseStruct {
         'discount_other': _discountOther,
         'discount_flg': _discountFlg,
         'discount_percent': _discountPercent,
+        'inspection_except_policy_file': _inspectionExceptPolicyFile,
+        'inspection_except_quotation_type': _inspectionExceptQuotationType,
       }.withoutNulls;
 
   @override
@@ -69,6 +97,14 @@ class AppDetailNewDataModelStruct extends FFFirebaseStruct {
         ),
         'discount_percent': serializeParam(
           _discountPercent,
+          ParamType.String,
+        ),
+        'inspection_except_policy_file': serializeParam(
+          _inspectionExceptPolicyFile,
+          ParamType.String,
+        ),
+        'inspection_except_quotation_type': serializeParam(
+          _inspectionExceptQuotationType,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -91,6 +127,16 @@ class AppDetailNewDataModelStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        inspectionExceptPolicyFile: deserializeParam(
+          data['inspection_except_policy_file'],
+          ParamType.String,
+          false,
+        ),
+        inspectionExceptQuotationType: deserializeParam(
+          data['inspection_except_quotation_type'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -101,18 +147,27 @@ class AppDetailNewDataModelStruct extends FFFirebaseStruct {
     return other is AppDetailNewDataModelStruct &&
         discountOther == other.discountOther &&
         discountFlg == other.discountFlg &&
-        discountPercent == other.discountPercent;
+        discountPercent == other.discountPercent &&
+        inspectionExceptPolicyFile == other.inspectionExceptPolicyFile &&
+        inspectionExceptQuotationType == other.inspectionExceptQuotationType;
   }
 
   @override
-  int get hashCode =>
-      const ListEquality().hash([discountOther, discountFlg, discountPercent]);
+  int get hashCode => const ListEquality().hash([
+        discountOther,
+        discountFlg,
+        discountPercent,
+        inspectionExceptPolicyFile,
+        inspectionExceptQuotationType
+      ]);
 }
 
 AppDetailNewDataModelStruct createAppDetailNewDataModelStruct({
   String? discountOther,
   String? discountFlg,
   String? discountPercent,
+  String? inspectionExceptPolicyFile,
+  String? inspectionExceptQuotationType,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -122,6 +177,8 @@ AppDetailNewDataModelStruct createAppDetailNewDataModelStruct({
       discountOther: discountOther,
       discountFlg: discountFlg,
       discountPercent: discountPercent,
+      inspectionExceptPolicyFile: inspectionExceptPolicyFile,
+      inspectionExceptQuotationType: inspectionExceptQuotationType,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

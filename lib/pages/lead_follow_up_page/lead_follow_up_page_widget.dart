@@ -233,48 +233,54 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
           appBar: AppBar(
             backgroundColor: Colors.white,
             automaticallyImplyLeading: false,
-            leading: FlutterFlowIconButton(
-              borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
-              icon: Icon(
-                Icons.arrow_back_rounded,
-                color: Color(0xFFDB771A),
-                size: 30.0,
-              ),
-              onPressed: () async {
-                showModalBottomSheet(
-                  isScrollControlled: true,
-                  backgroundColor: Colors.transparent,
-                  enableDrag: false,
-                  context: context,
-                  builder: (context) {
-                    return WebViewAware(
-                      child: GestureDetector(
-                        onTap: () {
-                          FocusScope.of(context).unfocus();
-                          FocusManager.instance.primaryFocus?.unfocus();
-                        },
-                        child: Padding(
-                          padding: MediaQuery.viewInsetsOf(context),
-                          child: LoadingSceneWidget(),
+            leading: Builder(
+              builder: (context) => FlutterFlowIconButton(
+                borderColor: Colors.transparent,
+                borderRadius: 30.0,
+                borderWidth: 1.0,
+                buttonSize: 60.0,
+                icon: Icon(
+                  Icons.arrow_back_rounded,
+                  color: Color(0xFFDB771A),
+                  size: 30.0,
+                ),
+                onPressed: () async {
+                  showDialog(
+                    context: context,
+                    builder: (dialogContext) {
+                      return Dialog(
+                        elevation: 0,
+                        insetPadding: EdgeInsets.zero,
+                        backgroundColor: Colors.transparent,
+                        alignment: AlignmentDirectional(0.0, 0.0)
+                            .resolve(Directionality.of(context)),
+                        child: WebViewAware(
+                          child: GestureDetector(
+                            onTap: () {
+                              FocusScope.of(dialogContext).unfocus();
+                              FocusManager.instance.primaryFocus?.unfocus();
+                            },
+                            child: Container(
+                              height: double.infinity,
+                              width: double.infinity,
+                              child: LoadingSceneWidget(),
+                            ),
+                          ),
                         ),
-                      ),
-                    );
-                  },
-                ).then((value) => safeSetState(() {}));
+                      );
+                    },
+                  );
 
-                await Future.delayed(
-                  Duration(
-                    milliseconds: 500,
-                  ),
-                );
+                  await Future.delayed(
+                    Duration(
+                      milliseconds: 500,
+                    ),
+                  );
+                  Navigator.pop(context);
 
-                context.goNamed(SuperAppPageWidget.routeName);
-
-                Navigator.pop(context);
-              },
+                  context.goNamed(SuperAppPageWidget.routeName);
+                },
+              ),
             ),
             title: Text(
               'ติดตามประกันรถ',

@@ -375,6 +375,26 @@ class _InsurerListOverallPageWidgetState
           .cast<String>()
           .toList()
           .cast<String>();
+      FFAppState().searchinspectionexceptpolicyfile = (getJsonField(
+        (_model.packageAPIOutput?.jsonBody ?? ''),
+        r'''$.results.data[*][*].package[:].inspection_except_policy_file''',
+        true,
+      ) as List?)!
+          .map<String>((e) => e.toString())
+          .toList()
+          .cast<String>()
+          .toList()
+          .cast<String>();
+      FFAppState().searchinspectionexceptquotationtype = (getJsonField(
+        (_model.packageAPIOutput?.jsonBody ?? ''),
+        r'''$.results.data[*][*].package[:].inspection_except_quotation_type''',
+        true,
+      ) as List?)!
+          .map<String>((e) => e.toString())
+          .toList()
+          .cast<String>()
+          .toList()
+          .cast<String>();
       safeSetState(() {});
       FFAppState().effectiveDate = TelePackageSearchAPICall.effectiveDate(
         (_model.packageAPIOutput?.jsonBody ?? ''),

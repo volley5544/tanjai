@@ -918,66 +918,70 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 10.0, 20.0, 10.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'ราคาเบี้ย',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      font: GoogleFonts.notoSansThai(
+                        if (false)
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 10.0, 20.0, 10.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'ราคาเบี้ย',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: GoogleFonts.notoSansThai(
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: Color(0xFF646464),
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                         fontStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .fontStyle,
                                       ),
-                                      color: Color(0xFF646464),
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w500,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                              ),
-                              Text(
-                                '${valueOrDefault<String>(
-                                  functions.showNumberWithComma(_model
-                                      .packageDataPage
-                                      .elementAtOrNull(_model.indexSelected!)
-                                      ?.netPremium),
-                                  '-',
-                                )} บาท',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      font: GoogleFonts.notoSansThai(
+                                ),
+                                Text(
+                                  '${valueOrDefault<String>(
+                                    functions.showNumberWithComma(_model
+                                        .packageDataPage
+                                        .elementAtOrNull(_model.indexSelected!)
+                                        ?.netPremium),
+                                    '-',
+                                  )} บาท',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: GoogleFonts.notoSansThai(
+                                          fontWeight: FontWeight.bold,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: Color(0xFF222424),
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                         fontStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .fontStyle,
                                       ),
-                                      color: Color(0xFF222424),
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                              ),
-                            ],
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
                       ],
                     ),
-                    Divider(
-                      thickness: 1.0,
-                      color: Color(0xFFCBD8D8),
-                    ),
+                    if (false)
+                      Divider(
+                        thickness: 1.0,
+                        color: Color(0xFFCBD8D8),
+                      ),
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
