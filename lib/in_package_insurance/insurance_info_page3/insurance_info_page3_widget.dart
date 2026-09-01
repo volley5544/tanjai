@@ -2318,7 +2318,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                             ),
                             if (FFAppState()
                                     .appDetailNew
-                                    .inspectionExceptPolicyFile ==
+                                    .inspectionExceptPolicyFile !=
                                 'Y')
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -9733,7 +9733,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     return;
                                                   }
                                                   if (FFAppState()
-                                                          .insuranceInfoInspectionExcept ==
+                                                          .appDetailNew
+                                                          .inspectionExceptPolicyFile !=
                                                       'Y') {
                                                     if (!((FFAppState()
                                                                 .insuranceinfoOldVMIimage !=
