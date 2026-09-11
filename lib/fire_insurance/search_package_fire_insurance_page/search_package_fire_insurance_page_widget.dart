@@ -2895,151 +2895,51 @@ class _SearchPackageFireInsurancePageWidgetState
                       ],
                     ),
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      width: double.infinity,
-                      height: 100.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            10.0, 20.0, 10.0, 0.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 0.0, 8.0, 0.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  if (!(('${FFAppState().fireInsuranceSearchPackageData.houseTypeName}' !=
-                                          '') &&
-                                      ('${FFAppState().fireInsuranceSearchPackageData.houseTypeName}' !=
-                                          'null'))) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'กรุณาเลือกประเภทที่อยู่อาศัย'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    return;
-                                  }
-                                  if (_model.isSelectedCentimeterSquar) {
-                                    if (_model
-                                            .centimeterSquarTextFieldTextController
-                                            .text ==
-                                        '') {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content: Text(
-                                                  'กรุณากรอกขนาดตารางเมตร'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
+                  Container(
+                    width: double.infinity,
+                    height: 100.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 0.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 0.0, 8.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                if (!(('${FFAppState().fireInsuranceSearchPackageData.houseTypeName}' !=
+                                        '') &&
+                                    ('${FFAppState().fireInsuranceSearchPackageData.houseTypeName}' !=
+                                        'null'))) {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return WebViewAware(
+                                        child: AlertDialog(
+                                          content: Text(
+                                              'กรุณาเลือกประเภทที่อยู่อาศัย'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
                                             ),
-                                          );
-                                        },
+                                          ],
+                                        ),
                                       );
-                                      return;
-                                    }
-                                  } else {
-                                    if (_model.widthTextFieldTextController
-                                            .text ==
-                                        '') {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content:
-                                                  Text('กรุณากรอกความกว้าง'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      return;
-                                    }
-                                    if (_model
-                                            .longTextFieldTextController.text ==
-                                        '') {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content: Text('กรุณากรอกความยาว'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      return;
-                                    }
-                                  }
-
-                                  if (!(('${FFAppState().fireInsuranceSearchPackageData.houseFloor}' !=
-                                          '') &&
-                                      ('${FFAppState().fireInsuranceSearchPackageData.houseFloor}' !=
-                                          'null'))) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content:
-                                                Text('กรุณาเลือกจำนวนชั้น'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    return;
-                                  }
-                                  if (_model.buildinAssetTextFieldTextController
+                                    },
+                                  );
+                                  return;
+                                }
+                                if (_model.isSelectedCentimeterSquar) {
+                                  if (_model
+                                          .centimeterSquarTextFieldTextController
                                           .text ==
                                       '') {
                                     await showDialog(
@@ -3047,8 +2947,8 @@ class _SearchPackageFireInsurancePageWidgetState
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
                                           child: AlertDialog(
-                                            content: Text(
-                                                'กรุณากรอกทรัพย์สินภายในสิ่งปลูกสร้าง'),
+                                            content:
+                                                Text('กรุณากรอกขนาดตารางเมตร'),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(
@@ -3062,117 +2962,194 @@ class _SearchPackageFireInsurancePageWidgetState
                                     );
                                     return;
                                   }
-                                  FFAppState()
-                                      .updateFireInsuranceSearchPackageDataStruct(
-                                    (e) => e
-                                      ..houseAreaType =
-                                          _model.isSelectedCentimeterSquar
-                                              ? '02'
-                                              : '01'
-                                      ..usableArea = _model.isSelectedCentimeterSquar
-                                          ? _model.centimeterSquarTextFieldTextController
-                                              .text
-                                          : ((int.parse((functions
-                                                      .removeCommaFromNumber(_model
-                                                          .widthTextFieldTextController
-                                                          .text)!)) *
-                                                  int.parse((functions
-                                                      .removeCommaFromNumber(_model
-                                                          .longTextFieldTextController
-                                                          .text)!)) *
-                                                  int.parse(FFAppState()
-                                                      .fireInsuranceSearchPackageData
-                                                      .houseFloor))
-                                              .toString())
-                                      ..sumInsureHouse = FFAppState()
-                                          .calEstimatedData
-                                          .estimatedPrice
-                                          .toString()
-                                      ..sumInsureBuildin =
-                                          functions.removeCommaFromNumber(_model
-                                              .buildinAssetTextFieldTextController
-                                              .text)
-                                      ..houseWidth = _model
-                                              .isSelectedCentimeterSquar
-                                          ? '0'
-                                          : functions.removeCommaFromNumber(
-                                              _model
-                                                  .widthTextFieldTextController
-                                                  .text)
-                                      ..houseLong = _model
-                                              .isSelectedCentimeterSquar
-                                          ? '0'
-                                          : functions.removeCommaFromNumber(
-                                              _model.longTextFieldTextController
-                                                  .text),
-                                  );
-                                  safeSetState(() {});
+                                } else {
+                                  if (_model
+                                          .widthTextFieldTextController.text ==
+                                      '') {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text('กรุณากรอกความกว้าง'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    return;
+                                  }
+                                  if (_model.longTextFieldTextController.text ==
+                                      '') {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text('กรุณากรอกความยาว'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    return;
+                                  }
+                                }
 
-                                  context.pushNamed(
-                                    FireInsurerListPageWidget.routeName,
-                                    queryParameters: {
-                                      'yearMin': serializeParam(
-                                        '1',
-                                        ParamType.String,
-                                      ),
-                                      'yearMax': serializeParam(
-                                        '1',
-                                        ParamType.String,
-                                      ),
-                                      'sumInsured': serializeParam(
-                                        (int.parse(FFAppState()
-                                                    .fireInsuranceSearchPackageData
-                                                    .sumInsureHouse) +
+                                if (!(('${FFAppState().fireInsuranceSearchPackageData.houseFloor}' !=
+                                        '') &&
+                                    ('${FFAppState().fireInsuranceSearchPackageData.houseFloor}' !=
+                                        'null'))) {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return WebViewAware(
+                                        child: AlertDialog(
+                                          content: Text('กรุณาเลือกจำนวนชั้น'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                  return;
+                                }
+                                if (_model.buildinAssetTextFieldTextController
+                                        .text ==
+                                    '') {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return WebViewAware(
+                                        child: AlertDialog(
+                                          content: Text(
+                                              'กรุณากรอกทรัพย์สินภายในสิ่งปลูกสร้าง'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                  return;
+                                }
+                                FFAppState()
+                                    .updateFireInsuranceSearchPackageDataStruct(
+                                  (e) => e
+                                    ..houseAreaType =
+                                        _model.isSelectedCentimeterSquar
+                                            ? '02'
+                                            : '01'
+                                    ..usableArea = _model.isSelectedCentimeterSquar
+                                        ? _model.centimeterSquarTextFieldTextController
+                                            .text
+                                        : ((int.parse((functions
+                                                    .removeCommaFromNumber(_model
+                                                        .widthTextFieldTextController
+                                                        .text)!)) *
+                                                int.parse((functions.removeCommaFromNumber(
+                                                    _model
+                                                        .longTextFieldTextController
+                                                        .text)!)) *
                                                 int.parse(FFAppState()
                                                     .fireInsuranceSearchPackageData
-                                                    .sumInsureBuildin))
-                                            .toString(),
-                                        ParamType.String,
-                                      ),
-                                      'sumInsureHouse': serializeParam(
-                                        FFAppState()
-                                            .fireInsuranceSearchPackageData
-                                            .sumInsureHouse,
-                                        ParamType.String,
-                                      ),
-                                      'sumInsureBuilding': serializeParam(
-                                        FFAppState()
-                                            .fireInsuranceSearchPackageData
-                                            .sumInsureBuildin,
-                                        ParamType.String,
-                                      ),
-                                      'sumInsureOther': serializeParam(
-                                        '0',
-                                        ParamType.String,
-                                      ),
-                                    }.withoutNulls,
-                                  );
-                                },
-                                text: 'ค้นหา',
-                                options: FFButtonOptions(
-                                  width: double.infinity,
-                                  height: 60.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: Color(0xFFDB771B),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        font: GoogleFonts.notoSansThai(
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .fontStyle,
-                                        ),
-                                        color: Colors.white,
-                                        fontSize: 15.0,
-                                        letterSpacing: 0.0,
+                                                    .houseFloor))
+                                            .toString())
+                                    ..sumInsureHouse = FFAppState()
+                                        .calEstimatedData
+                                        .estimatedPrice
+                                        .toString()
+                                    ..sumInsureBuildin =
+                                        functions.removeCommaFromNumber(_model
+                                            .buildinAssetTextFieldTextController
+                                            .text)
+                                    ..houseWidth = _model
+                                            .isSelectedCentimeterSquar
+                                        ? '0'
+                                        : functions.removeCommaFromNumber(_model
+                                            .widthTextFieldTextController.text)
+                                    ..houseLong = _model
+                                            .isSelectedCentimeterSquar
+                                        ? '0'
+                                        : functions.removeCommaFromNumber(_model
+                                            .longTextFieldTextController.text),
+                                );
+                                safeSetState(() {});
+
+                                context.pushNamed(
+                                  FireInsurerListPageWidget.routeName,
+                                  queryParameters: {
+                                    'yearMin': serializeParam(
+                                      '1',
+                                      ParamType.String,
+                                    ),
+                                    'yearMax': serializeParam(
+                                      '1',
+                                      ParamType.String,
+                                    ),
+                                    'sumInsured': serializeParam(
+                                      (int.parse(FFAppState()
+                                                  .fireInsuranceSearchPackageData
+                                                  .sumInsureHouse) +
+                                              int.parse(FFAppState()
+                                                  .fireInsuranceSearchPackageData
+                                                  .sumInsureBuildin))
+                                          .toString(),
+                                      ParamType.String,
+                                    ),
+                                    'sumInsureHouse': serializeParam(
+                                      FFAppState()
+                                          .fireInsuranceSearchPackageData
+                                          .sumInsureHouse,
+                                      ParamType.String,
+                                    ),
+                                    'sumInsureBuilding': serializeParam(
+                                      FFAppState()
+                                          .fireInsuranceSearchPackageData
+                                          .sumInsureBuildin,
+                                      ParamType.String,
+                                    ),
+                                    'sumInsureOther': serializeParam(
+                                      '0',
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
+                                );
+                              },
+                              text: 'ค้นหา',
+                              options: FFButtonOptions(
+                                width: double.infinity,
+                                height: 60.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: Color(0xFFDB771B),
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      font: GoogleFonts.notoSansThai(
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .fontWeight,
@@ -3180,17 +3157,26 @@ class _SearchPackageFireInsurancePageWidgetState
                                             .titleSmall
                                             .fontStyle,
                                       ),
-                                  elevation: 3.0,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(16.0),
+                                      color: Colors.white,
+                                      fontSize: 15.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
+                                elevation: 3.0,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1.0,
                                 ),
+                                borderRadius: BorderRadius.circular(16.0),
                               ),
                             ),
-                          ].addToStart(SizedBox(height: 16.0)),
-                        ),
+                          ),
+                        ].addToStart(SizedBox(height: 16.0)),
                       ),
                     ),
                   ),
