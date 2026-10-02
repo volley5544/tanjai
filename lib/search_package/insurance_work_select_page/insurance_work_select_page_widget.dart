@@ -14,7 +14,12 @@ import 'insurance_work_select_page_model.dart';
 export 'insurance_work_select_page_model.dart';
 
 class InsuranceWorkSelectPageWidget extends StatefulWidget {
-  const InsuranceWorkSelectPageWidget({super.key});
+  const InsuranceWorkSelectPageWidget({
+    super.key,
+    String? fromIcon,
+  }) : this.fromIcon = fromIcon ?? 'motor';
+
+  final String fromIcon;
 
   static String routeName = 'InsuranceWorkSelectPage';
   static String routePath = 'InsuranceWorkSelectPage';
@@ -1268,7 +1273,16 @@ class _InsuranceWorkSelectPageWidgetState
                                     safeSetState(() {});
 
                                     context.pushNamed(
-                                        SelectReasonPageWidget.routeName);
+                                      SelectReasonPageWidget.routeName,
+                                      queryParameters: {
+                                        'workType': serializeParam(
+                                          widget!.fromIcon == 'EV'
+                                              ? 'ev'
+                                              : 'manual',
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
                                   },
                                   text: 'นอกเรท',
                                   options: FFButtonOptions(

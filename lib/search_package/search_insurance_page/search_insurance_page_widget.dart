@@ -1663,6 +1663,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                               'searchPackage',
                                               ParamType.String,
                                             ),
+                                            'fromIcon': serializeParam(
+                                              widget!.fromIcon,
+                                              ParamType.String,
+                                            ),
                                           }.withoutNulls,
                                         );
                                       }
@@ -1844,6 +1848,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                           'multiSelect': serializeParam(
                                             false,
                                             ParamType.bool,
+                                          ),
+                                          'fromIcon': serializeParam(
+                                            widget!.fromIcon,
+                                            ParamType.String,
                                           ),
                                         }.withoutNulls,
                                       );
@@ -2039,6 +2047,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                               'SearchPackage',
                                               ParamType.String,
                                             ),
+                                            'fromIcon': serializeParam(
+                                              widget!.fromIcon,
+                                              ParamType.String,
+                                            ),
                                           }.withoutNulls,
                                         );
                                       },
@@ -2223,6 +2235,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                           'multiSelect': serializeParam(
                                             false,
                                             ParamType.bool,
+                                          ),
+                                          'fromIcon': serializeParam(
+                                            widget!.fromIcon,
+                                            ParamType.String,
                                           ),
                                         }.withoutNulls,
                                       );
@@ -2470,6 +2486,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                 false,
                                                 ParamType.bool,
                                               ),
+                                              'fromIcon': serializeParam(
+                                                widget!.fromIcon,
+                                                ParamType.String,
+                                              ),
                                             }.withoutNulls,
                                           );
                                         },
@@ -2678,6 +2698,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                             0,
                                             ParamType.int,
                                           ),
+                                          'fromIcon': serializeParam(
+                                            widget!.fromIcon,
+                                            ParamType.String,
+                                          ),
                                         }.withoutNulls,
                                       );
                                     },
@@ -2869,6 +2893,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                           'maxSelected': serializeParam(
                                             0,
                                             ParamType.int,
+                                          ),
+                                          'fromIcon': serializeParam(
+                                            widget!.fromIcon,
+                                            ParamType.String,
                                           ),
                                         }.withoutNulls,
                                       );
@@ -3072,6 +3100,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                             'maxSelected': serializeParam(
                                               0,
                                               ParamType.int,
+                                            ),
+                                            'fromIcon': serializeParam(
+                                              widget!.fromIcon,
+                                              ParamType.String,
                                             ),
                                           }.withoutNulls,
                                         );
@@ -5203,6 +5235,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                           : '',
                                       ParamType.String,
                                     ),
+                                    'fromIcon': serializeParam(
+                                      widget!.fromIcon,
+                                      ParamType.String,
+                                    ),
                                   }.withoutNulls,
                                 );
 
@@ -5298,6 +5334,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                 ''),
                                           )
                                         : '',
+                                    ParamType.String,
+                                  ),
+                                  'fromIcon': serializeParam(
+                                    widget!.fromIcon,
                                     ParamType.String,
                                   ),
                                 }.withoutNulls,

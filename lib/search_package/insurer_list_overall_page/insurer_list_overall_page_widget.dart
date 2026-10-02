@@ -41,6 +41,7 @@ class InsurerListOverallPageWidget extends StatefulWidget {
     required this.driverFlag,
     this.idCard,
     this.customerType,
+    required this.fromIcon,
   });
 
   final String? brandCode;
@@ -59,6 +60,7 @@ class InsurerListOverallPageWidget extends StatefulWidget {
   final String? driverFlag;
   final String? idCard;
   final String? customerType;
+  final String? fromIcon;
 
   static String routeName = 'insurerListOverallPage';
   static String routePath = 'insurerListOverallPage';
@@ -1639,6 +1641,10 @@ class _InsurerListOverallPageWidgetState
                                                                                                   widget!.idCard,
                                                                                                   ParamType.String,
                                                                                                 ),
+                                                                                                'fromIcon': serializeParam(
+                                                                                                  widget!.fromIcon,
+                                                                                                  ParamType.String,
+                                                                                                ),
                                                                                               }.withoutNulls,
                                                                                             );
                                                                                           },
@@ -2950,9 +2956,23 @@ class _InsurerListOverallPageWidgetState
                                                                   safeSetState(
                                                                       () {});
 
-                                                                  context.pushNamed(
-                                                                      SelectReasonPageWidget
-                                                                          .routeName);
+                                                                  context
+                                                                      .pushNamed(
+                                                                    SelectReasonPageWidget
+                                                                        .routeName,
+                                                                    queryParameters:
+                                                                        {
+                                                                      'workType':
+                                                                          serializeParam(
+                                                                        widget!.fromIcon ==
+                                                                                'EV'
+                                                                            ? 'ev'
+                                                                            : 'manual',
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                  );
                                                                 },
                                                                 text: 'นอกเรท',
                                                                 options:

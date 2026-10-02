@@ -171,7 +171,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: SelectReasonPageWidget.routeName,
               path: SelectReasonPageWidget.routePath,
-              builder: (context, params) => SelectReasonPageWidget(),
+              builder: (context, params) => SelectReasonPageWidget(
+                workType: params.getParam(
+                  'workType',
+                  ParamType.String,
+                ),
+              ),
             ),
             FFRoute(
               name: MyAccountPageWidget.routeName,
@@ -212,6 +217,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 index: params.getParam(
                   'index',
                   ParamType.int,
+                ),
+                fromIcon: params.getParam(
+                  'fromIcon',
+                  ParamType.String,
                 ),
               ),
             ),
@@ -608,6 +617,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ),
                 customerType: params.getParam(
                   'customerType',
+                  ParamType.String,
+                ),
+                fromIcon: params.getParam(
+                  'fromIcon',
                   ParamType.String,
                 ),
               ),
@@ -1240,7 +1253,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: InsuranceWorkSelectPageWidget.routeName,
               path: InsuranceWorkSelectPageWidget.routePath,
-              builder: (context, params) => InsuranceWorkSelectPageWidget(),
+              builder: (context, params) => InsuranceWorkSelectPageWidget(
+                fromIcon: params.getParam(
+                  'fromIcon',
+                  ParamType.String,
+                ),
+              ),
             ),
             FFRoute(
               name: MakeInsuranceListPageWidget.routeName,
@@ -1817,6 +1835,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'fromPage',
                   ParamType.String,
                 ),
+                fromIcon: params.getParam(
+                  'fromIcon',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -1846,6 +1868,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ),
                 fromPage: params.getParam(
                   'fromPage',
+                  ParamType.String,
+                ),
+                fromIcon: params.getParam(
+                  'fromIcon',
                   ParamType.String,
                 ),
               ),
@@ -2149,6 +2175,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ),
                 customerType: params.getParam(
                   'customerType',
+                  ParamType.String,
+                ),
+                fromIcon: params.getParam(
+                  'fromIcon',
                   ParamType.String,
                 ),
               ),

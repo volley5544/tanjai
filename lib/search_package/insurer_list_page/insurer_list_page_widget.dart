@@ -41,6 +41,7 @@ class InsurerListPageWidget extends StatefulWidget {
     required this.driver,
     this.idCard,
     this.customerType,
+    required this.fromIcon,
   });
 
   final String? brandCode;
@@ -58,6 +59,7 @@ class InsurerListPageWidget extends StatefulWidget {
   final String? driver;
   final String? idCard;
   final String? customerType;
+  final String? fromIcon;
 
   static String routeName = 'insurerListPage';
   static String routePath = 'insurerListPage';
@@ -4712,9 +4714,23 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                   safeSetState(
                                                                       () {});
 
-                                                                  context.pushNamed(
-                                                                      SelectReasonPageWidget
-                                                                          .routeName);
+                                                                  context
+                                                                      .pushNamed(
+                                                                    SelectReasonPageWidget
+                                                                        .routeName,
+                                                                    queryParameters:
+                                                                        {
+                                                                      'workType':
+                                                                          serializeParam(
+                                                                        widget!.fromIcon ==
+                                                                                'EV'
+                                                                            ? 'ev'
+                                                                            : 'manual',
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                  );
                                                                 },
                                                                 text: 'นอกเรท',
                                                                 options:

@@ -43,9 +43,9 @@ class GetPackageFireInsuranceCall {
 
     final ffApiRequestBody = '''
 {
-  "year_cover_min": "${escapeStringForJson(yearCoverMin)}",
-  "year_cover_max": "${escapeStringForJson(yearCoverMax)}",
-  "sum_insured": "${escapeStringForJson(sumInsured)}"
+  "year_cover_min": ${yearCoverMin == null ? 'null' : '"${escapeStringForJson(yearCoverMin)}"'},
+  "year_cover_max": ${yearCoverMax == null ? 'null' : '"${escapeStringForJson(yearCoverMax)}"'},
+  "sum_insured": ${sumInsured == null ? 'null' : '"${escapeStringForJson(sumInsured)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getPackageFireInsurance',
@@ -180,12 +180,12 @@ class HouseCalEstimatedApiCall {
 
     final ffApiRequestBody = '''
 {
-  "house_area_type": "${escapeStringForJson(houseAreaType)}",
-  "house_type_code": "${escapeStringForJson(houseTypeCode)}",
-  "usable_area": "${escapeStringForJson(usableArea)}",
-  "floor": "${escapeStringForJson(floor)}",
-  "width": "${escapeStringForJson(width)}",
-  "length": "${escapeStringForJson(long)}"
+  "house_area_type": ${houseAreaType == null ? 'null' : '"${escapeStringForJson(houseAreaType)}"'},
+  "house_type_code": ${houseTypeCode == null ? 'null' : '"${escapeStringForJson(houseTypeCode)}"'},
+  "usable_area": ${usableArea == null ? 'null' : '"${escapeStringForJson(usableArea)}"'},
+  "floor": ${floor == null ? 'null' : '"${escapeStringForJson(floor)}"'},
+  "width": ${width == null ? 'null' : '"${escapeStringForJson(width)}"'},
+  "length": ${long == null ? 'null' : '"${escapeStringForJson(long)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'houseCalEstimatedApi',
@@ -235,7 +235,7 @@ class FireGetLeadsApiCall {
 
     final ffApiRequestBody = '''
 {
-  "owner_id": "${escapeStringForJson(ownerId)}"
+  "owner_id": ${ownerId == null ? 'null' : '"${escapeStringForJson(ownerId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'FireGetLeadsApi',
@@ -411,7 +411,7 @@ class GetListFireApiCall {
 
     final ffApiRequestBody = '''
 {
-  "owner_id": "${escapeStringForJson(ownerId)}"
+  "owner_id": ${ownerId == null ? 'null' : '"${escapeStringForJson(ownerId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'GetListFireApi',
@@ -523,12 +523,12 @@ class AuthenAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "username": "${username}",
-  "password": "${password}",
-  "api_url": "${apiUrl}",
-  "fcm_token": "${fcmToken}",
-  "uid": "${uid}",
-  "check": "${check}"
+  "username": ${username == null ? 'null' : '"${username}"'},
+  "password": ${password == null ? 'null' : '"${password}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "fcm_token": ${fcmToken == null ? 'null' : '"${fcmToken}"'},
+  "uid": ${uid == null ? 'null' : '"${uid}"'},
+  "check": ${check == null ? 'null' : '"${check}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'authenAPI',
@@ -587,14 +587,14 @@ class CheckInAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "Description": "${description}",
-  "Remark": "${remark}",
-  "UID": "${uid}",
-  "Job_Type": "${jobType}",
-  "Location": "${location}",
-  "Username": "${username}",
-  "token": "${token}",
-  "api_url": "${apiUrl}"
+  "Description": ${description == null ? 'null' : '"${description}"'},
+  "Remark": ${remark == null ? 'null' : '"${remark}"'},
+  "UID": ${uid == null ? 'null' : '"${uid}"'},
+  "Job_Type": ${jobType == null ? 'null' : '"${jobType}"'},
+  "Location": ${location == null ? 'null' : '"${location}"'},
+  "Username": ${username == null ? 'null' : '"${username}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'CheckInAPI',
@@ -637,8 +637,8 @@ class GetTimesheetAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "api_url": "${apiUrl}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'GetTimesheetAPI',
@@ -702,9 +702,9 @@ class GetApprovedAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "api_url": "${apiUrl}",
-  "approved_types": "${approvedTypes}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "approved_types": ${approvedTypes == null ? 'null' : '"${approvedTypes}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getApprovedAPI',
@@ -868,10 +868,10 @@ class SendResignFormEmailAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "api_url": "${apiUrl}",
-  "leave_doc_id": "${leaveDocId}",
-  "email": "${email}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "leave_doc_id": ${leaveDocId == null ? 'null' : '"${leaveDocId}"'},
+  "email": ${email == null ? 'null' : '"${email}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'sendResignFormEmailAPI',
@@ -920,12 +920,12 @@ class TimesheetDetailAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "api_url": "${apiUrl}",
-  "page_name": "${pageName}",
-  "RecordId": "${recordId}",
-  "editCheck": "${editCheck}",
-  "Remark": "${remark}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "page_name": ${pageName == null ? 'null' : '"${pageName}"'},
+  "RecordId": ${recordId == null ? 'null' : '"${recordId}"'},
+  "editCheck": ${editCheck == null ? 'null' : '"${editCheck}"'},
+  "Remark": ${remark == null ? 'null' : '"${remark}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'TimesheetDetailAPI',
@@ -1050,8 +1050,8 @@ class GetUserProfileAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "api_url": "${apiUrl}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getUserProfileAPI',
@@ -1224,8 +1224,8 @@ class GetUserInsuranceLicenseCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "api_url": "${apiUrl}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getUserInsuranceLicense',
@@ -1304,8 +1304,8 @@ class ActionUserAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "api_url": "${apiUrl}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'actionUserAPI',
@@ -1404,8 +1404,8 @@ class GetLeadDetailAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "api_url": "${apiUrl}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getLeadDetailAPI',
@@ -1621,8 +1621,8 @@ class GetWelfareKpiCurrentMonthAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "api_url": "${apiUrl}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getWelfareKpiCurrentMonthAPI',
@@ -1706,10 +1706,10 @@ class GetWelfareKpiCEOAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "api_url": "${apiUrl}",
-  "branchCode": "${branchCode}",
-  "branchType": "${branchType}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "branchCode": ${branchCode == null ? 'null' : '"${branchCode}"'},
+  "branchType": ${branchType == null ? 'null' : '"${branchType}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getWelfareKpiCEOAPI',
@@ -1867,8 +1867,8 @@ class GetWelfareKpiLastMonthAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "api_url": "${apiUrl}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getWelfareKpiLastMonthAPI',
@@ -1951,8 +1951,8 @@ class LeaveDayAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "api_url": "${apiUrl}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'LeaveDayAPI',
@@ -2059,8 +2059,8 @@ class LogoutAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "api_url": "${apiUrl}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'logoutAPI',
@@ -2108,17 +2108,17 @@ class SurveyAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "Description": "${description}",
-  "Remark": "${remark}",
-  "UID": "${uid}",
-  "Job_Type": "${jobType}",
-  "Location": "${location}",
-  "Username": "${username}",
-  "token": "${token}",
-  "CitizenId": "${citizenId}",
-  "Customer_Name": "${customerName}",
-  "Landmark": "${landmark}",
-  "api_url": "${apiUrl}"
+  "Description": ${description == null ? 'null' : '"${description}"'},
+  "Remark": ${remark == null ? 'null' : '"${remark}"'},
+  "UID": ${uid == null ? 'null' : '"${uid}"'},
+  "Job_Type": ${jobType == null ? 'null' : '"${jobType}"'},
+  "Location": ${location == null ? 'null' : '"${location}"'},
+  "Username": ${username == null ? 'null' : '"${username}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "CitizenId": ${citizenId == null ? 'null' : '"${citizenId}"'},
+  "Customer_Name": ${customerName == null ? 'null' : '"${customerName}"'},
+  "Landmark": ${landmark == null ? 'null' : '"${landmark}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'SurveyAPI',
@@ -2174,21 +2174,21 @@ class CollectionAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "Description": "${description}",
-  "Remark": "${remark}",
-  "UID": "${uid}",
-  "Job_Type": "${jobType}",
-  "Location": "${location}",
-  "Username": "${username}",
-  "token": "${token}",
-  "CitizenId": "${citizenId}",
-  "Customer_Name": "${customerName}",
-  "ContNo": "${contNo}",
-  "api_url": "${apiUrl}",
-  "VLoan_Server": "${vLoanServer}",
-  "url_img": "${urlImg}",
-  "Branch_Location": "${branchLocation}",
-  "Branch_Name": "${branchName}"
+  "Description": ${description == null ? 'null' : '"${description}"'},
+  "Remark": ${remark == null ? 'null' : '"${remark}"'},
+  "UID": ${uid == null ? 'null' : '"${uid}"'},
+  "Job_Type": ${jobType == null ? 'null' : '"${jobType}"'},
+  "Location": ${location == null ? 'null' : '"${location}"'},
+  "Username": ${username == null ? 'null' : '"${username}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "CitizenId": ${citizenId == null ? 'null' : '"${citizenId}"'},
+  "Customer_Name": ${customerName == null ? 'null' : '"${customerName}"'},
+  "ContNo": ${contNo == null ? 'null' : '"${contNo}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "VLoan_Server": ${vLoanServer == null ? 'null' : '"${vLoanServer}"'},
+  "url_img": ${urlImg == null ? 'null' : '"${urlImg}"'},
+  "Branch_Location": ${branchLocation == null ? 'null' : '"${branchLocation}"'},
+  "Branch_Name": ${branchName == null ? 'null' : '"${branchName}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'CollectionAPI',
@@ -2244,21 +2244,21 @@ class CheckerAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "Description": "${description}",
-  "Remark": "${remark}",
-  "UID": "${uid}",
-  "Job_Type": "${jobType}",
-  "Location": "${location}",
-  "Username": "${username}",
-  "token": "${token}",
-  "CitizenId": "${citizenId}",
-  "Customer_Name": "${customerName}",
-  "ContNo": "${contNo}",
-  "api_url": "${apiUrl}",
-  "VLoan_Server": "${vLoanServer}",
-  "url_img": "${urlImg}",
-  "Branch_Location": "${branchLocation}",
-  "Branch_Name": "${branchName}"
+  "Description": ${description == null ? 'null' : '"${description}"'},
+  "Remark": ${remark == null ? 'null' : '"${remark}"'},
+  "UID": ${uid == null ? 'null' : '"${uid}"'},
+  "Job_Type": ${jobType == null ? 'null' : '"${jobType}"'},
+  "Location": ${location == null ? 'null' : '"${location}"'},
+  "Username": ${username == null ? 'null' : '"${username}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "CitizenId": ${citizenId == null ? 'null' : '"${citizenId}"'},
+  "Customer_Name": ${customerName == null ? 'null' : '"${customerName}"'},
+  "ContNo": ${contNo == null ? 'null' : '"${contNo}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "VLoan_Server": ${vLoanServer == null ? 'null' : '"${vLoanServer}"'},
+  "url_img": ${urlImg == null ? 'null' : '"${urlImg}"'},
+  "Branch_Location": ${branchLocation == null ? 'null' : '"${branchLocation}"'},
+  "Branch_Name": ${branchName == null ? 'null' : '"${branchName}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'CheckerAPI ',
@@ -2338,8 +2338,8 @@ class GetCheckinTimeAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "api_url": "${apiUrl}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getCheckinTimeAPI',
@@ -2415,19 +2415,19 @@ class MarketingAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "Description": "${description}",
-  "Remark": "${remark}",
-  "UID": "${uid}",
-  "Job_Type": "${jobType}",
-  "Location": "${location}",
-  "Username": "${username}",
-  "token": "${token}",
-  "api_url": "${apiUrl}",
-  "Branch_Code": "${branchCode}",
-  "Area_Description": "${areaDescription}",
-  "Detail": "${detail}",
-  "Material_RecordId": "${materialRecordId}",
-  "Amount": "${amount}"
+  "Description": ${description == null ? 'null' : '"${description}"'},
+  "Remark": ${remark == null ? 'null' : '"${remark}"'},
+  "UID": ${uid == null ? 'null' : '"${uid}"'},
+  "Job_Type": ${jobType == null ? 'null' : '"${jobType}"'},
+  "Location": ${location == null ? 'null' : '"${location}"'},
+  "Username": ${username == null ? 'null' : '"${username}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "Branch_Code": ${branchCode == null ? 'null' : '"${branchCode}"'},
+  "Area_Description": ${areaDescription == null ? 'null' : '"${areaDescription}"'},
+  "Detail": ${detail == null ? 'null' : '"${detail}"'},
+  "Material_RecordId": ${materialRecordId == null ? 'null' : '"${materialRecordId}"'},
+  "Amount": ${amount == null ? 'null' : '"${amount}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'MarketingAPI',
@@ -2477,15 +2477,15 @@ class NpaAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "Description": "${description}",
-  "Remark": "${remark}",
-  "UID": "${uid}",
-  "Job_Type": "${jobType}",
-  "Location": "${location}",
-  "Username": "${username}",
-  "token": "${token}",
-  "api_url": "${apiUrl}",
-  "AssetId": "${assetId}"
+  "Description": ${description == null ? 'null' : '"${description}"'},
+  "Remark": ${remark == null ? 'null' : '"${remark}"'},
+  "UID": ${uid == null ? 'null' : '"${uid}"'},
+  "Job_Type": ${jobType == null ? 'null' : '"${jobType}"'},
+  "Location": ${location == null ? 'null' : '"${location}"'},
+  "Username": ${username == null ? 'null' : '"${username}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "AssetId": ${assetId == null ? 'null' : '"${assetId}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'npaAPI',
@@ -2532,12 +2532,12 @@ class OpsAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "coordinate": "${coordinate}",
-  "branch_code": "${branchCode}",
-  "asset_ref": "${assetRef}",
-  "asset_type": "${assetType}",
-  "asset_detail": "${assetDetail}",
-  "remark": "${remark}"
+  "coordinate": ${coordinate == null ? 'null' : '"${coordinate}"'},
+  "branch_code": ${branchCode == null ? 'null' : '"${branchCode}"'},
+  "asset_ref": ${assetRef == null ? 'null' : '"${assetRef}"'},
+  "asset_type": ${assetType == null ? 'null' : '"${assetType}"'},
+  "asset_detail": ${assetDetail == null ? 'null' : '"${assetDetail}"'},
+  "remark": ${remark == null ? 'null' : '"${remark}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'opsAPI',
@@ -2567,7 +2567,7 @@ class NpaCheckAssetIdAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "assetid": "${assetid}"
+  "assetid": ${assetid == null ? 'null' : '"${assetid}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'npaCheckAssetIdAPI',
@@ -2746,9 +2746,9 @@ class GetlocationAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "branch": "${branch}",
-  "api_url": "${apiUrl}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "branch": ${branch == null ? 'null' : '"${branch}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'GetlocationAPI',
@@ -2847,10 +2847,10 @@ class GetBranchAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "branchCode": "${branchCode}",
-  "api_url": "${apiUrl}",
-  "type": "${type}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "branchCode": ${branchCode == null ? 'null' : '"${branchCode}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "type": ${type == null ? 'null' : '"${type}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getBranchAPI',
@@ -2972,9 +2972,9 @@ class GetRegionAreaAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "branchType": "${branchType}",
-  "api_url": "${apiUrl}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "branchType": ${branchType == null ? 'null' : '"${branchType}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getRegionAreaAPI',
@@ -3066,9 +3066,9 @@ class GetEmployeeIdFromNicknameAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "searchName": "${searchName}",
-  "api_url": "${apiUrl}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "searchName": ${searchName == null ? 'null' : '"${searchName}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getEmployeeIdFromNicknameAPI',
@@ -3190,9 +3190,9 @@ class GetAllEmployeeAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "search_keyname": "${searchKeyname}",
-  "api_url": "${apiUrl}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "search_keyname": ${searchKeyname == null ? 'null' : '"${searchKeyname}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getAllEmployeeAPI',
@@ -3282,13 +3282,13 @@ class CheckinAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "branch": "${branch}",
-  "latitude": "${latitude}",
-  "longitude": "${longitude}",
-  "api_url": "${apiUrl}",
-  "url_img": "${urlImg}",
-  "remark": "${remark}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "branch": ${branch == null ? 'null' : '"${branch}"'},
+  "latitude": ${latitude == null ? 'null' : '"${latitude}"'},
+  "longitude": ${longitude == null ? 'null' : '"${longitude}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "url_img": ${urlImg == null ? 'null' : '"${urlImg}"'},
+  "remark": ${remark == null ? 'null' : '"${remark}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'CheckinAPI',
@@ -3337,8 +3337,8 @@ class GetDateTimeAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "token": "${token}",
-  "api_url": "${apiUrl}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getDateTimeAPI',
@@ -3394,9 +3394,9 @@ class AddPhoneCalledLeadAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "leadID": "${leadID}",
-  "token": "${token}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "leadID": ${leadID == null ? 'null' : '"${leadID}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'addPhoneCalledLeadAPI',
@@ -3448,8 +3448,8 @@ class CheckinoutThisMonthAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'checkinoutThisMonthAPI',
@@ -3615,8 +3615,8 @@ class CheckinoutLastMonthAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'checkinoutLastMonthAPI',
@@ -3777,8 +3777,8 @@ class GetTargetContractKPIAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getTargetContractKPIAPI',
@@ -3986,9 +3986,9 @@ class GetEmpTargetContractKPIAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}",
-  "empCode": "${empCode}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "empCode": ${empCode == null ? 'null' : '"${empCode}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getEmpTargetContractKPIAPI',
@@ -4217,8 +4217,8 @@ class GetTargetBudgetKPIAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getTargetBudgetKPIAPI',
@@ -4383,9 +4383,9 @@ class GetEmpTargetBudgetKPIAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}",
-  "empCode": "${empCode}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "empCode": ${empCode == null ? 'null' : '"${empCode}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getEmpTargetBudgetKPIAPI',
@@ -4539,9 +4539,9 @@ class GetTargetBudgetKpiCEOAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "branchCode": "${branchCode}",
-  "token": "${token}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "branchCode": ${branchCode == null ? 'null' : '"${branchCode}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getTargetBudgetKpiCEOAPI',
@@ -4756,9 +4756,9 @@ class GetTargetContractKpiCEOAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "branchCode": "${branchCode}",
-  "token": "${token}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "branchCode": ${branchCode == null ? 'null' : '"${branchCode}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getTargetContractKpiCEOAPI',
@@ -5020,21 +5020,21 @@ class TelePackageSearchAPICall {
 
     final ffApiRequestBody = '''
 {
-  "driver": "${driver}",
-  "brand_code": "${brandCode}",
-  "model_code": "${modelCode}",
-  "year": "${year}",
-  "vehicle_usage": "${vehicleUsage}",
+  "driver": ${driver == null ? 'null' : '"${driver}"'},
+  "brand_code": ${brandCode == null ? 'null' : '"${brandCode}"'},
+  "model_code": ${modelCode == null ? 'null' : '"${modelCode}"'},
+  "year": ${year == null ? 'null' : '"${year}"'},
+  "vehicle_usage": ${vehicleUsage == null ? 'null' : '"${vehicleUsage}"'},
   "cover_type": ${coverType},
   "garage_type": ${garageType},
-  "province": "${province}",
+  "province": ${province == null ? 'null' : '"${province}"'},
   "min_sum_insured": ${minSumInsured},
   "max_sum_insured": ${maxSumInsured},
   "min_gross_total": ${minGrossTotal},
   "max_gross_total": ${maxGrossTotal},
   "driver_behavior": ${driverBehavior},
-  "customer_type": "${customerType}",
-"national_thai_id":"${nationalThaiId}"
+  "customer_type": ${customerType == null ? 'null' : '"${customerType}"'},
+"national_thai_id":${nationalThaiId == null ? 'null' : '"${nationalThaiId}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'telePackageSearchAPI',
@@ -5608,15 +5608,15 @@ class TelePackageSearchAPIRENEWCall {
 
     final ffApiRequestBody = '''
 {
-"gross_total":"${grossTotal}",
-  "driver": "${driver}",
-  "brand_code": "${brandCode}",
-  "model_code": "${modelCode}",
-  "year": "${year}",
-  "vehicle_usage": "${vehicleUsage}",
+"gross_total":${grossTotal == null ? 'null' : '"${grossTotal}"'},
+  "driver": ${driver == null ? 'null' : '"${driver}"'},
+  "brand_code": ${brandCode == null ? 'null' : '"${brandCode}"'},
+  "model_code": ${modelCode == null ? 'null' : '"${modelCode}"'},
+  "year": ${year == null ? 'null' : '"${year}"'},
+  "vehicle_usage": ${vehicleUsage == null ? 'null' : '"${vehicleUsage}"'},
   "cover_type": ${coverType},
   "garage_type": ${garageType},
-  "province": "${province}",
+  "province": ${province == null ? 'null' : '"${province}"'},
   "min_sum_insured": null,
   "max_sum_insured": null,
   "min_gross_total": null,
@@ -6219,15 +6219,15 @@ class TelePackageSearchMCAPICall {
 
     final ffApiRequestBody = '''
 {
-  "brand_code": "${brandCode}",
-  "model_code": "${modelCode}",
-  "year": "${year}",
-  "vehicle_usage": "${vehicleUsage}",
+  "brand_code": ${brandCode == null ? 'null' : '"${brandCode}"'},
+  "model_code": ${modelCode == null ? 'null' : '"${modelCode}"'},
+  "year": ${year == null ? 'null' : '"${year}"'},
+  "vehicle_usage": ${vehicleUsage == null ? 'null' : '"${vehicleUsage}"'},
   "cover_type": ${coverType},
   "garage_type": ${garageType},
-  "province": "${province}",
-  "national_thai_id": "${nationalThaiId}",
-  "customer_type": "${customerType}"
+  "province": ${province == null ? 'null' : '"${province}"'},
+  "national_thai_id": ${nationalThaiId == null ? 'null' : '"${nationalThaiId}"'},
+  "customer_type": ${customerType == null ? 'null' : '"${customerType}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'telePackageSearchMCAPI',
@@ -6664,10 +6664,10 @@ class TelePackageSearchAPICopyCall {
 
     final ffApiRequestBody = '''
 {
-  "brand_code": "${brandCode}",
-  "model_code": "${modelCode}",
-  "year": "${year}",
-  "vehicle_usage": "${vehicleUsage}",
+  "brand_code": ${brandCode == null ? 'null' : '"${brandCode}"'},
+  "model_code": ${modelCode == null ? 'null' : '"${modelCode}"'},
+  "year": ${year == null ? 'null' : '"${year}"'},
+  "vehicle_usage": ${vehicleUsage == null ? 'null' : '"${vehicleUsage}"'},
   "cover_type": [
     ${coverType}
   ]
@@ -7036,8 +7036,8 @@ class TeleGetBrandAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "vehicle_group": "${vehicleGroup}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "vehicle_group": ${vehicleGroup == null ? 'null' : '"${vehicleGroup}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'teleGetBrandAPI',
@@ -7116,8 +7116,8 @@ class TeleGetBrandMCAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-"flag_get":"${flagGet}",
-  "api_url": "${apiUrl}"
+"flag_get":${flagGet == null ? 'null' : '"${flagGet}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 
 }''';
     return ApiManager.instance.makeApiCall(
@@ -7197,8 +7197,8 @@ class TeleGetModelAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "vehicle_group": "${vehicleGroup}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "vehicle_group": ${vehicleGroup == null ? 'null' : '"${vehicleGroup}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'teleGetModelAPI ',
@@ -7329,7 +7329,7 @@ class TeleGetModelMCAPICall {
     String? apiUrl = '',
   }) async {
     final ffApiRequestBody = '''
-{"api_url":"${apiUrl}"
+{"api_url":${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'teleGetModelMCAPI ',
@@ -7461,7 +7461,7 @@ class TeleGetInsurersAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'teleGetInsurersAPI',
@@ -7534,7 +7534,7 @@ class TeleGetProvinceAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'teleGetProvinceAPI',
@@ -7603,7 +7603,7 @@ class TeleGetGarageTypeAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'teleGetGarageTypeAPI',
@@ -7656,8 +7656,8 @@ class TeleGetCoverTypeAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "car_type": "${carType}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "car_type": ${carType == null ? 'null' : '"${carType}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'teleGetCoverTypeAPI',
@@ -7745,26 +7745,26 @@ class LeaveRequestFirstAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}",
-  "leave_id": "${leaveId}",
-  "leave_count_day": "${leaveCountDay}",
-  "leave_start_date": "${leaveStartDate}",
-  "leave_end_date": "${leaveEndDate}",
-  "leave_period": "${leavePeriod}",
-  "emp_tel": "${empTel}",
-  "leave_reason": "${leaveReason}",
-  "leave_document": "${leaveDocument}",
-  "reason_resign": "${reasonResign}",
-  "other_reason_resign": "${otherReasonResign}",
-  "will_come_back": "${willComeBack}",
-  "address": "${address}",
-  "province": "${province}",
-  "district": "${district}",
-  "subdistrict": "${subdistrict}",
-  "postcode": "${postcode}",
-  "asset": "${asset}",
-  "other_asset": "${otherAsset}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "leave_id": ${leaveId == null ? 'null' : '"${leaveId}"'},
+  "leave_count_day": ${leaveCountDay == null ? 'null' : '"${leaveCountDay}"'},
+  "leave_start_date": ${leaveStartDate == null ? 'null' : '"${leaveStartDate}"'},
+  "leave_end_date": ${leaveEndDate == null ? 'null' : '"${leaveEndDate}"'},
+  "leave_period": ${leavePeriod == null ? 'null' : '"${leavePeriod}"'},
+  "emp_tel": ${empTel == null ? 'null' : '"${empTel}"'},
+  "leave_reason": ${leaveReason == null ? 'null' : '"${leaveReason}"'},
+  "leave_document": ${leaveDocument == null ? 'null' : '"${leaveDocument}"'},
+  "reason_resign": ${reasonResign == null ? 'null' : '"${reasonResign}"'},
+  "other_reason_resign": ${otherReasonResign == null ? 'null' : '"${otherReasonResign}"'},
+  "will_come_back": ${willComeBack == null ? 'null' : '"${willComeBack}"'},
+  "address": ${address == null ? 'null' : '"${address}"'},
+  "province": ${province == null ? 'null' : '"${province}"'},
+  "district": ${district == null ? 'null' : '"${district}"'},
+  "subdistrict": ${subdistrict == null ? 'null' : '"${subdistrict}"'},
+  "postcode": ${postcode == null ? 'null' : '"${postcode}"'},
+  "asset": ${asset == null ? 'null' : '"${asset}"'},
+  "other_asset": ${otherAsset == null ? 'null' : '"${otherAsset}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'leaveRequestFirstAPI',
@@ -7836,27 +7836,27 @@ class LeaveEditAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}",
-  "leave_id": "${leaveId}",
-  "leave_count_day": "${leaveCountDay}",
-  "leave_start_date": "${leaveStartDate}",
-  "leave_end_date": "${leaveEndDate}",
-  "leave_period": "${leavePeriod}",
-  "emp_tel": "${empTel}",
-  "leave_reason": "${leaveReason}",
-  "leave_document": "${leaveDocument}",
-  "leave_list_id": "${leaveListId}",
-  "reason_resign": "${reasonResign}",
-  "other_reason_resign": "${otherReasonResign}",
-  "will_come_back": "${willComeBack}",
-  "address": "${address}",
-  "province": "${province}",
-  "district": "${district}",
-  "subdistrict": "${subdistrict}",
-  "postcode": "${postcode}",
-  "asset": "${asset}",
-  "other_asset": "${otherAsset}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "leave_id": ${leaveId == null ? 'null' : '"${leaveId}"'},
+  "leave_count_day": ${leaveCountDay == null ? 'null' : '"${leaveCountDay}"'},
+  "leave_start_date": ${leaveStartDate == null ? 'null' : '"${leaveStartDate}"'},
+  "leave_end_date": ${leaveEndDate == null ? 'null' : '"${leaveEndDate}"'},
+  "leave_period": ${leavePeriod == null ? 'null' : '"${leavePeriod}"'},
+  "emp_tel": ${empTel == null ? 'null' : '"${empTel}"'},
+  "leave_reason": ${leaveReason == null ? 'null' : '"${leaveReason}"'},
+  "leave_document": ${leaveDocument == null ? 'null' : '"${leaveDocument}"'},
+  "leave_list_id": ${leaveListId == null ? 'null' : '"${leaveListId}"'},
+  "reason_resign": ${reasonResign == null ? 'null' : '"${reasonResign}"'},
+  "other_reason_resign": ${otherReasonResign == null ? 'null' : '"${otherReasonResign}"'},
+  "will_come_back": ${willComeBack == null ? 'null' : '"${willComeBack}"'},
+  "address": ${address == null ? 'null' : '"${address}"'},
+  "province": ${province == null ? 'null' : '"${province}"'},
+  "district": ${district == null ? 'null' : '"${district}"'},
+  "subdistrict": ${subdistrict == null ? 'null' : '"${subdistrict}"'},
+  "postcode": ${postcode == null ? 'null' : '"${postcode}"'},
+  "asset": ${asset == null ? 'null' : '"${asset}"'},
+  "other_asset": ${otherAsset == null ? 'null' : '"${otherAsset}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'leaveEditAPI ',
@@ -7909,8 +7909,8 @@ class LeaveListAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'leaveListAPI',
@@ -8085,8 +8085,8 @@ class ResignListAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'resignListAPI',
@@ -8364,8 +8364,8 @@ class LeaveListAprroveAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'leaveListAprroveAPI',
@@ -8554,8 +8554,8 @@ class LeaveListAprroveTwoAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'leaveListAprroveTwoAPI',
@@ -8695,10 +8695,10 @@ class LeaveListCancelAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}",
-  "leave_id": "${leaveId}",
-  "reason_cancel": "${reasonCancel}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "leave_id": ${leaveId == null ? 'null' : '"${leaveId}"'},
+  "reason_cancel": ${reasonCancel == null ? 'null' : '"${reasonCancel}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'leaveListCancelAPI',
@@ -8747,10 +8747,10 @@ class LeaveFlagApproveAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}",
-  "leave_id": "${leaveId}",
-  "flagApprove": "${flagApprove}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "leave_id": ${leaveId == null ? 'null' : '"${leaveId}"'},
+  "flagApprove": ${flagApprove == null ? 'null' : '"${flagApprove}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'leaveFlagApproveAPI',
@@ -8801,7 +8801,7 @@ class SendFCMNotificationAPICall {
     final data = _serializeJson(dataJson);
     final ffApiRequestBody = '''
 {
-  "to": "${to}",
+  "to": ${to == null ? 'null' : '"${to}"'},
   "notification": ${notification},
   "data": ${data}
 }''';
@@ -8853,10 +8853,10 @@ class LeaveFlagApproveTwoAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}",
-  "leave_id": "${leaveId}",
-  "flagApprove": "${flagApprove}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "leave_id": ${leaveId == null ? 'null' : '"${leaveId}"'},
+  "flagApprove": ${flagApprove == null ? 'null' : '"${flagApprove}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'leaveFlagApproveTwoAPI',
@@ -8898,7 +8898,7 @@ class GetProvinceAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
   
 }''';
     return ApiManager.instance.makeApiCall(
@@ -8956,12 +8956,12 @@ class ChangeLocationAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "latitude": "${latitude}",
-  "longitude": "${longitude}",
-  "flag": "${flag}",
-  "branchCode": "${branchCode}",
-  "token": "${token}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "latitude": ${latitude == null ? 'null' : '"${latitude}"'},
+  "longitude": ${longitude == null ? 'null' : '"${longitude}"'},
+  "flag": ${flag == null ? 'null' : '"${flag}"'},
+  "branchCode": ${branchCode == null ? 'null' : '"${branchCode}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'ChangeLocationAPI',
@@ -9040,16 +9040,16 @@ class InsertLocationAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "latitude": "${latitude}",
-  "longitude": "${longitude}",
-  "branch_code": "${branchCode}",
-  "token": "${token}",
-  "branch_name": "${branchName}",
-  "group_code": "${groupCode}",
-  "region_code": "${regionCode}",
-  "radius": "${radius}",
-  "area_code": "${areaCode}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "latitude": ${latitude == null ? 'null' : '"${latitude}"'},
+  "longitude": ${longitude == null ? 'null' : '"${longitude}"'},
+  "branch_code": ${branchCode == null ? 'null' : '"${branchCode}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "branch_name": ${branchName == null ? 'null' : '"${branchName}"'},
+  "group_code": ${groupCode == null ? 'null' : '"${groupCode}"'},
+  "region_code": ${regionCode == null ? 'null' : '"${regionCode}"'},
+  "radius": ${radius == null ? 'null' : '"${radius}"'},
+  "area_code": ${areaCode == null ? 'null' : '"${areaCode}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'InsertLocationAPI',
@@ -9098,8 +9098,8 @@ class GetBossAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'GetBossAPI',
@@ -9150,7 +9150,7 @@ class GetHolidayAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'}
   
 }''';
     return ApiManager.instance.makeApiCall(
@@ -9204,8 +9204,8 @@ class GetLeaveDateCheckinAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'GetLeaveDateCheckinAPI',
@@ -9398,8 +9398,8 @@ class GetDistrictAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "provCode": "${provCode}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "provCode": ${provCode == null ? 'null' : '"${provCode}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'GetDistrictAPI',
@@ -9463,9 +9463,9 @@ class GetLeadCalledStatusDropdownAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}",
-  "leadChannel": "${leadChannel}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "leadChannel": ${leadChannel == null ? 'null' : '"${leadChannel}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getLeadCalledStatusDropdownAPI',
@@ -9551,9 +9551,9 @@ class GetLeadCalledHistoryAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}",
-  "leadID": "${leadID}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "leadID": ${leadID == null ? 'null' : '"${leadID}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getLeadCalledHistoryAPI',
@@ -9660,12 +9660,12 @@ class SaveCallStatusAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}",
-  "leadID": "${leadID}",
-  "statusCall_ID": "${statusCallID}",
-  "reason_ID": "${reasonID}",
-  "reasonDetail": "${reasonDetail}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "leadID": ${leadID == null ? 'null' : '"${leadID}"'},
+  "statusCall_ID": ${statusCallID == null ? 'null' : '"${statusCallID}"'},
+  "reason_ID": ${reasonID == null ? 'null' : '"${reasonID}"'},
+  "reasonDetail": ${reasonDetail == null ? 'null' : '"${reasonDetail}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'saveCallStatusAPI',
@@ -9734,9 +9734,9 @@ class GetLeadReasonCallDropdownAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}",
-  "call_status_id": "${callStatusId}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "call_status_id": ${callStatusId == null ? 'null' : '"${callStatusId}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getLeadReasonCallDropdownAPI',
@@ -9803,8 +9803,8 @@ class GetSubDistrictAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "districtCode": "${districtCode}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "districtCode": ${districtCode == null ? 'null' : '"${districtCode}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'GetSubDistrictAPI',
@@ -9866,8 +9866,8 @@ class ThaipaiboonAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}",
-  "token": "${token}"
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'thaipaiboonAPI',
@@ -10328,7 +10328,7 @@ class GetNonePackageHistoryAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "quotation_id": "${quotationId}"
+  "quotation_id": ${quotationId == null ? 'null' : '"${quotationId}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getNonePackageHistoryAPI',
@@ -10719,9 +10719,9 @@ class InsuranceRequestListAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "owner_id": "${ownerId}",
-  "mode": "${mode}",
-  "list": "${list}"
+  "owner_id": ${ownerId == null ? 'null' : '"${ownerId}"'},
+  "mode": ${mode == null ? 'null' : '"${mode}"'},
+  "list": ${list == null ? 'null' : '"${list}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'insuranceRequestListAPI',
@@ -11246,11 +11246,11 @@ class InsuranceRequestListAPIDashBoardCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "lead_id": "${leadId}",
-  "mode": "${mode}",
-  "list": "${list}",
-  "search_by": "${searchBy}",
-  "search": "${search}"
+  "lead_id": ${leadId == null ? 'null' : '"${leadId}"'},
+  "mode": ${mode == null ? 'null' : '"${mode}"'},
+  "list": ${list == null ? 'null' : '"${list}"'},
+  "search_by": ${searchBy == null ? 'null' : '"${searchBy}"'},
+  "search": ${search == null ? 'null' : '"${search}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'insuranceRequestListAPIDashBoard',
@@ -11686,12 +11686,12 @@ class SearchOldVmiApiCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "owner_id": "${ownerId}",
-  "sub_product": "${subProduct}",
-  "mode": "${mode}",
-  "list": "${list}",
-  "search_by": "${searchBy}",
-  "search": "${search}"
+  "owner_id": ${ownerId == null ? 'null' : '"${ownerId}"'},
+  "sub_product": ${subProduct == null ? 'null' : '"${subProduct}"'},
+  "mode": ${mode == null ? 'null' : '"${mode}"'},
+  "list": ${list == null ? 'null' : '"${list}"'},
+  "search_by": ${searchBy == null ? 'null' : '"${searchBy}"'},
+  "search": ${search == null ? 'null' : '"${search}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'searchOldVmiApi',
@@ -12131,16 +12131,16 @@ class SaveInsurerAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-"discount_flg":"${discountFlg}",
-"discount_percent":"${discountPercent}",
-"sum_insured":"${sumInsured}",
-  "flg_act": "${flgAct}",
-  "insurer_short_name": "${insurerShortName}",
-  "net_premium": "${netPremium}",
-  "accessory_total": "${accessoryTotal}",
-  "act_amount": "${actAmount}",
-  "lead_id": "${leadId}",
-  "type": "${type}"
+"discount_flg":${discountFlg == null ? 'null' : '"${discountFlg}"'},
+"discount_percent":${discountPercent == null ? 'null' : '"${discountPercent}"'},
+"sum_insured":${sumInsured == null ? 'null' : '"${sumInsured}"'},
+  "flg_act": ${flgAct == null ? 'null' : '"${flgAct}"'},
+  "insurer_short_name": ${insurerShortName == null ? 'null' : '"${insurerShortName}"'},
+  "net_premium": ${netPremium == null ? 'null' : '"${netPremium}"'},
+  "accessory_total": ${accessoryTotal == null ? 'null' : '"${accessoryTotal}"'},
+  "act_amount": ${actAmount == null ? 'null' : '"${actAmount}"'},
+  "lead_id": ${leadId == null ? 'null' : '"${leadId}"'},
+  "type": ${type == null ? 'null' : '"${type}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'saveInsurerAPI',
@@ -12189,7 +12189,7 @@ class InsuranceRequestDetailAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "lead_id": "${leadId}"
+  "lead_id": ${leadId == null ? 'null' : '"${leadId}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'insuranceRequestDetailAPI',
@@ -12807,8 +12807,8 @@ class InsuranceRequestGetVehicleAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "vehicle_category": "${vehicleCategory}",
-  "car_type": "${carType}"
+  "vehicle_category": ${vehicleCategory == null ? 'null' : '"${vehicleCategory}"'},
+  "car_type": ${carType == null ? 'null' : '"${carType}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'insuranceRequestGetVehicleAPI',
@@ -12881,7 +12881,7 @@ class InsuranceRequestGetInsurerAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "vehicle_group": "${vehicleGroup}"
+  "vehicle_group": ${vehicleGroup == null ? 'null' : '"${vehicleGroup}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'insuranceRequestGetInsurerAPI',
@@ -13075,8 +13075,8 @@ class GetLicenseListCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "flag_get": "${flagGet}",
-  "insurance_url": "${insuranceUrl}"
+  "flag_get": ${flagGet == null ? 'null' : '"${flagGet}"'},
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'GetLicenseList',
@@ -13184,7 +13184,7 @@ class GetFinanceCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "insurance_url": "${insuranceUrl}"
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'GetFinance',
@@ -13237,7 +13237,7 @@ class GetPrefixCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "insurance_url": "${insuranceUrl}"
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'GetPrefix',
@@ -13288,7 +13288,7 @@ class GetVMICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "owner_id": "${ownerId}"
+  "owner_id": ${ownerId == null ? 'null' : '"${ownerId}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'GetVMI',
@@ -13588,8 +13588,8 @@ class ConfirmLeadStatusCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "lead_id": "${leadId}",
-  "type": "${type}"
+  "lead_id": ${leadId == null ? 'null' : '"${leadId}"'},
+  "type": ${type == null ? 'null' : '"${type}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'ConfirmLeadStatus',
@@ -13637,8 +13637,8 @@ class GetProfileImageCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "employeeCode": "${employeeCode}",
-"insurance_url":"${insuranceUrl}"
+  "employeeCode": ${employeeCode == null ? 'null' : '"${employeeCode}"'},
+"insurance_url":${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getProfileImage',
@@ -13708,35 +13708,35 @@ class IbsQuotationsSaveCall {
     final insurerPackage = _serializeJson(insurerPackageJson);
     final ffApiRequestBody = '''
 {
-"national_thai_id":"${nationalThaiId}",
-"ev_flag":"${evFlag}",
-"sub_product":"${subProduct}",
-"car_province_name":"${carProvinceName}",
-"car_province_code":"${carProvinceCode}",
-"car_type_detail":"${carTypeDetail}",
-"old_VMI_expriedDate":"${oldVMIExpriedDate}",
-"owner_id":"${ownerId}",
-"token":"${token}",
-  "first_name": "${firstName}",
-  "phone_number": "${phoneNumber}",
-  "car_type": "${carType}",
-  "car_registration": "${carRegistration}",
-  "driver_type": "${driverType}",
-  "car_registration_year": "${carRegistrationYear}",
-  "car_brand_id": "${carBrandId}",
-  "car_brand_name": "${carBrandName}",
-  "car_model_name": "${carModelName}",
-  "car_model_id": "${carModelId}",
-  "vehicle_id": "${vehicleId}",
-  "vehicle_code": "${vehicleCode}",
-  "vehicle_name": "${vehicleName}",
-  "owner_name": "${ownerName}",
-  "owner_phone": "${ownerPhone}",
-  "branch_code": "${branchCode}",
-  "branch_name": "${branchName}",
+"national_thai_id":${nationalThaiId == null ? 'null' : '"${nationalThaiId}"'},
+"ev_flag":${evFlag == null ? 'null' : '"${evFlag}"'},
+"sub_product":${subProduct == null ? 'null' : '"${subProduct}"'},
+"car_province_name":${carProvinceName == null ? 'null' : '"${carProvinceName}"'},
+"car_province_code":${carProvinceCode == null ? 'null' : '"${carProvinceCode}"'},
+"car_type_detail":${carTypeDetail == null ? 'null' : '"${carTypeDetail}"'},
+"old_VMI_expriedDate":${oldVMIExpriedDate == null ? 'null' : '"${oldVMIExpriedDate}"'},
+"owner_id":${ownerId == null ? 'null' : '"${ownerId}"'},
+"token":${token == null ? 'null' : '"${token}"'},
+  "first_name": ${firstName == null ? 'null' : '"${firstName}"'},
+  "phone_number": ${phoneNumber == null ? 'null' : '"${phoneNumber}"'},
+  "car_type": ${carType == null ? 'null' : '"${carType}"'},
+  "car_registration": ${carRegistration == null ? 'null' : '"${carRegistration}"'},
+  "driver_type": ${driverType == null ? 'null' : '"${driverType}"'},
+  "car_registration_year": ${carRegistrationYear == null ? 'null' : '"${carRegistrationYear}"'},
+  "car_brand_id": ${carBrandId == null ? 'null' : '"${carBrandId}"'},
+  "car_brand_name": ${carBrandName == null ? 'null' : '"${carBrandName}"'},
+  "car_model_name": ${carModelName == null ? 'null' : '"${carModelName}"'},
+  "car_model_id": ${carModelId == null ? 'null' : '"${carModelId}"'},
+  "vehicle_id": ${vehicleId == null ? 'null' : '"${vehicleId}"'},
+  "vehicle_code": ${vehicleCode == null ? 'null' : '"${vehicleCode}"'},
+  "vehicle_name": ${vehicleName == null ? 'null' : '"${vehicleName}"'},
+  "owner_name": ${ownerName == null ? 'null' : '"${ownerName}"'},
+  "owner_phone": ${ownerPhone == null ? 'null' : '"${ownerPhone}"'},
+  "branch_code": ${branchCode == null ? 'null' : '"${branchCode}"'},
+  "branch_name": ${branchName == null ? 'null' : '"${branchName}"'},
   "insurer_package": ${insurerPackage},
-  "insurance_url": "${insuranceUrl}",
-  "last_name": "${lastName}"
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'},
+  "last_name": ${lastName == null ? 'null' : '"${lastName}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'ibsQuotationsSave',
@@ -14000,156 +14000,156 @@ class IbsApplicationsSaveCall {
     final appBattery = _serializeJson(appBatteryJson);
     final ffApiRequestBody = '''
 {
-"change_battery_flag":"${changeBatteryFlag}",
+"change_battery_flag":${changeBatteryFlag == null ? 'null' : '"${changeBatteryFlag}"'},
 "car_motor":${carMotor},
   "app_battery": ${appBattery},
-  "image_application_2": "${imageApplication2}",
+  "image_application_2": ${imageApplication2 == null ? 'null' : '"${imageApplication2}"'},
   "app_insured_person": ${appInsuredPerson},
-  "sum_insure_house": "${sumInsureHouse}",
-  "sum_insure_buildin": "${sumInsureBuildin}",
-  "sum_insure_total": "${sumInsureTotal}",
-  "wall": "${wall}",
-  "floor_ground": "${floorGround}",
-  "floor_upper": "${floorUpper}",
-  "roof_frame": "${roofFrame}",
-  "roof": "${roof}",
-  "amout_house": "${amoutHouse}",
-  "floor": "${floor}",
-  "width": "${width}",
-  "length": "${length}",
-  "assured": "${assured}",
-  "house_type_code": "${houseTypeCode}",
-  "house_type_name": "${houseTypeName}",
-  "usable_area": "${usableArea}",
-  "id_card_power_of_attorney": "${idCardPowerOfAttorney}",
-  "power_of_attorney": "${powerOfAttorney}",
-  "file_cancel_loan": "${fileCancelLoan}",
-  "customer_type": "${customerType}",
-  "horsepower": "${horsepower}",
-  "battery_number": "${batteryNumber}",
-  "battery_number_2": "${batteryNumber2}",
-  "wall_charger_number": "${wallChargerNumber}",
-  "ev_flag": "${evFlag}",
+  "sum_insure_house": ${sumInsureHouse == null ? 'null' : '"${sumInsureHouse}"'},
+  "sum_insure_buildin": ${sumInsureBuildin == null ? 'null' : '"${sumInsureBuildin}"'},
+  "sum_insure_total": ${sumInsureTotal == null ? 'null' : '"${sumInsureTotal}"'},
+  "wall": ${wall == null ? 'null' : '"${wall}"'},
+  "floor_ground": ${floorGround == null ? 'null' : '"${floorGround}"'},
+  "floor_upper": ${floorUpper == null ? 'null' : '"${floorUpper}"'},
+  "roof_frame": ${roofFrame == null ? 'null' : '"${roofFrame}"'},
+  "roof": ${roof == null ? 'null' : '"${roof}"'},
+  "amout_house": ${amoutHouse == null ? 'null' : '"${amoutHouse}"'},
+  "floor": ${floor == null ? 'null' : '"${floor}"'},
+  "width": ${width == null ? 'null' : '"${width}"'},
+  "length": ${length == null ? 'null' : '"${length}"'},
+  "assured": ${assured == null ? 'null' : '"${assured}"'},
+  "house_type_code": ${houseTypeCode == null ? 'null' : '"${houseTypeCode}"'},
+  "house_type_name": ${houseTypeName == null ? 'null' : '"${houseTypeName}"'},
+  "usable_area": ${usableArea == null ? 'null' : '"${usableArea}"'},
+  "id_card_power_of_attorney": ${idCardPowerOfAttorney == null ? 'null' : '"${idCardPowerOfAttorney}"'},
+  "power_of_attorney": ${powerOfAttorney == null ? 'null' : '"${powerOfAttorney}"'},
+  "file_cancel_loan": ${fileCancelLoan == null ? 'null' : '"${fileCancelLoan}"'},
+  "customer_type": ${customerType == null ? 'null' : '"${customerType}"'},
+  "horsepower": ${horsepower == null ? 'null' : '"${horsepower}"'},
+  "battery_number": ${batteryNumber == null ? 'null' : '"${batteryNumber}"'},
+  "battery_number_2": ${batteryNumber2 == null ? 'null' : '"${batteryNumber2}"'},
+  "wall_charger_number": ${wallChargerNumber == null ? 'null' : '"${wallChargerNumber}"'},
+  "ev_flag": ${evFlag == null ? 'null' : '"${evFlag}"'},
   "app_driver": ${appDriver},
-  "sub_product": "${subProduct}",
-  "image_quotation_insurer": "${imageQuotationInsurer}",
-  "effective_date_insure": "${effectiveDateInsure}",
-  "effective_date_act": "${effectiveDateAct}",
-  "flg_renew": "${flgRenew}",
-  "image_company_book": "${imageCompanyBook}",
-  "old_VMI_image": "${oldVMIImage}",
-  "old_VMI_expriedDate": "${oldVMIExpriedDate}",
-  "old_VMI_policyNumber": "${oldVMIPolicyNumber}",
-  "accessory_total": "${accessoryTotal}",
-  "sensitive_consent": "${sensitiveConsent}",
-  "privacy_consent": "${privacyConsent}",
-  "sanction_consent": "${sanctionConsent}",
-  "image_front_trailer": "${imageFrontTrailer}",
-  "image_rightfront_trailer": "${imageRightfrontTrailer}",
-  "image_right_trailer": "${imageRightTrailer}",
-  "image_rightrear_trailer": "${imageRightrearTrailer}",
-  "image_rear_trailer": "${imageRearTrailer}",
-  "image_leftrear_trailer": "${imageLeftrearTrailer}",
-  "image_left_trailer": "${imageLeftTrailer}",
-  "image_leftfront_trailer": "${imageLeftfrontTrailer}",
-  "flg_carrier": "${flgCarrier}",
-  "flg_co_org": "${flgCoOrg}",
-  "carrier_type": "${carrierType}",
-  "carrier_price": "${carrierPrice}",
-  "truck_part": "${truckPart}",
-  "customer_memberchip": "${customerMemberchip}",
-  "carrier_propose": "${carrierPropose}",
-  "truck_current_price": "${truckCurrentPrice}",
-  "trailer_car_registration": "${trailerCarRegistration}",
-  "trailer_sum_insured": "${trailerSumInsured}",
-  "quotation_type": "${quotationType}",
-  "car_province_code": "${carProvinceCode}",
-  "car_province_name": "${carProvinceName}",
-  "token": "${token}",
-  "employee_phone_number_license": "${employeePhoneNumberLicense}",
-  "registration_province": "${registrationProvince}",
-  "registration_code": "${registrationCode}",
-  "employee_licenseExp_license": "${employeeLicenseExpLicense}",
-  "employee_licenseImg_license": "${employeeLicenseImgLicense}",
-  "employee_licenseID_license": "${employeeLicenseIDLicense}",
-  "employee_code_license": "${employeeCodeLicense}",
-  "employee_firstname_license": "${employeeFirstnameLicense}",
-  "employee_lastname_license": "${employeeLastnameLicense}",
-  "employee_branch_license": "${employeeBranchLicense}",
-  "branch_code": "${branchCode}",
-  "branch_name": "${branchName}",
-  "file_loan_application_register": "${fileLoanApplicationRegister}",
-  "image_application": "${imageApplication}",
-  "payment_type": "${paymentType}",
-  "step": "${step}",
-  "image_wound": "${imageWound}",
-  "image_accessories": "${imageAccessories}",
-  "insurance_url": "${insuranceUrl}",
-  "model_name": "${modelName}",
-  "car_registration": "${carRegistration}",
-  "registration_year": "${registrationYear}",
-  "make_year": "${makeYear}",
-  "vehicle_id": "${vehicleId}",
-  "vehicle_code": "${vehicleCode}",
-  "vehicle_name": "${vehicleName}",
-  "occupation_name": "${occupationName}",
-  "occupation_subcode": "${occupationSubcode}",
-  "occupation_subname": "${occupationSubname}",
-  "mobile1": "${mobile1}",
-  "mobile2": "${mobile2}",
-  "email1": "${email1}",
+  "sub_product": ${subProduct == null ? 'null' : '"${subProduct}"'},
+  "image_quotation_insurer": ${imageQuotationInsurer == null ? 'null' : '"${imageQuotationInsurer}"'},
+  "effective_date_insure": ${effectiveDateInsure == null ? 'null' : '"${effectiveDateInsure}"'},
+  "effective_date_act": ${effectiveDateAct == null ? 'null' : '"${effectiveDateAct}"'},
+  "flg_renew": ${flgRenew == null ? 'null' : '"${flgRenew}"'},
+  "image_company_book": ${imageCompanyBook == null ? 'null' : '"${imageCompanyBook}"'},
+  "old_VMI_image": ${oldVMIImage == null ? 'null' : '"${oldVMIImage}"'},
+  "old_VMI_expriedDate": ${oldVMIExpriedDate == null ? 'null' : '"${oldVMIExpriedDate}"'},
+  "old_VMI_policyNumber": ${oldVMIPolicyNumber == null ? 'null' : '"${oldVMIPolicyNumber}"'},
+  "accessory_total": ${accessoryTotal == null ? 'null' : '"${accessoryTotal}"'},
+  "sensitive_consent": ${sensitiveConsent == null ? 'null' : '"${sensitiveConsent}"'},
+  "privacy_consent": ${privacyConsent == null ? 'null' : '"${privacyConsent}"'},
+  "sanction_consent": ${sanctionConsent == null ? 'null' : '"${sanctionConsent}"'},
+  "image_front_trailer": ${imageFrontTrailer == null ? 'null' : '"${imageFrontTrailer}"'},
+  "image_rightfront_trailer": ${imageRightfrontTrailer == null ? 'null' : '"${imageRightfrontTrailer}"'},
+  "image_right_trailer": ${imageRightTrailer == null ? 'null' : '"${imageRightTrailer}"'},
+  "image_rightrear_trailer": ${imageRightrearTrailer == null ? 'null' : '"${imageRightrearTrailer}"'},
+  "image_rear_trailer": ${imageRearTrailer == null ? 'null' : '"${imageRearTrailer}"'},
+  "image_leftrear_trailer": ${imageLeftrearTrailer == null ? 'null' : '"${imageLeftrearTrailer}"'},
+  "image_left_trailer": ${imageLeftTrailer == null ? 'null' : '"${imageLeftTrailer}"'},
+  "image_leftfront_trailer": ${imageLeftfrontTrailer == null ? 'null' : '"${imageLeftfrontTrailer}"'},
+  "flg_carrier": ${flgCarrier == null ? 'null' : '"${flgCarrier}"'},
+  "flg_co_org": ${flgCoOrg == null ? 'null' : '"${flgCoOrg}"'},
+  "carrier_type": ${carrierType == null ? 'null' : '"${carrierType}"'},
+  "carrier_price": ${carrierPrice == null ? 'null' : '"${carrierPrice}"'},
+  "truck_part": ${truckPart == null ? 'null' : '"${truckPart}"'},
+  "customer_memberchip": ${customerMemberchip == null ? 'null' : '"${customerMemberchip}"'},
+  "carrier_propose": ${carrierPropose == null ? 'null' : '"${carrierPropose}"'},
+  "truck_current_price": ${truckCurrentPrice == null ? 'null' : '"${truckCurrentPrice}"'},
+  "trailer_car_registration": ${trailerCarRegistration == null ? 'null' : '"${trailerCarRegistration}"'},
+  "trailer_sum_insured": ${trailerSumInsured == null ? 'null' : '"${trailerSumInsured}"'},
+  "quotation_type": ${quotationType == null ? 'null' : '"${quotationType}"'},
+  "car_province_code": ${carProvinceCode == null ? 'null' : '"${carProvinceCode}"'},
+  "car_province_name": ${carProvinceName == null ? 'null' : '"${carProvinceName}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "employee_phone_number_license": ${employeePhoneNumberLicense == null ? 'null' : '"${employeePhoneNumberLicense}"'},
+  "registration_province": ${registrationProvince == null ? 'null' : '"${registrationProvince}"'},
+  "registration_code": ${registrationCode == null ? 'null' : '"${registrationCode}"'},
+  "employee_licenseExp_license": ${employeeLicenseExpLicense == null ? 'null' : '"${employeeLicenseExpLicense}"'},
+  "employee_licenseImg_license": ${employeeLicenseImgLicense == null ? 'null' : '"${employeeLicenseImgLicense}"'},
+  "employee_licenseID_license": ${employeeLicenseIDLicense == null ? 'null' : '"${employeeLicenseIDLicense}"'},
+  "employee_code_license": ${employeeCodeLicense == null ? 'null' : '"${employeeCodeLicense}"'},
+  "employee_firstname_license": ${employeeFirstnameLicense == null ? 'null' : '"${employeeFirstnameLicense}"'},
+  "employee_lastname_license": ${employeeLastnameLicense == null ? 'null' : '"${employeeLastnameLicense}"'},
+  "employee_branch_license": ${employeeBranchLicense == null ? 'null' : '"${employeeBranchLicense}"'},
+  "branch_code": ${branchCode == null ? 'null' : '"${branchCode}"'},
+  "branch_name": ${branchName == null ? 'null' : '"${branchName}"'},
+  "file_loan_application_register": ${fileLoanApplicationRegister == null ? 'null' : '"${fileLoanApplicationRegister}"'},
+  "image_application": ${imageApplication == null ? 'null' : '"${imageApplication}"'},
+  "payment_type": ${paymentType == null ? 'null' : '"${paymentType}"'},
+  "step": ${step == null ? 'null' : '"${step}"'},
+  "image_wound": ${imageWound == null ? 'null' : '"${imageWound}"'},
+  "image_accessories": ${imageAccessories == null ? 'null' : '"${imageAccessories}"'},
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'},
+  "model_name": ${modelName == null ? 'null' : '"${modelName}"'},
+  "car_registration": ${carRegistration == null ? 'null' : '"${carRegistration}"'},
+  "registration_year": ${registrationYear == null ? 'null' : '"${registrationYear}"'},
+  "make_year": ${makeYear == null ? 'null' : '"${makeYear}"'},
+  "vehicle_id": ${vehicleId == null ? 'null' : '"${vehicleId}"'},
+  "vehicle_code": ${vehicleCode == null ? 'null' : '"${vehicleCode}"'},
+  "vehicle_name": ${vehicleName == null ? 'null' : '"${vehicleName}"'},
+  "occupation_name": ${occupationName == null ? 'null' : '"${occupationName}"'},
+  "occupation_subcode": ${occupationSubcode == null ? 'null' : '"${occupationSubcode}"'},
+  "occupation_subname": ${occupationSubname == null ? 'null' : '"${occupationSubname}"'},
+  "mobile1": ${mobile1 == null ? 'null' : '"${mobile1}"'},
+  "mobile2": ${mobile2 == null ? 'null' : '"${mobile2}"'},
+  "email1": ${email1 == null ? 'null' : '"${email1}"'},
   "address": ${address},
-  "car_type": "${carType}",
-  "brand_id": "${brandId}",
-  "brand_name": "${brandName}",
-  "model_id": "${modelId}",
-  "body_number": "${bodyNumber}",
-  "engine_number": "${engineNumber}",
-  "seat": "${seat}",
-  "cc": "${cc}",
-  "weight": "${weight}",
-  "driver_type": "${driverType}",
-  "accessory_flg": "${accessoryFlg}",
-  "act_flg": "${actFlg}",
-  "beneficiary_name": "${beneficiaryName}",
-  "image_examination": "${imageExamination}",
-  "image_bluebook": "${imageBluebook}",
-  "image_idcard": "${imageIdcard}",
-  "image_other": "${imageOther}",
-  "image_wound1": "${imageWound1}",
-  "image_wound2": "${imageWound2}",
-  "image_wound3": "${imageWound3}",
-  "image_wound4": "${imageWound4}",
-  "image_wound5": "${imageWound5}",
-  "image_wound6": "${imageWound6}",
-  "image_accessories1": "${imageAccessories1}",
-  "image_accessories2": "${imageAccessories2}",
-  "image_accessories3": "${imageAccessories3}",
-  "image_accessories4": "${imageAccessories4}",
-  "image_accessories5": "${imageAccessories5}",
-  "image_accessories6": "${imageAccessories6}",
-  "image_front": "${imageFront}",
-  "image_rear": "${imageRear}",
-  "image_left": "${imageLeft}",
-  "image_right": "${imageRight}",
-  "image_rightfront": "${imageRightfront}",
-  "image_rightrear": "${imageRightrear}",
-  "image_leftfront": "${imageLeftfront}",
-  "image_leftrear": "${imageLeftrear}",
-  "image_roof": "${imageRoof}",
-  "action": "${action}",
-  "quotation_id": "${quotationId}",
-  "lead_dtl_id": "${leadDtlId}",
-  "id_type_id": "${idTypeId}",
-  "national_thai_id": "${nationalThaiId}",
-  "gender": "${gender}",
-  "title_th_id": "${titleThId}",
-  "title_th": "${titleTh}",
-  "first_name_th": "${firstNameTh}",
-  "last_name_th": "${lastNameTh}",
-  "birth_day": "${birthDay}",
-  "occupation_id": "${occupationId}",
-  "occupation_code": "${occupationCode}"
+  "car_type": ${carType == null ? 'null' : '"${carType}"'},
+  "brand_id": ${brandId == null ? 'null' : '"${brandId}"'},
+  "brand_name": ${brandName == null ? 'null' : '"${brandName}"'},
+  "model_id": ${modelId == null ? 'null' : '"${modelId}"'},
+  "body_number": ${bodyNumber == null ? 'null' : '"${bodyNumber}"'},
+  "engine_number": ${engineNumber == null ? 'null' : '"${engineNumber}"'},
+  "seat": ${seat == null ? 'null' : '"${seat}"'},
+  "cc": ${cc == null ? 'null' : '"${cc}"'},
+  "weight": ${weight == null ? 'null' : '"${weight}"'},
+  "driver_type": ${driverType == null ? 'null' : '"${driverType}"'},
+  "accessory_flg": ${accessoryFlg == null ? 'null' : '"${accessoryFlg}"'},
+  "act_flg": ${actFlg == null ? 'null' : '"${actFlg}"'},
+  "beneficiary_name": ${beneficiaryName == null ? 'null' : '"${beneficiaryName}"'},
+  "image_examination": ${imageExamination == null ? 'null' : '"${imageExamination}"'},
+  "image_bluebook": ${imageBluebook == null ? 'null' : '"${imageBluebook}"'},
+  "image_idcard": ${imageIdcard == null ? 'null' : '"${imageIdcard}"'},
+  "image_other": ${imageOther == null ? 'null' : '"${imageOther}"'},
+  "image_wound1": ${imageWound1 == null ? 'null' : '"${imageWound1}"'},
+  "image_wound2": ${imageWound2 == null ? 'null' : '"${imageWound2}"'},
+  "image_wound3": ${imageWound3 == null ? 'null' : '"${imageWound3}"'},
+  "image_wound4": ${imageWound4 == null ? 'null' : '"${imageWound4}"'},
+  "image_wound5": ${imageWound5 == null ? 'null' : '"${imageWound5}"'},
+  "image_wound6": ${imageWound6 == null ? 'null' : '"${imageWound6}"'},
+  "image_accessories1": ${imageAccessories1 == null ? 'null' : '"${imageAccessories1}"'},
+  "image_accessories2": ${imageAccessories2 == null ? 'null' : '"${imageAccessories2}"'},
+  "image_accessories3": ${imageAccessories3 == null ? 'null' : '"${imageAccessories3}"'},
+  "image_accessories4": ${imageAccessories4 == null ? 'null' : '"${imageAccessories4}"'},
+  "image_accessories5": ${imageAccessories5 == null ? 'null' : '"${imageAccessories5}"'},
+  "image_accessories6": ${imageAccessories6 == null ? 'null' : '"${imageAccessories6}"'},
+  "image_front": ${imageFront == null ? 'null' : '"${imageFront}"'},
+  "image_rear": ${imageRear == null ? 'null' : '"${imageRear}"'},
+  "image_left": ${imageLeft == null ? 'null' : '"${imageLeft}"'},
+  "image_right": ${imageRight == null ? 'null' : '"${imageRight}"'},
+  "image_rightfront": ${imageRightfront == null ? 'null' : '"${imageRightfront}"'},
+  "image_rightrear": ${imageRightrear == null ? 'null' : '"${imageRightrear}"'},
+  "image_leftfront": ${imageLeftfront == null ? 'null' : '"${imageLeftfront}"'},
+  "image_leftrear": ${imageLeftrear == null ? 'null' : '"${imageLeftrear}"'},
+  "image_roof": ${imageRoof == null ? 'null' : '"${imageRoof}"'},
+  "action": ${action == null ? 'null' : '"${action}"'},
+  "quotation_id": ${quotationId == null ? 'null' : '"${quotationId}"'},
+  "lead_dtl_id": ${leadDtlId == null ? 'null' : '"${leadDtlId}"'},
+  "id_type_id": ${idTypeId == null ? 'null' : '"${idTypeId}"'},
+  "national_thai_id": ${nationalThaiId == null ? 'null' : '"${nationalThaiId}"'},
+  "gender": ${gender == null ? 'null' : '"${gender}"'},
+  "title_th_id": ${titleThId == null ? 'null' : '"${titleThId}"'},
+  "title_th": ${titleTh == null ? 'null' : '"${titleTh}"'},
+  "first_name_th": ${firstNameTh == null ? 'null' : '"${firstNameTh}"'},
+  "last_name_th": ${lastNameTh == null ? 'null' : '"${lastNameTh}"'},
+  "birth_day": ${birthDay == null ? 'null' : '"${birthDay}"'},
+  "occupation_id": ${occupationId == null ? 'null' : '"${occupationId}"'},
+  "occupation_code": ${occupationCode == null ? 'null' : '"${occupationCode}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'ibsApplicationsSave',
@@ -14286,9 +14286,9 @@ class IbsApplicationsDetailCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "quotation_id": "${quotationId}",
-  "insurance_url": "${insuranceUrl}",
-  "token": "${token}"
+  "quotation_id": ${quotationId == null ? 'null' : '"${quotationId}"'},
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'ibsApplicationsDetail',
@@ -15675,18 +15675,18 @@ class IbsApplicationsPaymentSaveCall {
   }) async {
     final ffApiRequestBody = '''
 {
-"tenor_first_due":"${tenorFirstDue}",
-  "quotation_id": "${quotationId}",
-  "insurance_url": "${insuranceUrl}",
-  "lead_dtl_id": "${leadDtlId}",
-  "payment_type": "${paymentType}",
-  "payment_channel": "${paymentChannel}",
-  "tenor": "${tenor}",
-  "net_premium_total": "${netPremiumTotal}",
-  "act_total": "${actTotal}",
-  "installment_first_due": "${installmentFirstDue}",
-  "installment_last_due": "${installmentLastDue}",
-  "token": "${token}"
+"tenor_first_due":${tenorFirstDue == null ? 'null' : '"${tenorFirstDue}"'},
+  "quotation_id": ${quotationId == null ? 'null' : '"${quotationId}"'},
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'},
+  "lead_dtl_id": ${leadDtlId == null ? 'null' : '"${leadDtlId}"'},
+  "payment_type": ${paymentType == null ? 'null' : '"${paymentType}"'},
+  "payment_channel": ${paymentChannel == null ? 'null' : '"${paymentChannel}"'},
+  "tenor": ${tenor == null ? 'null' : '"${tenor}"'},
+  "net_premium_total": ${netPremiumTotal == null ? 'null' : '"${netPremiumTotal}"'},
+  "act_total": ${actTotal == null ? 'null' : '"${actTotal}"'},
+  "installment_first_due": ${installmentFirstDue == null ? 'null' : '"${installmentFirstDue}"'},
+  "installment_last_due": ${installmentLastDue == null ? 'null' : '"${installmentLastDue}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'ibsApplicationsPaymentSave',
@@ -15749,11 +15749,11 @@ class CheckBlackListCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "id_type_id": "${idTypeId}",
-  "insurance_url": "${insuranceUrl}",
-  "national_thai_id": "${nationalThaiId}",
-  "quotation_id": "${quotationId}",
-  "token": "${token}"
+  "id_type_id": ${idTypeId == null ? 'null' : '"${idTypeId}"'},
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'},
+  "national_thai_id": ${nationalThaiId == null ? 'null' : '"${nationalThaiId}"'},
+  "quotation_id": ${quotationId == null ? 'null' : '"${quotationId}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'checkBlackList',
@@ -15800,8 +15800,8 @@ class CheckBlackListCopyCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "id_type_id": "${idTypeId}",
-  "national_thai_id": "${nationalThaiId}"
+  "id_type_id": ${idTypeId == null ? 'null' : '"${idTypeId}"'},
+  "national_thai_id": ${nationalThaiId == null ? 'null' : '"${nationalThaiId}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'checkBlackList Copy',
@@ -15865,17 +15865,17 @@ class IbsPaymentSaveCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "insurance_url": "${insuranceUrl}",
-  "quotation_id": "${quotationId}",
-  "lead_dtl_id": "${leadDtlId}",
-  "payment_type": "${paymentType}",
-  "payment_channel": "${paymentChannel}",
-  "tenor": "${tenor}",
-  "net_premium_total": "${netPremiumTotal}",
-  "act_total": "${actTotal}",
-  "installment_first_due": "${installmentFirstDue}",
-  "installment_last_due": "${installmentLastDue}",
-  "token": "${token}"
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'},
+  "quotation_id": ${quotationId == null ? 'null' : '"${quotationId}"'},
+  "lead_dtl_id": ${leadDtlId == null ? 'null' : '"${leadDtlId}"'},
+  "payment_type": ${paymentType == null ? 'null' : '"${paymentType}"'},
+  "payment_channel": ${paymentChannel == null ? 'null' : '"${paymentChannel}"'},
+  "tenor": ${tenor == null ? 'null' : '"${tenor}"'},
+  "net_premium_total": ${netPremiumTotal == null ? 'null' : '"${netPremiumTotal}"'},
+  "act_total": ${actTotal == null ? 'null' : '"${actTotal}"'},
+  "installment_first_due": ${installmentFirstDue == null ? 'null' : '"${installmentFirstDue}"'},
+  "installment_last_due": ${installmentLastDue == null ? 'null' : '"${installmentLastDue}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'ibsPaymentSave',
@@ -15936,7 +15936,7 @@ class GetInsurancePolicyApiCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "quotation_id": "${quotationId}"
+  "quotation_id": ${quotationId == null ? 'null' : '"${quotationId}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getInsurancePolicyApi',
@@ -16124,8 +16124,8 @@ class GetFileVmiApiCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "quotation_id": "${quotationId}",
-  "owner_id": "${ownerId}"
+  "quotation_id": ${quotationId == null ? 'null' : '"${quotationId}"'},
+  "owner_id": ${ownerId == null ? 'null' : '"${ownerId}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getFileVmiApi',
@@ -16172,8 +16172,8 @@ class GetFileCmiApiCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "quotation_id": "${quotationId}",
-  "owner_id": "${ownerId}"
+  "quotation_id": ${quotationId == null ? 'null' : '"${quotationId}"'},
+  "owner_id": ${ownerId == null ? 'null' : '"${ownerId}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getFileCmiApi ',
@@ -16221,9 +16221,9 @@ class CancelInsurancePolicyApiCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "quotation_id": "${quotationId}",
-  "cancel_reason_name": "${cancelReasonName}",
-  "owner_id": "${ownerId}"
+  "quotation_id": ${quotationId == null ? 'null' : '"${quotationId}"'},
+  "cancel_reason_name": ${cancelReasonName == null ? 'null' : '"${cancelReasonName}"'},
+  "owner_id": ${ownerId == null ? 'null' : '"${ownerId}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'cancelInsurancePolicyApi',
@@ -16317,9 +16317,9 @@ class PostInsurancePolicyApiCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "quotation_id": "${quotationId}",
-  "api_url": "${apiUrl}",
-  "token": "${token}"
+  "quotation_id": ${quotationId == null ? 'null' : '"${quotationId}"'},
+  "api_url": ${apiUrl == null ? 'null' : '"${apiUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'postInsurancePolicyApi',
@@ -16413,9 +16413,9 @@ class IbsPaymentRetrieveStatusCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "insurance_url": "${insuranceUrl}",
-  "quotation_id": "${quotationId}",
-  "token": "${token}"
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'},
+  "quotation_id": ${quotationId == null ? 'null' : '"${quotationId}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'ibsPaymentRetrieveStatus',
@@ -16485,9 +16485,9 @@ class IbsPaymentRegenerateCodeCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "insurance_url": "${insuranceUrl}",
-  "quotation_id": "${quotationId}",
-  "token": "${token}"
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'},
+  "quotation_id": ${quotationId == null ? 'null' : '"${quotationId}"'},
+  "token": ${token == null ? 'null' : '"${token}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'ibsPaymentRegenerateCode',
@@ -16564,16 +16564,16 @@ class IbsCalculateInstallmentCall {
   }) async {
     final ffApiRequestBody = '''
 {
-"work_type":"${workType}",
-"act_flg":"${actFlg}",
- "insurer_code2":"${insurerCode2}",
-    "cover_type_code":"${coverTypeCode}",
-  "insurance_url": "${insuranceUrl}",
-  "gross_total_net": "${grossTotalNet}",
-  "vehicle_code": "${vehicleCode}",
-  "act_total": "${actTotal}",
-  "token": "${token}",
-  "sub_product": "${subProduct}"
+"work_type":${workType == null ? 'null' : '"${workType}"'},
+"act_flg":${actFlg == null ? 'null' : '"${actFlg}"'},
+ "insurer_code2":${insurerCode2 == null ? 'null' : '"${insurerCode2}"'},
+    "cover_type_code":${coverTypeCode == null ? 'null' : '"${coverTypeCode}"'},
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'},
+  "gross_total_net": ${grossTotalNet == null ? 'null' : '"${grossTotalNet}"'},
+  "vehicle_code": ${vehicleCode == null ? 'null' : '"${vehicleCode}"'},
+  "act_total": ${actTotal == null ? 'null' : '"${actTotal}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "sub_product": ${subProduct == null ? 'null' : '"${subProduct}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'ibsCalculateInstallment',
@@ -16676,15 +16676,15 @@ class IbsApplicationsEditCall {
   }) async {
     final ffApiRequestBody = '''
 {
-"sub_product":"${subProduct}",
-  "insurance_url": "${insuranceUrl}",
-  "token": "${token}",
-  "quotation_id": "${quotationId}",
-  "effective_date_insure": "${effectiveDateInsure}",
-  "effective_date_act": "${effectiveDateAct}",
-  "first_name_th": "${firstNameTh}",
-  "last_name_th": "${lastNameTh}",
-  "car_registration": "${carRegistration}"
+"sub_product":${subProduct == null ? 'null' : '"${subProduct}"'},
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "quotation_id": ${quotationId == null ? 'null' : '"${quotationId}"'},
+  "effective_date_insure": ${effectiveDateInsure == null ? 'null' : '"${effectiveDateInsure}"'},
+  "effective_date_act": ${effectiveDateAct == null ? 'null' : '"${effectiveDateAct}"'},
+  "first_name_th": ${firstNameTh == null ? 'null' : '"${firstNameTh}"'},
+  "last_name_th": ${lastNameTh == null ? 'null' : '"${lastNameTh}"'},
+  "car_registration": ${carRegistration == null ? 'null' : '"${carRegistration}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'ibsApplicationsEdit',
@@ -16729,12 +16729,12 @@ class RenewCheckRenewCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "insurance_url": "${insuranceUrl}",
-  "first_name_th": "${firstNameTh}",
-  "last_name_th": "${lastNameTh}",
-  "mobile1": "${mobile1}",
-  "car_registration": "${carRegistration}",
-"national_thai_id":"${nationalThaiId}"
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'},
+  "first_name_th": ${firstNameTh == null ? 'null' : '"${firstNameTh}"'},
+  "last_name_th": ${lastNameTh == null ? 'null' : '"${lastNameTh}"'},
+  "mobile1": ${mobile1 == null ? 'null' : '"${mobile1}"'},
+  "car_registration": ${carRegistration == null ? 'null' : '"${carRegistration}"'},
+"national_thai_id":${nationalThaiId == null ? 'null' : '"${nationalThaiId}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'renewCheckRenew',
@@ -16952,14 +16952,14 @@ class RenewCallStatusSaveCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "insurance_url": "${insuranceUrl}",
-  "ref_renew_id": "${refRenewId}",
-  "call_status": "${callStatus}",
-  "call_status_details": "${callStatusDetails}",
-  "call_status_sub": "${callStatusSub}",
-  "call_status_code": "${callStatusCode}",
-  "branch_code": "${branchCode}",
-  "branch_name": "${branchName}"
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'},
+  "ref_renew_id": ${refRenewId == null ? 'null' : '"${refRenewId}"'},
+  "call_status": ${callStatus == null ? 'null' : '"${callStatus}"'},
+  "call_status_details": ${callStatusDetails == null ? 'null' : '"${callStatusDetails}"'},
+  "call_status_sub": ${callStatusSub == null ? 'null' : '"${callStatusSub}"'},
+  "call_status_code": ${callStatusCode == null ? 'null' : '"${callStatusCode}"'},
+  "branch_code": ${branchCode == null ? 'null' : '"${branchCode}"'},
+  "branch_name": ${branchName == null ? 'null' : '"${branchName}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'renewCallStatusSave',
@@ -17005,8 +17005,8 @@ class RenewCallStatusGetHistoryCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "insurance_url": "${insuranceUrl}",
-  "ref_renew_id": "${refRenewId}"
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'},
+  "ref_renew_id": ${refRenewId == null ? 'null' : '"${refRenewId}"'}
   
 }''';
     return ApiManager.instance.makeApiCall(
@@ -17177,32 +17177,32 @@ class ApiApplicationsSaveRenewCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "quotation_id": "${quotationId}",
-  "lead_dtl_id": "${leadDtlId}",
-  "employee_licenseexp_license": "${employeeLicenseexpLicense}",
-  "employee_licenseimg_license": "${employeeLicenseimgLicense}",
-  "employee_licenseid_license": "${employeeLicenseidLicense}",
-  "employee_code_license": "${employeeCodeLicense}",
-  "employee_firstname_license": "${employeeFirstnameLicense}",
-  "employee_lastname_license": "${employeeLastnameLicense}",
-  "employee_branch_license": "${employeeBranchLicense}",
-  "branch_code": "${branchCode}",
-  "branch_name": "${branchName}",
-  "owner_id": "${ownerId}",
-  "owner_name": "${ownerName}",
-  "owner_phone": "${ownerPhone}",
-  "act_flg": "${actFlg}",
-  "effective_date_act": "${effectiveDateAct}",
-  "payment_type": "${paymentType}",
-  "payment_channel": "${paymentChannel}",
-  "vehicle_id": "${vehicleId}",
-  "vehicle_code": "${vehicleCode}",
-  "vehicle_name": "${vehicleName}",
-  "sensitive_consent": "${sensitiveConsent}",
-  "privacy_consent": "${privacyConsent}",
-  "sanction_consent": "${sanctionConsent}",
-  "image_idcard": "${imageIdcard}",
-  "file_loan_application_register": "${fileLoanApplicationRegister}"
+  "quotation_id": ${quotationId == null ? 'null' : '"${quotationId}"'},
+  "lead_dtl_id": ${leadDtlId == null ? 'null' : '"${leadDtlId}"'},
+  "employee_licenseexp_license": ${employeeLicenseexpLicense == null ? 'null' : '"${employeeLicenseexpLicense}"'},
+  "employee_licenseimg_license": ${employeeLicenseimgLicense == null ? 'null' : '"${employeeLicenseimgLicense}"'},
+  "employee_licenseid_license": ${employeeLicenseidLicense == null ? 'null' : '"${employeeLicenseidLicense}"'},
+  "employee_code_license": ${employeeCodeLicense == null ? 'null' : '"${employeeCodeLicense}"'},
+  "employee_firstname_license": ${employeeFirstnameLicense == null ? 'null' : '"${employeeFirstnameLicense}"'},
+  "employee_lastname_license": ${employeeLastnameLicense == null ? 'null' : '"${employeeLastnameLicense}"'},
+  "employee_branch_license": ${employeeBranchLicense == null ? 'null' : '"${employeeBranchLicense}"'},
+  "branch_code": ${branchCode == null ? 'null' : '"${branchCode}"'},
+  "branch_name": ${branchName == null ? 'null' : '"${branchName}"'},
+  "owner_id": ${ownerId == null ? 'null' : '"${ownerId}"'},
+  "owner_name": ${ownerName == null ? 'null' : '"${ownerName}"'},
+  "owner_phone": ${ownerPhone == null ? 'null' : '"${ownerPhone}"'},
+  "act_flg": ${actFlg == null ? 'null' : '"${actFlg}"'},
+  "effective_date_act": ${effectiveDateAct == null ? 'null' : '"${effectiveDateAct}"'},
+  "payment_type": ${paymentType == null ? 'null' : '"${paymentType}"'},
+  "payment_channel": ${paymentChannel == null ? 'null' : '"${paymentChannel}"'},
+  "vehicle_id": ${vehicleId == null ? 'null' : '"${vehicleId}"'},
+  "vehicle_code": ${vehicleCode == null ? 'null' : '"${vehicleCode}"'},
+  "vehicle_name": ${vehicleName == null ? 'null' : '"${vehicleName}"'},
+  "sensitive_consent": ${sensitiveConsent == null ? 'null' : '"${sensitiveConsent}"'},
+  "privacy_consent": ${privacyConsent == null ? 'null' : '"${privacyConsent}"'},
+  "sanction_consent": ${sanctionConsent == null ? 'null' : '"${sanctionConsent}"'},
+  "image_idcard": ${imageIdcard == null ? 'null' : '"${imageIdcard}"'},
+  "file_loan_application_register": ${fileLoanApplicationRegister == null ? 'null' : '"${fileLoanApplicationRegister}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'apiApplicationsSaveRenew',
@@ -17287,10 +17287,10 @@ class RenewBranchListCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "level": "${level}",
-  "branch_code": "${branchCode}",
-  "page": "${page}",
-  "per_page": "${perPage}"
+  "level": ${level == null ? 'null' : '"${level}"'},
+  "branch_code": ${branchCode == null ? 'null' : '"${branchCode}"'},
+  "page": ${page == null ? 'null' : '"${page}"'},
+  "per_page": ${perPage == null ? 'null' : '"${perPage}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'renewBranchList',
@@ -17505,10 +17505,10 @@ class RenewPoolListCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "level": "${level}",
-  "branch_code": "${branchCode}",
-  "page": "${page}",
-  "per_page": "${perPage}"
+  "level": ${level == null ? 'null' : '"${level}"'},
+  "branch_code": ${branchCode == null ? 'null' : '"${branchCode}"'},
+  "page": ${page == null ? 'null' : '"${page}"'},
+  "per_page": ${perPage == null ? 'null' : '"${perPage}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'renewPoolList',
@@ -17746,110 +17746,110 @@ class RenewSaveCall {
     final ffApiRequestBody = '''
 {
 "insurer_package":${insurerPackage},
-"emp_branch_code":"${empBranchCode}",
-  "emp_branch_name": "${empBranchName}",
+"emp_branch_code":${empBranchCode == null ? 'null' : '"${empBranchCode}"'},
+  "emp_branch_name": ${empBranchName == null ? 'null' : '"${empBranchName}"'},
   "data": ${data},
-  "title_th": "${titleTh}",
-  "first_name_th": "${firstNameTh}",
-  "last_name_th": "${lastNameTh}",
-  "gender": "${gender}",
-  "nationalities": "${nationalities}",
-  "birth_day": "${birthDay}",
-  "occupation_name": "${occupationName}",
-  "id_type": "${idType}",
-  "national_thai_id": "${nationalThaiId}",
-  "car_registration": "${carRegistration}",
-  "registration_province": "${registrationProvince}",
-  "brand_id": "${brandId}",
-  "brand_name": "${brandName}",
-  "model_id": "${modelId}",
-  "model_name": "${modelName}",
-  "body_number": "${bodyNumber}",
-  "old_effective_date": "${oldEffectiveDate}",
-  "old_expiry_date": "${oldExpiryDate}",
-  "insurer_name": "${insurerName}",
-  "old_VMI_policyNumber": "${oldVMIPolicyNumber}",
-  "old_cover_type_code": "${oldCoverTypeCode}",
-  "old_garage_type_name": "${oldGarageTypeName}",
-  "old_camera_flg": "${oldCameraFlg}",
-  "old_driver_type": "${oldDriverType}",
-  "old_accessory_flg": "${oldAccessoryFlg}",
-  "renew_no": "${renewNo}",
-  "effective_date": "${effectiveDate}",
-  "expiry_date": "${expiryDate}",
-  "cover_type_code": "${coverTypeCode}",
-  "garage_type_name": "${garageTypeName}",
-  "tpbi_person": "${tpbiPerson}",
-  "tpbi_accident": "${tpbiAccident}",
-  "tppd": "${tppd}",
-  "car_damage": "${carDamage}",
-  "car_lost": "${carLost}",
-  "flood": "${flood}",
-  "deductible": "${deductible}",
-  "pa": "${pa}",
-  "me": "${me}",
-  "bb": "${bb}",
-  "seat": "${seat}",
-  "camera_flg": "${cameraFlg}",
-  "driver_type": "${driverType}",
-  "driver_dob1": "${driverDob1}",
-  "driver_dob2": "${driverDob2}",
-  "accessory_flg": "${accessoryFlg}",
-  "accessory_detail": "${accessoryDetail}",
-  "roadside_assistance": "${roadsideAssistance}",
-  "net_premium": "${netPremium}",
-  "stamp": "${stamp}",
-  "vat_amount": "${vatAmount}",
-  "gross_total": "${grossTotal}",
-  "claim_loss": "${claimLoss}",
-  "claim_loss_percent": "${claimLossPercent}",
-  "insurer_status": "${insurerStatus}",
-  "telephone_update": "${telephoneUpdate}",
-  "branch_code": "${branchCode}",
-  "vehicle_code": "${vehicleCode}",
-  "engine_number": "${engineNumber}",
-  "cc": "${cc}",
-  "weight": "${weight}",
-  "registration_year": "${registrationYear}",
-  "make_year": "${makeYear}",
-  "act_flg": "${actFlg}",
-  "effective_date_act": "${effectiveDateAct}",
-  "expiry_date_act": "${expiryDateAct}",
-  "act_amount": "${actAmount}",
-  "stamp_act": "${stampAct}",
-  "vat_amount_act": "${vatAmountAct}",
-  "beneficiary_name": "${beneficiaryName}",
-  "address_line1_REGISTER": "${addressLine1REGISTER}",
-  "address_line2_REGISTER": "${addressLine2REGISTER}",
-  "subdistrict_id_REGISTER": "${subdistrictIdREGISTER}",
-  "subdistrict_name_REGISTER": "${subdistrictNameREGISTER}",
-  "district_id_REGISTER": "${districtIdREGISTER}",
-  "district_name_REGISTER": "${districtNameREGISTER}",
-  "province_id_REGISTER": "${provinceIdREGISTER}",
-  "province_name_REGISTER": "${provinceNameREGISTER}",
-  "zip_code_REGISTER": "${zipCodeREGISTER}",
-  "address_line1_CURRENT": "${addressLine1CURRENT}",
-  "address_line2_CURRENT": "${addressLine2CURRENT}",
-  "subdistrict_id_CURRENT": "${subdistrictIdCURRENT}",
-  "subdistrict_name_CURRENT": "${subdistrictNameCURRENT}",
-  "district_id_CURRENT": "${districtIdCURRENT}",
-  "district_name_CURRENT": "${districtNameCURRENT}",
-  "province_id_CURRENT": "${provinceIdCURRENT}",
-  "province_name_CURRENT": "${provinceNameCURRENT}",
-  "zip_code_CURRENT": "${zipCodeCURRENT}",
-  "ref_renew_id": "${refRenewId}",
-  "employee_code_license": "${employeeCodeLicense}",
-  "employee_firstname_license": "${employeeFirstnameLicense}",
-  "employee_lastname_license": "${employeeLastnameLicense}",
-  "employee_branch_license": "${employeeBranchLicense}",
-  "employee_company_license": "${employeeCompanyLicense}",
-  "employee_phone_number_license": "${employeePhoneNumberLicense}",
-  "employee_licenseid_license": "${employeeLicenseidLicense}",
-  "employee_licenseimg_license": "${employeeLicenseimgLicense}",
-  "employee_licenseexp_license": "${employeeLicenseexpLicense}",
-  "owner_id": "${ownerId}",
-  "owner_name": "${ownerName}",
-  "owner_phone": "${ownerPhone}"
+  "title_th": ${titleTh == null ? 'null' : '"${titleTh}"'},
+  "first_name_th": ${firstNameTh == null ? 'null' : '"${firstNameTh}"'},
+  "last_name_th": ${lastNameTh == null ? 'null' : '"${lastNameTh}"'},
+  "gender": ${gender == null ? 'null' : '"${gender}"'},
+  "nationalities": ${nationalities == null ? 'null' : '"${nationalities}"'},
+  "birth_day": ${birthDay == null ? 'null' : '"${birthDay}"'},
+  "occupation_name": ${occupationName == null ? 'null' : '"${occupationName}"'},
+  "id_type": ${idType == null ? 'null' : '"${idType}"'},
+  "national_thai_id": ${nationalThaiId == null ? 'null' : '"${nationalThaiId}"'},
+  "car_registration": ${carRegistration == null ? 'null' : '"${carRegistration}"'},
+  "registration_province": ${registrationProvince == null ? 'null' : '"${registrationProvince}"'},
+  "brand_id": ${brandId == null ? 'null' : '"${brandId}"'},
+  "brand_name": ${brandName == null ? 'null' : '"${brandName}"'},
+  "model_id": ${modelId == null ? 'null' : '"${modelId}"'},
+  "model_name": ${modelName == null ? 'null' : '"${modelName}"'},
+  "body_number": ${bodyNumber == null ? 'null' : '"${bodyNumber}"'},
+  "old_effective_date": ${oldEffectiveDate == null ? 'null' : '"${oldEffectiveDate}"'},
+  "old_expiry_date": ${oldExpiryDate == null ? 'null' : '"${oldExpiryDate}"'},
+  "insurer_name": ${insurerName == null ? 'null' : '"${insurerName}"'},
+  "old_VMI_policyNumber": ${oldVMIPolicyNumber == null ? 'null' : '"${oldVMIPolicyNumber}"'},
+  "old_cover_type_code": ${oldCoverTypeCode == null ? 'null' : '"${oldCoverTypeCode}"'},
+  "old_garage_type_name": ${oldGarageTypeName == null ? 'null' : '"${oldGarageTypeName}"'},
+  "old_camera_flg": ${oldCameraFlg == null ? 'null' : '"${oldCameraFlg}"'},
+  "old_driver_type": ${oldDriverType == null ? 'null' : '"${oldDriverType}"'},
+  "old_accessory_flg": ${oldAccessoryFlg == null ? 'null' : '"${oldAccessoryFlg}"'},
+  "renew_no": ${renewNo == null ? 'null' : '"${renewNo}"'},
+  "effective_date": ${effectiveDate == null ? 'null' : '"${effectiveDate}"'},
+  "expiry_date": ${expiryDate == null ? 'null' : '"${expiryDate}"'},
+  "cover_type_code": ${coverTypeCode == null ? 'null' : '"${coverTypeCode}"'},
+  "garage_type_name": ${garageTypeName == null ? 'null' : '"${garageTypeName}"'},
+  "tpbi_person": ${tpbiPerson == null ? 'null' : '"${tpbiPerson}"'},
+  "tpbi_accident": ${tpbiAccident == null ? 'null' : '"${tpbiAccident}"'},
+  "tppd": ${tppd == null ? 'null' : '"${tppd}"'},
+  "car_damage": ${carDamage == null ? 'null' : '"${carDamage}"'},
+  "car_lost": ${carLost == null ? 'null' : '"${carLost}"'},
+  "flood": ${flood == null ? 'null' : '"${flood}"'},
+  "deductible": ${deductible == null ? 'null' : '"${deductible}"'},
+  "pa": ${pa == null ? 'null' : '"${pa}"'},
+  "me": ${me == null ? 'null' : '"${me}"'},
+  "bb": ${bb == null ? 'null' : '"${bb}"'},
+  "seat": ${seat == null ? 'null' : '"${seat}"'},
+  "camera_flg": ${cameraFlg == null ? 'null' : '"${cameraFlg}"'},
+  "driver_type": ${driverType == null ? 'null' : '"${driverType}"'},
+  "driver_dob1": ${driverDob1 == null ? 'null' : '"${driverDob1}"'},
+  "driver_dob2": ${driverDob2 == null ? 'null' : '"${driverDob2}"'},
+  "accessory_flg": ${accessoryFlg == null ? 'null' : '"${accessoryFlg}"'},
+  "accessory_detail": ${accessoryDetail == null ? 'null' : '"${accessoryDetail}"'},
+  "roadside_assistance": ${roadsideAssistance == null ? 'null' : '"${roadsideAssistance}"'},
+  "net_premium": ${netPremium == null ? 'null' : '"${netPremium}"'},
+  "stamp": ${stamp == null ? 'null' : '"${stamp}"'},
+  "vat_amount": ${vatAmount == null ? 'null' : '"${vatAmount}"'},
+  "gross_total": ${grossTotal == null ? 'null' : '"${grossTotal}"'},
+  "claim_loss": ${claimLoss == null ? 'null' : '"${claimLoss}"'},
+  "claim_loss_percent": ${claimLossPercent == null ? 'null' : '"${claimLossPercent}"'},
+  "insurer_status": ${insurerStatus == null ? 'null' : '"${insurerStatus}"'},
+  "telephone_update": ${telephoneUpdate == null ? 'null' : '"${telephoneUpdate}"'},
+  "branch_code": ${branchCode == null ? 'null' : '"${branchCode}"'},
+  "vehicle_code": ${vehicleCode == null ? 'null' : '"${vehicleCode}"'},
+  "engine_number": ${engineNumber == null ? 'null' : '"${engineNumber}"'},
+  "cc": ${cc == null ? 'null' : '"${cc}"'},
+  "weight": ${weight == null ? 'null' : '"${weight}"'},
+  "registration_year": ${registrationYear == null ? 'null' : '"${registrationYear}"'},
+  "make_year": ${makeYear == null ? 'null' : '"${makeYear}"'},
+  "act_flg": ${actFlg == null ? 'null' : '"${actFlg}"'},
+  "effective_date_act": ${effectiveDateAct == null ? 'null' : '"${effectiveDateAct}"'},
+  "expiry_date_act": ${expiryDateAct == null ? 'null' : '"${expiryDateAct}"'},
+  "act_amount": ${actAmount == null ? 'null' : '"${actAmount}"'},
+  "stamp_act": ${stampAct == null ? 'null' : '"${stampAct}"'},
+  "vat_amount_act": ${vatAmountAct == null ? 'null' : '"${vatAmountAct}"'},
+  "beneficiary_name": ${beneficiaryName == null ? 'null' : '"${beneficiaryName}"'},
+  "address_line1_REGISTER": ${addressLine1REGISTER == null ? 'null' : '"${addressLine1REGISTER}"'},
+  "address_line2_REGISTER": ${addressLine2REGISTER == null ? 'null' : '"${addressLine2REGISTER}"'},
+  "subdistrict_id_REGISTER": ${subdistrictIdREGISTER == null ? 'null' : '"${subdistrictIdREGISTER}"'},
+  "subdistrict_name_REGISTER": ${subdistrictNameREGISTER == null ? 'null' : '"${subdistrictNameREGISTER}"'},
+  "district_id_REGISTER": ${districtIdREGISTER == null ? 'null' : '"${districtIdREGISTER}"'},
+  "district_name_REGISTER": ${districtNameREGISTER == null ? 'null' : '"${districtNameREGISTER}"'},
+  "province_id_REGISTER": ${provinceIdREGISTER == null ? 'null' : '"${provinceIdREGISTER}"'},
+  "province_name_REGISTER": ${provinceNameREGISTER == null ? 'null' : '"${provinceNameREGISTER}"'},
+  "zip_code_REGISTER": ${zipCodeREGISTER == null ? 'null' : '"${zipCodeREGISTER}"'},
+  "address_line1_CURRENT": ${addressLine1CURRENT == null ? 'null' : '"${addressLine1CURRENT}"'},
+  "address_line2_CURRENT": ${addressLine2CURRENT == null ? 'null' : '"${addressLine2CURRENT}"'},
+  "subdistrict_id_CURRENT": ${subdistrictIdCURRENT == null ? 'null' : '"${subdistrictIdCURRENT}"'},
+  "subdistrict_name_CURRENT": ${subdistrictNameCURRENT == null ? 'null' : '"${subdistrictNameCURRENT}"'},
+  "district_id_CURRENT": ${districtIdCURRENT == null ? 'null' : '"${districtIdCURRENT}"'},
+  "district_name_CURRENT": ${districtNameCURRENT == null ? 'null' : '"${districtNameCURRENT}"'},
+  "province_id_CURRENT": ${provinceIdCURRENT == null ? 'null' : '"${provinceIdCURRENT}"'},
+  "province_name_CURRENT": ${provinceNameCURRENT == null ? 'null' : '"${provinceNameCURRENT}"'},
+  "zip_code_CURRENT": ${zipCodeCURRENT == null ? 'null' : '"${zipCodeCURRENT}"'},
+  "ref_renew_id": ${refRenewId == null ? 'null' : '"${refRenewId}"'},
+  "employee_code_license": ${employeeCodeLicense == null ? 'null' : '"${employeeCodeLicense}"'},
+  "employee_firstname_license": ${employeeFirstnameLicense == null ? 'null' : '"${employeeFirstnameLicense}"'},
+  "employee_lastname_license": ${employeeLastnameLicense == null ? 'null' : '"${employeeLastnameLicense}"'},
+  "employee_branch_license": ${employeeBranchLicense == null ? 'null' : '"${employeeBranchLicense}"'},
+  "employee_company_license": ${employeeCompanyLicense == null ? 'null' : '"${employeeCompanyLicense}"'},
+  "employee_phone_number_license": ${employeePhoneNumberLicense == null ? 'null' : '"${employeePhoneNumberLicense}"'},
+  "employee_licenseid_license": ${employeeLicenseidLicense == null ? 'null' : '"${employeeLicenseidLicense}"'},
+  "employee_licenseimg_license": ${employeeLicenseimgLicense == null ? 'null' : '"${employeeLicenseimgLicense}"'},
+  "employee_licenseexp_license": ${employeeLicenseexpLicense == null ? 'null' : '"${employeeLicenseexpLicense}"'},
+  "owner_id": ${ownerId == null ? 'null' : '"${ownerId}"'},
+  "owner_name": ${ownerName == null ? 'null' : '"${ownerName}"'},
+  "owner_phone": ${ownerPhone == null ? 'null' : '"${ownerPhone}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'renewSave',
@@ -17917,8 +17917,8 @@ class GetDataRenewCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "insurance_url": "${insuranceUrl}",
-  "ref_renew_id": "${refRenewId}"
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'},
+  "ref_renew_id": ${refRenewId == null ? 'null' : '"${refRenewId}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getDataRenew',
@@ -18410,10 +18410,10 @@ class CmiCheckAPICall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "insurance_url": "${insuranceUrl}",
-  "token": "${token}",
-  "CHASSIS_NBR": "${chassisNbr}",
-  "EFF_DATE": "${effDate}"
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "CHASSIS_NBR": ${chassisNbr == null ? 'null' : '"${chassisNbr}"'},
+  "EFF_DATE": ${effDate == null ? 'null' : '"${effDate}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'cmiCheckAPI',
@@ -18490,29 +18490,29 @@ class CmiSaveLeadsCall {
   }) async {
     final ffApiRequestBody = '''
 {
-"customer_type":"${customerType}",
-"owner_name":"${ownerName}",
-"owner_phone":"${ownerPhone}",
-"owner_id":"${ownerId}",
-"branch_code":"${branchCode}",
-"branch_name":"${branchName}",
-  "insurance_url": "${insuranceUrl}",
-  "token": "${token}",
-  "car_brand_id": "${carBrandId}",
-  "car_brand_name": "${carBrandName}",
-  "car_model_id": "${carModelId}",
-  "car_model_name": "${carModelName}",
-  "car_registration": "${carRegistration}",
-  "car_registration_year": "${carRegistrationYear}",
-  "first_name": "${firstName}",
-  "phone_number": "${phoneNumber}",
-  "car_type": "${carType}",
-  "vehicle_id": "${vehicleId}",
-  "vehicle_code": "${vehicleCode}",
-  "vehicle_name": "${vehicleName}",
-  "body_number": "${bodyNumber}",
-  "effective_date_act": "${effectiveDateAct}",
-  "last_name": "${lastName}"
+"customer_type":${customerType == null ? 'null' : '"${customerType}"'},
+"owner_name":${ownerName == null ? 'null' : '"${ownerName}"'},
+"owner_phone":${ownerPhone == null ? 'null' : '"${ownerPhone}"'},
+"owner_id":${ownerId == null ? 'null' : '"${ownerId}"'},
+"branch_code":${branchCode == null ? 'null' : '"${branchCode}"'},
+"branch_name":${branchName == null ? 'null' : '"${branchName}"'},
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'},
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "car_brand_id": ${carBrandId == null ? 'null' : '"${carBrandId}"'},
+  "car_brand_name": ${carBrandName == null ? 'null' : '"${carBrandName}"'},
+  "car_model_id": ${carModelId == null ? 'null' : '"${carModelId}"'},
+  "car_model_name": ${carModelName == null ? 'null' : '"${carModelName}"'},
+  "car_registration": ${carRegistration == null ? 'null' : '"${carRegistration}"'},
+  "car_registration_year": ${carRegistrationYear == null ? 'null' : '"${carRegistrationYear}"'},
+  "first_name": ${firstName == null ? 'null' : '"${firstName}"'},
+  "phone_number": ${phoneNumber == null ? 'null' : '"${phoneNumber}"'},
+  "car_type": ${carType == null ? 'null' : '"${carType}"'},
+  "vehicle_id": ${vehicleId == null ? 'null' : '"${vehicleId}"'},
+  "vehicle_code": ${vehicleCode == null ? 'null' : '"${vehicleCode}"'},
+  "vehicle_name": ${vehicleName == null ? 'null' : '"${vehicleName}"'},
+  "body_number": ${bodyNumber == null ? 'null' : '"${bodyNumber}"'},
+  "effective_date_act": ${effectiveDateAct == null ? 'null' : '"${effectiveDateAct}"'},
+  "last_name": ${lastName == null ? 'null' : '"${lastName}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'cmiSaveLeads',
@@ -18561,7 +18561,7 @@ class ApiLicenseGetLicenseCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "employee_code_license":"${employeeCodeLicense}" 
+  "employee_code_license":${employeeCodeLicense == null ? 'null' : '"${employeeCodeLicense}"'} 
   
 }''';
     return ApiManager.instance.makeApiCall(
@@ -18625,9 +18625,9 @@ class ApiLicenseSaveLicenseCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "employee_code_license": "${employeeCodeLicense}",
-  "quotation_id": "${quotationId}",
-  "lead_id": "${leadId}"
+  "employee_code_license": ${employeeCodeLicense == null ? 'null' : '"${employeeCodeLicense}"'},
+  "quotation_id": ${quotationId == null ? 'null' : '"${quotationId}"'},
+  "lead_id": ${leadId == null ? 'null' : '"${leadId}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'apiLicenseSaveLicense',
@@ -18670,9 +18670,9 @@ class ApiLicenseCancelLicenseCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "employee_code_license": "${employeeCodeLicense}",
-  "quotation_id": "${quotationId}",
-  "lead_id": "${leadId}"
+  "employee_code_license": ${employeeCodeLicense == null ? 'null' : '"${employeeCodeLicense}"'},
+  "quotation_id": ${quotationId == null ? 'null' : '"${quotationId}"'},
+  "lead_id": ${leadId == null ? 'null' : '"${leadId}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'apiLicenseCancelLicense',
@@ -18710,7 +18710,7 @@ class GetOccupationCall {
     String? insuranceUrl = '',
   }) async {
     final ffApiRequestBody = '''
-{"insurance_url":"${insuranceUrl}"
+{"insurance_url":${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'GetOccupation',
@@ -18799,19 +18799,19 @@ class LeadManagementSaveCall {
     final insurance = _serializeJson(insuranceJson);
     final ffApiRequestBody = '''
 {
-"owner_id":"${ownerId}",
-  "first_name": "${firstName}",
-  "last_name": "${lastName}",
-  "phone_number": "${phoneNumber}",
-  "remark": "${remark}",
+"owner_id":${ownerId == null ? 'null' : '"${ownerId}"'},
+  "first_name": ${firstName == null ? 'null' : '"${firstName}"'},
+  "last_name": ${lastName == null ? 'null' : '"${lastName}"'},
+  "phone_number": ${phoneNumber == null ? 'null' : '"${phoneNumber}"'},
+  "remark": ${remark == null ? 'null' : '"${remark}"'},
   "insurance": ${insurance},
-  "token": "${token}",
-  "product": "${product}",
-  "sub_product": "${subProduct}",
-  "source_by": "${sourceBy}",
-  "channel": "${channel}",
-  "lead_group": "${leadGroup}",
-  "leads_api_url": "${leadsApiUrl}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "product": ${product == null ? 'null' : '"${product}"'},
+  "sub_product": ${subProduct == null ? 'null' : '"${subProduct}"'},
+  "source_by": ${sourceBy == null ? 'null' : '"${sourceBy}"'},
+  "channel": ${channel == null ? 'null' : '"${channel}"'},
+  "lead_group": ${leadGroup == null ? 'null' : '"${leadGroup}"'},
+  "leads_api_url": ${leadsApiUrl == null ? 'null' : '"${leadsApiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'LeadManagementSave',
@@ -18864,18 +18864,18 @@ class LeadManagementCheckDuplicateCall {
     final insurance = _serializeJson(insuranceJson);
     final ffApiRequestBody = '''
 {
-  "first_name": "${firstName}",
-  "last_name": "${lastName}",
-  "phone_number": "${phoneNumber}",
-  "remark": "${remark}",
+  "first_name": ${firstName == null ? 'null' : '"${firstName}"'},
+  "last_name": ${lastName == null ? 'null' : '"${lastName}"'},
+  "phone_number": ${phoneNumber == null ? 'null' : '"${phoneNumber}"'},
+  "remark": ${remark == null ? 'null' : '"${remark}"'},
   "insurance": ${insurance},
-  "token": "${token}",
-  "product": "${product}",
-  "sub_product": "${subProduct}",
-  "source_by": "${sourceBy}",
-  "channel": "${channel}",
-  "lead_group": "${leadGroup}",
-  "leads_api_url": "${leadsApiUrl}"
+  "token": ${token == null ? 'null' : '"${token}"'},
+  "product": ${product == null ? 'null' : '"${product}"'},
+  "sub_product": ${subProduct == null ? 'null' : '"${subProduct}"'},
+  "source_by": ${sourceBy == null ? 'null' : '"${sourceBy}"'},
+  "channel": ${channel == null ? 'null' : '"${channel}"'},
+  "lead_group": ${leadGroup == null ? 'null' : '"${leadGroup}"'},
+  "leads_api_url": ${leadsApiUrl == null ? 'null' : '"${leadsApiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'LeadManagementCheckDuplicate',
@@ -18922,9 +18922,9 @@ class GetTokenLeadManagementCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "name_th": "${nameTh}",
-  "password": "${password}",
-  "leads_api_url": "${leadsApiUrl}"
+  "name_th": ${nameTh == null ? 'null' : '"${nameTh}"'},
+  "password": ${password == null ? 'null' : '"${password}"'},
+  "leads_api_url": ${leadsApiUrl == null ? 'null' : '"${leadsApiUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'GetTokenLeadManagement',
@@ -18959,7 +18959,7 @@ class RenewMasterGetCallStatusCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "insurance_url": "${insuranceUrl}"
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'renewMasterGetCallStatus',
@@ -19027,8 +19027,8 @@ class VloanBarcodeGenCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "db_name": "${dbname}",
-  "key_search": "${keySearch}"
+  "db_name": ${dbname == null ? 'null' : '"${dbname}"'},
+  "key_search": ${keySearch == null ? 'null' : '"${keySearch}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'vloanBarcodeGen',
@@ -19094,10 +19094,10 @@ class ApiCmiSaveContractCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "insurance_url": "${insuranceUrl}",
-  "quotation_id": "${quotationId}",
-  "contract_no": "${contractNo}",
-  "access_token": "${accessToken}"
+  "insurance_url": ${insuranceUrl == null ? 'null' : '"${insuranceUrl}"'},
+  "quotation_id": ${quotationId == null ? 'null' : '"${quotationId}"'},
+  "contract_no": ${contractNo == null ? 'null' : '"${contractNo}"'},
+  "access_token": ${accessToken == null ? 'null' : '"${accessToken}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'apiCmiSaveContract',

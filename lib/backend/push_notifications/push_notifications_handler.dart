@@ -143,7 +143,11 @@ final parametersBuilderMap =
       ),
   'AboutUsPage': ParameterData.none(),
   'ContactUsPage': ParameterData.none(),
-  'SelectReasonPage': ParameterData.none(),
+  'SelectReasonPage': (data) async => ParameterData(
+        allParams: {
+          'workType': getParameter<String>(data, 'workType'),
+        },
+      ),
   'MyAccountPage': ParameterData.none(),
   'SearchableListPage': (data) async => ParameterData(
         allParams: {
@@ -153,6 +157,7 @@ final parametersBuilderMap =
           'maxSelected': getParameter<int>(data, 'maxSelected'),
           'fromPage': getParameter<String>(data, 'fromPage'),
           'index': getParameter<int>(data, 'index'),
+          'fromIcon': getParameter<String>(data, 'fromIcon'),
         },
       ),
   'compareInsurancePage': (data) async => ParameterData(
@@ -202,6 +207,7 @@ final parametersBuilderMap =
           'driver': getParameter<String>(data, 'driver'),
           'idCard': getParameter<String>(data, 'idCard'),
           'customerType': getParameter<String>(data, 'customerType'),
+          'fromIcon': getParameter<String>(data, 'fromIcon'),
         },
       ),
   'detailsInsurancePage': (data) async => ParameterData(
@@ -385,7 +391,11 @@ final parametersBuilderMap =
           'fromPage': getParameter<String>(data, 'fromPage'),
         },
       ),
-  'InsuranceWorkSelectPage': ParameterData.none(),
+  'InsuranceWorkSelectPage': (data) async => ParameterData(
+        allParams: {
+          'fromIcon': getParameter<String>(data, 'fromIcon'),
+        },
+      ),
   'MakeInsuranceListPage': (data) async => ParameterData(
         allParams: {
           'checkTotal': getParameter<int>(data, 'checkTotal'),
@@ -500,6 +510,7 @@ final parametersBuilderMap =
           'multiSelect': getParameter<bool>(data, 'multiSelect'),
           'maxSelected': getParameter<int>(data, 'maxSelected'),
           'fromPage': getParameter<String>(data, 'fromPage'),
+          'fromIcon': getParameter<String>(data, 'fromIcon'),
         },
       ),
   'SearchablePickUpListPage': (data) async => ParameterData(
@@ -509,6 +520,7 @@ final parametersBuilderMap =
           'multiSelect': getParameter<bool>(data, 'multiSelect'),
           'maxSelected': getParameter<int>(data, 'maxSelected'),
           'fromPage': getParameter<String>(data, 'fromPage'),
+          'fromIcon': getParameter<String>(data, 'fromIcon'),
         },
       ),
   'renewHistory': (data) async => ParameterData(
@@ -601,6 +613,7 @@ final parametersBuilderMap =
           'driverFlag': getParameter<String>(data, 'driverFlag'),
           'idCard': getParameter<String>(data, 'idCard'),
           'customerType': getParameter<String>(data, 'customerType'),
+          'fromIcon': getParameter<String>(data, 'fromIcon'),
         },
       ),
   'SearchableHouseList': (data) async => ParameterData(

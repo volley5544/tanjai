@@ -24,6 +24,7 @@ class SearchableListPageWidget extends StatefulWidget {
     int? maxSelected,
     String? fromPage,
     this.index,
+    this.fromIcon,
   })  : this.titleText = titleText ?? 'เลือก...',
         this.multiSelect = multiSelect ?? false,
         this.maxSelected = maxSelected ?? 0,
@@ -36,6 +37,7 @@ class SearchableListPageWidget extends StatefulWidget {
   final int maxSelected;
   final String fromPage;
   final int? index;
+  final String? fromIcon;
 
   static String routeName = 'SearchableListPage';
   static String routePath = 'SearchableListPage';
@@ -433,8 +435,16 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                   true))) ==
                                                       'รถบรรทุก หัวลาก หางพ่วง') {
                                                     context.goNamed(
-                                                        InsuranceWorkSelectPageWidget
-                                                            .routeName);
+                                                      InsuranceWorkSelectPageWidget
+                                                          .routeName,
+                                                      queryParameters: {
+                                                        'fromIcon':
+                                                            serializeParam(
+                                                          widget!.fromIcon,
+                                                          ParamType.String,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
 
                                                     return;
                                                   } else {
@@ -447,8 +457,16 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                     true))) ==
                                                         'รถแต่ง ต่อคอก') {
                                                       context.goNamed(
-                                                          InsuranceWorkSelectPageWidget
-                                                              .routeName);
+                                                        InsuranceWorkSelectPageWidget
+                                                            .routeName,
+                                                        queryParameters: {
+                                                          'fromIcon':
+                                                              serializeParam(
+                                                            widget!.fromIcon,
+                                                            ParamType.String,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
 
                                                       return;
                                                     }
@@ -621,8 +639,16 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                       );
 
                                                       context.goNamed(
-                                                          InsuranceWorkSelectPageWidget
-                                                              .routeName);
+                                                        InsuranceWorkSelectPageWidget
+                                                            .routeName,
+                                                        queryParameters: {
+                                                          'fromIcon':
+                                                              serializeParam(
+                                                            widget!.fromIcon,
+                                                            ParamType.String,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
 
                                                       return;
                                                     }
@@ -734,8 +760,16 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                       );
 
                                                       context.goNamed(
-                                                          InsuranceWorkSelectPageWidget
-                                                              .routeName);
+                                                        InsuranceWorkSelectPageWidget
+                                                            .routeName,
+                                                        queryParameters: {
+                                                          'fromIcon':
+                                                              serializeParam(
+                                                            widget!.fromIcon,
+                                                            ParamType.String,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
 
                                                       return;
                                                     }
@@ -2280,8 +2314,15 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                   true))) ==
                                           'รถบรรทุก หัวลาก หางพ่วง') {
                                         context.goNamed(
-                                            InsuranceWorkSelectPageWidget
-                                                .routeName);
+                                          InsuranceWorkSelectPageWidget
+                                              .routeName,
+                                          queryParameters: {
+                                            'fromIcon': serializeParam(
+                                              widget!.fromIcon,
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
+                                        );
 
                                         return;
                                       } else {
@@ -2293,8 +2334,15 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                     true))) ==
                                             'รถแต่ง ต่อคอก') {
                                           context.goNamed(
-                                              InsuranceWorkSelectPageWidget
-                                                  .routeName);
+                                            InsuranceWorkSelectPageWidget
+                                                .routeName,
+                                            queryParameters: {
+                                              'fromIcon': serializeParam(
+                                                widget!.fromIcon,
+                                                ParamType.String,
+                                              ),
+                                            }.withoutNulls,
+                                          );
 
                                           return;
                                         }

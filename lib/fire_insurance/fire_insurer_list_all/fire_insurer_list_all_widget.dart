@@ -1545,6 +1545,10 @@ class _FireInsurerListAllWidgetState extends State<FireInsurerListAllWidget>
                                                                                                   '0',
                                                                                                   ParamType.String,
                                                                                                 ),
+                                                                                                'fromIcon': serializeParam(
+                                                                                                  'fire',
+                                                                                                  ParamType.String,
+                                                                                                ),
                                                                                               }.withoutNulls,
                                                                                             );
                                                                                           },

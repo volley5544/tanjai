@@ -14,7 +14,12 @@ import 'select_reason_page_model.dart';
 export 'select_reason_page_model.dart';
 
 class SelectReasonPageWidget extends StatefulWidget {
-  const SelectReasonPageWidget({super.key});
+  const SelectReasonPageWidget({
+    super.key,
+    String? workType,
+  }) : this.workType = workType ?? 'manual';
+
+  final String workType;
 
   static String routeName = 'SelectReasonPage';
   static String routePath = 'selectReasonPage';
@@ -864,7 +869,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                   .routeName,
                                               queryParameters: {
                                                 'workType': serializeParam(
-                                                  'manual',
+                                                  widget!.workType,
                                                   ParamType.String,
                                                 ),
                                               }.withoutNulls,

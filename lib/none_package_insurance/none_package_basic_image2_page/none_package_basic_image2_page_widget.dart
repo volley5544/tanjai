@@ -544,7 +544,10 @@ class _NonePackageBasicImage2PageWidgetState
                                                                   .fontStyle,
                                                         ),
                                               ),
-                                              if (false)
+                                              if (widget!.workType == 'ev'
+                                                  ? !FFAppState()
+                                                      .nonePackageFlagRenew
+                                                  : false)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -2752,6 +2755,36 @@ class _NonePackageBasicImage2PageWidgetState
                                     },
                                   );
                                   return;
+                                }
+                                if (widget!.workType == 'ev') {
+                                  if (!(FFAppState().nonePackageFlagRenew
+                                      ? true
+                                      : (FFAppState()
+                                                  .nonePackageIdCardImageUrl !=
+                                              null &&
+                                          FFAppState()
+                                                  .nonePackageIdCardImageUrl !=
+                                              ''))) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'กรุณาอัพโหลดรูปสำเนาบัตรประชาชนผู้เอาประกัน'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    return;
+                                  }
                                 }
                                 if (!(_model.privacyConsent1Value! &&
                                     _model.privacyConsent2Value! &&

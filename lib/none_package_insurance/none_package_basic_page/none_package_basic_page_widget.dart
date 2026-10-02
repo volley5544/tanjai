@@ -1071,6 +1071,10 @@ class _NonePackageBasicPageWidgetState
                                       'NonePackage',
                                       ParamType.String,
                                     ),
+                                    'fromIcon': serializeParam(
+                                      'manual',
+                                      ParamType.String,
+                                    ),
                                   }.withoutNulls,
                                 );
 
@@ -9447,11 +9451,17 @@ class _NonePackageBasicPageWidgetState
                                     safeSetState(() {});
                                   }
 
-                                  if (FFAppState().nonePackageFlagRenew ||
-                                      (FFAppState().nonePackageUsedTypeCode ==
-                                          '110') ||
-                                      (FFAppState().nonePackageCoverTypeName ==
-                                          'ชั้น 3')) {
+                                  if (widget!.workType == 'ev'
+                                      ? (FFAppState()
+                                              .nonePackageCoverTypeName !=
+                                          'ชั้น 1')
+                                      : (FFAppState().nonePackageFlagRenew ||
+                                          (FFAppState()
+                                                  .nonePackageUsedTypeCode ==
+                                              '110') ||
+                                          (FFAppState()
+                                                  .nonePackageCoverTypeName ==
+                                              'ชั้น 3'))) {
                                     context.pushNamed(
                                       NonePackageBasicImage2PageWidget
                                           .routeName,

@@ -22,6 +22,7 @@ class SearchableCarListPageWidget extends StatefulWidget {
     bool? multiSelect,
     int? maxSelected,
     String? fromPage,
+    this.fromIcon,
   })  : this.titleText = titleText ?? 'เลือก...',
         this.multiSelect = multiSelect ?? false,
         this.maxSelected = maxSelected ?? 0,
@@ -33,6 +34,7 @@ class SearchableCarListPageWidget extends StatefulWidget {
   final bool multiSelect;
   final int maxSelected;
   final String fromPage;
+  final String? fromIcon;
 
   static String routeName = 'SearchableCarListPage';
   static String routePath = 'SearchableCarListPage';
@@ -456,8 +458,16 @@ class _SearchableCarListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      InsuranceWorkSelectPageWidget
-                                                          .routeName);
+                                                    InsuranceWorkSelectPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'fromIcon':
+                                                          serializeParam(
+                                                        widget!.fromIcon,
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
 
                                                   return;
                                                 }
@@ -774,8 +784,16 @@ class _SearchableCarListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      InsuranceWorkSelectPageWidget
-                                                          .routeName);
+                                                    InsuranceWorkSelectPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'fromIcon':
+                                                          serializeParam(
+                                                        widget!.fromIcon,
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
 
                                                   return;
                                                 }
@@ -1081,8 +1099,16 @@ class _SearchableCarListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      InsuranceWorkSelectPageWidget
-                                                          .routeName);
+                                                    InsuranceWorkSelectPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'fromIcon':
+                                                          serializeParam(
+                                                        widget!.fromIcon,
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
 
                                                   return;
                                                 }
@@ -1379,8 +1405,16 @@ class _SearchableCarListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      InsuranceWorkSelectPageWidget
-                                                          .routeName);
+                                                    InsuranceWorkSelectPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'fromIcon':
+                                                          serializeParam(
+                                                        widget!.fromIcon,
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
 
                                                   return;
                                                 }
@@ -2611,8 +2645,16 @@ class _SearchableCarListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      InsuranceWorkSelectPageWidget
-                                                          .routeName);
+                                                    InsuranceWorkSelectPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'fromIcon':
+                                                          serializeParam(
+                                                        widget!.fromIcon,
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
 
                                                   return;
                                                 }
@@ -2840,8 +2882,16 @@ class _SearchableCarListPageWidgetState
                                                   'searchPackage') {
                                                 if (true) {
                                                   context.goNamed(
-                                                      InsuranceWorkSelectPageWidget
-                                                          .routeName);
+                                                    InsuranceWorkSelectPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'fromIcon':
+                                                          serializeParam(
+                                                        widget!.fromIcon,
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
 
                                                   return;
                                                 } else {
@@ -2854,8 +2904,16 @@ class _SearchableCarListPageWidgetState
                                                                   true))) ==
                                                       'รถแต่ง ต่อคอก') {
                                                     context.goNamed(
-                                                        InsuranceWorkSelectPageWidget
-                                                            .routeName);
+                                                      InsuranceWorkSelectPageWidget
+                                                          .routeName,
+                                                      queryParameters: {
+                                                        'fromIcon':
+                                                            serializeParam(
+                                                          widget!.fromIcon,
+                                                          ParamType.String,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
 
                                                     return;
                                                   }
@@ -3056,8 +3114,16 @@ class _SearchableCarListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      InsuranceWorkSelectPageWidget
-                                                          .routeName);
+                                                    InsuranceWorkSelectPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'fromIcon':
+                                                          serializeParam(
+                                                        widget!.fromIcon,
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
 
                                                   return;
                                                 }
@@ -4193,15 +4259,31 @@ class _SearchableCarListPageWidgetState
                                                   'searchPackage') {
                                                 if (false) {
                                                   context.goNamed(
-                                                      InsuranceWorkSelectPageWidget
-                                                          .routeName);
+                                                    InsuranceWorkSelectPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'fromIcon':
+                                                          serializeParam(
+                                                        widget!.fromIcon,
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
 
                                                   return;
                                                 } else {
                                                   if (true) {
                                                     context.goNamed(
-                                                        InsuranceWorkSelectPageWidget
-                                                            .routeName);
+                                                      InsuranceWorkSelectPageWidget
+                                                          .routeName,
+                                                      queryParameters: {
+                                                        'fromIcon':
+                                                            serializeParam(
+                                                          widget!.fromIcon,
+                                                          ParamType.String,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
 
                                                     return;
                                                   }
@@ -4355,8 +4437,16 @@ class _SearchableCarListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      InsuranceWorkSelectPageWidget
-                                                          .routeName);
+                                                    InsuranceWorkSelectPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'fromIcon':
+                                                          serializeParam(
+                                                        widget!.fromIcon,
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
 
                                                   return;
                                                 }
@@ -5496,15 +5586,31 @@ class _SearchableCarListPageWidgetState
                                                     context.pop();
                                                   }
                                                   context.pushNamed(
-                                                      InsuranceWorkSelectPageWidget
-                                                          .routeName);
+                                                    InsuranceWorkSelectPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'fromIcon':
+                                                          serializeParam(
+                                                        widget!.fromIcon,
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
 
                                                   return;
                                                 } else {
                                                   if (true) {
                                                     context.goNamed(
-                                                        InsuranceWorkSelectPageWidget
-                                                            .routeName);
+                                                      InsuranceWorkSelectPageWidget
+                                                          .routeName,
+                                                      queryParameters: {
+                                                        'fromIcon':
+                                                            serializeParam(
+                                                          widget!.fromIcon,
+                                                          ParamType.String,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
 
                                                     return;
                                                   }
@@ -5658,8 +5764,16 @@ class _SearchableCarListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      InsuranceWorkSelectPageWidget
-                                                          .routeName);
+                                                    InsuranceWorkSelectPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'fromIcon':
+                                                          serializeParam(
+                                                        widget!.fromIcon,
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
 
                                                   return;
                                                 }

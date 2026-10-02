@@ -22,6 +22,7 @@ class SearchablePickUpListPageWidget extends StatefulWidget {
     bool? multiSelect,
     int? maxSelected,
     String? fromPage,
+    this.fromIcon,
   })  : this.titleText = titleText ?? 'เลือก...',
         this.multiSelect = multiSelect ?? false,
         this.maxSelected = maxSelected ?? 0,
@@ -33,6 +34,7 @@ class SearchablePickUpListPageWidget extends StatefulWidget {
   final bool multiSelect;
   final int maxSelected;
   final String fromPage;
+  final String? fromIcon;
 
   static String routeName = 'SearchablePickUpListPage';
   static String routePath = 'SearchablePickUpListPage';
@@ -546,8 +548,16 @@ class _SearchablePickUpListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      InsuranceWorkSelectPageWidget
-                                                          .routeName);
+                                                    InsuranceWorkSelectPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'fromIcon':
+                                                          serializeParam(
+                                                        widget!.fromIcon,
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
 
                                                   return;
                                                 }
@@ -939,8 +949,16 @@ class _SearchablePickUpListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      InsuranceWorkSelectPageWidget
-                                                          .routeName);
+                                                    InsuranceWorkSelectPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'fromIcon':
+                                                          serializeParam(
+                                                        widget!.fromIcon,
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
 
                                                   return;
                                                 }
@@ -2252,8 +2270,16 @@ class _SearchablePickUpListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      InsuranceWorkSelectPageWidget
-                                                          .routeName);
+                                                    InsuranceWorkSelectPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'fromIcon':
+                                                          serializeParam(
+                                                        widget!.fromIcon,
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
 
                                                   return;
                                                 }
@@ -3552,8 +3578,15 @@ class _SearchablePickUpListPageWidgetState
                                               );
 
                                               context.goNamed(
-                                                  InsuranceWorkSelectPageWidget
-                                                      .routeName);
+                                                InsuranceWorkSelectPageWidget
+                                                    .routeName,
+                                                queryParameters: {
+                                                  'fromIcon': serializeParam(
+                                                    widget!.fromIcon,
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
 
                                               return;
                                             }

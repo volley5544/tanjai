@@ -2238,6 +2238,10 @@ class _SearchInsurancePageCopyWidgetState
                                     '0',
                                     ParamType.String,
                                   ),
+                                  'fromIcon': serializeParam(
+                                    widget!.fromIcon,
+                                    ParamType.String,
+                                  ),
                                 }.withoutNulls,
                               );
                             },
