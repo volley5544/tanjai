@@ -150,8 +150,7 @@ class InsurerConfig2Record extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is InsurerConfig2Record &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is InsurerConfig2Record && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createInsurerConfig2RecordData({
@@ -208,19 +207,19 @@ class InsurerConfig2RecordDocumentEquality
   int hash(InsurerConfig2Record? e) => const ListEquality().hash([
         e?.configName,
         e?.insurerShortNameMap,
-        e?.insurerFullPayment,
-        e?.insurerInstallment,
-        e?.insurerCoverType,
-        e?.insurerGarageType,
-        e?.canInstallmentList,
-        e?.canInstallmentListEmployee,
-        e?.canInstallmentLevel,
+        const ListEquality().hash(e?.insurerFullPayment),
+        const ListEquality().hash(e?.insurerInstallment),
+        const ListEquality().hash(e?.insurerCoverType),
+        const ListEquality().hash(e?.insurerGarageType),
+        const ListEquality().hash(e?.canInstallmentList),
+        const ListEquality().hash(e?.canInstallmentListEmployee),
+        const ListEquality().hash(e?.canInstallmentLevel),
         e?.renewInstallment,
-        e?.checkInstallmentVmi1,
-        e?.checkInstallmentVmi2,
-        e?.checkInstallmentVmi2plus,
-        e?.checkInstallmentVmi3,
-        e?.checkInstallmentVmi3plus
+        const ListEquality().hash(e?.checkInstallmentVmi1),
+        const ListEquality().hash(e?.checkInstallmentVmi2),
+        const ListEquality().hash(e?.checkInstallmentVmi2plus),
+        const ListEquality().hash(e?.checkInstallmentVmi3),
+        const ListEquality().hash(e?.checkInstallmentVmi3plus)
       ]);
 
   @override

@@ -328,8 +328,10 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                               AlignmentDirectional(
                                                                   -1.0, 0.0),
                                                           child: FaIcon(
-                                                            FontAwesomeIcons
-                                                                .longArrowAltUp,
+                                                            FaIconData(
+                                                                FontAwesomeIcons
+                                                                    .longArrowAltUp
+                                                                    .data),
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -341,8 +343,10 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                               AlignmentDirectional(
                                                                   1.0, 0.0),
                                                           child: FaIcon(
-                                                            FontAwesomeIcons
-                                                                .longArrowAltDown,
+                                                            FaIconData(
+                                                                FontAwesomeIcons
+                                                                    .longArrowAltDown
+                                                                    .data),
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,

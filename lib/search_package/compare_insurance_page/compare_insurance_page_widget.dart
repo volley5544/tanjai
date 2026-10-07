@@ -2273,8 +2273,16 @@ class _CompareInsurancePageWidgetState
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
                                                         if (widget!
-                                                            .inspectionExcept!
-                                                            .contains("Y")) {
+                                                                .inspectionExceptPolicyFile!
+                                                                .contains(widget!
+                                                                    .inspectionExcept
+                                                                    ?.contains(
+                                                                        "Y")
+                                                                    ?.toString()) &&
+                                                            widget!
+                                                                .coverTypeCode!
+                                                                .contains(
+                                                                    "Y")) {
                                                           await showDialog(
                                                             context: context,
                                                             builder:
@@ -2925,8 +2933,11 @@ class _CompareInsurancePageWidgetState
                                                       );
                                                     }
                                                   }
-                                                  if (widget!.inspectionExcept!
-                                                      .contains("Y")) {
+                                                  if (widget!
+                                                          .inspectionExceptPolicyFile!
+                                                          .contains("Y") &&
+                                                      widget!.coverTypeCode!
+                                                          .contains("Y")) {
                                                     await showDialog(
                                                       context: context,
                                                       builder:

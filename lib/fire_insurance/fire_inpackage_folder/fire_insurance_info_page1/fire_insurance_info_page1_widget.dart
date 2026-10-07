@@ -2427,7 +2427,8 @@ class _FireInsuranceInfoPage1WidgetState
                                                     .fromSTEB(
                                                         10.0, 0.0, 0.0, 0.0),
                                                 child: FaIcon(
-                                                  FontAwesomeIcons.addressCard,
+                                                  FaIconData(FontAwesomeIcons
+                                                      .addressCard.data),
                                                   color: Color(0xFF57636C),
                                                   size: 24.0,
                                                 ),

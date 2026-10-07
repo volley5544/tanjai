@@ -316,7 +316,7 @@ class PackageDataModelStruct extends FFFirebaseStruct {
         minGrossTotal,
         maxSumInsured,
         minSumInsured,
-        package
+        const ListEquality().hash(package)
       ]);
 }
 

@@ -67,7 +67,7 @@ class ListInsurerCantInstallmentRecord extends FirestoreRecord {
   @override
   bool operator ==(other) =>
       other is ListInsurerCantInstallmentRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createListInsurerCantInstallmentRecordData() {
@@ -92,8 +92,10 @@ class ListInsurerCantInstallmentRecordDocumentEquality
   }
 
   @override
-  int hash(ListInsurerCantInstallmentRecord? e) =>
-      const ListEquality().hash([e?.insurerFullPayment, e?.insurerInstallment]);
+  int hash(ListInsurerCantInstallmentRecord? e) => const ListEquality().hash([
+        const ListEquality().hash(e?.insurerFullPayment),
+        const ListEquality().hash(e?.insurerInstallment)
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is ListInsurerCantInstallmentRecord;

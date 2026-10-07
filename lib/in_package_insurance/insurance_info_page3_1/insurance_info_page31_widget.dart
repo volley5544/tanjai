@@ -5708,19 +5708,32 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                 ],
                               ),
                             ),
-                            if (FFAppState().nonePackageFlagRenew
-                                ? false
-                                : (FFAppState().insuranceInfocoverType !=
+                            if (() {
+                              if (FFAppState().nonePackageFlagRenew) {
+                                return false;
+                              } else if (FFAppState().insuranceInfoEvFlag ==
+                                  'Y') {
+                                return (FFAppState().insuranceInfocoverType ==
+                                    'ชั้น 1');
+                              } else {
+                                return (FFAppState().insuranceInfocoverType !=
                                         'ชั้น 3'
                                     ? true
-                                    : false))
+                                    : false);
+                              }
+                            }())
                               Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  if ((FFAppState().insuranceInfoVehicleCode ==
-                                          '110') &&
-                                      (FFAppState().insuranceInfocoverType ==
-                                          'ชั้น 1'))
+                                  if (FFAppState().insuranceInfoEvFlag == 'Y'
+                                      ? (FFAppState().insuranceInfocoverType ==
+                                          'ชั้น 1')
+                                      : ((FFAppState()
+                                                  .insuranceInfoVehicleCode ==
+                                              '110') &&
+                                          (FFAppState()
+                                                  .insuranceInfocoverType ==
+                                              'ชั้น 1')))
                                     Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
@@ -7604,13 +7617,16 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                         ),
                                       ),
                                     ),
-                                  if ((FFAppState().insuranceInfoVehicleCode ==
-                                              '110') &&
-                                          (FFAppState()
-                                                  .insuranceInfocoverType !=
-                                              'ชั้น 1')
-                                      ? false
-                                      : true)
+                                  if (FFAppState().insuranceInfoEvFlag == 'Y'
+                                      ? (FFAppState().insuranceInfocoverType ==
+                                          'ชั้น 1')
+                                      : ((FFAppState().insuranceInfoVehicleCode ==
+                                                  '110') &&
+                                              (FFAppState()
+                                                      .insuranceInfocoverType !=
+                                                  'ชั้น 1')
+                                          ? false
+                                          : true))
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 8.0),
@@ -9451,15 +9467,26 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                         ),
                                       ),
                                     ),
-                                  if ((FFAppState().insuranceInfoVehicleType ==
-                                          'รถบรรทุก หัวลาก หางพ่วง') &&
-                                      (FFAppState().nonePackageTruckPart ==
-                                          '1') &&
-                                      ((FFAppState().insuranceInfoVehicleCode ==
-                                              '110') &&
+                                  if (FFAppState().insuranceInfoEvFlag == 'Y'
+                                      ? ((FFAppState()
+                                                  .insuranceInfoVehicleType ==
+                                              'รถบรรทุก หัวลาก หางพ่วง') &&
+                                          (FFAppState().nonePackageTruckPart ==
+                                              '1') &&
                                           (FFAppState()
                                                   .insuranceInfocoverType ==
-                                              'ชั้น 1')))
+                                              'ชั้น 1'))
+                                      : ((FFAppState()
+                                                  .insuranceInfoVehicleType ==
+                                              'รถบรรทุก หัวลาก หางพ่วง') &&
+                                          (FFAppState().nonePackageTruckPart ==
+                                              '1') &&
+                                          ((FFAppState()
+                                                      .insuranceInfoVehicleCode ==
+                                                  '110') &&
+                                              (FFAppState()
+                                                      .insuranceInfocoverType ==
+                                                  'ชั้น 1'))))
                                     Container(
                                       width: double.infinity,
                                       height: 315.0,
@@ -11010,10 +11037,20 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                         ),
                                       ),
                                     ),
-                                  if ((FFAppState().insuranceInfoVehicleType ==
-                                          'รถบรรทุก หัวลาก หางพ่วง') &&
-                                      (FFAppState().nonePackageTruckPart ==
-                                          '1'))
+                                  if (FFAppState().insuranceInfoEvFlag == 'Y'
+                                      ? ((FFAppState()
+                                                  .insuranceInfoVehicleType ==
+                                              'รถบรรทุก หัวลาก หางพ่วง') &&
+                                          (FFAppState().nonePackageTruckPart ==
+                                              '1') &&
+                                          (FFAppState()
+                                                  .insuranceInfocoverType ==
+                                              'ชั้น 1'))
+                                      : ((FFAppState()
+                                                  .insuranceInfoVehicleType ==
+                                              'รถบรรทุก หัวลาก หางพ่วง') &&
+                                          (FFAppState().nonePackageTruckPart ==
+                                              '1')))
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 8.0),

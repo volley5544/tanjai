@@ -178,7 +178,8 @@ class _ShowBatterryPageWidgetState extends State<ShowBatterryPageWidget> {
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   FaIcon(
-                                                    FontAwesomeIcons.carBattery,
+                                                    FaIconData(FontAwesomeIcons
+                                                        .carBattery.data),
                                                     color: Color(0xFF204A77),
                                                     size: 24.0,
                                                   ),

@@ -2316,10 +2316,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                 ),
                               ),
                             ),
-                            if (FFAppState()
-                                    .appDetailNew
-                                    .inspectionExceptPolicyFile !=
-                                'Y')
+                            if ((FFAppState()
+                                        .appDetailNew
+                                        .inspectionExceptPolicyFile !=
+                                    'Y') &&
+                                (FFAppState().insuranceInfocoverType ==
+                                    'ชั้น 1'))
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 0.0),

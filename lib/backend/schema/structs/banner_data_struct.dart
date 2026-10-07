@@ -91,7 +91,8 @@ class BannerDataStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode => const ListEquality().hash([pdfUrl, order]);
+  int get hashCode =>
+      const ListEquality().hash([const ListEquality().hash(pdfUrl), order]);
 }
 
 BannerDataStruct createBannerDataStruct({

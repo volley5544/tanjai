@@ -5557,7 +5557,8 @@ class _RenewSearchAllPoolPage2WidgetState
                                                 alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: FaIcon(
-                                                  FontAwesomeIcons.carSide,
+                                                  FaIconData(FontAwesomeIcons
+                                                      .carSide.data),
                                                   color: Color(0xB0FF9936),
                                                   size: 24.0,
                                                 ),

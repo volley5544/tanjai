@@ -1923,8 +1923,10 @@ class _InsurerListRenewPageWidgetState extends State<InsurerListRenewPageWidget>
                                                                 AlignmentDirectional(
                                                                     0.0, 0.0),
                                                             child: FaIcon(
-                                                              FontAwesomeIcons
-                                                                  .carSide,
+                                                              FaIconData(
+                                                                  FontAwesomeIcons
+                                                                      .carSide
+                                                                      .data),
                                                               color: Color(
                                                                   0xB0FF9936),
                                                               size: 24.0,
@@ -2552,8 +2554,10 @@ class _InsurerListRenewPageWidgetState extends State<InsurerListRenewPageWidget>
                                                                 AlignmentDirectional(
                                                                     0.0, 0.0),
                                                             child: FaIcon(
-                                                              FontAwesomeIcons
-                                                                  .carSide,
+                                                              FaIconData(
+                                                                  FontAwesomeIcons
+                                                                      .carSide
+                                                                      .data),
                                                               color: Color(
                                                                   0xFF7A848E),
                                                               size: 24.0,

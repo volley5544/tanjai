@@ -624,7 +624,8 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                       .fromSTEB(
                                                           30.0, 0.0, 0.0, 0.0),
                                                   child: FaIcon(
-                                                    FontAwesomeIcons.line,
+                                                    FaIconData(FontAwesomeIcons
+                                                        .line.data),
                                                     color: Color(0xFF00B900),
                                                     size: 28.0,
                                                   ),

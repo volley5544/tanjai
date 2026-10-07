@@ -55,8 +55,7 @@ class TextContentRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is TextContentRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is TextContentRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createTextContentRecordData() {
@@ -77,8 +76,8 @@ class TextContentRecordDocumentEquality implements Equality<TextContentRecord> {
   }
 
   @override
-  int hash(TextContentRecord? e) =>
-      const ListEquality().hash([e?.insurerCondition]);
+  int hash(TextContentRecord? e) => const ListEquality()
+      .hash([const ListEquality().hash(e?.insurerCondition)]);
 
   @override
   bool isValidKey(Object? o) => o is TextContentRecord;

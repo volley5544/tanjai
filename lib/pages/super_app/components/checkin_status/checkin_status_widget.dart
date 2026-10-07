@@ -531,7 +531,7 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
               borderWidth: 1.0,
               buttonSize: 60.0,
               icon: FaIcon(
-                FontAwesomeIcons.times,
+                FaIconData(FontAwesomeIcons.times.data),
                 color: Color(0xFFFF0000),
                 size: 40.0,
               ),

@@ -85,7 +85,7 @@ class _PageControllerComponentWidgetState
                     safeSetState(() {});
                   },
                   child: FaIcon(
-                    FontAwesomeIcons.fastBackward,
+                    FaIconData(FontAwesomeIcons.fastBackward.data),
                     color: Color(0xFF2555FF),
                     size: 24.0,
                   ),
@@ -294,7 +294,7 @@ class _PageControllerComponentWidgetState
                     safeSetState(() {});
                   },
                   child: FaIcon(
-                    FontAwesomeIcons.fastForward,
+                    FaIconData(FontAwesomeIcons.fastForward.data),
                     color: Color(0xFF2555FF),
                     size: 24.0,
                   ),

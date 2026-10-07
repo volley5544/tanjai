@@ -8158,8 +8158,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                                         0.0,
                                                                         0.0),
                                                                 child: FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .carBattery,
+                                                                  FaIconData(
+                                                                      FontAwesomeIcons
+                                                                          .carBattery
+                                                                          .data),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,

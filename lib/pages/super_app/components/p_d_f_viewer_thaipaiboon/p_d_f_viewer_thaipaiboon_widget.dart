@@ -66,7 +66,7 @@ class _PDFViewerThaipaiboonWidgetState
                 borderWidth: 1.0,
                 buttonSize: 50.0,
                 icon: FaIcon(
-                  FontAwesomeIcons.times,
+                  FaIconData(FontAwesomeIcons.times.data),
                   color: Color(0xFFFF0000),
                   size: 30.0,
                 ),

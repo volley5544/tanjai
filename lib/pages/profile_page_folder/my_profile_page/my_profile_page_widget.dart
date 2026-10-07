@@ -1100,7 +1100,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: FaIcon(
-                                              FontAwesomeIcons.addressCard,
+                                              FaIconData(FontAwesomeIcons
+                                                  .addressCard.data),
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,

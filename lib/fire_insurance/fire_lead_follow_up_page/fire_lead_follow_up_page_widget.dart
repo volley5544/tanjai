@@ -486,7 +486,8 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                     child: Align(
                                       alignment: AlignmentDirectional(0.0, 0.0),
                                       child: FaIcon(
-                                        FontAwesomeIcons.clipboardList,
+                                        FaIconData(FontAwesomeIcons
+                                            .clipboardList.data),
                                         color: Color(0xFF204A77),
                                       ),
                                     ),
@@ -778,7 +779,8 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),
                                         child: FaIcon(
-                                          FontAwesomeIcons.userCheck,
+                                          FaIconData(
+                                              FontAwesomeIcons.userCheck.data),
                                           color: Color(0xFF204A77),
                                         ),
                                       ),
@@ -923,7 +925,8 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),
                                         child: FaIcon(
-                                          FontAwesomeIcons.userTimes,
+                                          FaIconData(
+                                              FontAwesomeIcons.userTimes.data),
                                           color: Color(0xFF204A77),
                                         ),
                                       ),
@@ -1224,7 +1227,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),
                                         child: FaIcon(
-                                          FontAwesomeIcons.ban,
+                                          FaIconData(FontAwesomeIcons.ban.data),
                                           color: Color(0xFF204A77),
                                         ),
                                       ),

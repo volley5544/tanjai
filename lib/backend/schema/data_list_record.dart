@@ -189,8 +189,7 @@ class DataListRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is DataListRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is DataListRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createDataListRecordData({
@@ -244,26 +243,26 @@ class DataListRecordDocumentEquality implements Equality<DataListRecord> {
 
   @override
   int hash(DataListRecord? e) => const ListEquality().hash([
-        e?.cardType,
-        e?.gender,
-        e?.title,
-        e?.occupationGroup,
-        e?.accessories,
-        e?.actOfLegislation,
-        e?.beneficiary,
-        e?.beneficiaryOther,
-        e?.title2,
-        e?.wall,
-        e?.roofFrame,
-        e?.roof,
-        e?.floor,
-        e?.assured,
-        e?.driverBehavior,
-        e?.driverBehaviorUat,
-        e?.driverBehaviorFlag,
-        e?.driverBehaviorFlagUat,
-        e?.driverBehaviorName,
-        e?.driverBehaviorNameUat,
+        const ListEquality().hash(e?.cardType),
+        const ListEquality().hash(e?.gender),
+        const ListEquality().hash(e?.title),
+        const ListEquality().hash(e?.occupationGroup),
+        const ListEquality().hash(e?.accessories),
+        const ListEquality().hash(e?.actOfLegislation),
+        const ListEquality().hash(e?.beneficiary),
+        const ListEquality().hash(e?.beneficiaryOther),
+        const ListEquality().hash(e?.title2),
+        const ListEquality().hash(e?.wall),
+        const ListEquality().hash(e?.roofFrame),
+        const ListEquality().hash(e?.roof),
+        const ListEquality().hash(e?.floor),
+        const ListEquality().hash(e?.assured),
+        const ListEquality().hash(e?.driverBehavior),
+        const ListEquality().hash(e?.driverBehaviorUat),
+        const ListEquality().hash(e?.driverBehaviorFlag),
+        const ListEquality().hash(e?.driverBehaviorFlagUat),
+        const ListEquality().hash(e?.driverBehaviorName),
+        const ListEquality().hash(e?.driverBehaviorNameUat),
         e?.batteryStartYear,
         e?.batteryEndYear,
         e?.batteryMaxYear

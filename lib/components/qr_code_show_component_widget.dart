@@ -66,7 +66,7 @@ class _QrCodeShowComponentWidgetState extends State<QrCodeShowComponentWidget> {
                     Navigator.pop(context);
                   },
                   child: FaIcon(
-                    FontAwesomeIcons.timesCircle,
+                    FaIconData(FontAwesomeIcons.timesCircle.data),
                     color: Color(0xFFFF0000),
                     size: 30.0,
                   ),

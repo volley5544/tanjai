@@ -255,7 +255,7 @@ class _DriverInfomationFormComponentWidgetState
                           buttonSize: 32.0,
                           fillColor: Color(0x00616161),
                           icon: FaIcon(
-                            FontAwesomeIcons.userMinus,
+                            FaIconData(FontAwesomeIcons.userMinus.data),
                             color: Color(0xFFFF0000),
                             size: 15.0,
                           ),

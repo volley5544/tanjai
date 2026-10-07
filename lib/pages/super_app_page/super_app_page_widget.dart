@@ -767,8 +767,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                             .scale,
                                                         toAnimate: true,
                                                         child: FaIcon(
-                                                          FontAwesomeIcons
-                                                              .solidBell,
+                                                          FaIconData(
+                                                              FontAwesomeIcons
+                                                                  .solidBell
+                                                                  .data),
                                                           color:
                                                               Color(0xFFDB771A),
                                                           size: 30.0,
@@ -3127,7 +3129,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                   Padding(
                                                                                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                                                                                     child: FaIcon(
-                                                                                      FontAwesomeIcons.android,
+                                                                                      FaIconData(FontAwesomeIcons.android.data),
                                                                                       color: Color(0xFFDB771A),
                                                                                       size: 30.0,
                                                                                     ),
@@ -3450,7 +3452,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                   Padding(
                                                                                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                                                                                     child: FaIcon(
-                                                                                      FontAwesomeIcons.addressBook,
+                                                                                      FaIconData(FontAwesomeIcons.addressBook.data),
                                                                                       color: Color(0xFFDB771A),
                                                                                       size: 30.0,
                                                                                     ),
@@ -3534,7 +3536,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 Padding(
                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                                                                                   child: FaIcon(
-                                                                                    FontAwesomeIcons.car,
+                                                                                    FaIconData(FontAwesomeIcons.car.data),
                                                                                     color: Color(0xFFDB771A),
                                                                                     size: 30.0,
                                                                                   ),

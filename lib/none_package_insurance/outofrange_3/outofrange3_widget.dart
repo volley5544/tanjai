@@ -202,8 +202,10 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                                             AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: FaIcon(
-                                                          FontAwesomeIcons
-                                                              .userCheck,
+                                                          FaIconData(
+                                                              FontAwesomeIcons
+                                                                  .userCheck
+                                                                  .data),
                                                           color:
                                                               Color(0xFF204A77),
                                                         ),

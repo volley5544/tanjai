@@ -114,7 +114,7 @@ class _MakeInsuranceTypeColorWidgetState
                             borderWidth: 1.0,
                             buttonSize: 40.0,
                             icon: FaIcon(
-                              FontAwesomeIcons.times,
+                              FaIconData(FontAwesomeIcons.times.data),
                               color: Color(0xFFFF0000),
                               size: 30.0,
                             ),

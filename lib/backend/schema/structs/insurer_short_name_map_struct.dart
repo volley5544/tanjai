@@ -173,8 +173,13 @@ class InsurerShortNameMapStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode =>
-      const ListEquality().hash([vmi1, vmi2, vmi25, vmi3, vmi35]);
+  int get hashCode => const ListEquality().hash([
+        const ListEquality().hash(vmi1),
+        const ListEquality().hash(vmi2),
+        const ListEquality().hash(vmi25),
+        const ListEquality().hash(vmi3),
+        const ListEquality().hash(vmi35)
+      ]);
 }
 
 InsurerShortNameMapStruct createInsurerShortNameMapStruct({

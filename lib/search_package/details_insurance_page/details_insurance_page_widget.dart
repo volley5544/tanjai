@@ -1815,7 +1815,9 @@ class _DetailsInsurancePageWidgetState
                                         0.0, 0.0, 10.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
-                                        if (widget!.inspectionExcept == 'Y') {
+                                        if ((widget!.inspectionExceptPolicyFile ==
+                                                'Y') &&
+                                            (widget!.coverTypeCode == 'VMI1')) {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
@@ -2309,7 +2311,9 @@ class _DetailsInsurancePageWidgetState
                                             );
                                           }
                                         }
-                                        if (widget!.inspectionExcept == 'Y') {
+                                        if ((widget!.inspectionExceptPolicyFile ==
+                                                'Y') &&
+                                            (widget!.coverTypeCode == 'VMI1')) {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {

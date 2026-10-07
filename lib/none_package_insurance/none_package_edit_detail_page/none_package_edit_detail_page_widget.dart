@@ -320,8 +320,10 @@ class _NonePackageEditDetailPageWidgetState
                                                                 AlignmentDirectional(
                                                                     0.0, 0.0),
                                                             child: FaIcon(
-                                                              FontAwesomeIcons
-                                                                  .solidBuilding,
+                                                              FaIconData(
+                                                                  FontAwesomeIcons
+                                                                      .solidBuilding
+                                                                      .data),
                                                               color: Color(
                                                                   0xFF354052),
                                                               size: 28.0,

@@ -78,7 +78,7 @@ class _PdfPageViewComponentWidgetState
                           Navigator.pop(context);
                         },
                         child: FaIcon(
-                          FontAwesomeIcons.times,
+                          FaIconData(FontAwesomeIcons.times.data),
                           color: Color(0xFFFF0000),
                           size: 30.0,
                         ),

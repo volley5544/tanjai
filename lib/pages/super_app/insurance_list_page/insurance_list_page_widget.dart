@@ -448,7 +448,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                   borderWidth: 1.0,
                   buttonSize: 40.0,
                   icon: FaIcon(
-                    FontAwesomeIcons.exclamationTriangle,
+                    FaIconData(FontAwesomeIcons.exclamationTriangle.data),
                     color: Color(0xFFDB771A),
                     size: 30.0,
                   ),

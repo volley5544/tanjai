@@ -678,7 +678,8 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     child: Align(
                                       alignment: AlignmentDirectional(0.0, 0.0),
                                       child: FaIcon(
-                                        FontAwesomeIcons.clipboardList,
+                                        FaIconData(FontAwesomeIcons
+                                            .clipboardList.data),
                                         color: Color(0xFF204A77),
                                       ),
                                     ),
@@ -946,7 +947,8 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),
                                         child: FaIcon(
-                                          FontAwesomeIcons.userCheck,
+                                          FaIconData(
+                                              FontAwesomeIcons.userCheck.data),
                                           color: Color(0xFF204A77),
                                         ),
                                       ),
@@ -1349,7 +1351,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),
                                         child: FaIcon(
-                                          FontAwesomeIcons.ban,
+                                          FaIconData(FontAwesomeIcons.ban.data),
                                           color: Color(0xFF204A77),
                                         ),
                                       ),
@@ -1626,7 +1628,8 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),
                                         child: FaIcon(
-                                          FontAwesomeIcons.moneyCheckAlt,
+                                          FaIconData(FontAwesomeIcons
+                                              .moneyCheckAlt.data),
                                           color: Color(0xFF204A77),
                                         ),
                                       ),

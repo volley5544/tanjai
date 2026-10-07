@@ -69,7 +69,7 @@ class VehicleTypeDropdownRecord extends FirestoreRecord {
   @override
   bool operator ==(other) =>
       other is VehicleTypeDropdownRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createVehicleTypeDropdownRecordData({

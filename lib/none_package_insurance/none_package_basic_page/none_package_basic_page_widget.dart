@@ -9451,17 +9451,19 @@ class _NonePackageBasicPageWidgetState
                                     safeSetState(() {});
                                   }
 
-                                  if (widget!.workType == 'ev'
-                                      ? (FFAppState()
-                                              .nonePackageCoverTypeName !=
-                                          'ชั้น 1')
-                                      : (FFAppState().nonePackageFlagRenew ||
-                                          (FFAppState()
-                                                  .nonePackageUsedTypeCode ==
-                                              '110') ||
-                                          (FFAppState()
-                                                  .nonePackageCoverTypeName ==
-                                              'ชั้น 3'))) {
+                                  if ((widget!.workType == 'ev'
+                                          ? (FFAppState()
+                                                  .nonePackageCoverTypeName !=
+                                              'ชั้น 1')
+                                          : (FFAppState()
+                                                  .nonePackageFlagRenew ||
+                                              (FFAppState()
+                                                      .nonePackageUsedTypeCode ==
+                                                  '110') ||
+                                              (FFAppState()
+                                                      .nonePackageCoverTypeName ==
+                                                  'ชั้น 3'))) ||
+                                      true) {
                                     context.pushNamed(
                                       NonePackageBasicImage2PageWidget
                                           .routeName,

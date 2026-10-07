@@ -447,8 +447,10 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                                                                   20.0,
                                                                   0.0),
                                                       child: FaIcon(
-                                                        FontAwesomeIcons
-                                                            .angleRight,
+                                                        FaIconData(
+                                                            FontAwesomeIcons
+                                                                .angleRight
+                                                                .data),
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)

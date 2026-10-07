@@ -95,8 +95,10 @@ class InstallmentDataTypeStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode =>
-      const ListEquality().hash([tenorFirstDue, tenorFirstDueDefault]);
+  int get hashCode => const ListEquality().hash([
+        const ListEquality().hash(tenorFirstDue),
+        const ListEquality().hash(tenorFirstDueDefault)
+      ]);
 }
 
 InstallmentDataTypeStruct createInstallmentDataTypeStruct({

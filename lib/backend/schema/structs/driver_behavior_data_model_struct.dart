@@ -122,8 +122,11 @@ class DriverBehaviorDataModelStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode => const ListEquality()
-      .hash([driverBehavior, driverBehaviorName, driverBehaviorFlag]);
+  int get hashCode => const ListEquality().hash([
+        const ListEquality().hash(driverBehavior),
+        const ListEquality().hash(driverBehaviorName),
+        const ListEquality().hash(driverBehaviorFlag)
+      ]);
 }
 
 DriverBehaviorDataModelStruct createDriverBehaviorDataModelStruct({
