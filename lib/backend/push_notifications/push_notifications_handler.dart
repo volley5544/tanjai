@@ -275,7 +275,11 @@ final parametersBuilderMap =
               getParameter<String>(data, 'inspectionExceptQuotationType'),
         },
       ),
-  'NonePackageEditPage1': ParameterData.none(),
+  'NonePackageEditPage1': (data) async => ParameterData(
+        allParams: {
+          'evFlag': getParameter<bool>(data, 'evFlag'),
+        },
+      ),
   'NonePackageEditPage2': ParameterData.none(),
   'NonePackageEditPage3': ParameterData.none(),
   'InsuranceSuccessPage': ParameterData.none(),

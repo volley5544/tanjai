@@ -3348,8 +3348,22 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               context);
 
                                                           context.pushNamed(
-                                                              NonePackageEditPage1Widget
-                                                                  .routeName);
+                                                            NonePackageEditPage1Widget
+                                                                .routeName,
+                                                            queryParameters: {
+                                                              'evFlag':
+                                                                  serializeParam(
+                                                                '${getJsonField(
+                                                                      (_model.getDetailAPIEdit
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                      r'''$.results.info[0].ev_flag''',
+                                                                    ).toString()}' ==
+                                                                    'Y',
+                                                                ParamType.bool,
+                                                              ),
+                                                            }.withoutNulls,
+                                                          );
 
                                                           if (_shouldSetState)
                                                             safeSetState(() {});
@@ -4818,7 +4832,14 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               ),
                                                               'workType':
                                                                   serializeParam(
-                                                                'manual',
+                                                                '${getJsonField(
+                                                                          (_model.getDetailApiDup?.jsonBody ??
+                                                                              ''),
+                                                                          r'''$.results.info[0].ev_flag''',
+                                                                        ).toString()}' ==
+                                                                        'Y'
+                                                                    ? 'ev'
+                                                                    : 'manual',
                                                                 ParamType
                                                                     .String,
                                                               ),

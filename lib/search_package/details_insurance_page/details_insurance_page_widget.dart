@@ -2707,25 +2707,6 @@ class _DetailsInsurancePageWidgetState
                                               );
                                             },
                                           );
-                                        } finally {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return WebViewAware(
-                                                child: AlertDialog(
-                                                  content: Text('finish'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          );
                                         }
                                         if (_shouldSetState)
                                           safeSetState(() {});

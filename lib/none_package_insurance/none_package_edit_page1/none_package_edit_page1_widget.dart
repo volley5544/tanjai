@@ -16,7 +16,12 @@ import 'none_package_edit_page1_model.dart';
 export 'none_package_edit_page1_model.dart';
 
 class NonePackageEditPage1Widget extends StatefulWidget {
-  const NonePackageEditPage1Widget({super.key});
+  const NonePackageEditPage1Widget({
+    super.key,
+    required this.evFlag,
+  });
+
+  final bool? evFlag;
 
   static String routeName = 'NonePackageEditPage1';
   static String routePath = 'NonePackageEditPage1';
@@ -1086,7 +1091,8 @@ class _NonePackageEditPage1WidgetState
                                                   true);
                                           safeSetState(() {});
                                           if (FFAppState()
-                                              .nonePackageFlagRenew) {
+                                                  .nonePackageFlagRenew ||
+                                              widget!.evFlag!) {
                                             context.pushNamed(
                                                 NonePackageEditPage3Widget
                                                     .routeName);

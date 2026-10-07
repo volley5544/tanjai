@@ -864,7 +864,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: NonePackageEditPage1Widget.routeName,
               path: NonePackageEditPage1Widget.routePath,
-              builder: (context, params) => NonePackageEditPage1Widget(),
+              builder: (context, params) => NonePackageEditPage1Widget(
+                evFlag: params.getParam(
+                  'evFlag',
+                  ParamType.bool,
+                ),
+              ),
             ),
             FFRoute(
               name: NonePackageEditPage2Widget.routeName,
