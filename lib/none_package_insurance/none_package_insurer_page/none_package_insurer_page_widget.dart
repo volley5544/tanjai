@@ -1284,6 +1284,7 @@ class _NonePackageInsurerPageWidgetState
                                                 5),
                                         nationalThaiId:
                                             FFAppState().nonePackageThaiId,
+                                        evFlag: 'N',
                                       );
 
                                       _shouldSetState = true;
@@ -1987,6 +1988,9 @@ class _NonePackageInsurerPageWidgetState
                                                 5),
                                         nationalThaiId:
                                             FFAppState().nonePackageThaiId,
+                                        evFlag: widget!.workType == 'ev'
+                                            ? 'Y'
+                                            : 'N',
                                       );
 
                                       _shouldSetState = true;

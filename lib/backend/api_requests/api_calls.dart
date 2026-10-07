@@ -10179,6 +10179,7 @@ class InsuranceRequestSendEmailAPICall {
     String? oldVMIFlg = '',
     List<String>? driverBehaviorList,
     String? nationalThaiId = '',
+    String? evFlag = '',
   }) async {
     final insurerCode = _serializeList(insurerCodeList);
     final insurerId = _serializeList(insurerIdList);
@@ -10284,6 +10285,7 @@ class InsuranceRequestSendEmailAPICall {
         'old_VMI_flg': oldVMIFlg,
         'driver_behavior': driverBehavior,
         'national_thai_id': nationalThaiId,
+        'ev_flag': evFlag,
       },
       bodyType: BodyType.MULTIPART,
       returnBody: true,
