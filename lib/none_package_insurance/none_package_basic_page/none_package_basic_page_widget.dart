@@ -159,7 +159,7 @@ class _NonePackageBasicPageWidgetState
         },
       ).then((value) => safeSetState(() {}));
 
-      if (!FFAppState().nonePackageIsLoadedData) {
+      if (!(FFAppState().nonePackageIsLoadedData && false)) {
         _model.getProvince = await TeleGetProvinceAPICall.call(
           apiUrl: FFAppState().apiUrlInsuranceAppState,
         );
@@ -305,7 +305,8 @@ class _NonePackageBasicPageWidgetState
         safeSetState(() {});
       }
       if (FFAppState().insuranceRequestIsLoadedData &&
-          (FFAppState().insuranceBasicBrandNameListOriginal.length > 0)) {
+          (FFAppState().insuranceBasicBrandNameListOriginal.length > 0) &&
+          false) {
       } else {
         _model.getBrandAPI = await TeleGetBrandAPICall.call(
           apiUrl: FFAppState().apiUrlInsuranceAppState,

@@ -126,6 +126,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
           _model.getHideContentTableauDoc!.isShowContent;
       safeSetState(() {});
       FFAppState().homeMenuIsExpanded = true;
+      FFAppState().fromMenuAppState = '';
       safeSetState(() {});
       _model.leadNotiOutput = await actions.a14();
       setDarkModeSetting(context, ThemeMode.light);

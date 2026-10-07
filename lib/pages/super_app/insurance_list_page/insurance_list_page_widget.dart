@@ -4588,6 +4588,17 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                             (_) => true,
                                                           );
                                                           safeSetState(() {});
+                                                          FFAppState()
+                                                                  .fromMenuAppState =
+                                                              '${getJsonField(
+                                                                        (_model.getDetailApiDup?.jsonBody ??
+                                                                            ''),
+                                                                        r'''$.results.info[0].ev_flag''',
+                                                                      ).toString()}' ==
+                                                                      'Y'
+                                                                  ? 'EV'
+                                                                  : 'motor';
+                                                          safeSetState(() {});
                                                           Navigator.pop(
                                                               context);
 
