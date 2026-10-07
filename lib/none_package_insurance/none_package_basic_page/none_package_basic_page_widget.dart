@@ -9452,9 +9452,7 @@ class _NonePackageBasicPageWidgetState
                                   }
 
                                   if (widget!.workType == 'ev'
-                                      ? (FFAppState()
-                                              .nonePackageCoverTypeName !=
-                                          'ชั้น 1')
+                                      ? true
                                       : (FFAppState().nonePackageFlagRenew ||
                                           (FFAppState()
                                                   .nonePackageUsedTypeCode ==
