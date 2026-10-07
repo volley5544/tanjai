@@ -2277,7 +2277,7 @@ class _CompareInsurancePageWidgetState
                                                                 .contains(widget!
                                                                     .inspectionExcept
                                                                     ?.contains(
-                                                                        "Y")
+                                                                        "N")
                                                                     ?.toString()) &&
                                                             widget!
                                                                 .coverTypeCode!
@@ -2935,7 +2935,7 @@ class _CompareInsurancePageWidgetState
                                                   }
                                                   if (widget!
                                                           .inspectionExceptPolicyFile!
-                                                          .contains("Y") &&
+                                                          .contains("N") &&
                                                       widget!.coverTypeCode!
                                                           .contains("Y")) {
                                                     await showDialog(
