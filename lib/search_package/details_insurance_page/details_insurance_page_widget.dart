@@ -2311,16 +2311,409 @@ class _DetailsInsurancePageWidgetState
                                             );
                                           }
                                         }
-                                        if ((widget!.inspectionExceptPolicyFile !=
-                                                'Y') &&
-                                            (widget!.coverTypeCode == 'VMI1')) {
+                                        try {
+                                          if ((widget!.inspectionExceptPolicyFile !=
+                                                  'Y') &&
+                                              (widget!.coverTypeCode ==
+                                                  'VMI1')) {
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        'แพ็กเกจที่เลือกบังคับอัปโหลดไฟล์ตารางกรมธรรม์เดิมที่ยังไม่หมดอายุ'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                          }
+
+                                          context.pushNamed(
+                                            AddCustomerNameWidget.routeName,
+                                            queryParameters: {
+                                              'insurerId': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.insurerId),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'insurerCode': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.insurerFullName),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'insurerShortName':
+                                                  serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.insurerShortName),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'insurerName': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.insurerMaxName),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'coverTypeId': serializeParam(
+                                                functions.coverTypeCodeToId(
+                                                    functions
+                                                        .makeStringToList1(
+                                                            widget!
+                                                                .coverTypeCode)
+                                                        ?.toList()),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'coverTypeCode': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.coverTypeCode),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'coverTypeName': serializeParam(
+                                                functions.coverTypeCodeToName(
+                                                    functions
+                                                        .makeStringToList1(
+                                                            widget!
+                                                                .coverTypeCode)
+                                                        ?.toList()),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'garageTypeId': serializeParam(
+                                                functions.garageTypeCodetoId(
+                                                    functions
+                                                        .makeStringToList1(
+                                                            widget!
+                                                                .garageTypeCode)
+                                                        ?.toList()),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'garageTypeCode': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.garageTypeCode),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'garageTypeName': serializeParam(
+                                                functions.garageTypeCodeToName(
+                                                    functions
+                                                        .makeStringToList1(
+                                                            widget!
+                                                                .garageTypeCode)
+                                                        ?.toList()),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'productId': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.productId),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'packageId': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.packageId),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'packageName': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.packageName),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'sumInsured': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.sumInsured),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'workType': serializeParam(
+                                                functions.makeStringToList1(''),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'roadsideAssistance':
+                                                  serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.roadsideAssis),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'tpbiPerson': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.tpbiPerson),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'tpbiAccident': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.tpbiAccident),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'tppd': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.tppd),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'flood': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.flood),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'deductible': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.deductible),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'pa': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.pa),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'me': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.me),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'bb': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.bb),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'assessory': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.accessory),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'seat': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.seat),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'netPremium': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.netPremium),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'vat': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.vat),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'stamp': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.stamp),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'grossTotal': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.grossTotal),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'carType': serializeParam(
+                                                FFAppState()
+                                                    .insuranceVehicleTypeDropDown,
+                                                ParamType.String,
+                                              ),
+                                              'driverType': serializeParam(
+                                                widget!.driverType,
+                                                ParamType.String,
+                                              ),
+                                              'carRegistrationYear':
+                                                  serializeParam(
+                                                FFAppState().insuranceBasicYear,
+                                                ParamType.String,
+                                              ),
+                                              'carBrandId': serializeParam(
+                                                FFAppState()
+                                                    .insuranceBasicBrandId,
+                                                ParamType.String,
+                                              ),
+                                              'carBrandName': serializeParam(
+                                                FFAppState()
+                                                    .insuranceBasicBrandName,
+                                                ParamType.String,
+                                              ),
+                                              'carModelName': serializeParam(
+                                                FFAppState()
+                                                    .insuranceBasicModelName,
+                                                ParamType.String,
+                                              ),
+                                              'carModelId': serializeParam(
+                                                FFAppState()
+                                                    .insuranceBasicModelId,
+                                                ParamType.String,
+                                              ),
+                                              'vehicleId': serializeParam(
+                                                FFAppState()
+                                                    .insuranceBasicVehicleUsedTypeId,
+                                                ParamType.String,
+                                              ),
+                                              'vehicleCode': serializeParam(
+                                                FFAppState()
+                                                    .insuranceBasicVehicleUsedTypeCode,
+                                                ParamType.String,
+                                              ),
+                                              'vehicleName': serializeParam(
+                                                FFAppState()
+                                                    .insuranceBasicVehicleUsedTypeName,
+                                                ParamType.String,
+                                              ),
+                                              'contractProcessstate':
+                                                  serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!
+                                                        .contractProcessstate),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'fromPage': serializeParam(
+                                                'detail',
+                                                ParamType.String,
+                                              ),
+                                              'fromBtn': serializeParam(
+                                                'saveBtn',
+                                                ParamType.String,
+                                              ),
+                                              'indexPage': serializeParam(
+                                                0,
+                                                ParamType.int,
+                                              ),
+                                              'oldVMIExpDate': serializeParam(
+                                                FFAppState()
+                                                    .insuranceBasicOldVmiExpDate,
+                                                ParamType.String,
+                                              ),
+                                              'cc': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.cc),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'carLost': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.carLost),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'motorAddOn': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.motorAddOn),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'driverBehavior': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.driverBehavior),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'inspectionExcept':
+                                                  serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.inspectionExcept),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'grossTotalDiscount':
+                                                  serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.grossTotalDiscount),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'discountOther': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.discountOther),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'discountPercent': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.discountPercent),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'grossTotalNet': serializeParam(
+                                                functions.makeStringToList1(
+                                                    widget!.grossTotalNet),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'idCard': serializeParam(
+                                                widget!.idCard,
+                                                ParamType.String,
+                                              ),
+                                              'inspectionExceptPolicyFile':
+                                                  serializeParam(
+                                                functions.makeStringToList1(widget!
+                                                    .inspectionExceptPolicyFile),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'inspectionExceptQuotationType':
+                                                  serializeParam(
+                                                functions.makeStringToList1(widget!
+                                                    .inspectionExceptQuotationType),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                            }.withoutNulls,
+                                          );
+                                        } catch (error_54547ldu, stackTrace_54547ldu) {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
                                               return WebViewAware(
                                                 child: AlertDialog(
-                                                  content: Text(
-                                                      'แพ็กเกจที่เลือกบังคับอัปโหลดไฟล์ตารางกรมธรรม์เดิมที่ยังไม่หมดอายุ'),
+                                                  content: Text(error_54547ldu
+                                                      .toString()),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                        } finally {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text('finish'),
                                                   actions: [
                                                     TextButton(
                                                       onPressed: () =>
@@ -2334,351 +2727,6 @@ class _DetailsInsurancePageWidgetState
                                             },
                                           );
                                         }
-
-                                        context.pushNamed(
-                                          AddCustomerNameWidget.routeName,
-                                          queryParameters: {
-                                            'insurerId': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.insurerId),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'insurerCode': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.insurerFullName),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'insurerShortName': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.insurerShortName),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'insurerName': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.insurerMaxName),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'coverTypeId': serializeParam(
-                                              functions.coverTypeCodeToId(
-                                                  functions
-                                                      .makeStringToList1(
-                                                          widget!.coverTypeCode)
-                                                      ?.toList()),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'coverTypeCode': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.coverTypeCode),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'coverTypeName': serializeParam(
-                                              functions.coverTypeCodeToName(
-                                                  functions
-                                                      .makeStringToList1(
-                                                          widget!.coverTypeCode)
-                                                      ?.toList()),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'garageTypeId': serializeParam(
-                                              functions.garageTypeCodetoId(
-                                                  functions
-                                                      .makeStringToList1(widget!
-                                                          .garageTypeCode)
-                                                      ?.toList()),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'garageTypeCode': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.garageTypeCode),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'garageTypeName': serializeParam(
-                                              functions.garageTypeCodeToName(
-                                                  functions
-                                                      .makeStringToList1(widget!
-                                                          .garageTypeCode)
-                                                      ?.toList()),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'productId': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.productId),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'packageId': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.packageId),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'packageName': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.packageName),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'sumInsured': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.sumInsured),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'workType': serializeParam(
-                                              functions.makeStringToList1(''),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'roadsideAssistance':
-                                                serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.roadsideAssis),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'tpbiPerson': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.tpbiPerson),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'tpbiAccident': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.tpbiAccident),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'tppd': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.tppd),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'flood': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.flood),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'deductible': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.deductible),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'pa': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.pa),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'me': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.me),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'bb': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.bb),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'assessory': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.accessory),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'seat': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.seat),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'netPremium': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.netPremium),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'vat': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.vat),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'stamp': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.stamp),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'grossTotal': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.grossTotal),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'carType': serializeParam(
-                                              FFAppState()
-                                                  .insuranceVehicleTypeDropDown,
-                                              ParamType.String,
-                                            ),
-                                            'driverType': serializeParam(
-                                              widget!.driverType,
-                                              ParamType.String,
-                                            ),
-                                            'carRegistrationYear':
-                                                serializeParam(
-                                              FFAppState().insuranceBasicYear,
-                                              ParamType.String,
-                                            ),
-                                            'carBrandId': serializeParam(
-                                              FFAppState()
-                                                  .insuranceBasicBrandId,
-                                              ParamType.String,
-                                            ),
-                                            'carBrandName': serializeParam(
-                                              FFAppState()
-                                                  .insuranceBasicBrandName,
-                                              ParamType.String,
-                                            ),
-                                            'carModelName': serializeParam(
-                                              FFAppState()
-                                                  .insuranceBasicModelName,
-                                              ParamType.String,
-                                            ),
-                                            'carModelId': serializeParam(
-                                              FFAppState()
-                                                  .insuranceBasicModelId,
-                                              ParamType.String,
-                                            ),
-                                            'vehicleId': serializeParam(
-                                              FFAppState()
-                                                  .insuranceBasicVehicleUsedTypeId,
-                                              ParamType.String,
-                                            ),
-                                            'vehicleCode': serializeParam(
-                                              FFAppState()
-                                                  .insuranceBasicVehicleUsedTypeCode,
-                                              ParamType.String,
-                                            ),
-                                            'vehicleName': serializeParam(
-                                              FFAppState()
-                                                  .insuranceBasicVehicleUsedTypeName,
-                                              ParamType.String,
-                                            ),
-                                            'contractProcessstate':
-                                                serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.contractProcessstate),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'fromPage': serializeParam(
-                                              'detail',
-                                              ParamType.String,
-                                            ),
-                                            'fromBtn': serializeParam(
-                                              'saveBtn',
-                                              ParamType.String,
-                                            ),
-                                            'indexPage': serializeParam(
-                                              0,
-                                              ParamType.int,
-                                            ),
-                                            'oldVMIExpDate': serializeParam(
-                                              FFAppState()
-                                                  .insuranceBasicOldVmiExpDate,
-                                              ParamType.String,
-                                            ),
-                                            'cc': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.cc),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'carLost': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.carLost),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'motorAddOn': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.motorAddOn),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'driverBehavior': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.driverBehavior),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'inspectionExcept': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.inspectionExcept),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'grossTotalDiscount':
-                                                serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.grossTotalDiscount),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'discountOther': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.discountOther),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'discountPercent': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.discountPercent),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'grossTotalNet': serializeParam(
-                                              functions.makeStringToList1(
-                                                  widget!.grossTotalNet),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'idCard': serializeParam(
-                                              widget!.idCard,
-                                              ParamType.String,
-                                            ),
-                                            'inspectionExceptPolicyFile':
-                                                serializeParam(
-                                              functions.makeStringToList1(widget!
-                                                  .inspectionExceptPolicyFile),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'inspectionExceptQuotationType':
-                                                serializeParam(
-                                              functions.makeStringToList1(widget!
-                                                  .inspectionExceptQuotationType),
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-
                                         if (_shouldSetState)
                                           safeSetState(() {});
                                       },
