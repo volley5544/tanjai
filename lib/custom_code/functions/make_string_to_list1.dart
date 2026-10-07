@@ -16,6 +16,6 @@ import '/auth/firebase_auth/auth_util.dart';
 
 List<String>? makeStringToList1(String? input) {
   List<String> list1 = [];
-  list1.add(input!);
+  list1.add(input ?? '');
   return list1;
 }
