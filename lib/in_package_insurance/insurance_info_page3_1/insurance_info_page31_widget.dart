@@ -13615,12 +13615,17 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                       return;
                                     }
                                     if (!FFAppState().nonePackageFlagRenew) {
-                                      if ((FFAppState()
-                                                  .insuranceInfoVehicleCode ==
-                                              '110') &&
-                                          (FFAppState()
+                                      if (FFAppState().insuranceInfoEvFlag ==
+                                              'Y'
+                                          ? (FFAppState()
                                                   .insuranceInfocoverType ==
-                                              'ชั้น 1')) {
+                                              'ชั้น 1')
+                                          : ((FFAppState()
+                                                      .insuranceInfoVehicleCode ==
+                                                  '110') &&
+                                              (FFAppState()
+                                                      .insuranceInfocoverType ==
+                                                  'ชั้น 1'))) {
                                         if (!((FFAppState()
                                                         .nonePackageImageFrontUploaded !=
                                                     null &&
@@ -13696,8 +13701,17 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                 .nonePackageVehicleType ==
                                             'รถบรรทุก หัวลาก หางพ่วง') {
                                           if (FFAppState()
-                                                  .nonePackageTruckPart ==
-                                              'หัวลาก + หางพ่วง') {
+                                                      .insuranceInfoEvFlag ==
+                                                  'Y'
+                                              ? ((FFAppState()
+                                                          .nonePackageTruckPart ==
+                                                      'หัวลาก + หางพ่วง') &&
+                                                  (FFAppState()
+                                                          .insuranceInfocoverType ==
+                                                      'ชั้น 1'))
+                                              : (FFAppState()
+                                                      .nonePackageTruckPart ==
+                                                  'หัวลาก + หางพ่วง')) {
                                             if (!((FFAppState()
                                                             .nonePackageTrailerImageFrontUploaded !=
                                                         null &&

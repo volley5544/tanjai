@@ -12238,10 +12238,11 @@ class InsuranceRequestDetailAPICall {
         response,
         r'''$.results.info[:].lead_no''',
       ));
-  static dynamic leadStatus(dynamic response) => getJsonField(
+  static String? leadStatus(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.results.info[:].lead_status''',
-      );
+      ));
   static String? firstname(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.results.info[:].first_name''',
@@ -12763,10 +12764,11 @@ class InsuranceRequestDetailAPICall {
         response,
         r'''$.results.info[:].old_VMI_policyNumber''',
       );
-  static dynamic pldVmiExpDate(dynamic response) => getJsonField(
+  static String? pldVmiExpDate(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.results.info[:].old_VMI_expriedDate''',
-      );
+      ));
   static String? branchName(dynamic response) =>
       castToType<String>(getJsonField(
         response,
