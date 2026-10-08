@@ -12086,6 +12086,13 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                           ?.jsonBody ??
                                                       ''),
                                                 )}';
+                                                FFAppState()
+                                                        .insuranceInfoPhonenumber =
+                                                    '${IbsApplicationsDetailCall.mobile1(
+                                                  (_model.detailAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )}';
                                                 safeSetState(() {});
                                                 Navigator.pop(context);
                                                 if (_shouldSetState)

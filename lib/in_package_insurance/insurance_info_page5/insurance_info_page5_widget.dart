@@ -206,8 +206,14 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
       )}';
       FFAppState().insuranceInfoPhonenumber =
           '${IbsApplicationsDetailCall.phonenumber(
-        (_model.applicationDetailOutput?.jsonBody ?? ''),
-      )}';
+                (_model.applicationDetailOutput?.jsonBody ?? ''),
+              ) != null && IbsApplicationsDetailCall.phonenumber(
+                (_model.applicationDetailOutput?.jsonBody ?? ''),
+              ) != '' ? IbsApplicationsDetailCall.phonenumber(
+              (_model.applicationDetailOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.mobile1(
+              (_model.applicationDetailOutput?.jsonBody ?? ''),
+            )}';
       FFAppState().insuranceInfoGarageType =
           '${IbsApplicationsDetailCall.garagetypename(
         (_model.applicationDetailOutput?.jsonBody ?? ''),

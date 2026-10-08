@@ -232,8 +232,19 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
       )!;
       FFAppState().insuranceInfoPhonenumber =
           IbsApplicationsDetailCall.phonenumber(
-        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )!;
+                        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                      ) !=
+                      null &&
+                  IbsApplicationsDetailCall.phonenumber(
+                        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                      ) !=
+                      ''
+              ? IbsApplicationsDetailCall.phonenumber(
+                  (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                )!
+              : IbsApplicationsDetailCall.mobile1(
+                  (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                )!;
       FFAppState().nonePackageWorkType = IbsApplicationsDetailCall.workType(
                 (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
               ) ==
