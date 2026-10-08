@@ -17,10 +17,10 @@ import '/auth/firebase_auth/auth_util.dart';
 String? showNumberWithCommaWithoutDot(String? number) {
   // Check if the input is null or empty
   if (number == null || number.isEmpty) {
-    return '0.00';
+    return '-';
   }
   if (double.tryParse(number) == null) {
-    return '0.00'; // or '0.00' or '-', whatever you want to display
+    return '-'; // or '0.00' or '-', whatever you want to display
   }
 
   // Format the double as a string with two decimal places

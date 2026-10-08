@@ -3685,7 +3685,7 @@ class FFAppState extends ChangeNotifier {
     welfareKpiStatusTextColorList.insert(index, value);
   }
 
-  bool _isProduction = true;
+  bool _isProduction = false;
   bool get isProduction => _isProduction;
   set isProduction(bool value) {
     _isProduction = value;
