@@ -1815,149 +1815,136 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                       ),
                                                     ),
                                                   ),
-                                                  if ((FFAppState().insuranceInfoPage3ImageBluebook != '') &&
-                                                      (FFAppState()
-                                                              .insuranceInfoPage3ImageBluebook !=
-                                                          '') &&
-                                                      (FFAppState()
-                                                                  .insuranceInfoPage3ImageBluebook !=
-                                                              null &&
-                                                          FFAppState()
-                                                                  .insuranceInfoPage3ImageBluebook !=
-                                                              ''))
-                                                    InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        await showModalBottomSheet(
-                                                          isScrollControlled:
-                                                              true,
-                                                          backgroundColor:
-                                                              Color(0xB3000000),
-                                                          enableDrag: false,
-                                                          context: context,
-                                                          builder: (context) {
-                                                            return WebViewAware(
-                                                              child:
-                                                                  GestureDetector(
-                                                                onTap: () {
-                                                                  FocusScope.of(
-                                                                          context)
-                                                                      .unfocus();
-                                                                  FocusManager
-                                                                      .instance
-                                                                      .primaryFocus
-                                                                      ?.unfocus();
-                                                                },
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Color(0xB3000000),
+                                                        enableDrag: false,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return WebViewAware(
+                                                            child:
+                                                                GestureDetector(
+                                                              onTap: () {
+                                                                FocusScope.of(
+                                                                        context)
+                                                                    .unfocus();
+                                                                FocusManager
+                                                                    .instance
+                                                                    .primaryFocus
+                                                                    ?.unfocus();
+                                                              },
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    Container(
+                                                                  height: double
+                                                                      .infinity,
                                                                   child:
-                                                                      Container(
-                                                                    height: double
-                                                                        .infinity,
-                                                                    child:
-                                                                        ShowImageComponentWidget(
-                                                                      imageUrl: FFAppState().insuranceInfoPage3ImageBluebook !=
-                                                                              ''
-                                                                          ? functions
-                                                                              .stringToImgPath(FFAppState().insuranceInfoPage3ImageBluebook)!
-                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
-                                                                    ),
+                                                                      ShowImageComponentWidget(
+                                                                    imageUrl: FFAppState().insuranceInfoPage3ImageBluebook !=
+                                                                            ''
+                                                                        ? functions
+                                                                            .stringToImgPath(FFAppState().insuranceInfoPage3ImageBluebook)!
+                                                                        : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                   ),
                                                                 ),
                                                               ),
-                                                            );
-                                                          },
-                                                        ).then((value) =>
-                                                            safeSetState(
-                                                                () {}));
-                                                      },
-                                                      child: Container(
-                                                        height: 100.0,
-                                                        decoration:
-                                                            BoxDecoration(),
-                                                        child: Visibility(
-                                                          visible: FFAppState()
-                                                                      .nonePackageImageBlueBookUploaded !=
-                                                                  ''
-                                                              ? true
-                                                              : false,
-                                                          child: InkWell(
-                                                            splashColor: Colors
-                                                                .transparent,
-                                                            focusColor: Colors
-                                                                .transparent,
-                                                            hoverColor: Colors
-                                                                .transparent,
-                                                            highlightColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            onTap: () async {
-                                                              await showModalBottomSheet(
-                                                                isScrollControlled:
-                                                                    true,
-                                                                backgroundColor:
-                                                                    Color(
-                                                                        0xB3000000),
-                                                                enableDrag:
-                                                                    false,
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (context) {
-                                                                  return WebViewAware(
+                                                            ),
+                                                          );
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
+                                                    },
+                                                    child: Container(
+                                                      height: 100.0,
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      child: Visibility(
+                                                        visible: FFAppState()
+                                                                    .nonePackageImageBlueBookUploaded !=
+                                                                ''
+                                                            ? true
+                                                            : false,
+                                                        child: InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            await showModalBottomSheet(
+                                                              isScrollControlled:
+                                                                  true,
+                                                              backgroundColor:
+                                                                  Color(
+                                                                      0xB3000000),
+                                                              enableDrag: false,
+                                                              context: context,
+                                                              builder:
+                                                                  (context) {
+                                                                return WebViewAware(
+                                                                  child:
+                                                                      GestureDetector(
+                                                                    onTap: () {
+                                                                      FocusScope.of(
+                                                                              context)
+                                                                          .unfocus();
+                                                                      FocusManager
+                                                                          .instance
+                                                                          .primaryFocus
+                                                                          ?.unfocus();
+                                                                    },
                                                                     child:
-                                                                        GestureDetector(
-                                                                      onTap:
-                                                                          () {
-                                                                        FocusScope.of(context)
-                                                                            .unfocus();
-                                                                        FocusManager
-                                                                            .instance
-                                                                            .primaryFocus
-                                                                            ?.unfocus();
-                                                                      },
+                                                                        Padding(
+                                                                      padding: MediaQuery
+                                                                          .viewInsetsOf(
+                                                                              context),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          Container(
+                                                                        height:
+                                                                            double.infinity,
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              double.infinity,
-                                                                          child:
-                                                                              ShowImageComponentWidget(
-                                                                            imageUrl:
-                                                                                functions.stringToImgPath(FFAppState().nonePackageImageBlueBookUploaded)!,
-                                                                          ),
+                                                                            ShowImageComponentWidget(
+                                                                          imageUrl:
+                                                                              functions.stringToImgPath(FFAppState().nonePackageImageBlueBookUploaded)!,
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  );
-                                                                },
-                                                              ).then((value) =>
-                                                                  safeSetState(
-                                                                      () {}));
-                                                            },
-                                                            child: Icon(
-                                                              Icons
-                                                                  .content_paste_search_rounded,
-                                                              color: Color(
-                                                                  0xFF354052),
-                                                              size: 24.0,
-                                                            ),
+                                                                  ),
+                                                                );
+                                                              },
+                                                            ).then((value) =>
+                                                                safeSetState(
+                                                                    () {}));
+                                                          },
+                                                          child: Icon(
+                                                            Icons
+                                                                .content_paste_search_rounded,
+                                                            color: Color(
+                                                                0xFF354052),
+                                                            size: 24.0,
                                                           ),
                                                         ),
                                                       ),
                                                     ),
+                                                  ),
                                                   Flexible(
                                                     child: Container(
                                                       height: 100.0,
@@ -2458,149 +2445,136 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                       ),
                                                     ),
                                                   ),
-                                                  if ((FFAppState().insuranceInfoPage3ImageIdCard != '') &&
-                                                      (FFAppState()
-                                                              .insuranceInfoPage3ImageIdCard !=
-                                                          '') &&
-                                                      (FFAppState()
-                                                                  .insuranceInfoPage3ImageIdCard !=
-                                                              null &&
-                                                          FFAppState()
-                                                                  .insuranceInfoPage3ImageIdCard !=
-                                                              ''))
-                                                    InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        await showModalBottomSheet(
-                                                          isScrollControlled:
-                                                              true,
-                                                          backgroundColor:
-                                                              Color(0xB3000000),
-                                                          enableDrag: false,
-                                                          context: context,
-                                                          builder: (context) {
-                                                            return WebViewAware(
-                                                              child:
-                                                                  GestureDetector(
-                                                                onTap: () {
-                                                                  FocusScope.of(
-                                                                          context)
-                                                                      .unfocus();
-                                                                  FocusManager
-                                                                      .instance
-                                                                      .primaryFocus
-                                                                      ?.unfocus();
-                                                                },
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Color(0xB3000000),
+                                                        enableDrag: false,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return WebViewAware(
+                                                            child:
+                                                                GestureDetector(
+                                                              onTap: () {
+                                                                FocusScope.of(
+                                                                        context)
+                                                                    .unfocus();
+                                                                FocusManager
+                                                                    .instance
+                                                                    .primaryFocus
+                                                                    ?.unfocus();
+                                                              },
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    Container(
+                                                                  height: double
+                                                                      .infinity,
                                                                   child:
-                                                                      Container(
-                                                                    height: double
-                                                                        .infinity,
-                                                                    child:
-                                                                        ShowImageComponentWidget(
-                                                                      imageUrl: FFAppState().insuranceInfoPage3ImageIdCard !=
-                                                                              ''
-                                                                          ? functions
-                                                                              .stringToImgPath(FFAppState().insuranceInfoPage3ImageIdCard)!
-                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
-                                                                    ),
+                                                                      ShowImageComponentWidget(
+                                                                    imageUrl: FFAppState().insuranceInfoPage3ImageIdCard !=
+                                                                            ''
+                                                                        ? functions
+                                                                            .stringToImgPath(FFAppState().insuranceInfoPage3ImageIdCard)!
+                                                                        : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                   ),
                                                                 ),
                                                               ),
-                                                            );
-                                                          },
-                                                        ).then((value) =>
-                                                            safeSetState(
-                                                                () {}));
-                                                      },
-                                                      child: Container(
-                                                        height: 100.0,
-                                                        decoration:
-                                                            BoxDecoration(),
-                                                        child: Visibility(
-                                                          visible: FFAppState()
-                                                                      .nonePackageIdCardImageUrl !=
-                                                                  ''
-                                                              ? true
-                                                              : false,
-                                                          child: InkWell(
-                                                            splashColor: Colors
-                                                                .transparent,
-                                                            focusColor: Colors
-                                                                .transparent,
-                                                            hoverColor: Colors
-                                                                .transparent,
-                                                            highlightColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            onTap: () async {
-                                                              await showModalBottomSheet(
-                                                                isScrollControlled:
-                                                                    true,
-                                                                backgroundColor:
-                                                                    Color(
-                                                                        0xB3000000),
-                                                                enableDrag:
-                                                                    false,
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (context) {
-                                                                  return WebViewAware(
+                                                            ),
+                                                          );
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
+                                                    },
+                                                    child: Container(
+                                                      height: 100.0,
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      child: Visibility(
+                                                        visible: FFAppState()
+                                                                    .nonePackageIdCardImageUrl !=
+                                                                ''
+                                                            ? true
+                                                            : false,
+                                                        child: InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            await showModalBottomSheet(
+                                                              isScrollControlled:
+                                                                  true,
+                                                              backgroundColor:
+                                                                  Color(
+                                                                      0xB3000000),
+                                                              enableDrag: false,
+                                                              context: context,
+                                                              builder:
+                                                                  (context) {
+                                                                return WebViewAware(
+                                                                  child:
+                                                                      GestureDetector(
+                                                                    onTap: () {
+                                                                      FocusScope.of(
+                                                                              context)
+                                                                          .unfocus();
+                                                                      FocusManager
+                                                                          .instance
+                                                                          .primaryFocus
+                                                                          ?.unfocus();
+                                                                    },
                                                                     child:
-                                                                        GestureDetector(
-                                                                      onTap:
-                                                                          () {
-                                                                        FocusScope.of(context)
-                                                                            .unfocus();
-                                                                        FocusManager
-                                                                            .instance
-                                                                            .primaryFocus
-                                                                            ?.unfocus();
-                                                                      },
+                                                                        Padding(
+                                                                      padding: MediaQuery
+                                                                          .viewInsetsOf(
+                                                                              context),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          Container(
+                                                                        height:
+                                                                            double.infinity,
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              double.infinity,
-                                                                          child:
-                                                                              ShowImageComponentWidget(
-                                                                            imageUrl:
-                                                                                functions.stringToImgPath(FFAppState().nonePackageIdCardImageUrl)!,
-                                                                          ),
+                                                                            ShowImageComponentWidget(
+                                                                          imageUrl:
+                                                                              functions.stringToImgPath(FFAppState().nonePackageIdCardImageUrl)!,
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  );
-                                                                },
-                                                              ).then((value) =>
-                                                                  safeSetState(
-                                                                      () {}));
-                                                            },
-                                                            child: Icon(
-                                                              Icons
-                                                                  .content_paste_search_rounded,
-                                                              color: Color(
-                                                                  0xFF354052),
-                                                              size: 24.0,
-                                                            ),
+                                                                  ),
+                                                                );
+                                                              },
+                                                            ).then((value) =>
+                                                                safeSetState(
+                                                                    () {}));
+                                                          },
+                                                          child: Icon(
+                                                            Icons
+                                                                .content_paste_search_rounded,
+                                                            color: Color(
+                                                                0xFF354052),
+                                                            size: 24.0,
                                                           ),
                                                         ),
                                                       ),
                                                     ),
+                                                  ),
                                                   Flexible(
                                                     child: Container(
                                                       height: 100.0,
