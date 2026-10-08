@@ -7594,13 +7594,12 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                   if (FFAppState().insuranceInfoEvFlag == 'Y'
                                       ? (FFAppState().insuranceInfocoverType ==
                                           'ชั้น 1')
-                                      : ((FFAppState().insuranceInfoVehicleCode ==
-                                                  '110') &&
-                                              (FFAppState()
-                                                      .insuranceInfocoverType !=
-                                                  'ชั้น 1')
-                                          ? false
-                                          : true))
+                                      : ((FFAppState()
+                                                  .insuranceInfoVehicleCode ==
+                                              '110') &&
+                                          (FFAppState()
+                                                  .insuranceInfocoverType ==
+                                              'ชั้น 1')))
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 8.0),
